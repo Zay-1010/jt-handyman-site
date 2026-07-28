@@ -293,7 +293,7 @@ h3{ font-size:1.15rem; text-transform:none; }
 /* ---- CTA band ---- */
 .cta-band{
   background:var(--black); color:var(--white); text-align:center; border-radius:8px;
-  padding:64px 32px; margin:0 24px;
+  padding:64px 32px;
 }
 .cta-band h2{ color:var(--white); }
 .cta-band p{ color:#C7C7C7; }
