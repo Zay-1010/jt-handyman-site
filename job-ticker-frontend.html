@@ -1,0 +1,48 @@
+<!-- Add this script near the end of each page (or in js/main.js), replacing
+     the static "Loading recent JT jobs…" placeholder logic. -->
+
+<script>
+(async function () {
+  const track = document.querySelector('[data-job-ticker]');
+  if (!track) return;
+
+  try {
+    const res = await fetch('/api/jobs');
+    if (!res.ok) throw new Error('Failed to load jobs');
+    const data = await res.json();
+
+    if (!data.jobs || data.jobs.length === 0) {
+      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant quote today.</span>';
+      return;
+    }
+
+    // Build one <span> per job, styled the same as the existing placeholder item.
+    track.innerHTML = data.jobs
+      .map(job => `<span class="job-ticker-item">${job.description} — ${job.suburb}</span>`)
+      .join('');
+
+    // Simple rotation: show one at a time, fade between them.
+    const items = track.querySelectorAll('.job-ticker-item');
+    let i = 0;
+    items[0].classList.add('show');
+
+    setInterval(() => {
+      items[i].classList.remove('show');
+      i = (i + 1) % items.length;
+      items[i].classList.add('show');
+    }, 4000); // 4 seconds per job — adjust to taste
+
+  } catch (err) {
+    console.error('Job ticker error:', err);
+    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant quote today.</span>';
+  }
+})();
+</script>
+
+<!-- Make sure your CSS has something like this for the fade rotation
+     (adjust to match whatever .job-ticker-item styling already exists): -->
+<style>
+.job-ticker-item { display:none; }
+.job-ticker-item.show { display:inline; animation: tickerFade .4s ease; }
+@keyframes tickerFade { from { opacity:0; } to { opacity:1; } }
+</style>
