@@ -10,8 +10,55 @@
 <meta property="og:description" content="Plumbing repairs across Melbourne — dripping taps, blocked drains, leaking pipes and hot water issues, traced and fixed properly. Instant quote.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="css/styles.css">
+<style>
+.top-strip{ background:#e7161f; color:#fff; text-align:center; font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:.55rem 1rem; }
+.band-dark{ background:#0c0d0f !important; color:#fff; }
+.band-dark h1, .band-dark h2, .band-dark h3{ color:#fff; }
+.band-dark p, .band-dark li{ color:rgba(255,255,255,.75); }
+.band-dark .eyebrow{ color:#ff4d55; }
+.band-dark .btn-ghost{ background:rgba(255,255,255,.1); color:#fff; border-color:rgba(255,255,255,.28); }
+.band-dark .card{ background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.14); }
+.band-grey{ background:#f4f6f8; }
+.band-white{ background:#ffffff; }
+
+@font-face{font-family:'Rajdhani';font-style:normal;font-weight:500;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rajdhani-500.woff2') format('woff2');}
+@font-face{font-family:'Rajdhani';font-style:normal;font-weight:600;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rajdhani-600.woff2') format('woff2');}
+@font-face{font-family:'Rajdhani';font-style:normal;font-weight:700;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rajdhani-700.woff2') format('woff2');}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:400;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rubik-400.woff2') format('woff2');}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:500;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rubik-500.woff2') format('woff2');}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:600;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rubik-600.woff2') format('woff2');}
+body, p, li, .lede, .chip, .card, .docket{ font-family:'Rubik', Arial, sans-serif; }
+h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:'Rajdhani', Arial, sans-serif; }
+
+:root{ --true-black:#0c0d0f; }
+.site-header{ background:var(--true-black) !important; border-bottom:1px solid rgba(255,255,255,.08); }
+.site-header .brand-text, .site-header .brand-text small{ color:#fff; }
+.site-header .main-nav a{ color:rgba(255,255,255,.82) !important; }
+.site-header .main-nav a:hover, .site-header .main-nav a.active{ color:#fff !important; }
+.site-header .phone-link{ color:rgba(255,255,255,.82) !important; }
+.site-footer{ background:var(--true-black) !important; }
+
+.card{ border-top:4px solid #e7161f !important; }
+
+.photo-frame{ border-radius:14px; overflow:hidden; border:1px solid #e5e8ec; aspect-ratio:4/3; }
+.photo-frame img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+.qmodal { position:fixed; inset:0; z-index:1000; display:none; align-items:center; justify-content:center; padding:clamp(10px,2vw,28px); }
+.qmodal.open { display:flex; }
+.qmodal-backdrop { position:absolute; inset:0; background:rgba(6,7,9,.78); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); }
+.qmodal-dialog { position:relative; z-index:1; width:min(820px,100%); height:94vh; max-height:94vh; background:#f7fbfd; border-radius:16px; overflow:hidden; box-shadow:0 40px 120px -30px rgba(0,0,0,.8); display:flex; flex-direction:column; animation:qpop .28s cubic-bezier(.16,.84,.3,1) both; }
+@keyframes qpop { from{opacity:0; transform:translateY(16px) scale(.985)} to{opacity:1; transform:none} }
+.qmodal-close { position:absolute; top:12px; right:12px; z-index:5; width:42px; height:42px; border:0; border-radius:50%; cursor:pointer; background:#e7161f; color:#fff; display:grid; place-items:center; box-shadow:0 8px 22px -6px rgba(231,22,31,.7); font-size:20px; line-height:1; }
+.qmodal-close:hover { background:#c01319; transform:scale(1.07); }
+.qmodal-crop { position:relative; flex:1; overflow:hidden; background:#f7fbfd; --hdr:116px; --side:26px; --bar:18px; }
+@media (max-width:560px){ .qmodal-crop{ --hdr:92px; --side:18px; --bar:0px; } }
+#quoteFrame { position:relative; left:calc(var(--side) * -1); width:calc(100% + var(--side) + var(--side) + var(--bar)); height:calc(94vh + var(--hdr)); max-height:calc(1520px + var(--hdr)); border:0; display:block; background:#f7fbfd; margin-top:calc(var(--hdr) * -1); }
+body.modal-open { overflow:hidden; }
+</style>
 </head>
 <body>
+<div class="top-strip">Property Repairs &amp; Maintenance · JT Handyman Solutionz · Melbourne-wide</div>
+
 <div class="job-ticker">
   <div class="job-ticker-inner">
     <span class="job-ticker-badge">Just completed</span>
@@ -42,21 +89,22 @@
 
     <div class="header-actions">
       <a href="tel:1800587659" class="phone-link">1800 587 659</a>
-      <a href="https://jthandymansolutionz.com.au/estimate" target="_blank" rel="noopener" class="btn btn-primary">Get Instant Quote</a>
+      <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Get Instant Quote</a>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </div>
 </header>
-<section class="hero">
+
+<section class="hero band-white">
   <div class="container hero-grid">
     <div>
       <span class="eyebrow">Plumbing &amp; leaks · Melbourne-wide</span>
       <h1>Dripping tap, slow drain, or a leak<br><span class="accent">you can't quite place?</span></h1>
       <p class="lede">JT handles the everyday plumbing faults in-house, alongside the rest of your job — with licensed plumbing brought in for the work that requires it. One call instead of a separate plumber to chase.</p>
       <div class="cta-row">
-        <a href="https://jthandymansolutionz.com.au/estimate" target="_blank" rel="noopener" class="btn btn-primary">Get an Instant Quote</a>
+        <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Get an Instant Quote</a>
         <a href="tel:1800587659" class="btn btn-ghost">Call 1800 587 659</a>
       </div>
       <div class="chip-row">
@@ -65,11 +113,11 @@
         <span class="chip">Workmanship guaranteed</span>
       </div>
     </div>
-    <div class="ph ratio-wide"><span>Plumbing repair in progress — swap for real job photo</span></div>
+    <div class="photo-frame"><img src="img/work/jt-under-sink-pipe-repair-melbourne.webp" alt="Under-sink pipe repair by JT Handyman" loading="lazy"></div>
   </div>
 </section>
 
-<section class="section">
+<section class="section band-grey">
   <div class="container panel">
     <div>
       <span class="eyebrow">Why leaks come back</span>
@@ -81,11 +129,11 @@
         <li>Licensed plumbing brought in wherever the work requires it</li>
       </ul>
     </div>
-    <div class="panel-media ph ratio-wide"><span>Kitchen sink &amp; gooseneck tap — Brunswick East</span></div>
+    <div class="photo-frame"><img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-kitchen-sink-gooseneck-tap-melbourne.jpg" alt="Kitchen sink and gooseneck tap by JT Handyman in Brunswick East, VIC" loading="lazy"></div>
   </div>
 </section>
 
-<section class="section" style="background:var(--paper-dim);">
+<section class="section band-white">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">What we fix</span>
@@ -102,9 +150,9 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section band-grey">
   <div class="container panel reverse">
-    <div class="panel-media ph ratio-wide"><span>Bathroom vanity renovation — Reservoir</span></div>
+    <div class="photo-frame"><img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-finished-bathroom-vanity-melbourne.webp" alt="Bathroom vanity renovation — Reservoir" loading="lazy"></div>
     <div>
       <span class="eyebrow">One team, start to finish</span>
       <h2>Plumbing alongside tiling, cabinetry or repairs — same crew, one job</h2>
@@ -117,7 +165,7 @@
   </div>
 </section>
 
-<section class="section" style="background:var(--paper-dim);">
+<section class="section band-dark">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">How it runs</span>
@@ -132,7 +180,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section band-white">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Common questions</span>
@@ -146,13 +194,13 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section band-dark">
   <div class="container cta-band">
     <span class="eyebrow on-dark">Renovations take time. Your quote shouldn't.</span>
     <h2>Get your leak found and fixed properly.</h2>
     <p>Tell us what's dripping, slow or leaking and get a real price back fast.</p>
     <div class="cta-row">
-      <a href="https://jthandymansolutionz.com.au/estimate" target="_blank" rel="noopener" class="btn btn-primary">Get an Instant Quote</a>
+      <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Get an Instant Quote</a>
       <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
     </div>
   </div>
@@ -190,7 +238,7 @@
       <div>
         <h4>Get started</h4>
         <ul>
-          <li><a href="https://jthandymansolutionz.com.au/estimate">Instant quote</a></li>
+          <li><a href="javascript:void(0)" onclick="openQuoteModal()">Instant quote</a></li>
           <li><a href="tel:1800587659">Call 1800 587 659</a></li>
         </ul>
       </div>
@@ -212,8 +260,39 @@
 
 <div class="mobile-bar">
   <a href="tel:1800587659" class="btn btn-ghost">Call now</a>
-  <a href="https://jthandymansolutionz.com.au/estimate" target="_blank" rel="noopener" class="btn btn-primary">Get quote</a>
+  <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Get quote</a>
 </div>
+
+<div id="quoteModal" class="qmodal">
+  <div class="qmodal-backdrop" onclick="document.getElementById('quoteModal').classList.remove('open'); document.body.classList.remove('modal-open');"></div>
+  <div class="qmodal-dialog">
+    <button type="button" class="qmodal-close" aria-label="Close quote form"
+      onclick="document.getElementById('quoteModal').classList.remove('open'); document.body.classList.remove('modal-open');">
+      &times;
+    </button>
+    <div class="qmodal-crop">
+      <iframe id="quoteFrame" src="about:blank" title="JT Handyman instant quote"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openQuoteModal() {
+    var modal = document.getElementById('quoteModal');
+    var frame = document.getElementById('quoteFrame');
+    if (frame.src === 'about:blank') {
+      frame.src = 'https://jthandymansolutionz.com.au/estimate';
+    }
+    modal.classList.add('open');
+    document.body.classList.add('modal-open');
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.getElementById('quoteModal').classList.remove('open');
+      document.body.classList.remove('modal-open');
+    }
+  });
+</script>
 
 <script src="js/main.js"></script>
 
