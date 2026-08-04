@@ -21,6 +21,31 @@
 .band-grey{ background:#f4f6f8; }
 .band-white{ background:#ffffff; }
 
+/* ---- Real about-page hero classes, pulled directly from the live site ---- */
+.ab-hero{background:#0c0d0f;color:#fff;position:relative;overflow:hidden;
+  padding:clamp(56px,9vw,108px) 0 clamp(48px,7vw,86px)}
+.ab-hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(900px 460px at 88% -8%,rgba(231,22,31,.30),transparent 60%),
+             radial-gradient(700px 420px at 4% 112%,rgba(231,22,31,.16),transparent 60%)}
+.ab-hero .wrap{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 24px}
+.ab-hero .kicker{color:#ff4d55;text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;font-weight:700;}
+.ab-hero h1{color:#fff;font-size:clamp(2.5rem,6.6vw,5rem);line-height:1.0;letter-spacing:-.01em;margin:.4em 0 .35em;font-family:'Rajdhani',Arial,sans-serif;font-weight:700;}
+.ab-hero h1 .red{color:#ff4d55}
+.ab-hero .lead{color:rgba(255,255,255,.82);max-width:58ch;font-size:clamp(1.08rem,2vw,1.32rem);margin:0 0 1.2em;}
+.ab-hero .btn-row{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;}
+.ab-hero .chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:26px}
+.ab-hero .chips .chip{display:inline-flex;align-items:center;gap:.5em;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:rgba(255,255,255,.9);padding:.5rem 1rem;border-radius:999px;font-size:.88rem;}
+.ab-hero .chips .chip svg{width:16px;height:16px;color:#ff4d55}
+
+.ab-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:clamp(34px,5vw,52px);
+  border-top:1px solid rgba(255,255,255,.12);padding-top:clamp(24px,3vw,34px)}
+.ab-stats .s b{display:block;font-family:'Rajdhani',Arial,sans-serif;font-weight:700;line-height:1;
+  font-size:clamp(2.1rem,5vw,3.3rem);color:#ff4d55}
+.ab-stats .s span{display:block;color:rgba(255,255,255,.7);font-size:.86rem;margin-top:7px;
+  text-transform:uppercase;letter-spacing:.06em}
+@media(max-width:680px){.ab-stats{grid-template-columns:1fr 1fr;gap:26px 14px}}
+.ab-hero .btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.28);}
+
 @font-face{font-family:'Rajdhani';font-style:normal;font-weight:500;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rajdhani-500.woff2') format('woff2');}
 @font-face{font-family:'Rajdhani';font-style:normal;font-weight:600;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rajdhani-600.woff2') format('woff2');}
 @font-face{font-family:'Rajdhani';font-style:normal;font-weight:700;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rajdhani-700.woff2') format('woff2');}
@@ -96,24 +121,26 @@ body.modal-open { overflow:hidden; }
 </header>
 
 <!-- Fixed: hero now dark (was defaulting to white), and the missing 4th stat added -->
-<section class="hero band-dark">
-  <div class="container hero-grid">
-    <div>
-      <span class="eyebrow">About JT Handyman Solutionz</span>
-      <h1>One team. One point of contact.</h1>
-      <p class="lede">JT Handyman Solutionz is a Melbourne property repairs &amp; maintenance team built on a simple idea: people deserve a trade that turns up, communicates, and gets it done. In under two years, founder Jabez grew JT from one pair of hands to a 24-strong in-house crew — by fixing the things that usually go wrong off the tools, not just on them.</p>
-      <div class="cta-row">
-        <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Get an Instant Quote</a>
-        <a href="tel:1800587659" class="btn btn-ghost">Call 1800 587 659</a>
-      </div>
-      <div class="hero-stats">
-        <div class="hero-stat"><span class="num">1→24</span><span class="label">Team in under 2 years</span></div>
-        <div class="hero-stat"><span class="num">1</span><span class="label">Point of contact</span></div>
-        <div class="hero-stat"><span class="num">5.0★</span><span class="label">Google rating</span></div>
-        <div class="hero-stat"><span class="num">In-house</span><span class="label">Every trade, one crew</span></div>
-      </div>
+<section class="ab-hero">
+  <div class="wrap">
+    <span class="kicker">About JT Handyman Solutionz</span>
+    <h1>One team.<br>One <span class="red">point of contact.</span></h1>
+    <p class="lead">JT Handyman Solutionz is a Melbourne property repairs &amp; maintenance team built on a simple idea: people deserve a trade that turns up, communicates, and gets it done. In under two years, founder Jabez grew JT from one pair of hands to a 24-strong in-house crew — by fixing the things that usually go wrong off the tools, not just on them.</p>
+    <div class="chips">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"></path></svg> One point of contact</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"></path></svg> Every trade in-house</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"></path></svg> 5.0 Google rated</span>
     </div>
-    <div class="ph ratio-wide"><span>In-house team, every trade</span></div>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="javascript:void(0)" onclick="openQuoteModal()">Get an Instant Quote →</a>
+      <a class="btn btn-ghost" href="tel:1800587659">Call 1800 587 659</a>
+    </div>
+    <div class="ab-stats">
+      <div class="s"><b>1&nbsp;→&nbsp;24</b><span>Team in under 2 years</span></div>
+      <div class="s"><b>1</b><span>Point of contact</span></div>
+      <div class="s"><b>5.0★</b><span>Google rating</span></div>
+      <div class="s"><b>In‑house</b><span>Every trade, one crew</span></div>
+    </div>
   </div>
 </section>
 
