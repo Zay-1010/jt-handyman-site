@@ -48,6 +48,16 @@
 .ratio-4-3{aspect-ratio:4/3;overflow:hidden;border-radius:14px;}
 .ratio-4-3 img{width:100%;height:100%;object-fit:cover;display:block;}
 
+/* Red accent styling, matching the real site's distinct treatments per section */
+.values-grid .card{ background:linear-gradient(160deg,#fff,#f1f4f7); border:1px solid #e5e8ec; border-top:4px solid #e7161f; border-radius:12px; }
+.steps-grid .card{ position:relative; background:#fff; border:1px solid #e5e8ec; border-left:4px solid #e7161f; border-radius:12px; padding-left:28px; }
+.steps-grid .step-badge{ display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:9px; background:#e7161f; color:#fff; font-weight:700; font-family:'Rajdhani',Arial,sans-serif; font-size:1.1rem; margin-bottom:12px; }
+
+/* Make sure every image fills its container completely, no gaps/whitespace */
+.ph img, .panel-media img, .card img, .ratio-4-3 img, .ratio-wide img, .ratio-square img{
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+
 @font-face{font-family:'Rajdhani';font-style:normal;font-weight:500;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rajdhani-500.woff2') format('woff2');}
 @font-face{font-family:'Rajdhani';font-style:normal;font-weight:600;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rajdhani-600.woff2') format('woff2');}
 @font-face{font-family:'Rajdhani';font-style:normal;font-weight:700;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rajdhani-700.woff2') format('woff2');}
@@ -183,7 +193,7 @@ body.modal-open { overflow:hidden; }
   </div>
 </section>
 
-<section class="section band-grey">
+<section class="section band-dark">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Built fast, built right</span>
@@ -203,10 +213,10 @@ body.modal-open { overflow:hidden; }
       <h2>One call → instant quote → done</h2>
       <p>No phone tag, no project-managing four trades. Three steps, one team, one point of contact.</p>
     </div>
-    <div class="grid grid-3">
-      <div class="card"><div class="card-body"><span class="eyebrow" style="margin-bottom:8px;">One call</span><h3>Tell us the job</h3><p>Answer a few quick questions about what needs doing. One enquiry covers every trade.</p></div></div>
-      <div class="card"><div class="card-body"><span class="eyebrow" style="margin-bottom:8px;">Instant quote</span><h3>Get a real price</h3><p>Our quoting is fast — often instant — based on real JT pricing.</p></div></div>
-      <div class="card"><div class="card-body"><span class="eyebrow" style="margin-bottom:8px;">Done</span><h3>We handle it end to end</h3><p>Our crew completes the work, the office keeps everyone informed, and you get before &amp; after photos.</p></div></div>
+    <div class="grid grid-3 steps-grid">
+      <div class="card"><div class="card-body"><span class="step-badge">01</span><h3>Tell us the job</h3><p>Answer a few quick questions about what needs doing. One enquiry covers every trade.</p></div></div>
+      <div class="card"><div class="card-body"><span class="step-badge">02</span><h3>Get a real price</h3><p>Our quoting is fast — often instant — based on real JT pricing.</p></div></div>
+      <div class="card"><div class="card-body"><span class="step-badge">03</span><h3>We handle it end to end</h3><p>Our crew completes the work, the office keeps everyone informed, and you get before &amp; after photos.</p></div></div>
     </div>
     <div class="text-center" style="margin-top:32px;">
       <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Start with an Instant Quote</a>
@@ -239,7 +249,7 @@ body.modal-open { overflow:hidden; }
       <h2>The values that built JT</h2>
       <p>Simple things, done consistently. They're the reason a one-person operation became a 24-strong team people keep recommending.</p>
     </div>
-    <div class="grid grid-3">
+    <div class="grid grid-3 values-grid">
       <div class="card"><div class="card-body"><h3>Speed</h3><p>Your time is your most valuable asset. We quote fast, turn up when we say we will, and get the job finished.</p></div></div>
       <div class="card"><div class="card-body"><h3>Communication</h3><p>One point of contact, and an office that keeps tenants, owners and agents in the loop.</p></div></div>
       <div class="card"><div class="card-body"><h3>Quality that lasts</h3><p>Done right the first time, to a high standard, and backed by our workmanship guarantee.</p></div></div>
