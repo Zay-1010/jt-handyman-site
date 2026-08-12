@@ -82,7 +82,7 @@ h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:"Rajdhani", "Rajdhani F
 h1{ font-size:clamp(2.5rem,6.6vw,5rem) !important; line-height:1.02 !important; font-weight:700 !important; letter-spacing:-.01em; }
 h2{ font-size:clamp(1.9rem,4.6vw,3.4rem) !important; line-height:1.06 !important; font-weight:700 !important; letter-spacing:-.01em; }
 h3{ font-size:clamp(1.2rem,2.2vw,1.55rem) !important; line-height:1.15 !important; font-weight:600 !important; }
-.eyebrow{ font-size:.8rem !important; letter-spacing:.14em !important; text-transform:uppercase; font-weight:700 !important; }
+.eyebrow{ font-size:.95rem !important; letter-spacing:.12em !important; text-transform:uppercase; font-weight:700 !important; }
 .lede, p.lede{ font-size:clamp(1.05rem,1.6vw,1.28rem) !important; line-height:1.55; }
 p{ font-size:1.02rem; line-height:1.65; }
 
@@ -99,13 +99,13 @@ p{ font-size:1.02rem; line-height:1.65; }
 
 .site-header{ background:var(--true-black) !important; border-bottom:1px solid rgba(255,255,255,.08); padding:12px 0; }
 .header-inner{ display:flex !important; align-items:center !important; gap:0; flex-wrap:nowrap; }
-.main-nav{ display:flex; margin-left:40px; }
+.main-nav{ display:flex; margin-left:56px; }
 .main-nav ul{ display:flex; align-items:center; gap:26px; margin:0; padding:0; list-style:none; }
 .header-actions{ display:flex; align-items:center; gap:22px; flex:none; margin-left:auto; }
 .header-actions .phone-link{ white-space:nowrap; font-size:.95rem; transition:opacity .2s ease; }
 .header-actions .phone-link:hover{ opacity:.55; }
 .header-actions .btn{ white-space:nowrap; padding:.7rem 1.4rem; margin-left:14px; }
-.video-card{ border:1px solid #0c0d0f !important; box-shadow:none !important; }
+.video-card{ border:0 !important; box-shadow:none !important; }
 .video-card video, .video-card img{ border:0 !important; }
 @media(max-width:900px){
   .main-nav{ display:none; }
@@ -140,9 +140,8 @@ body.modal-open { overflow:hidden; }
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="brand">
-      <img src="img/work/jt-icon-mark.png" alt="JT Handyman Solutionz logo" style="height:38px;width:auto;display:block;">
-      <span class="brand-text">JT Handyman Solutionz<small>Melbourne · Property Repairs</small></span>
+    <a href="index.html" class="brand" style="display:flex;align-items:center;">
+      <img src="img/work/jt-logo-full.png" alt="JT Handyman Solutionz" style="height:52px;width:auto;display:block;">
     </a>
 
     <nav class="main-nav" id="main-nav">
@@ -197,26 +196,26 @@ body.modal-open { overflow:hidden; }
 })();
 </script>
 
-<section class="hero band-white">
-  <div class="container" style="max-width:900px;text-align:left;">
+<section class="hero band-white text-center">
+  <div class="container" style="max-width:900px;text-align:center;">
     <span class="eyebrow">Property repairs &amp; maintenance · Melbourne-wide</span>
     <h1 style="color:#1a1a1a;">
-      <span style="display:block;white-space:nowrap;">Sick of chasing trades?</span>
-      <span style="display:block;white-space:nowrap;color:#e7161f;">One team. One call. Done.</span>
+      <span style="display:block;">Sick of chasing trades?</span>
+      <span style="display:block;color:#e7161f;">One team. One call. Done.</span>
     </h1>
-    <p class="lede">Stop juggling a painter, a plasterer, an electrician and a plumber. JT is your <strong>one team, one point of contact, one-stop shop</strong> for property repairs and maintenance. And your quote? Often instant.</p>
-    <div class="chip-row">
+    <p class="lede" style="margin:0 auto;">Stop juggling a painter, a plasterer, an electrician and a plumber. JT is your <strong>one team, one point of contact, one-stop shop</strong> for property repairs and maintenance. And your quote? Often instant.</p>
+    <div class="chip-row" style="justify-content:center;">
       <span class="chip">✓ One point of contact</span>
       <span class="chip">✓ Every trade in-house</span>
       <span class="chip">✓ Instant quotes</span>
     </div>
-    <div class="cta-row">
+    <div class="cta-row" style="justify-content:center;">
       <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Get an Instant Quote</a>
       <a href="tel:1800587659" class="btn btn-ghost">Call 1800 587 659</a>
     </div>
   </div>
-  <div class="container" style="max-width:900px;text-align:left;">
-    <div class="hero-stats">
+  <div class="container" style="max-width:900px;text-align:center;">
+    <div class="hero-stats" style="justify-content:center;">
       <div class="hero-stat"><span class="num">1</span><span class="label">Point of contact</span></div>
       <div class="hero-stat"><span class="num">14</span><span class="label">In-house team</span></div>
       <div class="hero-stat"><span class="num">5.0★</span><span class="label">Google rated</span></div>
@@ -338,10 +337,19 @@ body.modal-open { overflow:hidden; }
       <span class="eyebrow">The problem most owners have</span>
       <h2>One job.<br><span class="accent">Five different trades.</span></h2>
       <p>A painter on one thread. A plasterer on another. An electrician who won't call back. A plumber who's "two weeks out." You become the project manager of a job you never wanted to manage, and nobody owns the outcome.</p>
-      <ul class="panel-list">
-        <li>Chasing four contractors for one outcome</li>
-        <li>Quotes that take days, weeks, even months</li>
-        <li>Silence through the job, no updates, no idea where it's at</li>
+      <ul style="list-style:none;margin:22px 0 0;padding:0;">
+        <li style="display:flex;gap:.7rem;align-items:flex-start;padding:.5rem 0;font-weight:500;">
+          <svg style="flex:none;width:22px;height:22px;color:#e7161f;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><path d="M16 16s-1.5-2-4-2-4 2-4 2"></path><path d="M9 9h.01M15 9h.01"></path></svg>
+          Chasing four contractors for one outcome
+        </li>
+        <li style="display:flex;gap:.7rem;align-items:flex-start;padding:.5rem 0;font-weight:500;">
+          <svg style="flex:none;width:22px;height:22px;color:#e7161f;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+          Quotes that take days, weeks, even months
+        </li>
+        <li style="display:flex;gap:.7rem;align-items:flex-start;padding:.5rem 0;font-weight:500;">
+          <svg style="flex:none;width:22px;height:22px;color:#e7161f;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"></path><path d="M8 10h.01M12 10h.01M16 10h.01"></path></svg>
+          Silence through the job, no updates, no idea where it's at
+        </li>
       </ul>
     </div>
     <div class="panel-media" style="border-radius:var(--radius);overflow:hidden;aspect-ratio:3/4;background:#f4f6f8;display:flex;align-items:center;justify-content:center;">
@@ -374,10 +382,10 @@ body.modal-open { overflow:hidden; }
 <section class="section text-center band-dark">
   <div class="container">
     <span class="eyebrow">Built fast, built right</span>
-    <h2>A team that scaled because it respects your time</h2>
+    <h2 style="max-width:820px;margin-left:auto;margin-right:auto;">A team that scaled because it respects your time</h2>
     <div class="grid grid-4" style="max-width:820px;margin:36px auto 0;">
       <div><span class="num" style="font-family:var(--font-mono);font-size:2rem;font-weight:700;color:#e7161f;">24</span><p>Full-time in-house team</p></div>
-      <div><span class="num" style="font-family:var(--font-mono);font-size:2rem;font-weight:700;color:#e7161f;">2 yrs</span><p>From one to twenty-four</p></div>
+      <div><span class="num" style="font-family:var(--font-mono);font-size:2rem;font-weight:700;color:#e7161f;">2 yrs</span><p style="white-space:nowrap;">From one to twenty-four</p></div>
       <div><span class="num" style="font-family:var(--font-mono);font-size:2rem;font-weight:700;color:#e7161f;">1</span><p>Point of contact, always</p></div>
       <div><span class="num" style="font-family:var(--font-mono);font-size:2rem;font-weight:700;color:#e7161f;">5.0★</span><p>Google rated</p></div>
     </div>
@@ -388,7 +396,7 @@ body.modal-open { overflow:hidden; }
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">One-stop shop</span>
-      <h2>Property repairs &amp; maintenance,<br>all under <span class="accent">one roof</span></h2>
+      <h2 style="max-width:700px;margin-left:auto;margin-right:auto;">Property repairs &amp; maintenance, all under <span class="accent">one roof</span></h2>
     </div>
     <div class="grid grid-3">
       <div class="card">
@@ -456,18 +464,18 @@ body.modal-open { overflow:hidden; }
       <h2>Meet Jabez</h2>
       <p style="max-width:640px;margin:0 auto;">Jabez started JT with a pair of hands and one belief: people deserve a trade that turns up, communicates and gets it done. In under two years he's grown JT from one person to a 24 strong in-house team, by building systems around the things that usually go wrong. His goal is simple: eliminate the waste and miscommunication that make trades so painful to deal with.</p>
     </div>
-    <div class="video-card" style="position:relative;overflow:hidden;border-radius:16px;aspect-ratio:16/9;max-width:800px;margin:0 auto;">
+    <div class="video-card" style="position:relative;overflow:hidden;border-radius:16px;aspect-ratio:16/9;max-width:800px;margin:0 auto;border:0 !important;">
       <video id="vidJabez" poster="img/work/jt-meet-jabez-poster.jpg" playsinline muted preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;cursor:pointer;" onclick="toggleVid('vidJabez')">
         <source src="img/work/jt-meet-jabez-founder-melbourne.mp4" type="video/mp4">
       </video>
       <button class="play-btn" id="vidJabezPlay" aria-label="Play video" onclick="toggleVid('vidJabez')" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">▶</button>
-      <div style="position:absolute;left:0;right:0;bottom:0;padding:20px;background:linear-gradient(to top, rgba(0,0,0,.7), transparent 70%);">
-        <p style="color:#9FB2C8;margin-bottom:10px;cursor:pointer;" onclick="unmuteVid('vidJabez')" id="vidJabezSound">🔊 Tap for sound</p>
-        <div class="cta-row" style="margin-bottom:0;">
-          <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Get a Quote</a>
-          <a href="https://jthandymansolutionz.com.au" class="btn btn-ghost on-dark">Visit JT Handyman Solutionz →</a>
-        </div>
+      <div style="position:absolute;left:0;right:0;bottom:0;padding:16px 20px;background:linear-gradient(to top, rgba(0,0,0,.7), transparent 70%);">
+        <p style="color:#9FB2C8;margin:0;cursor:pointer;" onclick="unmuteVid('vidJabez')" id="vidJabezSound">🔊 Tap for sound</p>
       </div>
+    </div>
+    <div class="cta-row" style="justify-content:center;margin-top:24px;max-width:800px;margin-left:auto;margin-right:auto;">
+      <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Get a Quote</a>
+      <a href="https://jthandymansolutionz.com.au" class="btn btn-ghost">Visit JT Handyman Solutionz →</a>
     </div>
   </div>
 </section>
