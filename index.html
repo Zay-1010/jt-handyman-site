@@ -16,18 +16,27 @@
   font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
   padding:.55rem 1rem;
 }
-.job-ticker{ background:#0c0d0f; border-bottom:1px solid rgba(255,255,255,.08); padding:.5rem 0; }
+.job-ticker{ background:#0c0d0f; border-top:2px solid #e7161f; padding:.5rem 0; }
 .job-ticker-inner{ max-width:1160px; margin:0 auto; padding:0 22px; display:flex; align-items:center; gap:14px; }
 .job-ticker-badge{ flex:none; background:#e7161f; color:#fff; font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:.3rem .7rem; border-radius:999px; }
 .job-ticker-track{ color:rgba(255,255,255,.85); font-size:.85rem; overflow:hidden; white-space:nowrap; flex:1; position:relative; }
+.brand{ display:flex; align-items:center; gap:12px; }
+.brand-mark{ font-size:1.7rem; }
+.brand-text{ font-size:1.05rem; line-height:1.25; }
+.brand-text small{ display:block; font-size:.72rem; opacity:.65; font-weight:400; }
+.main-nav a{ font-size:.95rem; padding:6px 0; white-space:nowrap; }
 .job-ticker-marquee{ display:inline-flex; gap:40px; animation:jtScroll 28s linear infinite; }
 .job-ticker-track:hover .job-ticker-marquee{ animation-play-state:paused; }
 @keyframes jtScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
-.job-ticker-item::before{ content:"●"; color:#e7161f; font-size:.6rem; margin-right:8px; vertical-align:middle; }
+.job-ticker-item::before{ content:"✓"; color:#22c55e; font-weight:700; margin-right:8px; vertical-align:middle; }
 
 .testi-marquee-wrap{ overflow:hidden; -webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); }
 .testi-marquee{ display:flex; gap:20px; width:max-content; animation:testiScroll 50s linear infinite; padding:6px 0; }
 .testi-marquee:hover{ animation-play-state:paused; }
+.docket-stars{ color:#fcbf18 !important; }
+.google-rating-line{ display:flex; align-items:center; justify-content:center; gap:8px; margin-top:8px; }
+.google-rating-line svg{ width:20px; height:20px; }
+.google-rating-line .stars-mini{ color:#fcbf18; letter-spacing:1px; }
 .testi-marquee .docket{ flex:0 0 340px; max-width:340px; }
 @keyframes testiScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
 @media(max-width:600px){ .testi-marquee .docket{ flex-basis:280px; max-width:280px; } }
@@ -88,16 +97,13 @@ p{ font-size:1.02rem; line-height:1.65; }
 .site-footer{ background:var(--true-black) !important; }
 
 .site-header{ background:var(--true-black) !important; border-bottom:1px solid rgba(255,255,255,.08); padding:16px 0; }
-.header-inner{ display:flex !important; align-items:center !important; justify-content:space-between !important; gap:36px; flex-wrap:nowrap; }
-.brand{ display:flex; align-items:center; gap:12px; }
-.brand-mark{ font-size:1.7rem; }
-.brand-text{ font-size:1.05rem; line-height:1.25; }
-.brand-text small{ display:block; font-size:.72rem; opacity:.65; font-weight:400; }
-.main-nav ul{ display:flex; align-items:center; gap:32px; margin:0; padding:0; list-style:none; }
-.main-nav a{ font-size:.95rem; padding:6px 0; }
+.header-inner{ display:flex !important; align-items:center !important; justify-content:space-between !important; gap:24px; flex-wrap:nowrap; }
+.main-nav{ flex:1; display:flex; justify-content:center; }
+.main-nav ul{ display:flex; align-items:center; justify-content:center; gap:clamp(20px,3vw,44px); margin:0; padding:0; list-style:none; width:100%; }
 .header-actions{ display:flex; align-items:center; gap:22px; flex:none; }
-.header-actions .phone-link{ white-space:nowrap; font-size:.95rem; }
-.header-actions .btn{ white-space:nowrap; padding:.7rem 1.4rem; }
+.header-actions .phone-link{ white-space:nowrap; font-size:.95rem; transition:opacity .2s ease; }
+.header-actions .phone-link:hover{ opacity:.55; }
+.header-actions .btn{ white-space:nowrap; padding:.7rem 1.4rem; margin-left:14px; }
 .video-card{ border:2px solid #0c0d0f !important; }
 @media(max-width:900px){
   .main-nav{ display:none; }
@@ -192,7 +198,7 @@ body.modal-open { overflow:hidden; }
 <section class="hero band-white text-center">
   <div class="container" style="max-width:820px;">
     <span class="eyebrow">Property repairs &amp; maintenance · Melbourne-wide</span>
-    <h1>Sick of chasing trades?<br><span class="accent">One team. One call. Done.</span></h1>
+    <h1 style="color:#1a1a1a;">Sick of chasing trades?<br><span style="color:#e7161f;">One team. One call. Done.</span></h1>
     <p class="lede" style="margin:0 auto;">Stop juggling a painter, a plasterer, an electrician and a plumber. JT is your <strong>one team, one point of contact, one-stop shop</strong> for property repairs and maintenance. And your quote? Often instant.</p>
     <div class="cta-row" style="justify-content:center;">
       <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Get an Instant Quote</a>
@@ -209,9 +215,9 @@ body.modal-open { overflow:hidden; }
       <div class="hero-stat"><span class="num">5.0★</span><span class="label">Google rated</span></div>
     </div>
   </div>
-  <div class="container" style="margin-top:40px;max-width:100%;">
-    <div style="display:flex;gap:14px;overflow-x:auto;padding:0 4px 8px;">
-      <div style="flex:0 0 auto;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+  <div class="testi-marquee-wrap" style="margin-top:40px;">
+    <div class="testi-marquee" style="animation-duration:32s;gap:14px;">
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
         <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
         <img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-finished-bathroom-vanity-melbourne.webp" alt="Bathroom vanity renovation, Reservoir VIC" style="width:100%;height:130px;object-fit:cover;display:block;">
         <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Bathroom vanity renovation<br><span style="opacity:.65;">Reservoir, VIC</span></div>
@@ -246,9 +252,44 @@ body.modal-open { overflow:hidden; }
         <img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-timber-look-flooring-melbourne.webp" alt="Timber-look flooring, Brighton East VIC" style="width:100%;height:130px;object-fit:cover;display:block;">
         <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Timber-look flooring<br><span style="opacity:.65;">Brighton East, VIC</span></div>
       </div>
+      <!-- duplicate set for seamless loop -->
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-finished-bathroom-vanity-melbourne.webp" alt="Bathroom vanity renovation, Reservoir VIC" style="width:100%;height:130px;object-fit:cover;display:block;">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Bathroom vanity renovation<br><span style="opacity:.65;">Reservoir, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-tiled-shower-glass-screen-melbourne.webp" alt="Tiled shower and glass screen, East Melbourne VIC" style="width:100%;height:130px;object-fit:cover;display:block;">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Tiled shower &amp; glass screen<br><span style="opacity:.65;">East Melbourne, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-finished-shower-dark-tile-melbourne.webp" alt="Full shower fit-out, Melbourne VIC" style="width:100%;height:130px;object-fit:cover;display:block;">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Full shower fit-out<br><span style="opacity:.65;">Melbourne, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-tiled-shower-feature-strip-melbourne.webp" alt="Feature-strip shower tiling, North Melbourne VIC" style="width:100%;height:130px;object-fit:cover;display:block;">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Feature-strip shower tiling<br><span style="opacity:.65;">North Melbourne, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-bathroom-cabinet-nook-melbourne.webp" alt="Bathroom cabinet and tiled nook, Keilor Downs VIC" style="width:100%;height:130px;object-fit:cover;display:block;">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Bathroom cabinet &amp; tiled nook<br><span style="opacity:.65;">Keilor Downs, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-finished-timber-floor-melbourne.webp" alt="Timber floor install, Brunswick VIC" style="width:100%;height:130px;object-fit:cover;display:block;">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Timber floor install<br><span style="opacity:.65;">Brunswick, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-timber-look-flooring-melbourne.webp" alt="Timber-look flooring, Brighton East VIC" style="width:100%;height:130px;object-fit:cover;display:block;">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Timber-look flooring<br><span style="opacity:.65;">Brighton East, VIC</span></div>
+      </div>
     </div>
   </div>
-</section>
 </section>
 
 <section class="section text-center band-grey">
@@ -296,8 +337,8 @@ body.modal-open { overflow:hidden; }
         <li>Silence through the job, no updates, no idea where it's at</li>
       </ul>
     </div>
-    <div class="panel-media" style="border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;">
-      <img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/jt-property-repair-melbourne-4.webp" alt="A property mid-repair before JT took over" style="width:100%;height:100%;object-fit:cover;display:block;">
+    <div class="panel-media" style="border-radius:var(--radius);overflow:hidden;aspect-ratio:3/4;background:#f4f6f8;display:flex;align-items:center;justify-content:center;">
+      <img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/jt-property-repair-melbourne-4.webp" alt="A property mid-repair before JT took over" style="width:100%;height:100%;object-fit:contain;display:block;">
     </div>
   </div>
 </section>
@@ -499,8 +540,12 @@ body.modal-open { overflow:hidden; }
   <div class="container" style="max-width:none;">
     <div class="section-head" style="max-width:760px;margin-left:auto;margin-right:auto;">
       <span class="eyebrow">What clients say</span>
-      <h2>On time. To a high standard.</h2>
-      <p>Rated <strong>5.0</strong> across dozens of Melbourne reviews.</p>
+      <h2>On time. To a <span style="color:#e7161f;">high standard.</span></h2>
+      <div class="google-rating-line">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        <span class="stars-mini">★★★★★</span>
+        <p style="margin:0;">Rated <strong>5.0</strong> across dozens of Melbourne reviews.</p>
+      </div>
     </div>
     <div class="testi-marquee-wrap">
       <div class="testi-marquee">
