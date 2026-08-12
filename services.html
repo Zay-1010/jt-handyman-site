@@ -10,6 +10,240 @@
 <meta property="og:description" content="Every trade, one team. Bathrooms, carpentry, painting, flooring, fencing, kitchens, plumbing, roofing and general maintenance across Melbourne, one point of contact, instant quote.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="css/styles.css">
+<!-- ============================================================
+     SITE-WIDE HEAD STYLES — paste this ENTIRE <style>...</style>
+     block into the <head> of every page (replacing whatever
+     <style> block is currently there), right after:
+     <link rel="stylesheet" href="css/styles.css">
+     ============================================================ -->
+<style>
+.top-strip{
+  background:#e7161f; color:#fff; text-align:center;
+  font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  padding:.55rem 1rem;
+}
+.job-ticker{ background:#0c0d0f; border-top:2px solid #e7161f; padding:.5rem 0; }
+.job-ticker-inner{ max-width:1160px; margin:0 auto; padding:0 22px; display:flex; align-items:center; gap:14px; }
+.job-ticker-badge{ flex:none; background:#e7161f; color:#fff; font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:.3rem .7rem; border-radius:999px; }
+.job-ticker-track{ color:rgba(255,255,255,.85); font-size:.85rem; overflow:hidden; white-space:nowrap; flex:1; position:relative; }
+.brand{ display:flex; align-items:center; gap:12px; }
+.brand-mark{ font-size:1.7rem; }
+.brand-text{ font-size:1.05rem; line-height:1.25; white-space:nowrap; }
+.brand-text small{ display:block; font-size:.72rem; opacity:.65; font-weight:400; }
+.main-nav a{ font-size:.95rem; padding:6px 0; white-space:nowrap; }
+.job-ticker-marquee{ display:inline-flex; gap:40px; animation:jtScroll 28s linear infinite; }
+.job-ticker-track:hover .job-ticker-marquee{ animation-play-state:paused; }
+@keyframes jtScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+.job-ticker-item::before{ content:"✓"; color:#22c55e; font-weight:700; margin-right:8px; vertical-align:middle; }
+
+.testi-marquee-wrap{ overflow:hidden; -webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); }
+.testi-marquee{ display:flex; gap:20px; width:max-content; animation:testiScroll 50s linear infinite; padding:6px 0; }
+.testi-marquee:hover{ animation-play-state:paused; }
+.docket-stars{ color:#fcbf18 !important; }
+.google-rating-line{ display:flex; align-items:center; justify-content:center; gap:8px; margin-top:8px; }
+.google-rating-line svg{ width:20px; height:20px; }
+.google-rating-line .stars-mini{ color:#fcbf18; letter-spacing:1px; }
+.testi-marquee .docket{ flex:0 0 340px; max-width:340px; }
+@keyframes testiScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+@media(max-width:600px){ .testi-marquee .docket{ flex-basis:280px; max-width:280px; } }
+.band-dark{ background:#17181b; color:#fff; }
+.band-dark h1, .band-dark h2, .band-dark h3{ color:#fff; }
+.band-dark p, .band-dark li{ color:rgba(255,255,255,.75); }
+.band-dark .eyebrow{ color:#ff4d55; }
+.band-dark .step-num{ background:#e7161f; color:#fff; }
+.band-dark .card{ background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.14); }
+.band-dark .btn-ghost{ background:rgba(255,255,255,.1); color:#fff; border-color:rgba(255,255,255,.28); }
+.band-dark .chip{ background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.18); color:#fff; }
+.band-grey{ background:#f4f6f8; }
+.band-white{ background:#ffffff; }
+.ratio-4-3{aspect-ratio:4/3;overflow:hidden;border-radius:10px;}
+.ratio-4-3 img{width:100%;height:100%;object-fit:cover;display:block;}
+.card{ border-top:4px solid #e7161f !important; }
+.hero-stat .num{ color:#e7161f !important; }
+
+.faq-accordion{ display:flex; flex-direction:column; gap:12px; }
+.faq-item{ border:1px solid #e5e8ec; border-radius:12px; overflow:hidden; background:#fff; }
+.faq-q{ width:100%; display:flex; justify-content:space-between; align-items:center; gap:16px;
+  padding:18px 22px; background:none; border:0; cursor:pointer; text-align:left;
+  font-family:"Rajdhani", "Rajdhani Fallback", "Rubik", sans-serif; font-size:1.08rem; font-weight:600; color:#1a1a1a; }
+.faq-icon{ flex:none; width:26px; height:26px; border-radius:50%; background:#e7161f; color:#fff;
+  display:flex; align-items:center; justify-content:center; font-size:1.1rem; line-height:1;
+  transition:transform .25s ease; }
+.faq-item.open .faq-icon{ transform:rotate(45deg); }
+.faq-a{ max-height:0; overflow:hidden; transition:max-height .3s ease; }
+.faq-a p{ padding:0 22px 18px; margin:0; color:#555; }
+.faq-item.open .faq-a{ max-height:300px; }
+
+/* ---- Real site fonts (self-hosted, matching lp.jthandymansolutionz.com.au) ---- */
+@font-face{font-family:'Rajdhani';font-style:normal;font-weight:500;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rajdhani-500.woff2') format('woff2');}
+@font-face{font-family:'Rajdhani';font-style:normal;font-weight:600;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rajdhani-600.woff2') format('woff2');}
+@font-face{font-family:'Rajdhani';font-style:normal;font-weight:700;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rajdhani-700.woff2') format('woff2');}
+@font-face{font-family:'Rajdhani Fallback';src:local('Arial Narrow'),local('Arial');ascent-override:90%;descent-override:22%;line-gap-override:0%;size-adjust:90%;}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:400;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rubik-400.woff2') format('woff2');}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:500;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rubik-500.woff2') format('woff2');}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:600;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rubik-600.woff2') format('woff2');}
+
+body, p, li, .lede, .chip, .card, .docket{ font-family:'Rubik', Arial, sans-serif; }
+h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:"Rajdhani", "Rajdhani Fallback", "Rubik", sans-serif; }
+h1{ font-size:clamp(2.5rem,6.6vw,5rem) !important; line-height:1.02 !important; font-weight:700 !important; letter-spacing:-.01em; }
+h2{ font-size:clamp(1.9rem,4.6vw,3.4rem) !important; line-height:1.06 !important; font-weight:700 !important; letter-spacing:-.01em; }
+h3{ font-size:clamp(1.2rem,2.2vw,1.55rem) !important; line-height:1.15 !important; font-weight:600 !important; }
+.eyebrow{ font-size:.95rem !important; letter-spacing:.12em !important; text-transform:uppercase; font-weight:700 !important; }
+.lede, p.lede{ font-size:clamp(1.05rem,1.6vw,1.28rem) !important; line-height:1.55; }
+p{ font-size:1.02rem; line-height:1.65; }
+
+/* ---- Consistent true-black across header, ticker, dark bands, footer ---- */
+:root{ --true-black:#0c0d0f; }
+.site-header{ background:var(--true-black) !important; border-bottom:1px solid rgba(255,255,255,.08); }
+.site-header .brand-text, .site-header .brand-text small{ color:#fff; }
+.site-header .main-nav a{ color:rgba(255,255,255,.82) !important; }
+.site-header .main-nav a:hover, .site-header .main-nav a.active{ color:#fff !important; }
+.site-header .phone-link{ color:rgba(255,255,255,.82) !important; }
+
+.band-dark{ background:var(--true-black) !important; }
+.site-footer{ background:var(--true-black) !important; }
+
+.site-header{ background:var(--true-black) !important; border-bottom:1px solid rgba(255,255,255,.08); padding:12px 0; }
+.header-inner{ display:flex !important; align-items:center !important; gap:0; flex-wrap:nowrap; }
+.main-nav{ display:flex; margin-left:56px; }
+.main-nav ul{ display:flex; align-items:center; gap:26px; margin:0; padding:0; list-style:none; }
+.header-actions{ display:flex; align-items:center; gap:22px; flex:none; margin-left:auto; }
+.header-actions .phone-link{ white-space:nowrap; font-size:.95rem; transition:opacity .2s ease; }
+.header-actions .phone-link:hover{ opacity:.55; }
+.header-actions .btn{ white-space:nowrap; padding:.7rem 1.4rem; margin-left:14px; }
+.video-card{ border:2px solid #0c0d0f !important; box-shadow:none !important; padding:0 !important; background:transparent !important; }
+.video-card video, .video-card img{ border:0 !important; }
+@media(max-width:900px){
+  .main-nav{ display:none; }
+  .header-actions .phone-link{ display:none; }
+}
+
+/* ---- Instant quote modal (matches real LP behavior) ---- */
+.qmodal { position:fixed; inset:0; z-index:1000; display:none; align-items:center; justify-content:center;
+  padding:clamp(10px,2vw,28px); }
+.qmodal.open { display:flex; }
+.qmodal-backdrop { position:absolute; inset:0; background:rgba(6,7,9,.78);
+  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); }
+.qmodal-dialog { position:relative; z-index:1; width:min(820px,100%); height:94vh; max-height:94vh;
+  background:#f7fbfd; border-radius:16px; overflow:hidden; box-shadow:0 40px 120px -30px rgba(0,0,0,.8);
+  display:flex; flex-direction:column; animation:qpop .28s cubic-bezier(.16,.84,.3,1) both; }
+@keyframes qpop { from{opacity:0; transform:translateY(16px) scale(.985)} to{opacity:1; transform:none} }
+.qmodal-close { position:absolute; top:12px; right:12px; z-index:5; width:42px; height:42px; border:0;
+  border-radius:50%; cursor:pointer; background:#e7161f; color:#fff; display:grid; place-items:center;
+  box-shadow:0 8px 22px -6px rgba(231,22,31,.7); font-size:20px; line-height:1; }
+.qmodal-close:hover { background:#c01319; transform:scale(1.07); }
+.qmodal-crop { position:relative; flex:1; overflow:hidden; background:#f7fbfd; --hdr:116px; --side:26px; --bar:18px; }
+@media (max-width:560px){ .qmodal-crop{ --hdr:92px; --side:18px; --bar:0px; } }
+#quoteFrame { position:relative; left:calc(var(--side) * -1);
+  width:calc(100% + var(--side) + var(--side) + var(--bar));
+  height:calc(94vh + var(--hdr)); max-height:calc(1520px + var(--hdr));
+  border:0; display:block; background:#f7fbfd; margin-top:calc(var(--hdr) * -1); }
+body.modal-open { overflow:hidden; }
+</style>
+
+<!-- ============================================================
+     SITE-WIDE HEADER MARKUP — paste this to replace the ENTIRE
+     existing <div class="top-strip">...</div> through </header>
+     block on every page. IMPORTANT: on each page, change the
+     class="active" to match that page's own nav link (e.g. on
+     services.html, move active to the Services <li>, not Home).
+     ============================================================ -->
+<div class="top-strip">Property Repairs &amp; Maintenance · JT Handyman Solutionz · Melbourne-wide</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand" style="display:flex;align-items:center;">
+      <img src="img/work/jt-logo-full.png" alt="JT Handyman Solutionz" style="height:52px;width:auto;display:block;">
+    </a>
+
+    <nav class="main-nav" id="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="our-work.html">Our Work</a></li>
+        <li><a href="recent-jobs.html">Recent Jobs</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="tel:1800587659" class="phone-link">1800 587 659</a>
+      <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Get Instant Quote</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="job-ticker">
+  <div class="job-ticker-inner">
+    <span class="job-ticker-badge">Just completed</span>
+    <div class="job-ticker-track" data-job-ticker>
+      <span class="job-ticker-item show">Loading recent JT jobs…</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(async function () {
+  const track = document.querySelector('[data-job-ticker]');
+  if (!track) return;
+  try {
+    const res = await fetch('/api/jobs');
+    if (!res.ok) throw new Error('Failed to load jobs');
+    const data = await res.json();
+    if (!data.jobs || data.jobs.length === 0) {
+      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant quote today.</span>';
+      return;
+    }
+    const itemsHtml = data.jobs.map(job => `<span class="job-ticker-item">${job.category} completed — ${job.suburb}</span>`).join('');
+    track.innerHTML = `<div class="job-ticker-marquee">${itemsHtml}${itemsHtml}</div>`;
+  } catch (err) {
+    console.error('Job ticker error:', err);
+    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant quote today.</span>';
+  }
+})();
+</script>
+
+<!-- ============================================================
+     ALSO NEEDED near the end of <body> on every page (before
+     </body>) — the quote modal HTML + JS. Skip this if the page
+     already has it (all 6 service pages + index.html already do).
+     ============================================================ -->
+<!--
+<div id="quoteModal" class="qmodal">
+  <div class="qmodal-backdrop" onclick="document.getElementById('quoteModal').classList.remove('open'); document.body.classList.remove('modal-open');"></div>
+  <div class="qmodal-dialog">
+    <button type="button" class="qmodal-close" aria-label="Close quote form"
+      onclick="document.getElementById('quoteModal').classList.remove('open'); document.body.classList.remove('modal-open');">
+      &times;
+    </button>
+    <div class="qmodal-crop">
+      <iframe id="quoteFrame" src="about:blank" title="JT Handyman instant quote"></iframe>
+    </div>
+  </div>
+</div>
+<script>
+  function openQuoteModal() {
+    var modal = document.getElementById('quoteModal');
+    var frame = document.getElementById('quoteFrame');
+    if (frame.src === 'about:blank') {
+      frame.src = 'https://jthandymansolutionz.com.au/estimate';
+    }
+    modal.classList.add('open');
+    document.body.classList.add('modal-open');
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.getElementById('quoteModal').classList.remove('open');
+      document.body.classList.remove('modal-open');
+    }
+  });
+</script>
+-->
 </head>
 <body>
 <div class="job-ticker">
