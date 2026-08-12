@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname)));
 
-async function fetchWithTimeout(url, options = {}, timeoutMs = 10000) {
+async function fetchWithTimeout(url, options = {}, timeoutMs = 20000) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
   try {
@@ -95,8 +95,8 @@ app.get('/api/gallery', async (req, res) => {
 
     console.log('[gallery] fetching attachments...');
     const attUrl = 'https://api.servicem8.com/api_1.0/attachment.json' +
-      '?$orderby=' + encodeURIComponent('timestamp desc') + '&$top=300';
-    const attRes = await fetchWithTimeout(attUrl, { headers: { 'X-API-Key': API_KEY, 'Accept': 'application/json' } });
+      '?$orderby=' + encodeURIComponent('timestamp desc') + '&$top=150';
+    const attRes = await fetchWithTimeout(attUrl, { headers: { 'X-API-Key': API_KEY, 'Accept': 'application/json' } }, 25000);
     const attachments = attRes.ok ? await attRes.json() : [];
     console.log('[gallery] attachments received:', attachments.length);
 
