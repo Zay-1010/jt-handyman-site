@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 3000;
 let galleryCache = null;
 let galleryCacheTime = 0;
 const GALLERY_CACHE_MS = 15 * 60 * 1000; // 15 minutes
+const MAX_GALLERY_ITEMS = 16; // how many photos actually show on the page — keep this small enough to review/curate easily
 
 app.use(express.static(path.join(__dirname)));
 
@@ -46,6 +47,13 @@ const EXCLUDED_PHOTO_UUIDS = [
   '005ec7a2-77f9-4fca-8b12-21ea7b14f1ea', // flagged as unsuitable/mismatched
   '2db9ef79-dfbd-4a56-b64e-21d8ea4ea07a', // flagged as unsuitable/mismatched
   '02714d50-0eb2-41c3-aa4e-21d5b244e7fa', // flagged as unsuitable/mismatched
+  '953bde3f-5f30-4d37-bd3d-21d18ac9ed9a', // flagged as unsuitable/mismatched
+  'c351a245-d77b-4517-8a56-21f8ce35134a', // flagged as unsuitable/mismatched
+  'fca6699e-bf3d-43b8-bd30-21e1357df1ea', // flagged as unsuitable/mismatched
+  '0ae3b6d9-ad2c-46ec-9b2f-21d2bf1cf61a', // flagged as unsuitable/mismatched
+  '37554868-d8b7-4bd5-bcf3-21d5bfc9a62a', // flagged as unsuitable/mismatched
+  '9159e2fd-4bc2-4db1-ab44-21d8eea2bd5a', // flagged as unsuitable/mismatched
+  'fbe9d822-0c67-4272-ba74-21d6ff0cea1a', // flagged as unsuitable/mismatched
 ];
 
 // ---- Trade category derived from job description keywords ----
@@ -113,7 +121,28 @@ async function looksLikeDocument(buffer) {
 
 async function getBestJobPhoto(apiKey, photos) {
   // photos is already newest-first, each { uuid, text }.
-  for (const photo of photos.slice(0, 5)) { // cap at 5 checks per job to keep this fast
+  // First pass: if any photo's own text clearly signals "after/complete/
+  // finished" (and doesn't say "before"), strongly prefer those — a real
+  // completion-status signal beats just guessing from recency.
+  const afterWords = ['after', 'complete', 'completed', 'finished', 'done', 'final'];
+  const beforeWords = ['before', 'progress', 'in progress', 'wip', 'during'];
+
+  const scored = photos.map(p => {
+    const lower = (p.text || '').toLowerCase();
+    const hasAfter = afterWords.some(w => lower.includes(w));
+    const hasBefore = beforeWords.some(w => lower.includes(w));
+    return { ...p, looksLikeAfter: hasAfter && !hasBefore, looksLikeBefore: hasBefore && !hasAfter };
+  });
+
+  // Try "after"-flagged photos first, then everything else EXCEPT
+  // explicitly "before"-flagged ones, then finally fall back to anything.
+  const priorityOrder = [
+    ...scored.filter(p => p.looksLikeAfter),
+    ...scored.filter(p => !p.looksLikeAfter && !p.looksLikeBefore),
+    ...scored.filter(p => p.looksLikeBefore),
+  ];
+
+  for (const photo of priorityOrder.slice(0, 6)) { // cap checks per job to keep this fast
     try {
       const fileRes = await fetchWithTimeout(`https://api.servicem8.com/api_1.0/attachment/${photo.uuid}.file`, {
         headers: { 'X-API-Key': apiKey }
@@ -129,6 +158,48 @@ async function getBestJobPhoto(apiKey, photos) {
   }
   return photos[0]; // fallback: newest photo, even if we couldn't confirm it's ideal
 }
+
+function relativeDate(dateStr) {
+  const date = new Date(dateStr.replace(' ', 'T'));
+  const now = new Date();
+  const diffMs = now - date;
+  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  if (diffDays <= 0) return 'today';
+  if (diffDays === 1) return 'yesterday';
+  if (diffDays < 7) return `${diffDays} days ago`;
+  if (diffDays < 14) return 'last week';
+  const weeks = Math.floor(diffDays / 7);
+  return `${weeks} weeks ago`;
+}
+
+app.get('/api/recent-jobs', async (req, res) => {
+  const API_KEY = process.env.SERVICEM8_API_KEY;
+  if (!API_KEY) return res.status(500).json({ error: 'Missing SERVICEM8_API_KEY in .env' });
+
+  try {
+    const url = 'https://api.servicem8.com/api_1.0/job.json' +
+      '?$orderby=' + encodeURIComponent('completion_date desc') + '&$top=100';
+    const smResponse = await fetchWithTimeout(url, { headers: { 'X-API-Key': API_KEY, 'Accept': 'application/json' } });
+    if (!smResponse.ok) return res.status(502).json({ error: 'Failed to fetch jobs from ServiceM8' });
+
+    const jobs = await smResponse.json();
+
+    const safeJobs = jobs
+      .filter(job => job.completion_date && job.completion_date !== '0000-00-00 00:00:00' && job.generated_job_id !== 'SAMPLE')
+      .sort((a, b) => new Date(b.completion_date) - new Date(a.completion_date))
+      .slice(0, 40)
+      .map(job => ({
+        category: guessTrade(job.work_done_description || job.job_description),
+        suburb: job.geo_city || 'Melbourne',
+        completed: relativeDate(job.completion_date)
+      }));
+
+    res.json({ jobs: safeJobs });
+  } catch (err) {
+    console.error('[recent-jobs] error:', err.message);
+    res.status(500).json({ error: 'Unexpected server error', detail: err.message });
+  }
+});
 
 app.get('/api/jobs', async (req, res) => {
   const API_KEY = process.env.SERVICEM8_API_KEY;
@@ -209,7 +280,7 @@ app.get('/api/gallery', async (req, res) => {
 
     // Analyze photos per job to find the best one (skip documents/screenshots)
     const galleryItems = [];
-    for (const job of jobsWithPhotos.slice(0, 60)) {
+    for (const job of jobsWithPhotos.slice(0, MAX_GALLERY_ITEMS)) {
       const bestPhoto = await getBestJobPhoto(API_KEY, photosByJob[job.uuid]);
       // Prefer the specific photo's own text (filename/tags/extracted info)
       // for categorizing — falls back to the whole job description only if
