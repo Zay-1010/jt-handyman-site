@@ -12,6 +12,15 @@
 <link rel="stylesheet" href="css/styles.css">
 <style>
 .top-strip{ background:#e7161f; color:#fff; text-align:center; font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:.55rem 1rem; }
+.job-ticker{ background:#0c0d0f; border-top:2px solid #e7161f; padding:.5rem 0; }
+.job-ticker-inner{ max-width:1160px; margin:0 auto; padding:0 22px; display:flex; align-items:center; gap:14px; }
+.job-ticker-badge{ flex:none; background:#e7161f; color:#fff; font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:.3rem .7rem; border-radius:999px; }
+.job-ticker-track{ color:rgba(255,255,255,.85); font-size:.85rem; overflow:hidden; white-space:nowrap; flex:1; position:relative; }
+.job-ticker-marquee{ display:inline-flex; gap:40px; animation:jtScroll 28s linear infinite; }
+.job-ticker-track:hover .job-ticker-marquee{ animation-play-state:paused; }
+@keyframes jtScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+.job-ticker-item::before{ content:"✓"; color:#22c55e; font-weight:700; margin-right:8px; vertical-align:middle; }
+
 .band-dark{ background:#0c0d0f !important; color:#fff; }
 .band-dark h1, .band-dark h2, .band-dark h3{ color:#fff; }
 .band-dark p, .band-dark li{ color:rgba(255,255,255,.75); }
@@ -19,23 +28,43 @@
 .band-dark .btn-ghost{ background:rgba(255,255,255,.1); color:#fff; border-color:rgba(255,255,255,.28); }
 .band-grey{ background:#f4f6f8; }
 .band-white{ background:#ffffff; }
+.card{ border-top:4px solid #e7161f !important; }
 
 @font-face{font-family:'Rajdhani';font-style:normal;font-weight:500;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rajdhani-500.woff2') format('woff2');}
 @font-face{font-family:'Rajdhani';font-style:normal;font-weight:600;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rajdhani-600.woff2') format('woff2');}
 @font-face{font-family:'Rajdhani';font-style:normal;font-weight:700;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rajdhani-700.woff2') format('woff2');}
+@font-face{font-family:'Rajdhani Fallback';src:local('Arial Narrow'),local('Arial');ascent-override:90%;descent-override:22%;line-gap-override:0%;size-adjust:90%;}
 @font-face{font-family:'Rubik';font-style:normal;font-weight:400;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rubik-400.woff2') format('woff2');}
 @font-face{font-family:'Rubik';font-style:normal;font-weight:500;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rubik-500.woff2') format('woff2');}
 @font-face{font-family:'Rubik';font-style:normal;font-weight:600;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rubik-600.woff2') format('woff2');}
 body, p, li, .lede, .chip, .card, .docket{ font-family:'Rubik', Arial, sans-serif; }
-h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:'Rajdhani', Arial, sans-serif; }
+h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:"Rajdhani", "Rajdhani Fallback", "Rubik", sans-serif; }
+h1{ font-size:clamp(2.5rem,6.6vw,5rem) !important; line-height:1.02 !important; font-weight:700 !important; letter-spacing:-.01em; }
+h2{ font-size:clamp(1.9rem,4.6vw,3.4rem) !important; line-height:1.06 !important; font-weight:700 !important; letter-spacing:-.01em; }
+h3{ font-size:clamp(1.2rem,2.2vw,1.55rem) !important; line-height:1.15 !important; font-weight:600 !important; }
+.eyebrow{ font-size:.95rem !important; letter-spacing:.12em !important; text-transform:uppercase; font-weight:700 !important; }
+.lede, p.lede{ font-size:clamp(1.05rem,1.6vw,1.28rem) !important; line-height:1.55; }
+p{ font-size:1.02rem; line-height:1.65; }
 
 :root{ --true-black:#0c0d0f; }
-.site-header{ background:var(--true-black) !important; border-bottom:1px solid rgba(255,255,255,.08); }
+.site-header{ background:var(--true-black) !important; border-bottom:1px solid rgba(255,255,255,.08); padding:12px 0; }
 .site-header .brand-text, .site-header .brand-text small{ color:#fff; }
 .site-header .main-nav a{ color:rgba(255,255,255,.82) !important; }
 .site-header .main-nav a:hover, .site-header .main-nav a.active{ color:#fff !important; }
 .site-header .phone-link{ color:rgba(255,255,255,.82) !important; }
+.header-inner{ display:flex !important; align-items:center !important; gap:0; flex-wrap:nowrap; }
+.main-nav{ display:flex; margin-left:56px; }
+.main-nav ul{ display:flex; align-items:center; gap:26px; margin:0; padding:0; list-style:none; }
+.main-nav a{ font-size:.95rem; padding:6px 0; white-space:nowrap; }
+.header-actions{ display:flex; align-items:center; gap:22px; flex:none; margin-left:auto; }
+.header-actions .phone-link{ white-space:nowrap; font-size:.95rem; transition:opacity .2s ease; }
+.header-actions .phone-link:hover{ opacity:.55; }
+.header-actions .btn{ white-space:nowrap; padding:.7rem 1.4rem; margin-left:14px; }
 .site-footer{ background:var(--true-black) !important; }
+@media(max-width:900px){
+  .main-nav{ display:none; }
+  .header-actions .phone-link{ display:none; }
+}
 
 .qmodal { position:fixed; inset:0; z-index:1000; display:none; align-items:center; justify-content:center; padding:clamp(10px,2vw,28px); }
 .qmodal.open { display:flex; }
@@ -53,31 +82,21 @@ body.modal-open { overflow:hidden; }
 <body>
 <div class="top-strip">Property Repairs &amp; Maintenance · JT Handyman Solutionz · Melbourne-wide</div>
 
-<div class="job-ticker">
-  <div class="job-ticker-inner">
-    <span class="job-ticker-badge">Just completed</span>
-    <div class="job-ticker-track" data-job-ticker>
-      <span class="job-ticker-item show">Loading recent JT jobs…</span>
-    </div>
-  </div>
-</div>
-
 <header class="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="brand">
-      <span class="brand-mark">JT</span>
-      <span class="brand-text">JT Handyman Solutionz<small>Melbourne · Property Repairs</small></span>
+    <a href="index.html" class="brand" style="display:flex;align-items:center;">
+      <img src="img/work/jt-logo-full.png" alt="JT Handyman Solutionz" style="height:52px;width:auto;display:block;">
     </a>
 
     <nav class="main-nav" id="main-nav">
       <ul>
-        <li><a href="index.html" class="">Home</a></li>
-        <li><a href="services.html" class="">Services</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
         <li><a href="our-work.html" class="active">Our Work</a></li>
-        <li><a href="recent-jobs.html" class="">Recent Jobs</a></li>
-        <li><a href="about.html" class="">About</a></li>
-        <li><a href="blog.html" class="">Blog</a></li>
-        <li><a href="contact.html" class="">Contact</a></li>
+        <li><a href="recent-jobs.html">Recent Jobs</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
 
@@ -90,6 +109,36 @@ body.modal-open { overflow:hidden; }
     </div>
   </div>
 </header>
+
+<div class="job-ticker">
+  <div class="job-ticker-inner">
+    <span class="job-ticker-badge">Just completed</span>
+    <div class="job-ticker-track" data-job-ticker>
+      <span class="job-ticker-item show">Loading recent JT jobs…</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(async function () {
+  const track = document.querySelector('[data-job-ticker]');
+  if (!track) return;
+  try {
+    const res = await fetch('/api/jobs');
+    if (!res.ok) throw new Error('Failed to load jobs');
+    const data = await res.json();
+    if (!data.jobs || data.jobs.length === 0) {
+      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant quote today.</span>';
+      return;
+    }
+    const itemsHtml = data.jobs.map(job => `<span class="job-ticker-item">${job.category} completed — ${job.suburb}</span>`).join('');
+    track.innerHTML = `<div class="job-ticker-marquee">${itemsHtml}${itemsHtml}</div>`;
+  } catch (err) {
+    console.error('Job ticker error:', err);
+    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant quote today.</span>';
+  }
+})();
+</script>
 
 <section class="hero band-grey text-center" style="padding-bottom:56px;">
   <div class="container" style="max-width:820px;">
@@ -108,7 +157,6 @@ body.modal-open { overflow:hidden; }
   </div>
 </section>
 
-<!-- Previously missing: "Proof, not promises" section -->
 <section class="section band-white">
   <div class="container panel">
     <div>
@@ -124,9 +172,9 @@ body.modal-open { overflow:hidden; }
 <section class="section band-grey" style="padding-top:0;">
   <div class="container">
     <div class="grid grid-3" style="margin-bottom:56px;">
-      <div class="text-center"><span style="font-family:'Rajdhani',Arial,sans-serif;font-size:1.8rem;font-weight:700;color:var(--navy);display:block;">30+</span><p>Recent jobs shown</p></div>
-      <div class="text-center"><span style="font-family:'Rajdhani',Arial,sans-serif;font-size:1.8rem;font-weight:700;color:var(--navy);display:block;">24</span><p>In-house team</p></div>
-      <div class="text-center"><span style="font-family:'Rajdhani',Arial,sans-serif;font-size:1.8rem;font-weight:700;color:var(--navy);display:block;">5.0★</span><p>Google rated</p></div>
+      <div class="text-center"><span style="font-family:'Rajdhani',Arial,sans-serif;font-size:1.8rem;font-weight:700;color:#e7161f;display:block;">30+</span><p>Recent jobs shown</p></div>
+      <div class="text-center"><span style="font-family:'Rajdhani',Arial,sans-serif;font-size:1.8rem;font-weight:700;color:#e7161f;display:block;">24</span><p>In-house team</p></div>
+      <div class="text-center"><span style="font-family:'Rajdhani',Arial,sans-serif;font-size:1.8rem;font-weight:700;color:#e7161f;display:block;">5.0★</span><p>Google rated</p></div>
     </div>
 
     <div class="section-head left">
@@ -135,61 +183,76 @@ body.modal-open { overflow:hidden; }
     </div>
 
     <div data-filter-group=".gallery-item">
-      <div class="filter-row">
+      <div class="filter-row" id="galleryFilters">
         <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="bathrooms">Bathrooms</button>
-        <button class="filter-btn" data-filter="flooring">Flooring</button>
-        <button class="filter-btn" data-filter="carpentry">Carpentry</button>
-        <button class="filter-btn" data-filter="kitchens">Kitchens</button>
-        <button class="filter-btn" data-filter="fencing">Fencing &amp; Gates</button>
-        <button class="filter-btn" data-filter="exteriors">Exteriors</button>
-        <button class="filter-btn" data-filter="interiors">Interiors</button>
       </div>
-      <p data-filter-count style="margin-bottom:24px;color:var(--slate);font-size:.9rem;">Showing all 30 jobs</p>
+      <p data-filter-count id="galleryCount" style="margin-bottom:24px;color:var(--slate);font-size:.9rem;">Loading recent jobs…</p>
 
-      <div class="grid grid-4">
-        <div class="card gallery-item" data-category="bathrooms"><div class="ph ratio-square"><span class="ph-tag-cat">Bathrooms</span>Bathroom vanity renovation</div><div class="gallery-caption"><strong>Bathroom vanity renovation</strong><span>Reservoir, VIC</span></div></div>
-        <div class="card gallery-item" data-category="bathrooms"><div class="ph ratio-square"><span class="ph-tag-cat">Bathrooms</span>Tiled shower, glass screen</div><div class="gallery-caption"><strong>Tiled shower with glass screen</strong><span>East Melbourne, VIC</span></div></div>
-        <div class="card gallery-item" data-category="bathrooms"><div class="ph ratio-square"><span class="ph-tag-cat">Bathrooms</span>Full shower fit-out</div><div class="gallery-caption"><strong>Full shower fit-out</strong><span>Melbourne, VIC</span></div></div>
-        <div class="card gallery-item" data-category="bathrooms"><div class="ph ratio-square"><span class="ph-tag-cat">Bathrooms</span>Feature-strip tiling</div><div class="gallery-caption"><strong>Feature-strip shower tiling</strong><span>North Melbourne, VIC</span></div></div>
-        <div class="card gallery-item" data-category="bathrooms"><div class="ph ratio-square"><span class="ph-tag-cat">Bathrooms</span>Cabinet &amp; tiled nook</div><div class="gallery-caption"><strong>Bathroom cabinet &amp; tiled nook</strong><span>Keilor Downs, VIC</span></div></div>
-
-        <div class="card gallery-item" data-category="flooring"><div class="ph ratio-square"><span class="ph-tag-cat">Flooring</span>Timber floor install</div><div class="gallery-caption"><strong>Timber floor install</strong><span>Brunswick, VIC</span></div></div>
-        <div class="card gallery-item" data-category="flooring"><div class="ph ratio-square"><span class="ph-tag-cat">Flooring</span>Timber-look flooring</div><div class="gallery-caption"><strong>Timber-look flooring</strong><span>Brighton East, VIC</span></div></div>
-        <div class="card gallery-item" data-category="flooring"><div class="ph ratio-square"><span class="ph-tag-cat">Flooring</span>Laminate flooring</div><div class="gallery-caption"><strong>Laminate flooring</strong><span>South Yarra, VIC</span></div></div>
-        <div class="card gallery-item" data-category="flooring"><div class="ph ratio-square"><span class="ph-tag-cat">Flooring</span>New vinyl flooring</div><div class="gallery-caption"><strong>New vinyl flooring</strong><span>Brighton East, VIC</span></div></div>
-
-        <div class="card gallery-item" data-category="carpentry"><div class="ph ratio-square"><span class="ph-tag-cat">Carpentry</span>Hallway &amp; glass door</div><div class="gallery-caption"><strong>Hallway &amp; glass courtyard door</strong><span>Melbourne, VIC</span></div></div>
-        <div class="card gallery-item" data-category="carpentry"><div class="ph ratio-square"><span class="ph-tag-cat">Carpentry</span>Verandah carpentry</div><div class="gallery-caption"><strong>Decorative verandah carpentry</strong><span>Keilor, VIC</span></div></div>
-        <div class="card gallery-item" data-category="carpentry"><div class="ph ratio-square"><span class="ph-tag-cat">Carpentry</span>Verandah posts</div><div class="gallery-caption"><strong>Verandah posts &amp; brackets</strong><span>Doncaster, VIC</span></div></div>
-        <div class="card gallery-item" data-category="carpentry"><div class="ph ratio-square"><span class="ph-tag-cat">Carpentry</span>Stainless handrail</div><div class="gallery-caption"><strong>Stainless steel handrail</strong><span>South Yarra, VIC</span></div></div>
-        <div class="card gallery-item" data-category="carpentry"><div class="ph ratio-square"><span class="ph-tag-cat">Carpentry</span>Period arch restoration</div><div class="gallery-caption"><strong>Period hallway arch restoration</strong><span>Thornbury, VIC</span></div></div>
-        <div class="card gallery-item" data-category="carpentry"><div class="ph ratio-square"><span class="ph-tag-cat">Carpentry</span>Door hardware install</div><div class="gallery-caption"><strong>Door hardware install</strong><span>Brighton East, VIC</span></div></div>
-        <div class="card gallery-item" data-category="carpentry"><div class="ph ratio-square"><span class="ph-tag-cat">Carpentry</span>VJ panelling &amp; shelves</div><div class="gallery-caption"><strong>VJ panelling &amp; floating shelves</strong><span>Pascoe Vale, VIC</span></div></div>
-        <div class="card gallery-item" data-category="carpentry"><div class="ph ratio-square"><span class="ph-tag-cat">Carpentry</span>New black-framed window</div><div class="gallery-caption"><strong>New black-framed window</strong><span>Brighton East, VIC</span></div></div>
-
-        <div class="card gallery-item" data-category="kitchens"><div class="ph ratio-square"><span class="ph-tag-cat">Kitchens</span>Sink &amp; gooseneck tap</div><div class="gallery-caption"><strong>Kitchen sink &amp; gooseneck tap</strong><span>Brunswick East, VIC</span></div></div>
-        <div class="card gallery-item" data-category="kitchens"><div class="ph ratio-square"><span class="ph-tag-cat">Kitchens</span>Drawers &amp; cooktop</div><div class="gallery-caption"><strong>Kitchen drawers &amp; cooktop</strong><span>Malvern, VIC</span></div></div>
-
-        <div class="card gallery-item" data-category="interiors"><div class="ph ratio-square"><span class="ph-tag-cat">Interiors</span>Room repair &amp; prep</div><div class="gallery-caption"><strong>Room repair &amp; prep</strong><span>Northcote, VIC</span></div></div>
-
-        <div class="card gallery-item" data-category="fencing"><div class="ph ratio-square"><span class="ph-tag-cat">Fencing</span>Timber paling fence</div><div class="gallery-caption"><strong>New timber paling fence</strong><span>Brunswick, VIC</span></div></div>
-        <div class="card gallery-item" data-category="fencing"><div class="ph ratio-square"><span class="ph-tag-cat">Fencing</span>Dark slat fence panels</div><div class="gallery-caption"><strong>Dark slat fence panels</strong><span>South Yarra, VIC</span></div></div>
-        <div class="card gallery-item" data-category="fencing"><div class="ph ratio-square"><span class="ph-tag-cat">Fencing</span>Custom gate carpentry</div><div class="gallery-caption"><strong>Custom gate carpentry</strong><span>Brunswick, VIC</span></div></div>
-        <div class="card gallery-item" data-category="fencing"><div class="ph ratio-square"><span class="ph-tag-cat">Fencing</span>Fence repair &amp; repaint</div><div class="gallery-caption"><strong>Fence repair &amp; repaint</strong><span>Mitcham, VIC</span></div></div>
-        <div class="card gallery-item" data-category="fencing"><div class="ph ratio-square"><span class="ph-tag-cat">Fencing</span>New timber fence</div><div class="gallery-caption"><strong>New timber fence</strong><span>Mitcham, VIC</span></div></div>
-
-        <div class="card gallery-item" data-category="exteriors"><div class="ph ratio-square"><span class="ph-tag-cat">Exteriors</span>Facade cladding</div><div class="gallery-caption"><strong>Facade cladding &amp; timber</strong><span>Brunswick, VIC</span></div></div>
-        <div class="card gallery-item" data-category="exteriors"><div class="ph ratio-square"><span class="ph-tag-cat">Exteriors</span>Timber pool deck</div><div class="gallery-caption"><strong>Timber pool deck</strong><span>Croydon Hills, VIC</span></div></div>
-        <div class="card gallery-item" data-category="exteriors"><div class="ph ratio-square"><span class="ph-tag-cat">Exteriors</span>Balcony deck tiles</div><div class="gallery-caption"><strong>Balcony deck tiles</strong><span>Reservoir, VIC</span></div></div>
-        <div class="card gallery-item" data-category="exteriors"><div class="ph ratio-square"><span class="ph-tag-cat">Exteriors</span>Townhouse exterior works</div><div class="gallery-caption"><strong>Townhouse exterior works</strong><span>Pascoe Vale, VIC</span></div></div>
-        <div class="card gallery-item" data-category="exteriors"><div class="ph ratio-square"><span class="ph-tag-cat">Exteriors</span>Garden wall repaint</div><div class="gallery-caption"><strong>Garden wall repaint</strong><span>Footscray, VIC</span></div></div>
+      <div class="grid grid-4" id="galleryGrid">
+        <p style="grid-column:1/-1;color:var(--slate);">Loading photos from recent completed jobs…</p>
       </div>
     </div>
   </div>
+
+  <script>
+  (async function () {
+    const grid = document.getElementById('galleryGrid');
+    const filterRow = document.getElementById('galleryFilters');
+    const countLabel = document.getElementById('galleryCount');
+    let allItems = [];
+
+    function slugify(str) {
+      return (str || 'general').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    }
+
+    function render(filter) {
+      const items = filter === 'all' ? allItems : allItems.filter(i => slugify(i.category) === filter);
+      countLabel.textContent = `Showing ${items.length} job${items.length === 1 ? '' : 's'}`;
+      grid.innerHTML = items.map(item => `
+        <div class="card gallery-item" data-category="${slugify(item.category)}">
+          <div class="ph ratio-square" style="background:#f4f6f8;">
+            <img src="${item.photoUrl}" alt="${item.category} completed by JT Handyman in ${item.suburb}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+          <div class="gallery-caption"><strong>${item.category}</strong><span>${item.suburb}, VIC</span></div>
+        </div>
+      `).join('');
+    }
+
+    try {
+      const res = await fetch('/api/gallery');
+      if (!res.ok) throw new Error('Failed to load gallery');
+      const data = await res.json();
+      allItems = data.items || [];
+
+      if (allItems.length === 0) {
+        grid.innerHTML = '<p style="grid-column:1/-1;color:var(--slate);">No recent job photos available yet — check back soon, or get an instant quote to start your own job.</p>';
+        countLabel.textContent = '';
+        return;
+      }
+
+      const uniqueCategories = [...new Set(allItems.map(i => i.category))];
+      filterRow.innerHTML = '<button class="filter-btn active" data-filter="all">All</button>' +
+        uniqueCategories.map(cat => `<button class="filter-btn" data-filter="${slugify(cat)}">${cat}</button>`).join('');
+
+      filterRow.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterRow.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          render(btn.dataset.filter);
+        });
+      });
+
+      render('all');
+
+    } catch (err) {
+      console.error('Gallery load error:', err);
+      grid.innerHTML = '<p style="grid-column:1/-1;color:var(--slate);">Unable to load recent job photos right now.</p>';
+      countLabel.textContent = '';
+    }
+  })();
+  </script>
 </section>
 
-<!-- Fixed: section now has band-dark so the CTA band is full-width, not just the inner container -->
 <section class="section band-dark">
   <div class="container cta-band">
     <span class="eyebrow on-dark">Your job could be next</span>
@@ -206,7 +269,7 @@ body.modal-open { overflow:hidden; }
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <span class="brand-mark">JT</span> JT Handyman Solutionz
+          <img src="img/work/jt-icon-mark.png" alt="JT Handyman Solutionz" style="height:28px;width:auto;vertical-align:middle;margin-right:8px;"> JT Handyman Solutionz
         </div>
         <p style="margin-top:12px;max-width:260px;">One team, one point of contact, one-stop shop for property repairs &amp; maintenance across Melbourne.</p>
       </div>
