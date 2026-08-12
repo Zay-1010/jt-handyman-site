@@ -105,7 +105,7 @@ p{ font-size:1.02rem; line-height:1.65; }
 .header-actions .phone-link{ white-space:nowrap; font-size:.95rem; transition:opacity .2s ease; }
 .header-actions .phone-link:hover{ opacity:.55; }
 .header-actions .btn{ white-space:nowrap; padding:.7rem 1.4rem; margin-left:14px; }
-.video-card{ border:0 !important; box-shadow:none !important; }
+.video-card{ border:2px solid #0c0d0f !important; box-shadow:none !important; padding:0 !important; background:transparent !important; }
 .video-card video, .video-card img{ border:0 !important; }
 @media(max-width:900px){
   .main-nav{ display:none; }
@@ -315,18 +315,18 @@ body.modal-open { overflow:hidden; }
       <h2>A word from Jabez</h2>
       <p>Why your time matters, and why your quote shouldn't take weeks.</p>
     </div>
-    <div class="video-card" style="position:relative;overflow:hidden;border-radius:16px;aspect-ratio:16/9;max-width:800px;margin:0 auto;">
+    <div class="video-card" style="position:relative;overflow:hidden;border-radius:16px;aspect-ratio:16/9;max-width:800px;margin:0 auto;border:2px solid #0c0d0f;padding:0;background:transparent;box-shadow:none;">
       <video id="vidWord" poster="img/work/jt-founder-word-poster.jpg" playsinline muted preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;cursor:pointer;" onclick="toggleVid('vidWord')">
         <source src="img/work/jt-founder-word-melbourne.mp4" type="video/mp4">
       </video>
       <button class="play-btn" id="vidWordPlay" aria-label="Play video" onclick="toggleVid('vidWord')" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">▶</button>
-      <div style="position:absolute;left:0;right:0;bottom:0;padding:20px;background:linear-gradient(to top, rgba(0,0,0,.75), transparent);">
-        <p style="color:#fff;margin-bottom:6px;cursor:pointer;" onclick="unmuteVid('vidWord')" id="vidWordSound">🔊 Tap for sound</p>
-        <div class="cta-row" style="margin-bottom:0;">
-          <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Get an Instant Quote</a>
-          <a href="about.html#founder" class="btn btn-ghost on-dark">Learn more about our founder →</a>
-        </div>
+      <div style="position:absolute;left:0;right:0;bottom:0;padding:16px 20px;background:linear-gradient(to top, rgba(0,0,0,.6), transparent 70%);">
+        <p style="color:#fff;margin:0;cursor:pointer;" onclick="unmuteVid('vidWord')" id="vidWordSound">🔊 Tap for sound</p>
       </div>
+    </div>
+    <div class="cta-row" style="justify-content:center;margin-top:24px;max-width:800px;margin-left:auto;margin-right:auto;">
+      <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Get an Instant Quote</a>
+      <a href="about.html#founder" class="btn btn-ghost">Learn more about our founder →</a>
     </div>
   </div>
 </section>
@@ -464,7 +464,7 @@ body.modal-open { overflow:hidden; }
       <h2>Meet Jabez</h2>
       <p style="max-width:640px;margin:0 auto;">Jabez started JT with a pair of hands and one belief: people deserve a trade that turns up, communicates and gets it done. In under two years he's grown JT from one person to a 24 strong in-house team, by building systems around the things that usually go wrong. His goal is simple: eliminate the waste and miscommunication that make trades so painful to deal with.</p>
     </div>
-    <div class="video-card" style="position:relative;overflow:hidden;border-radius:16px;aspect-ratio:16/9;max-width:800px;margin:0 auto;border:0 !important;">
+    <div class="video-card" style="position:relative;overflow:hidden;border-radius:16px;aspect-ratio:16/9;max-width:800px;margin:0 auto;border:2px solid #0c0d0f;padding:0;background:transparent;box-shadow:none;">
       <video id="vidJabez" poster="img/work/jt-meet-jabez-poster.jpg" playsinline muted preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;cursor:pointer;" onclick="toggleVid('vidJabez')">
         <source src="img/work/jt-meet-jabez-founder-melbourne.mp4" type="video/mp4">
       </video>
