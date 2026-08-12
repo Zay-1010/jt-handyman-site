@@ -26,6 +26,31 @@
 .band-dark .chip{ background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.18); color:#fff; }
 .band-grey{ background:#f4f6f8; }
 .band-white{ background:#ffffff; }
+.ratio-4-3{aspect-ratio:4/3;overflow:hidden;border-radius:10px;}
+.ratio-4-3 img{width:100%;height:100%;object-fit:cover;display:block;}
+.card{ border-top:4px solid #e7161f !important; }
+
+/* ---- Real site fonts (self-hosted, matching lp.jthandymansolutionz.com.au) ---- */
+@font-face{font-family:'Rajdhani';font-style:normal;font-weight:500;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rajdhani-500.woff2') format('woff2');}
+@font-face{font-family:'Rajdhani';font-style:normal;font-weight:600;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rajdhani-600.woff2') format('woff2');}
+@font-face{font-family:'Rajdhani';font-style:normal;font-weight:700;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rajdhani-700.woff2') format('woff2');}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:400;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rubik-400.woff2') format('woff2');}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:500;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rubik-500.woff2') format('woff2');}
+@font-face{font-family:'Rubik';font-style:normal;font-weight:600;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rubik-600.woff2') format('woff2');}
+
+body, p, li, .lede, .chip, .card, .docket{ font-family:'Rubik', Arial, sans-serif; }
+h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:'Rajdhani', Arial, sans-serif; }
+
+/* ---- Consistent true-black across header, ticker, dark bands, footer ---- */
+:root{ --true-black:#0c0d0f; }
+.site-header{ background:var(--true-black) !important; border-bottom:1px solid rgba(255,255,255,.08); }
+.site-header .brand-text, .site-header .brand-text small{ color:#fff; }
+.site-header .main-nav a{ color:rgba(255,255,255,.82) !important; }
+.site-header .main-nav a:hover, .site-header .main-nav a.active{ color:#fff !important; }
+.site-header .phone-link{ color:rgba(255,255,255,.82) !important; }
+
+.band-dark{ background:var(--true-black) !important; }
+.site-footer{ background:var(--true-black) !important; }
 
 /* ---- Instant quote modal (matches real LP behavior) ---- */
 .qmodal { position:fixed; inset:0; z-index:1000; display:none; align-items:center; justify-content:center;
@@ -171,10 +196,13 @@ body.modal-open { overflow:hidden; }
       <h2>A word from Jabez</h2>
       <p>Why your time matters, and why your quote shouldn't take weeks.</p>
     </div>
-    <div class="video-card">
-      <button class="play-btn" aria-label="Play video">▶</button>
-      <div>
-        <p style="color:#fff;margin-bottom:6px;">Tap for sound</p>
+    <div class="video-card" style="position:relative;overflow:hidden;border-radius:16px;aspect-ratio:16/9;max-width:800px;margin:0 auto;">
+      <video id="vidWord" poster="img/work/jt-founder-word-poster.jpg" playsinline muted preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;cursor:pointer;" onclick="toggleVid('vidWord')">
+        <source src="img/work/jt-founder-word-melbourne.mp4" type="video/mp4">
+      </video>
+      <button class="play-btn" id="vidWordPlay" aria-label="Play video" onclick="toggleVid('vidWord')" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">▶</button>
+      <div style="position:absolute;left:0;right:0;bottom:0;padding:20px;background:linear-gradient(to top, rgba(0,0,0,.75), transparent);">
+        <p style="color:#fff;margin-bottom:6px;cursor:pointer;" onclick="unmuteVid('vidWord')" id="vidWordSound">🔊 Tap for sound</p>
         <div class="cta-row" style="margin-bottom:0;">
           <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Get an Instant Quote</a>
           <a href="about.html#founder" class="btn btn-ghost on-dark">Learn more about our founder →</a>
@@ -303,11 +331,14 @@ body.modal-open { overflow:hidden; }
       <span class="eyebrow">About the founder</span>
       <h2>Meet Jabez</h2>
     </div>
-    <div class="video-card">
-      <button class="play-btn" aria-label="Play video">▶</button>
-      <div>
+    <div class="video-card" style="position:relative;overflow:hidden;border-radius:16px;aspect-ratio:16/9;max-width:800px;margin:0 auto;">
+      <video id="vidJabez" poster="img/work/jt-meet-jabez-poster.jpg" playsinline muted preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;cursor:pointer;" onclick="toggleVid('vidJabez')">
+        <source src="img/work/jt-meet-jabez-founder-melbourne.mp4" type="video/mp4">
+      </video>
+      <button class="play-btn" id="vidJabezPlay" aria-label="Play video" onclick="toggleVid('vidJabez')" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">▶</button>
+      <div style="position:absolute;left:0;right:0;bottom:0;padding:20px;background:linear-gradient(to top, rgba(0,0,0,.8), transparent 70%);">
         <p style="color:#fff;margin-bottom:10px;">Jabez started JT with a pair of hands and one belief: people deserve a trade that turns up, communicates and gets it done. In under two years he's grown JT from one person to a 24 strong in-house team, by building systems around the things that usually go wrong. His goal is simple: eliminate the waste and miscommunication that make trades so painful to deal with.</p>
-        <p style="color:#9FB2C8;margin-bottom:10px;">Tap for sound</p>
+        <p style="color:#9FB2C8;margin-bottom:10px;cursor:pointer;" onclick="unmuteVid('vidJabez')" id="vidJabezSound">🔊 Tap for sound</p>
         <div class="cta-row" style="margin-bottom:0;">
           <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Get a Quote</a>
           <a href="https://jthandymansolutionz.com.au" class="btn btn-ghost on-dark">Visit JT Handyman Solutionz →</a>
@@ -360,9 +391,9 @@ body.modal-open { overflow:hidden; }
       <h2>A repair that needs repairing isn't a repair at all.</h2>
       <p>We don't do quick patch-ups that fail the moment your back is turned. JT works to a high, lasting standard, done right the first time, completed in-house, and backed by our workmanship guarantee. If something isn't right, we make it right.</p>
       <div class="grid grid-3" style="margin-top:20px;">
-        <div><h3 style="font-size:1rem;">Done right, once</h3><p style="font-size:.88rem;">High-standard finishes, not quick fixes that come back.</p></div>
-        <div><h3 style="font-size:1rem;">All in-house</h3><p style="font-size:.88rem;">Our team, our quality, never subbed out and forgotten.</p></div>
-        <div><h3 style="font-size:1rem;">Photographed</h3><p style="font-size:.88rem;">Before &amp; after on every job, so the work speaks for itself.</p></div>
+        <div style="background:#fff;border:1px solid #e5e8ec;border-top:4px solid #e7161f;border-radius:12px;padding:18px;"><h3 style="font-size:1rem;">Done right, once</h3><p style="font-size:.88rem;">High-standard finishes, not quick fixes that come back.</p></div>
+        <div style="background:#fff;border:1px solid #e5e8ec;border-top:4px solid #e7161f;border-radius:12px;padding:18px;"><h3 style="font-size:1rem;">All in-house</h3><p style="font-size:.88rem;">Our team, our quality, never subbed out and forgotten.</p></div>
+        <div style="background:#fff;border:1px solid #e5e8ec;border-top:4px solid #e7161f;border-radius:12px;padding:18px;"><h3 style="font-size:1rem;">Photographed</h3><p style="font-size:.88rem;">Before &amp; after on every job, so the work speaks for itself.</p></div>
       </div>
     </div>
   </div>
@@ -374,19 +405,13 @@ body.modal-open { overflow:hidden; }
       <span class="eyebrow">Real JT jobs</span>
       <h2>Our work</h2>
     </div>
-    <div class="grid grid-6">
-      <img class="ph ratio-square" style="background:none;border:none;object-fit:cover;" src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-finished-bathroom-vanity-melbourne.webp" alt="Finished bathroom vanity by JT Handyman in Reservoir">
-      <img class="ph ratio-square" style="background:none;border:none;object-fit:cover;" src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-tiled-shower-glass-screen-melbourne.webp" alt="Tiled shower with glass screen by JT Handyman in East Melbourne">
-      <img class="ph ratio-square" style="background:none;border:none;object-fit:cover;" src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-finished-shower-dark-tile-melbourne.webp" alt="Full shower fit-out by JT Handyman in Melbourne">
-      <img class="ph ratio-square" style="background:none;border:none;object-fit:cover;" src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-tiled-shower-feature-strip-melbourne.webp" alt="Feature-strip shower tiling by JT Handyman in North Melbourne">
-      <img class="ph ratio-square" style="background:none;border:none;object-fit:cover;" src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-bathroom-cabinet-nook-melbourne.webp" alt="Bathroom cabinet and tiled nook by JT Handyman in Keilor Downs">
-      <img class="ph ratio-square" style="background:none;border:none;object-fit:cover;" src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-finished-timber-floor-melbourne.webp" alt="Finished timber floor by JT Handyman in Brunswick">
-      <img class="ph ratio-square" style="background:none;border:none;object-fit:cover;" src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-timber-look-flooring-melbourne.webp" alt="Timber-look flooring by JT Handyman in Brighton East">
-      <img class="ph ratio-square" style="background:none;border:none;object-fit:cover;" src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-laminate-flooring-melbourne.webp" alt="Laminate flooring by JT Handyman in South Yarra">
-      <img class="ph ratio-square" style="background:none;border:none;object-fit:cover;" src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-vinyl-floor-room-melbourne.webp" alt="New vinyl floor by JT Handyman in Brighton East">
-      <img class="ph ratio-square" style="background:none;border:none;object-fit:cover;" src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-hallway-glass-door-courtyard-melbourne.webp" alt="Finished hallway with glass courtyard door by JT Handyman in Melbourne">
-      <img class="ph ratio-square" style="background:none;border:none;object-fit:cover;" src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-verandah-bracket-carpentry-melbourne.webp" alt="Decorative verandah bracket carpentry by JT Handyman in Keilor">
-      <img class="ph ratio-square" style="background:none;border:none;object-fit:cover;" src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-verandah-posts-carpentry-melbourne.webp" alt="Verandah posts and brackets by JT Handyman in Doncaster">
+    <div class="grid grid-3" style="gap:20px;">
+      <div style="border-radius:16px;overflow:hidden;border:2px solid #0c0d0f;aspect-ratio:4/3;"><img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-finished-bathroom-vanity-melbourne.webp" alt="Finished bathroom vanity by JT Handyman in Reservoir" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <div style="border-radius:16px;overflow:hidden;border:2px solid #0c0d0f;aspect-ratio:4/3;"><img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-tiled-shower-glass-screen-melbourne.webp" alt="Tiled shower with glass screen by JT Handyman in East Melbourne" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <div style="border-radius:16px;overflow:hidden;border:2px solid #0c0d0f;aspect-ratio:4/3;"><img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-hallway-glass-door-courtyard-melbourne.webp" alt="Finished hallway with glass courtyard door by JT Handyman in Melbourne" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <div style="border-radius:16px;overflow:hidden;border:2px solid #0c0d0f;aspect-ratio:4/3;"><img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-finished-timber-floor-melbourne.webp" alt="Finished timber floor by JT Handyman in Brunswick" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <div style="border-radius:16px;overflow:hidden;border:2px solid #0c0d0f;aspect-ratio:4/3;"><img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-verandah-posts-carpentry-melbourne.webp" alt="Verandah posts and brackets by JT Handyman in Doncaster" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <div style="border-radius:16px;overflow:hidden;border:2px solid #0c0d0f;aspect-ratio:4/3;"><img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-bathroom-cabinet-nook-melbourne.webp" alt="Bathroom cabinet and tiled nook by JT Handyman in Keilor Downs" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
     </div>
     <div class="text-center" style="margin-top:28px;">
       <a href="our-work.html" class="btn btn-ghost">View all our work →</a>
@@ -441,9 +466,44 @@ body.modal-open { overflow:hidden; }
   </div>
 </section>
 
+<section class="section band-white">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Got questions?</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><div class="card-body">
+        <h3>How fast can I get a quote?</h3>
+        <p>Answer a few quick questions and get a real price back, often instant. No waiting days for a callback.</p>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <h3>Do you handle every trade, or just some?</h3>
+        <p>Every trade is ours, in-house — carpentry, painting, plastering, plumbing, tiling and more. One team, one point of contact for the whole job.</p>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <h3>What areas do you service?</h3>
+        <p>Melbourne-wide, including the inner north &amp; east and bayside &amp; south-east. Not sure if you're covered? Give us a call and ask.</p>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <h3>Is the work guaranteed?</h3>
+        <p>Yes — every job is backed by our workmanship guarantee. If something isn't right, we make it right.</p>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <h3>Do I need to be home for the quote?</h3>
+        <p>Not necessarily — many quotes can be done from a few photos and details. We'll let you know if an on-site look is needed.</p>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <h3>How do I know the price is fair?</h3>
+        <p>Our quoting is based on real JT pricing, and every job is photographed before and after so you can see exactly what you're paying for.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
 <section class="section band-dark">
   <div class="container cta-band">
-    <h2>Stop chasing trades. Get your instant quote.</h2>
+    <h2 style="color:#fff;">Stop chasing trades.<br><span style="color:#e7161f;">Get your instant quote.</span></h2>
     <div class="cta-row">
       <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Get an Instant Quote</a>
       <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
@@ -540,6 +600,29 @@ body.modal-open { overflow:hidden; }
       document.body.classList.remove('modal-open');
     }
   });
+
+  function toggleVid(id) {
+    var vid = document.getElementById(id);
+    var btn = document.getElementById(id + 'Play');
+    if (vid.paused) {
+      vid.play();
+      btn.style.display = 'none';
+    } else {
+      vid.pause();
+      btn.style.display = 'flex';
+    }
+  }
+
+  function unmuteVid(id) {
+    var vid = document.getElementById(id);
+    var soundLabel = document.getElementById(id + 'Sound');
+    vid.muted = !vid.muted;
+    soundLabel.textContent = vid.muted ? '🔊 Tap for sound' : '🔇 Mute';
+    if (vid.paused) {
+      vid.play();
+      document.getElementById(id + 'Play').style.display = 'none';
+    }
+  }
 </script>
 
 <script src="js/main.js"></script>
