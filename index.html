@@ -19,7 +19,18 @@
 .job-ticker{ background:#0c0d0f; border-bottom:1px solid rgba(255,255,255,.08); padding:.5rem 0; }
 .job-ticker-inner{ max-width:1160px; margin:0 auto; padding:0 22px; display:flex; align-items:center; gap:14px; }
 .job-ticker-badge{ flex:none; background:#e7161f; color:#fff; font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:.3rem .7rem; border-radius:999px; }
-.job-ticker-track{ color:rgba(255,255,255,.85); font-size:.85rem; overflow:hidden; }
+.job-ticker-track{ color:rgba(255,255,255,.85); font-size:.85rem; overflow:hidden; white-space:nowrap; flex:1; position:relative; }
+.job-ticker-marquee{ display:inline-flex; gap:40px; animation:jtScroll 28s linear infinite; }
+.job-ticker-track:hover .job-ticker-marquee{ animation-play-state:paused; }
+@keyframes jtScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+.job-ticker-item::before{ content:"●"; color:#e7161f; font-size:.6rem; margin-right:8px; vertical-align:middle; }
+
+.testi-marquee-wrap{ overflow:hidden; -webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); }
+.testi-marquee{ display:flex; gap:20px; width:max-content; animation:testiScroll 50s linear infinite; padding:6px 0; }
+.testi-marquee:hover{ animation-play-state:paused; }
+.testi-marquee .docket{ flex:0 0 340px; max-width:340px; }
+@keyframes testiScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+@media(max-width:600px){ .testi-marquee .docket{ flex-basis:280px; max-width:280px; } }
 .band-dark{ background:#17181b; color:#fff; }
 .band-dark h1, .band-dark h2, .band-dark h3{ color:#fff; }
 .band-dark p, .band-dark li{ color:rgba(255,255,255,.75); }
@@ -58,6 +69,12 @@
 
 body, p, li, .lede, .chip, .card, .docket{ font-family:'Rubik', Arial, sans-serif; }
 h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:'Rajdhani', Arial, sans-serif; }
+h1{ font-size:clamp(2.5rem,6.6vw,5rem) !important; line-height:1.02 !important; font-weight:700 !important; letter-spacing:-.01em; }
+h2{ font-size:clamp(1.9rem,4.6vw,3.4rem) !important; line-height:1.06 !important; font-weight:700 !important; letter-spacing:-.01em; }
+h3{ font-size:clamp(1.2rem,2.2vw,1.55rem) !important; line-height:1.15 !important; font-weight:600 !important; }
+.eyebrow{ font-size:.8rem !important; letter-spacing:.14em !important; text-transform:uppercase; font-weight:700 !important; }
+.lede, p.lede{ font-size:clamp(1.05rem,1.6vw,1.28rem) !important; line-height:1.55; }
+p{ font-size:1.02rem; line-height:1.65; }
 
 /* ---- Consistent true-black across header, ticker, dark bands, footer ---- */
 :root{ --true-black:#0c0d0f; }
@@ -69,6 +86,23 @@ h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:'Rajdhani', Arial, sans
 
 .band-dark{ background:var(--true-black) !important; }
 .site-footer{ background:var(--true-black) !important; }
+
+.site-header{ background:var(--true-black) !important; border-bottom:1px solid rgba(255,255,255,.08); padding:16px 0; }
+.header-inner{ display:flex !important; align-items:center !important; justify-content:space-between !important; gap:36px; flex-wrap:nowrap; }
+.brand{ display:flex; align-items:center; gap:12px; }
+.brand-mark{ font-size:1.7rem; }
+.brand-text{ font-size:1.05rem; line-height:1.25; }
+.brand-text small{ display:block; font-size:.72rem; opacity:.65; font-weight:400; }
+.main-nav ul{ display:flex; align-items:center; gap:32px; margin:0; padding:0; list-style:none; }
+.main-nav a{ font-size:.95rem; padding:6px 0; }
+.header-actions{ display:flex; align-items:center; gap:22px; flex:none; }
+.header-actions .phone-link{ white-space:nowrap; font-size:.95rem; }
+.header-actions .btn{ white-space:nowrap; padding:.7rem 1.4rem; }
+.video-card{ border:2px solid #0c0d0f !important; }
+@media(max-width:900px){
+  .main-nav{ display:none; }
+  .header-actions .phone-link{ display:none; }
+}
 
 /* ---- Instant quote modal (matches real LP behavior) ---- */
 .qmodal { position:fixed; inset:0; z-index:1000; display:none; align-items:center; justify-content:center;
@@ -95,15 +129,6 @@ body.modal-open { overflow:hidden; }
 </head>
 <body>
 <div class="top-strip">Property Repairs &amp; Maintenance · JT Handyman Solutionz · Melbourne-wide</div>
-
-<div class="job-ticker">
-  <div class="job-ticker-inner">
-    <span class="job-ticker-badge">Just completed</span>
-    <div class="job-ticker-track" data-job-ticker>
-      <span class="job-ticker-item show">Loading recent JT jobs…</span>
-    </div>
-  </div>
-</div>
 
 <header class="site-header">
   <div class="container header-inner">
@@ -133,6 +158,36 @@ body.modal-open { overflow:hidden; }
     </div>
   </div>
 </header>
+
+<div class="job-ticker">
+  <div class="job-ticker-inner">
+    <span class="job-ticker-badge">Just completed</span>
+    <div class="job-ticker-track" data-job-ticker>
+      <span class="job-ticker-item show">Loading recent JT jobs…</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(async function () {
+  const track = document.querySelector('[data-job-ticker]');
+  if (!track) return;
+  try {
+    const res = await fetch('/api/jobs');
+    if (!res.ok) throw new Error('Failed to load jobs');
+    const data = await res.json();
+    if (!data.jobs || data.jobs.length === 0) {
+      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant quote today.</span>';
+      return;
+    }
+    const itemsHtml = data.jobs.map(job => `<span class="job-ticker-item">${job.category} completed — ${job.suburb}</span>`).join('');
+    track.innerHTML = `<div class="job-ticker-marquee">${itemsHtml}${itemsHtml}</div>`;
+  } catch (err) {
+    console.error('Job ticker error:', err);
+    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant quote today.</span>';
+  }
+})();
+</script>
 
 <section class="hero band-white text-center">
   <div class="container" style="max-width:820px;">
@@ -198,9 +253,8 @@ body.modal-open { overflow:hidden; }
 
 <section class="section text-center band-grey">
   <div class="container">
-    <span class="eyebrow">Renovations take time. Your quote shouldn't.</span>
-    <h2>One call, not five.</h2>
-    <p class="lede" style="margin:0 auto;">One team handles every trade in-house, and your quote comes back fast, often instant. 2026 moves fast; you should too.</p>
+    <h2>Renovations take time.<br><span style="color:#e7161f;">Your quote shouldn't.</span></h2>
+    <p class="lede" style="margin:0 auto;">One call, not five. One team handles every trade in-house, and your quote comes back fast, often instant. 2026 moves fast; you should too.</p>
     <div class="cta-row" style="justify-content:center;">
       <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Get an Instant Quote</a>
     </div>
@@ -242,13 +296,17 @@ body.modal-open { overflow:hidden; }
         <li>Silence through the job, no updates, no idea where it's at</li>
       </ul>
     </div>
-    <img class="panel-media" style="border-radius:var(--radius);" src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/jt-property-repair-melbourne-4.webp" alt="A property mid-repair before JT took over">
+    <div class="panel-media" style="border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;">
+      <img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/jt-property-repair-melbourne-4.webp" alt="A property mid-repair before JT took over" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
   </div>
 </section>
 
 <section class="section band-white">
   <div class="container panel reverse">
-    <img class="panel-media" style="border-radius:var(--radius);" src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/jabez-jt-handyman-founder.webp" alt="The JT team completing works in-house">
+    <div class="panel-media" style="border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;">
+      <img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/jabez-jt-handyman-founder.webp" alt="The JT team completing works in-house" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
     <div>
       <span class="eyebrow">How JT does it</span>
       <h2>One team.<br><span class="accent">Every trade. In-house.</span></h2>
@@ -438,47 +496,85 @@ body.modal-open { overflow:hidden; }
 </section>
 
 <section class="section band-white">
-  <div class="container">
-    <div class="section-head">
+  <div class="container" style="max-width:none;">
+    <div class="section-head" style="max-width:760px;margin-left:auto;margin-right:auto;">
       <span class="eyebrow">What clients say</span>
       <h2>On time. To a high standard.</h2>
       <p>Rated <strong>5.0</strong> across dozens of Melbourne reviews.</p>
     </div>
-    <div class="grid grid-3">
-      <div class="docket">
-        <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
-        <blockquote>Jabez took exceptional care of my apartment, ensuring everything was completed on time and to a high standard.</blockquote>
-        <cite>Matthew E<span>Homeowner</span></cite>
-      </div>
-      <div class="docket">
-        <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
-        <blockquote>Professional and efficient from the administration staff and the handyman. The job was done effectively and efficiently. I certainly would recommend JT.</blockquote>
-        <cite>Sandie F<span>Property Manager</span></cite>
-      </div>
-      <div class="docket">
-        <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
-        <blockquote>One of the most professional companies that have ever done work for me. Jabez leads his team efficiently and moves systematically throughout the job, completing everything in the timeframe you require.</blockquote>
-        <cite>Daniel R<span>Real Estate Agent</span></cite>
-      </div>
-      <div class="docket">
-        <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
-        <blockquote>Jabez and Ryan helped me with the very challenging job of getting a place ready for rental. Nothing was too much trouble and his work was excellent. Very reliable and honest, I'd highly recommend him.</blockquote>
-        <cite>Karen M<span>Landlord</span></cite>
-      </div>
-      <div class="docket">
-        <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
-        <blockquote>They repaired a damaged door frame the same day it was reported. Their fast response time made all the difference.</blockquote>
-        <cite>Priya S<span>Property Manager</span></cite>
-      </div>
-      <div class="docket">
-        <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
-        <blockquote>He identified a cheaper fix than what other contractors had quoted, and spotted a couple of extra problems and fixed them on the spot.</blockquote>
-        <cite>James T<span>Homeowner</span></cite>
-      </div>
-      <div class="docket">
-        <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
-        <blockquote>He explained what caused each problem rather than just fixing the symptom, so I had confidence the repair would actually last.</blockquote>
-        <cite>Anthony C<span>Landlord</span></cite>
+    <div class="testi-marquee-wrap">
+      <div class="testi-marquee">
+        <div class="docket">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>Jabez took exceptional care of my apartment, ensuring everything was completed on time and to a high standard.</blockquote>
+          <cite>Matthew E<span>Homeowner</span></cite>
+        </div>
+        <div class="docket">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>Professional and efficient from the administration staff and the handyman. The job was done effectively and efficiently. I certainly would recommend JT.</blockquote>
+          <cite>Sandie F<span>Property Manager</span></cite>
+        </div>
+        <div class="docket">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>One of the most professional companies that have ever done work for me. Jabez leads his team efficiently and moves systematically throughout the job, completing everything in the timeframe you require.</blockquote>
+          <cite>Daniel R<span>Real Estate Agent</span></cite>
+        </div>
+        <div class="docket">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>Jabez and Ryan helped me with the very challenging job of getting a place ready for rental. Nothing was too much trouble and his work was excellent. Very reliable and honest, I'd highly recommend him.</blockquote>
+          <cite>Karen M<span>Landlord</span></cite>
+        </div>
+        <div class="docket">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>They repaired a damaged door frame the same day it was reported. Their fast response time made all the difference.</blockquote>
+          <cite>Priya S<span>Property Manager</span></cite>
+        </div>
+        <div class="docket">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>He identified a cheaper fix than what other contractors had quoted, and spotted a couple of extra problems and fixed them on the spot.</blockquote>
+          <cite>James T<span>Homeowner</span></cite>
+        </div>
+        <div class="docket">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>He explained what caused each problem rather than just fixing the symptom, so I had confidence the repair would actually last.</blockquote>
+          <cite>Anthony C<span>Landlord</span></cite>
+        </div>
+        <!-- duplicate set for seamless loop -->
+        <div class="docket">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>Jabez took exceptional care of my apartment, ensuring everything was completed on time and to a high standard.</blockquote>
+          <cite>Matthew E<span>Homeowner</span></cite>
+        </div>
+        <div class="docket">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>Professional and efficient from the administration staff and the handyman. The job was done effectively and efficiently. I certainly would recommend JT.</blockquote>
+          <cite>Sandie F<span>Property Manager</span></cite>
+        </div>
+        <div class="docket">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>One of the most professional companies that have ever done work for me. Jabez leads his team efficiently and moves systematically throughout the job, completing everything in the timeframe you require.</blockquote>
+          <cite>Daniel R<span>Real Estate Agent</span></cite>
+        </div>
+        <div class="docket">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>Jabez and Ryan helped me with the very challenging job of getting a place ready for rental. Nothing was too much trouble and his work was excellent. Very reliable and honest, I'd highly recommend him.</blockquote>
+          <cite>Karen M<span>Landlord</span></cite>
+        </div>
+        <div class="docket">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>They repaired a damaged door frame the same day it was reported. Their fast response time made all the difference.</blockquote>
+          <cite>Priya S<span>Property Manager</span></cite>
+        </div>
+        <div class="docket">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>He identified a cheaper fix than what other contractors had quoted, and spotted a couple of extra problems and fixed them on the spot.</blockquote>
+          <cite>James T<span>Homeowner</span></cite>
+        </div>
+        <div class="docket">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>He explained what caused each problem rather than just fixing the symptom, so I had confidence the repair would actually last.</blockquote>
+          <cite>Anthony C<span>Landlord</span></cite>
+        </div>
       </div>
     </div>
   </div>
