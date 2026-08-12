@@ -30,6 +30,24 @@ async function fetchWithTimeout(url, options = {}, timeoutMs = 20000) {
   }
 }
 
+// ---- Manual exclude list ----
+// The document/screenshot heuristic below is approximate, not perfect —
+// when you spot a bad photo (invoice, screenshot, irrelevant shot) slip
+// through into the gallery, grab its UUID from the image URL shown in
+// your browser (e.g. /api/photo/THIS-PART-HERE) and add it below.
+// It'll be excluded from the gallery immediately on next cache refresh.
+const EXCLUDED_PHOTO_UUIDS = [
+  '63a1cb24-908e-4120-88d3-21cff29ba14a', // invoice/document photo, Carpentry & Doors job, South Yarra
+  'cd3b7c0c-5db4-4a43-8ada-21ceab1f9dda', // timber photo mislabeled "Plumbing & Leaks", Ringwood North
+  '494cc103-50af-4c01-8547-21d18448ffaa', // gate-latch photo mislabeled "Bathrooms & Tiling", Malvern
+  '79e20d92-67c9-4228-8053-21f8c70f75ba', // flagged as unsuitable/mismatched
+  '90ae48b8-9563-43d2-a5b5-21db3d3426ca', // flagged as unsuitable/mismatched
+  'be1f407e-c1e3-4b83-9880-21d6f96e1faa', // flagged as unsuitable/mismatched
+  '005ec7a2-77f9-4fca-8b12-21ea7b14f1ea', // flagged as unsuitable/mismatched
+  '2db9ef79-dfbd-4a56-b64e-21d8ea4ea07a', // flagged as unsuitable/mismatched
+  '02714d50-0eb2-41c3-aa4e-21d5b244e7fa', // flagged as unsuitable/mismatched
+];
+
 // ---- Trade category derived from job description keywords ----
 const TRADE_KEYWORDS = [
   { label: 'Bathrooms & Tiling', words: ['bathroom', 'shower', 'tile', 'tiling', 'grout', 'waterproof', 'vanity'] },
@@ -82,10 +100,10 @@ async function looksLikeDocument(buffer) {
     const whiteRatio = whiteish / pixelCount;
     const avgSaturation = totalSaturationSum / pixelCount;
 
-    // Tuned thresholds — a page of text/invoice is typically >55% near-white
+    // Tuned thresholds — a page of text/invoice is typically >45% near-white
     // background AND very low average saturation. Real photos of finished
     // trade work (tiles, timber, brick, paint) are rarely both at once.
-    const isDocument = whiteRatio > 0.55 && avgSaturation < 0.12;
+    const isDocument = whiteRatio > 0.45 && avgSaturation < 0.10;
     return isDocument;
   } catch (err) {
     console.error('[photo-analysis] error, assuming OK:', err.message);
@@ -93,24 +111,23 @@ async function looksLikeDocument(buffer) {
   }
 }
 
-async function getBestJobPhoto(apiKey, photoUuids) {
-  // photoUuids is already newest-first. Check each until we find one that
-  // doesn't look like a document/screenshot; fall back to newest if none pass.
-  for (const uuid of photoUuids.slice(0, 5)) { // cap at 5 checks per job to keep this fast
+async function getBestJobPhoto(apiKey, photos) {
+  // photos is already newest-first, each { uuid, text }.
+  for (const photo of photos.slice(0, 5)) { // cap at 5 checks per job to keep this fast
     try {
-      const fileRes = await fetchWithTimeout(`https://api.servicem8.com/api_1.0/attachment/${uuid}.file`, {
+      const fileRes = await fetchWithTimeout(`https://api.servicem8.com/api_1.0/attachment/${photo.uuid}.file`, {
         headers: { 'X-API-Key': apiKey }
       }, 15000);
       if (!fileRes.ok) continue;
       const buffer = Buffer.from(await fileRes.arrayBuffer());
       const isDoc = await looksLikeDocument(buffer);
-      if (!isDoc) return uuid;
+      if (!isDoc) return photo;
     } catch (err) {
-      console.error('[gallery] photo check failed for', uuid, err.message);
+      console.error('[gallery] photo check failed for', photo.uuid, err.message);
       continue;
     }
   }
-  return photoUuids[0]; // fallback: newest photo, even if we couldn't confirm it's ideal
+  return photos[0]; // fallback: newest photo, even if we couldn't confirm it's ideal
 }
 
 app.get('/api/jobs', async (req, res) => {
@@ -161,11 +178,11 @@ app.get('/api/gallery', async (req, res) => {
 
     const completedJobs = allJobs.filter(job =>
       job.completion_date && job.completion_date !== '0000-00-00 00:00:00' && job.generated_job_id !== 'SAMPLE'
-    ).slice(0, 25); // cap how many jobs we deep-analyze photos for, to keep this reasonably fast
+    ).slice(0, 60); // cap how many jobs we deep-analyze photos for, to keep this reasonably fast
 
     console.log('[gallery] fetching attachments...');
     const attUrl = 'https://api.servicem8.com/api_1.0/attachment.json' +
-      '?$orderby=' + encodeURIComponent('timestamp desc') + '&$top=150';
+      '?$orderby=' + encodeURIComponent('timestamp desc') + '&$top=250';
     const attRes = await fetchWithTimeout(attUrl, { headers: { 'X-API-Key': API_KEY, 'Accept': 'application/json' } }, 25000);
     const attachments = attRes.ok ? await attRes.json() : [];
     console.log('[gallery] attachments received:', attachments.length);
@@ -174,10 +191,17 @@ app.get('/api/gallery', async (req, res) => {
     attachments.forEach(att => {
       const isImage = ['.jpg', '.jpeg', '.png', '.webp'].includes((att.file_type || '').toLowerCase());
       const isJobAttachment = att.related_object === 'job';
-      if (!isImage || !isJobAttachment || !att.active) return;
+      const isExcluded = EXCLUDED_PHOTO_UUIDS.includes(att.uuid);
+      if (!isImage || !isJobAttachment || !att.active || isExcluded) return;
       const jobUuid = att.related_object_uuid;
       if (!photosByJob[jobUuid]) photosByJob[jobUuid] = [];
-      photosByJob[jobUuid].push(att.uuid); // attachments already newest-first from the API sort
+      // Keep the per-photo text fields too — these describe THIS photo
+      // specifically, which is more accurate than the whole job's
+      // description for a multi-service job.
+      photosByJob[jobUuid].push({
+        uuid: att.uuid,
+        text: [att.attachment_name, att.tags, att.extracted_info].filter(Boolean).join(' ')
+      });
     });
 
     const jobsWithPhotos = completedJobs.filter(job => photosByJob[job.uuid] && photosByJob[job.uuid].length > 0);
@@ -185,12 +209,19 @@ app.get('/api/gallery', async (req, res) => {
 
     // Analyze photos per job to find the best one (skip documents/screenshots)
     const galleryItems = [];
-    for (const job of jobsWithPhotos.slice(0, 40)) {
-      const bestUuid = await getBestJobPhoto(API_KEY, photosByJob[job.uuid]);
+    for (const job of jobsWithPhotos.slice(0, 60)) {
+      const bestPhoto = await getBestJobPhoto(API_KEY, photosByJob[job.uuid]);
+      // Prefer the specific photo's own text (filename/tags/extracted info)
+      // for categorizing — falls back to the whole job description only if
+      // the photo itself carries no useful text (often the case, since most
+      // photos are just auto-named by the phone camera).
+      const categorySource = bestPhoto.text && bestPhoto.text.trim().length > 3
+        ? bestPhoto.text
+        : (job.work_done_description || job.job_description);
       galleryItems.push({
-        category: guessTrade(job.work_done_description || job.job_description),
+        category: guessTrade(categorySource),
         suburb: job.geo_city || 'Melbourne',
-        photoUrl: `/api/photo/${bestUuid}`
+        photoUrl: `/api/photo/${bestPhoto.uuid}`
       });
     }
 
