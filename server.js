@@ -5,6 +5,9 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+let galleryCache = null;
+let galleryCacheTime = 0;
+const GALLERY_CACHE_MS = 15 * 60 * 1000; // 15 minutes
 
 app.use(express.static(path.join(__dirname)));
 
@@ -80,6 +83,15 @@ app.get('/api/gallery', async (req, res) => {
   const API_KEY = process.env.SERVICEM8_API_KEY;
   if (!API_KEY) return res.status(500).json({ error: 'Missing SERVICEM8_API_KEY in .env' });
 
+  // Serve from cache if it's fresh — the attachments fetch is heavy
+  // (ServiceM8 returns its full attachment history regardless of $top),
+  // so we don't want to re-run it on every single page load.
+  const now = Date.now();
+  if (galleryCache && (now - galleryCacheTime) < GALLERY_CACHE_MS) {
+    console.log('[gallery] serving from cache');
+    return res.json({ items: galleryCache });
+  }
+
   try {
     console.log('[gallery] fetching jobs...');
     const jobsUrl = 'https://api.servicem8.com/api_1.0/job.json' +
@@ -121,6 +133,8 @@ app.get('/api/gallery', async (req, res) => {
       }));
 
     console.log('[gallery] final items:', galleryItems.length);
+    galleryCache = galleryItems;
+    galleryCacheTime = now;
     res.json({ items: galleryItems });
   } catch (err) {
     console.error('[gallery] ERROR:', err.message);
