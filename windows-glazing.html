@@ -24,11 +24,12 @@
 @font-face{font-family:'Rajdhani';font-style:normal;font-weight:500;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rajdhani-500.woff2') format('woff2');}
 @font-face{font-family:'Rajdhani';font-style:normal;font-weight:600;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rajdhani-600.woff2') format('woff2');}
 @font-face{font-family:'Rajdhani';font-style:normal;font-weight:700;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rajdhani-700.woff2') format('woff2');}
+@font-face{font-family:'Rajdhani Fallback';src:local('Arial Narrow'),local('Arial');ascent-override:90%;descent-override:22%;line-gap-override:0%;size-adjust:90%;}
 @font-face{font-family:'Rubik';font-style:normal;font-weight:400;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rubik-400.woff2') format('woff2');}
 @font-face{font-family:'Rubik';font-style:normal;font-weight:500;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rubik-500.woff2') format('woff2');}
 @font-face{font-family:'Rubik';font-style:normal;font-weight:600;font-display:swap;src:url('https://lp.jthandymansolutionz.com.au/assets/fonts/rubik-600.woff2') format('woff2');}
 body, p, li, .lede, .chip, .card, .docket{ font-family:'Rubik', Arial, sans-serif; }
-h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:'Rajdhani', Arial, sans-serif; }
+h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:"Rajdhani", "Rajdhani Fallback", "Rubik", sans-serif; }
 
 :root{ --true-black:#0c0d0f; }
 .site-header{ background:var(--true-black) !important; border-bottom:1px solid rgba(255,255,255,.08); }
@@ -42,6 +43,27 @@ h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:'Rajdhani', Arial, sans
 
 .photo-frame{ border-radius:14px; overflow:hidden; border:1px solid #e5e8ec; aspect-ratio:4/3; }
 .photo-frame img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+.job-ticker{ background:#0c0d0f; border-top:2px solid #e7161f; padding:.5rem 0; }
+.job-ticker-inner{ max-width:1160px; margin:0 auto; padding:0 22px; display:flex; align-items:center; gap:14px; }
+.job-ticker-badge{ flex:none; background:#e7161f; color:#fff; font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:.3rem .7rem; border-radius:999px; }
+.job-ticker-track{ color:rgba(255,255,255,.85); font-size:.85rem; overflow:hidden; white-space:nowrap; flex:1; position:relative; }
+.job-ticker-marquee{ display:inline-flex; gap:40px; animation:jtScroll 28s linear infinite; }
+.job-ticker-track:hover .job-ticker-marquee{ animation-play-state:paused; }
+@keyframes jtScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+.job-ticker-item::before{ content:"✓"; color:#22c55e; font-weight:700; margin-right:8px; vertical-align:middle; }
+.header-inner{ display:flex !important; align-items:center !important; gap:0; flex-wrap:nowrap; }
+.main-nav{ display:flex; margin-left:56px; }
+.main-nav ul{ display:flex; align-items:center; gap:26px; margin:0; padding:0; list-style:none; }
+.main-nav a{ font-size:.95rem; padding:6px 0; white-space:nowrap; }
+.header-actions{ display:flex; align-items:center; gap:22px; flex:none; margin-left:auto; padding-left:24px; }
+.header-actions .phone-link{ white-space:nowrap; font-size:.95rem; transition:opacity .2s ease; }
+.header-actions .phone-link:hover{ opacity:.55; }
+.header-actions .btn{ white-space:nowrap; padding:.7rem 1.4rem; margin-left:14px; }
+@media(max-width:900px){
+  .main-nav{ display:none; }
+  .header-actions .phone-link{ display:none; }
+}
 
 .qmodal { position:fixed; inset:0; z-index:1000; display:none; align-items:center; justify-content:center; padding:clamp(10px,2vw,28px); }
 .qmodal.open { display:flex; }
@@ -59,20 +81,10 @@ body.modal-open { overflow:hidden; }
 <body>
 <div class="top-strip">Property Repairs &amp; Maintenance · JT Handyman Solutionz · Melbourne-wide</div>
 
-<div class="job-ticker">
-  <div class="job-ticker-inner">
-    <span class="job-ticker-badge">Just completed</span>
-    <div class="job-ticker-track" data-job-ticker>
-      <span class="job-ticker-item show">Loading recent JT jobs…</span>
-    </div>
-  </div>
-</div>
-
 <header class="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="brand">
-      <span class="brand-mark">JT</span>
-      <span class="brand-text">JT Handyman Solutionz<small>Melbourne · Property Repairs</small></span>
+    <a href="index.html" class="brand" style="display:flex;align-items:center;">
+      <img src="img/work/jt-logo-correct.png" alt="JT Handyman Solutionz" style="height:64px;width:auto;display:block;">
     </a>
 
     <nav class="main-nav" id="main-nav">
@@ -96,6 +108,36 @@ body.modal-open { overflow:hidden; }
     </div>
   </div>
 </header>
+
+<div class="job-ticker">
+  <div class="job-ticker-inner">
+    <span class="job-ticker-badge">Just completed</span>
+    <div class="job-ticker-track" data-job-ticker>
+      <span class="job-ticker-item show">Loading recent JT jobs…</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(async function () {
+  const track = document.querySelector('[data-job-ticker]');
+  if (!track) return;
+  try {
+    const res = await fetch('/api/jobs');
+    if (!res.ok) throw new Error('Failed to load jobs');
+    const data = await res.json();
+    if (!data.jobs || data.jobs.length === 0) {
+      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant quote today.</span>';
+      return;
+    }
+    const itemsHtml = data.jobs.map(job => `<span class="job-ticker-item">${job.category} completed — ${job.suburb}</span>`).join('');
+    track.innerHTML = `<div class="job-ticker-marquee">${itemsHtml}${itemsHtml}</div>`;
+  } catch (err) {
+    console.error('Job ticker error:', err);
+    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant quote today.</span>';
+  }
+})();
+</script>
 
 <section class="hero band-white">
   <div class="container hero-grid">
@@ -210,7 +252,7 @@ body.modal-open { overflow:hidden; }
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <span class="brand-mark">JT</span> JT Handyman Solutionz
+          <img src="img/work/jt-icon-mark-correct.png" alt="JT Handyman Solutionz" style="height:36px;width:auto;vertical-align:middle;margin-right:8px;"> JT Handyman Solutionz
         </div>
         <p style="margin-top:12px;max-width:260px;">One team, one point of contact, one-stop shop for property repairs &amp; maintenance across Melbourne.</p>
       </div>
