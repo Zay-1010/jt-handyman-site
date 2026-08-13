@@ -1,5 +1,5 @@
 // ============================================
-// Shared site behaviour — nav, ticker, filters
+// Shared site behaviour — nav, filters
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -38,69 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Recent jobs feed (ticker + recent-jobs page list) ---
-  // Pulls from our backend, which proxies ServiceM8 and strips any
-  // personal/address details — only job category, suburb and date.
-  loadRecentJobs();
+  // NOTE: the recent-jobs ticker + list feed used to be loaded from here,
+  // but that duplicated (and conflicted with) the working fetch scripts
+  // already embedded directly in each page (index.html's ticker script,
+  // recent-jobs.html's list script, etc). Removed to fix a bug where this
+  // older version — expecting a different API response shape — was
+  // silently overwriting the correctly-loaded real data with fallback
+  // placeholder text a few seconds after page load.
+
 });
-
-async function loadRecentJobs() {
-  const tickerTrack = document.querySelector('[data-job-ticker]');
-  const listTarget = document.querySelector('[data-job-list]');
-  if (!tickerTrack && !listTarget) return;
-
-  try {
-    const res = await fetch('/api/recent-jobs');
-    if (!res.ok) throw new Error('feed unavailable');
-    const jobs = await res.json();
-    if (!Array.isArray(jobs) || jobs.length === 0) throw new Error('empty');
-
-    if (tickerTrack) {
-      tickerTrack.innerHTML = jobs.map((j, i) =>
-        `<span class="job-ticker-item${i === 0 ? ' show' : ''}">${j.category} — <span class="muted">${j.suburb} · ${j.date}</span></span>`
-      ).join('');
-      let idx = 0;
-      const items = tickerTrack.querySelectorAll('.job-ticker-item');
-      if (items.length > 1) {
-        setInterval(() => {
-          items[idx].classList.remove('show');
-          idx = (idx + 1) % items.length;
-          items[idx].classList.add('show');
-        }, 3200);
-      }
-    }
-
-    if (listTarget) {
-      listTarget.innerHTML = jobs.map(j => `
-        <div class="docket">
-          <div class="docket-head">
-            <strong>${j.category}</strong>
-            <span class="docket-id">JOB #${j.ref}</span>
-          </div>
-          <p style="margin:0;color:var(--slate);font-size:.9rem;">${j.suburb}, VIC · Completed ${j.date}</p>
-        </div>
-      `).join('');
-    }
-  } catch (e) {
-    // Fallback placeholder state — shown until ServiceM8 API is connected
-    const fallback = [
-      { category: 'Bathroom & tiling', suburb: 'Reservoir', date: 'this week' },
-      { category: 'Carpentry & doors', suburb: 'Brunswick', date: 'this week' },
-      { category: 'Fencing & gates', suburb: 'South Yarra', date: 'last week' },
-    ];
-    if (tickerTrack) {
-      tickerTrack.innerHTML = fallback.map((j, i) =>
-        `<span class="job-ticker-item${i === 0 ? ' show' : ''}">${j.category} — <span class="muted">${j.suburb} · ${j.date}</span></span>`
-      ).join('');
-    }
-    if (listTarget) {
-      listTarget.innerHTML = `<p style="color:var(--slate);">Live feed connects once the ServiceM8 API key is added on the server (see README). Showing placeholder jobs for now.</p>` +
-        fallback.map(j => `
-          <div class="docket">
-            <div class="docket-head"><strong>${j.category}</strong><span class="docket-id">PLACEHOLDER</span></div>
-            <p style="margin:0;color:var(--slate);font-size:.9rem;">${j.suburb}, VIC · Completed ${j.date}</p>
-          </div>
-        `).join('');
-    }
-  }
-}
