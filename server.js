@@ -15,6 +15,9 @@ let galleryCache = null;
 let galleryCacheTime = 0;
 const GALLERY_CACHE_MS = 15 * 60 * 1000; // 15 minutes
 const MAX_GALLERY_ITEMS = 16; // how many photos actually show on the page — keep this small enough to review/curate easily
+const RECENT_JOBS_CACHE_MS = 10 * 60 * 1000; // 10 minutes — shorter, since this page should feel "live"
+let recentJobsCache = null;
+let recentJobsCacheTime = 0;
 
 app.use(express.static(path.join(__dirname)));
 
@@ -111,7 +114,12 @@ async function looksLikeDocument(buffer) {
     // Tuned thresholds — a page of text/invoice is typically >45% near-white
     // background AND very low average saturation. Real photos of finished
     // trade work (tiles, timber, brick, paint) are rarely both at once.
-    const isDocument = whiteRatio > 0.45 && avgSaturation < 0.10;
+    // Tuned thresholds — loosened further (was 0.45/0.10) so this errs
+    // toward flagging MORE things as "possibly a document" rather than
+    // fewer, since Recent Jobs is fully automated with no manual review
+    // step before a photo goes live. A missed real photo is an acceptable
+    // cost; a client's invoice slipping through publicly is not.
+    const isDocument = whiteRatio > 0.35 && avgSaturation < 0.15;
     return isDocument;
   } catch (err) {
     console.error('[photo-analysis] error, assuming OK:', err.message);
@@ -156,7 +164,7 @@ async function getBestJobPhoto(apiKey, photos) {
       continue;
     }
   }
-  return photos[0]; // fallback: newest photo, even if we couldn't confirm it's ideal
+  return null; // no candidate passed the check — better to show no photo than risk one
 }
 
 function relativeDate(dateStr) {
@@ -176,24 +184,69 @@ app.get('/api/recent-jobs', async (req, res) => {
   const API_KEY = process.env.SERVICEM8_API_KEY;
   if (!API_KEY) return res.status(500).json({ error: 'Missing SERVICEM8_API_KEY in .env' });
 
+  const now = Date.now();
+  if (recentJobsCache && (now - recentJobsCacheTime) < RECENT_JOBS_CACHE_MS) {
+    console.log('[recent-jobs] serving from cache');
+    return res.json({ jobs: recentJobsCache });
+  }
+
   try {
+    console.log('[recent-jobs] fetching jobs...');
     const url = 'https://api.servicem8.com/api_1.0/job.json' +
       '?$orderby=' + encodeURIComponent('completion_date desc') + '&$top=100';
     const smResponse = await fetchWithTimeout(url, { headers: { 'X-API-Key': API_KEY, 'Accept': 'application/json' } });
     if (!smResponse.ok) return res.status(502).json({ error: 'Failed to fetch jobs from ServiceM8' });
 
     const jobs = await smResponse.json();
-
-    const safeJobs = jobs
+    const completedJobs = jobs
       .filter(job => job.completion_date && job.completion_date !== '0000-00-00 00:00:00' && job.generated_job_id !== 'SAMPLE')
       .sort((a, b) => new Date(b.completion_date) - new Date(a.completion_date))
-      .slice(0, 40)
-      .map(job => ({
+      .slice(0, 80);
+
+    console.log('[recent-jobs] fetching attachments for thumbnails...');
+    const attUrl = 'https://api.servicem8.com/api_1.0/attachment.json' +
+      '?$orderby=' + encodeURIComponent('timestamp desc') + '&$top=250';
+    const attRes = await fetchWithTimeout(attUrl, { headers: { 'X-API-Key': API_KEY, 'Accept': 'application/json' } }, 25000);
+    const attachments = attRes.ok ? await attRes.json() : [];
+
+    const photosByJob = {};
+    attachments.forEach(att => {
+      const isImage = ['.jpg', '.jpeg', '.png', '.webp'].includes((att.file_type || '').toLowerCase());
+      const isJobAttachment = att.related_object === 'job';
+      const isExcluded = EXCLUDED_PHOTO_UUIDS.includes(att.uuid);
+      if (!isImage || !isJobAttachment || !att.active || isExcluded) return;
+      const jobUuid = att.related_object_uuid;
+      if (!photosByJob[jobUuid]) photosByJob[jobUuid] = [];
+      photosByJob[jobUuid].push({
+        uuid: att.uuid,
+        text: [att.attachment_name, att.tags, att.extracted_info].filter(Boolean).join(' ')
+      });
+    });
+
+    // Only deep-analyze photos for jobs that actually have one, and cap
+    // how many we check to keep this reasonably fast.
+    // Only keep jobs that actually have a safe, real photo to show —
+    // skip ones with no attachments, or where every candidate photo got
+    // flagged as a likely document/screenshot.
+    const safeJobs = [];
+    for (const job of completedJobs) {
+      const photos = photosByJob[job.uuid];
+      if (!photos || photos.length === 0) continue;
+
+      const bestPhoto = await getBestJobPhoto(API_KEY, photos);
+      if (!bestPhoto) continue; // every candidate looked like a document — skip this job
+
+      safeJobs.push({
         category: guessTrade(job.work_done_description || job.job_description),
         suburb: job.geo_city || 'Melbourne',
-        completed: relativeDate(job.completion_date)
-      }));
+        completed: relativeDate(job.completion_date),
+        thumbUrl: `/api/photo/${bestPhoto.uuid}`
+      });
+    }
 
+    console.log('[recent-jobs] final jobs with real photos:', safeJobs.length, 'out of', completedJobs.length, 'completed jobs checked');
+    recentJobsCache = safeJobs;
+    recentJobsCacheTime = now;
     res.json({ jobs: safeJobs });
   } catch (err) {
     console.error('[recent-jobs] error:', err.message);
@@ -282,10 +335,7 @@ app.get('/api/gallery', async (req, res) => {
     const galleryItems = [];
     for (const job of jobsWithPhotos.slice(0, MAX_GALLERY_ITEMS)) {
       const bestPhoto = await getBestJobPhoto(API_KEY, photosByJob[job.uuid]);
-      // Prefer the specific photo's own text (filename/tags/extracted info)
-      // for categorizing — falls back to the whole job description only if
-      // the photo itself carries no useful text (often the case, since most
-      // photos are just auto-named by the phone camera).
+      if (!bestPhoto) continue; // no safe photo found for this job — skip it entirely
       const categorySource = bestPhoto.text && bestPhoto.text.trim().length > 3
         ? bestPhoto.text
         : (job.work_done_description || job.job_description);
