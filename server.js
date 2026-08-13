@@ -15,9 +15,12 @@ let galleryCache = null;
 let galleryCacheTime = 0;
 const GALLERY_CACHE_MS = 15 * 60 * 1000; // 15 minutes
 const MAX_GALLERY_ITEMS = 16; // how many photos actually show on the page — keep this small enough to review/curate easily
-const RECENT_JOBS_CACHE_MS = 10 * 60 * 1000; // 10 minutes — shorter, since this page should feel "live"
+const RECENT_JOBS_CACHE_MS = 60 * 60 * 1000; // 1 hour — longer than before, since the underlying ServiceM8 attachment fetch is heavy regardless of parallelization; minimizing how often it runs matters more than freshness here
 let recentJobsCache = null;
 let recentJobsCacheTime = 0;
+let tickerCache = null;
+let tickerCacheTime = 0;
+const TICKER_CACHE_MS = 5 * 60 * 1000; // 5 minutes — this endpoint is hit on every single page load, so caching matters a lot here
 
 app.use(express.static(path.join(__dirname)));
 
@@ -93,7 +96,7 @@ function guessTrade(text) {
 // filter out obvious invoice/screenshot photos.
 async function looksLikeDocument(buffer) {
   try {
-    const img = sharp(buffer).resize(100, 100, { fit: 'inside' }); // downscale for fast analysis
+    const img = sharp(buffer).resize(36, 36, { fit: 'inside' }); // downscale further — smaller image = less CPU-bound pixel work = less chance of blocking other concurrent requests (like the ticker on other pages)
     const { data, info } = await img.raw().toBuffer({ resolveWithObject: true });
     const channels = info.channels;
     let whiteish = 0;
@@ -150,11 +153,19 @@ async function getBestJobPhoto(apiKey, photos) {
     ...scored.filter(p => p.looksLikeBefore),
   ];
 
-  for (const photo of priorityOrder.slice(0, 3)) { // cap checks per job to keep this fast
+  const candidates = priorityOrder.slice(0, 3); // cap checks per job
+
+  // Sequential, one photo at a time. Parallel checking was tried and made
+  // this endpoint faster on its own, but it saturates the process with
+  // too much concurrent work at once, delaying OTHER requests (like the
+  // ticker on other pages) that arrive at the same moment. Sequential is
+  // slower for this endpoint specifically, but keeps the process lighter
+  // moment-to-moment so everything else stays responsive.
+  for (const photo of candidates) {
     try {
       const fileRes = await fetchWithTimeout(`https://api.servicem8.com/api_1.0/attachment/${photo.uuid}.file`, {
         headers: { 'X-API-Key': apiKey }
-      }, 15000);
+      }, 8000);
       if (!fileRes.ok) continue;
       const buffer = Buffer.from(await fileRes.arrayBuffer());
       const isDoc = await looksLikeDocument(buffer);
@@ -165,6 +176,23 @@ async function getBestJobPhoto(apiKey, photos) {
     }
   }
   return null; // no candidate passed the check — better to show no photo than risk one
+}
+
+// ---- Safe display label from a photo's tag ----
+// Techs tag photos in ServiceM8 (short, clean labels like "Door repaired").
+// This is much more specific than our trade-category guess, but since it's
+// still human-typed free text, we defensively fall back to the category
+// guess if it looks too long, sentence-like, or contains anything that
+// resembles a phone number — the same category of risk we found once
+// before in the full job description field.
+function getSafeLabel(tags, fallbackCategory) {
+  if (!tags) return fallbackCategory;
+  const trimmed = tags.trim();
+  if (trimmed.length === 0 || trimmed.length > 40) return fallbackCategory;
+  const looksLikePhoneNumber = /\d[\d\s-]{7,}\d/.test(trimmed); // 8+ digits, allowing spaces/dashes
+  if (looksLikePhoneNumber) return fallbackCategory;
+  // Capitalize first letter for consistent display
+  return trimmed.charAt(0).toUpperCase() + trimmed.slice(1);
 }
 
 function relativeDate(dateStr) {
@@ -219,12 +247,11 @@ app.get('/api/recent-jobs', async (req, res) => {
       if (!photosByJob[jobUuid]) photosByJob[jobUuid] = [];
       photosByJob[jobUuid].push({
         uuid: att.uuid,
+        tags: (att.tags || '').trim(), // techs tag photos in ServiceM8 — this is the cleanest short label source when present
         text: [att.attachment_name, att.tags, att.extracted_info].filter(Boolean).join(' ')
       });
     });
 
-    // Only deep-analyze photos for jobs that actually have one, and cap
-    // how many we check to keep this reasonably fast.
     // Only keep jobs that actually have a safe, real photo to show —
     // skip ones with no attachments, or where every candidate photo got
     // flagged as a likely document/screenshot.
@@ -240,11 +267,17 @@ app.get('/api/recent-jobs', async (req, res) => {
       const bestPhoto = await getBestJobPhoto(API_KEY, photos);
       if (!bestPhoto) continue; // every candidate looked like a document — skip this job
 
+      const categoryFallback = guessTrade(job.work_done_description || job.job_description);
+
+      const rawDescription = job.work_done_description || job.job_description || '';
+
       safeJobs.push({
-        category: guessTrade(job.work_done_description || job.job_description),
+        category: getSafeLabel(bestPhoto.tags, categoryFallback),
         suburb: job.geo_city || 'Melbourne',
         completed: relativeDate(job.completion_date),
-        thumbUrl: `/api/photo/${bestPhoto.uuid}`
+        thumbUrl: `/api/photo/${bestPhoto.uuid}`,
+        _debugRawTags: bestPhoto.tags || '(empty)', // TEMPORARY — remove once we've decided on an approach
+        _debugRawDescription: rawDescription ? rawDescription.slice(0, 80) : '(empty)' // TEMPORARY — truncated, for comparison only
       });
     }
 
@@ -261,6 +294,11 @@ app.get('/api/recent-jobs', async (req, res) => {
 app.get('/api/jobs', async (req, res) => {
   const API_KEY = process.env.SERVICEM8_API_KEY;
   if (!API_KEY) return res.status(500).json({ error: 'Missing SERVICEM8_API_KEY in .env' });
+
+  const now = Date.now();
+  if (tickerCache && (now - tickerCacheTime) < TICKER_CACHE_MS) {
+    return res.json({ jobs: tickerCache });
+  }
 
   try {
     const url = 'https://api.servicem8.com/api_1.0/job.json' +
@@ -279,6 +317,8 @@ app.get('/api/jobs', async (req, res) => {
         suburb: job.geo_city || 'Melbourne'
       }));
 
+    tickerCache = safeJobs;
+    tickerCacheTime = now;
     res.json({ jobs: safeJobs });
   } catch (err) {
     console.error('[jobs] error:', err.message);
