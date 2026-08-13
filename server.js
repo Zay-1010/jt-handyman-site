@@ -15,7 +15,7 @@ let galleryCache = null;
 let galleryCacheTime = 0;
 const GALLERY_CACHE_MS = 15 * 60 * 1000; // 15 minutes
 const MAX_GALLERY_ITEMS = 16; // how many photos actually show on the page — keep this small enough to review/curate easily
-const RECENT_JOBS_CACHE_MS = 10 * 60 * 1000; // 10 minutes — shorter, since this page should feel "live"
+const RECENT_JOBS_CACHE_MS = 60 * 60 * 1000; // 1 hour — longer than before, since the underlying ServiceM8 attachment fetch is heavy regardless of parallelization; minimizing how often it runs matters more than freshness here
 let recentJobsCache = null;
 let recentJobsCacheTime = 0;
 
@@ -150,21 +150,31 @@ async function getBestJobPhoto(apiKey, photos) {
     ...scored.filter(p => p.looksLikeBefore),
   ];
 
-  for (const photo of priorityOrder.slice(0, 3)) { // cap checks per job to keep this fast
+  const candidates = priorityOrder.slice(0, 3); // cap checks per job
+
+  // Check all candidate photos for this job IN PARALLEL instead of one at a
+  // time — this is mostly network wait time, so running them concurrently
+  // cuts the real elapsed time roughly 3x, which matters a lot given
+  // Vercel's ~10s execution limit on the free tier.
+  const results = await Promise.all(candidates.map(async (photo) => {
     try {
       const fileRes = await fetchWithTimeout(`https://api.servicem8.com/api_1.0/attachment/${photo.uuid}.file`, {
         headers: { 'X-API-Key': apiKey }
-      }, 15000);
-      if (!fileRes.ok) continue;
+      }, 8000);
+      if (!fileRes.ok) return null;
       const buffer = Buffer.from(await fileRes.arrayBuffer());
       const isDoc = await looksLikeDocument(buffer);
-      if (!isDoc) return photo;
+      return isDoc ? null : photo;
     } catch (err) {
       console.error('[gallery] photo check failed for', photo.uuid, err.message);
-      continue;
+      return null;
     }
-  }
-  return null; // no candidate passed the check — better to show no photo than risk one
+  }));
+
+  // Return the first successful candidate, preserving priority order
+  // (Promise.all keeps results in the same order as input, even though
+  // the work itself ran concurrently).
+  return results.find(r => r !== null) || null;
 }
 
 function relativeDate(dateStr) {
@@ -223,29 +233,39 @@ app.get('/api/recent-jobs', async (req, res) => {
       });
     });
 
-    // Only deep-analyze photos for jobs that actually have one, and cap
-    // how many we check to keep this reasonably fast.
     // Only keep jobs that actually have a safe, real photo to show —
     // skip ones with no attachments, or where every candidate photo got
     // flagged as a likely document/screenshot.
     const RECENT_JOBS_DISPLAY_CAP = 36; // 12 rows x 3 columns
+    const BATCH_SIZE = 8; // how many jobs to analyze concurrently per round
+
+    const jobsWithPhotoAttachments = completedJobs.filter(job => {
+      const photos = photosByJob[job.uuid];
+      return photos && photos.length > 0;
+    });
 
     const safeJobs = [];
-    for (const job of completedJobs) {
-      if (safeJobs.length >= RECENT_JOBS_DISPLAY_CAP) break; // stop analyzing once we have enough
+    for (let i = 0; i < jobsWithPhotoAttachments.length && safeJobs.length < RECENT_JOBS_DISPLAY_CAP; i += BATCH_SIZE) {
+      const batch = jobsWithPhotoAttachments.slice(i, i + BATCH_SIZE);
 
-      const photos = photosByJob[job.uuid];
-      if (!photos || photos.length === 0) continue;
+      // Analyze this whole batch of jobs' photos concurrently — same
+      // parallelization principle as inside getBestJobPhoto, applied one
+      // level up. This is the main lever that keeps total time under
+      // Vercel's execution limit even when checking dozens of jobs.
+      const batchResults = await Promise.all(batch.map(async (job) => {
+        const bestPhoto = await getBestJobPhoto(API_KEY, photosByJob[job.uuid]);
+        if (!bestPhoto) return null;
+        return {
+          category: guessTrade(job.work_done_description || job.job_description),
+          suburb: job.geo_city || 'Melbourne',
+          completed: relativeDate(job.completion_date),
+          thumbUrl: `/api/photo/${bestPhoto.uuid}`
+        };
+      }));
 
-      const bestPhoto = await getBestJobPhoto(API_KEY, photos);
-      if (!bestPhoto) continue; // every candidate looked like a document — skip this job
-
-      safeJobs.push({
-        category: guessTrade(job.work_done_description || job.job_description),
-        suburb: job.geo_city || 'Melbourne',
-        completed: relativeDate(job.completion_date),
-        thumbUrl: `/api/photo/${bestPhoto.uuid}`
-      });
+      for (const result of batchResults) {
+        if (result && safeJobs.length < RECENT_JOBS_DISPLAY_CAP) safeJobs.push(result);
+      }
     }
 
     console.log('[recent-jobs] final jobs with real photos:', safeJobs.length, 'out of', completedJobs.length, 'completed jobs checked');
