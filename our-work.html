@@ -84,9 +84,12 @@ body.modal-open { overflow:hidden; }
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="brand" style="display:flex;align-items:center;gap:10px;">
-      <img src="img/work/jt-logo-correct.png" alt="JT Handyman Solutionz" style="height:52px;width:auto;display:block;">
-      <span style="font-size:.78rem;color:rgba(255,255,255,.65);line-height:1.3;">Melbourne ·<br>Property Repairs</span>
+    <a href="index.html" class="brand" style="display:flex;align-items:center;gap:12px;">
+      <img src="img/work/jt-icon-mark-correct.png" alt="JT Handyman Solutionz" style="height:40px;width:auto;display:block;">
+      <span style="line-height:1.25;">
+        <span style="display:block;font-weight:700;font-size:1.05rem;color:#fff;letter-spacing:.02em;">JT HANDYMAN</span>
+        <span style="display:block;font-size:.72rem;color:rgba(255,255,255,.6);letter-spacing:.04em;">MELBOURNE · PROPERTY REPAIRS</span>
+      </span>
     </a>
 
     <nav class="main-nav" id="main-nav">
@@ -183,76 +186,22 @@ body.modal-open { overflow:hidden; }
       <h2>Recent JT jobs across Melbourne</h2>
     </div>
 
-    <div data-filter-group=".gallery-item">
-      <div class="filter-row" id="galleryFilters">
-        <button class="filter-btn active" data-filter="all">All</button>
-      </div>
-      <p data-filter-count id="galleryCount" style="margin-bottom:24px;color:var(--slate);font-size:.9rem;">Loading recent jobs…</p>
-
-      <div class="grid grid-4" id="galleryGrid">
-        <p style="grid-column:1/-1;color:var(--slate);">Loading photos from recent completed jobs…</p>
-      </div>
+    <div class="grid grid-6" style="gap:14px;">
+      <div class="card gallery-item"><div class="ph ratio-square"><img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-finished-bathroom-vanity-melbourne.webp" alt="Finished bathroom vanity by JT Handyman in Reservoir" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="gallery-caption"><strong>Bathroom vanity renovation</strong><span>Reservoir, VIC</span></div></div>
+      <div class="card gallery-item"><div class="ph ratio-square"><img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-tiled-shower-glass-screen-melbourne.jpg" alt="Tiled shower with frameless glass screen by JT Handyman in East Melbourne" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="gallery-caption"><strong>Tiled shower with glass screen</strong><span>East Melbourne, VIC</span></div></div>
+      <div class="card gallery-item"><div class="ph ratio-square"><img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-hallway-glass-door-courtyard-melbourne.jpg" alt="Hallway with new glass courtyard door by JT Handyman in Melbourne" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="gallery-caption"><strong>Hallway &amp; glass courtyard door</strong><span>Melbourne, VIC</span></div></div>
+      <div class="card gallery-item"><div class="ph ratio-square"><img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-finished-timber-floor-melbourne.jpg" alt="Finished timber floor installed by JT Handyman in Brunswick" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="gallery-caption"><strong>Timber floor install</strong><span>Brunswick, VIC</span></div></div>
+      <div class="card gallery-item"><div class="ph ratio-square"><img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-dark-slat-fence-melbourne.jpg" alt="Dark slat fence panels built by JT Handyman in South Yarra" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="gallery-caption"><strong>Dark slat fence panels</strong><span>South Yarra, VIC</span></div></div>
+      <div class="card gallery-item"><div class="ph ratio-square"><img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-kitchen-drawers-cooktop-melbourne.jpg" alt="Kitchen drawers and cooktop installed by JT Handyman in Malvern" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="gallery-caption"><strong>Kitchen drawers &amp; cooktop</strong><span>Malvern, VIC</span></div></div>
+      <div class="card gallery-item"><div class="ph ratio-square"><img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-timber-pool-deck-melbourne.jpg" alt="New timber pool deck built by JT Handyman in Croydon Hills" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="gallery-caption"><strong>Timber pool deck</strong><span>Croydon Hills, VIC</span></div></div>
+      <div class="card gallery-item"><div class="ph ratio-square"><img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-black-framed-window-melbourne.jpg" alt="New black-framed window by JT Handyman in Brighton East" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="gallery-caption"><strong>New black-framed window</strong><span>Brighton East, VIC</span></div></div>
     </div>
-  </div>
-
-  <script>
-  (async function () {
-    const grid = document.getElementById('galleryGrid');
-    const filterRow = document.getElementById('galleryFilters');
-    const countLabel = document.getElementById('galleryCount');
-    let allItems = [];
-
-    function slugify(str) {
-      return (str || 'general').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-    }
-
-    function render(filter) {
-      const items = filter === 'all' ? allItems : allItems.filter(i => slugify(i.category) === filter);
-      countLabel.textContent = `Showing ${items.length} job${items.length === 1 ? '' : 's'}`;
-      grid.innerHTML = items.map(item => `
-        <div class="card gallery-item" data-category="${slugify(item.category)}">
-          <div class="ph ratio-square" style="background:#f4f6f8;">
-            <img src="${item.photoUrl}" alt="${item.category} completed by JT Handyman in ${item.suburb}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
-          <div class="gallery-caption"><strong>${item.category}</strong><span>${item.suburb}, VIC</span></div>
-        </div>
-      `).join('');
-    }
-
-    try {
-      const res = await fetch('/api/gallery');
-      if (!res.ok) throw new Error('Failed to load gallery');
-      const data = await res.json();
-      allItems = data.items || [];
-
-      if (allItems.length === 0) {
-        grid.innerHTML = '<p style="grid-column:1/-1;color:var(--slate);">No recent job photos available yet — check back soon, or get an instant quote to start your own job.</p>';
-        countLabel.textContent = '';
-        return;
-      }
-
-      const uniqueCategories = [...new Set(allItems.map(i => i.category))];
-      filterRow.innerHTML = '<button class="filter-btn active" data-filter="all">All</button>' +
-        uniqueCategories.map(cat => `<button class="filter-btn" data-filter="${slugify(cat)}">${cat}</button>`).join('');
-
-      filterRow.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          filterRow.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          render(btn.dataset.filter);
-        });
-      });
-
-      render('all');
-
-    } catch (err) {
-      console.error('Gallery load error:', err);
-      grid.innerHTML = '<p style="grid-column:1/-1;color:var(--slate);">Unable to load recent job photos right now.</p>';
-      countLabel.textContent = '';
-    }
-  })();
-  </script>
-</section>
+    <p style="margin-top:24px;color:var(--slate);font-size:.9rem;">
+      <!-- To add or swap photos: copy one of the blocks above, change the
+           image URL, alt text, caption title, and suburb. Each block is
+           self-contained — no server or live data needed for this page. -->
+    </p>
+  </section>
 
 <section class="section band-dark">
   <div class="container cta-band">
