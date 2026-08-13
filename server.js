@@ -380,6 +380,13 @@ app.get('/api/photo/:uuid', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
+// Only actually start listening when run locally (node server.js).
+// On Vercel, the platform imports this file and calls the exported
+// app directly — it never runs this block.
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
