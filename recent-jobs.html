@@ -189,12 +189,12 @@ body.modal-open { overflow:hidden; }
     }
 
     list.innerHTML = data.jobs.map(job => `
-      <div class="docket" style="display:flex;gap:14px;align-items:flex-start;padding:16px;">
-        <div style="flex:none;width:56px;height:56px;border-radius:10px;overflow:hidden;background:#f4f6f8;">
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
           <img src="${job.thumbUrl}" alt="${job.category} completed by JT Handyman in ${job.suburb}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
-        <div style="flex:1;min-width:0;">
-          <div class="job-done-tag" style="margin-bottom:2px;">
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
             ${job.category}
           </div>
