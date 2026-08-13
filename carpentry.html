@@ -62,8 +62,21 @@ h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:"Rajdhani", "Rajdhani F
 .header-actions .phone-link:hover{ opacity:.55; }
 .header-actions .btn{ white-space:nowrap; padding:.7rem 1.4rem; margin-left:14px; }
 @media(max-width:900px){
-  .main-nav{ display:none; }
+  .header-inner{ position:relative; flex-wrap:wrap; }
+  .main-nav{ display:none; width:100%; order:3; }
+  .main-nav.open{ display:block; }
+  .main-nav ul{ flex-direction:column; align-items:flex-start; gap:0; padding:16px 0; margin-top:12px; border-top:1px solid rgba(255,255,255,.1); }
+  .main-nav ul li{ width:100%; }
+  .main-nav ul li a{ display:block; padding:12px 4px; width:100%; }
   .header-actions .phone-link{ display:none; }
+  .nav-toggle{ display:flex !important; flex-direction:column; justify-content:center; gap:5px; width:32px; height:32px; background:none; border:0; cursor:pointer; padding:0; margin-left:12px; }
+  .nav-toggle span{ display:block; width:100%; height:2px; background:#fff; border-radius:2px; transition:transform .25s ease, opacity .2s ease; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+}
+@media(min-width:901px){
+  .nav-toggle{ display:none; }
 }
 
 .qmodal { position:fixed; inset:0; z-index:1000; display:none; align-items:center; justify-content:center; padding:clamp(10px,2vw,28px); }
@@ -81,6 +94,8 @@ body.modal-open { overflow:hidden; }
 @media(max-width:900px){ .grid-5{ grid-template-columns:repeat(2,1fr); } }
 @media(max-width:560px){ .grid-5{ grid-template-columns:1fr; } }
 @media(max-width:640px){
+  .hero-grid{ display:block !important; }
+  .hero-grid > *{ margin-top:0 !important; }
   .grid-4{ grid-template-columns:repeat(2,1fr) !important; gap:16px !important; }
   .grid-2{ grid-template-columns:1fr !important; }
   .grid-3{ grid-template-columns:1fr !important; gap:14px !important; }
