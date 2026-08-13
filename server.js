@@ -15,7 +15,7 @@ let galleryCache = null;
 let galleryCacheTime = 0;
 const GALLERY_CACHE_MS = 15 * 60 * 1000; // 15 minutes
 const MAX_GALLERY_ITEMS = 16; // how many photos actually show on the page — keep this small enough to review/curate easily
-const RECENT_JOBS_CACHE_MS = 60 * 60 * 1000; // 1 hour — longer than before, since the underlying ServiceM8 attachment fetch is heavy regardless of parallelization; minimizing how often it runs matters more than freshness here
+const RECENT_JOBS_CACHE_MS = 10 * 60 * 1000; // 10 minutes — shorter, since this page should feel "live"
 let recentJobsCache = null;
 let recentJobsCacheTime = 0;
 
@@ -93,7 +93,7 @@ function guessTrade(text) {
 // filter out obvious invoice/screenshot photos.
 async function looksLikeDocument(buffer) {
   try {
-    const img = sharp(buffer).resize(36, 36, { fit: 'inside' }); // downscale further — smaller image = less CPU-bound pixel work = less chance of blocking other concurrent requests (like the ticker on other pages)
+    const img = sharp(buffer).resize(100, 100, { fit: 'inside' }); // downscale for fast analysis
     const { data, info } = await img.raw().toBuffer({ resolveWithObject: true });
     const channels = info.channels;
     let whiteish = 0;
@@ -150,19 +150,11 @@ async function getBestJobPhoto(apiKey, photos) {
     ...scored.filter(p => p.looksLikeBefore),
   ];
 
-  const candidates = priorityOrder.slice(0, 3); // cap checks per job
-
-  // Sequential, one photo at a time. Parallel checking was tried and made
-  // this endpoint faster on its own, but it saturates the process with
-  // too much concurrent work at once, delaying OTHER requests (like the
-  // ticker on other pages) that arrive at the same moment. Sequential is
-  // slower for this endpoint specifically, but keeps the process lighter
-  // moment-to-moment so everything else stays responsive.
-  for (const photo of candidates) {
+  for (const photo of priorityOrder.slice(0, 3)) { // cap checks per job to keep this fast
     try {
       const fileRes = await fetchWithTimeout(`https://api.servicem8.com/api_1.0/attachment/${photo.uuid}.file`, {
         headers: { 'X-API-Key': apiKey }
-      }, 8000);
+      }, 15000);
       if (!fileRes.ok) continue;
       const buffer = Buffer.from(await fileRes.arrayBuffer());
       const isDoc = await looksLikeDocument(buffer);
@@ -231,6 +223,8 @@ app.get('/api/recent-jobs', async (req, res) => {
       });
     });
 
+    // Only deep-analyze photos for jobs that actually have one, and cap
+    // how many we check to keep this reasonably fast.
     // Only keep jobs that actually have a safe, real photo to show —
     // skip ones with no attachments, or where every candidate photo got
     // flagged as a likely document/screenshot.
