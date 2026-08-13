@@ -6,12 +6,25 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Mobile nav toggle ---
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.main-nav');
+  const openIcon = document.querySelector('.nav-toggle-icon-open');
+  const closeIcon = document.querySelector('.nav-toggle-icon-close');
   if (toggle && nav) {
     toggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', nav.classList.contains('open'));
+      const isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      if (openIcon && closeIcon) {
+        openIcon.style.display = isOpen ? 'none' : 'block';
+        closeIcon.style.display = isOpen ? 'block' : 'none';
+      }
     });
-    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      if (openIcon && closeIcon) {
+        openIcon.style.display = 'block';
+        closeIcon.style.display = 'none';
+      }
+    }));
   }
 
   // --- Gallery / blog filters (data-filter-group) ---
