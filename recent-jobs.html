@@ -19,7 +19,6 @@
 .job-ticker-marquee{ display:inline-flex; gap:40px; animation:jtScroll 28s linear infinite; }
 .job-ticker-track:hover .job-ticker-marquee{ animation-play-state:paused; }
 @keyframes jtScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
-.job-ticker-item{ position:static !important; opacity:1 !important; display:inline-block !important; }
 .job-ticker-item::before{ content:"✓"; color:#22c55e; font-weight:700; margin-right:8px; vertical-align:middle; }
 
 .band-dark{ background:#0c0d0f !important; color:#fff; }
@@ -57,7 +56,7 @@ p{ font-size:1.02rem; line-height:1.65; }
 .main-nav{ display:flex; margin-left:56px; }
 .main-nav ul{ display:flex; align-items:center; gap:26px; margin:0; padding:0; list-style:none; }
 .main-nav a{ font-size:.95rem; padding:6px 0; white-space:nowrap; }
-.header-actions{ display:flex; align-items:center; gap:22px; flex:none; margin-left:auto; padding-left:24px; }
+.header-actions{ display:flex; align-items:center; gap:22px; flex:none; margin-left:auto; }
 .header-actions .phone-link{ white-space:nowrap; font-size:.95rem; transition:opacity .2s ease; }
 .header-actions .phone-link:hover{ opacity:.55; }
 .header-actions .btn{ white-space:nowrap; padding:.7rem 1.4rem; margin-left:14px; }
@@ -88,8 +87,12 @@ body.modal-open { overflow:hidden; }
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="brand" style="display:flex;align-items:center;">
-      <img src="img/work/jt-logo-correct.png" alt="JT Handyman Solutionz" style="height:64px;width:auto;display:block;">
+    <a href="index.html" class="brand" style="display:flex;align-items:center;gap:12px;">
+      <img src="img/work/jt-icon-mark-correct.png" alt="JT Handyman Solutionz" style="height:40px;width:auto;display:block;">
+      <span style="line-height:1.25;">
+        <span style="display:block;font-weight:700;font-size:1.05rem;color:#fff;letter-spacing:.02em;">JT HANDYMAN</span>
+        <span style="display:block;font-size:.72rem;color:rgba(255,255,255,.6);letter-spacing:.04em;">MELBOURNE · PROPERTY REPAIRS</span>
+      </span>
     </a>
 
     <nav class="main-nav" id="main-nav">
@@ -153,6 +156,7 @@ body.modal-open { overflow:hidden; }
     <h1>Recently <span style="color:#e7161f;">completed</span></h1>
     <p class="lede" style="margin:0 auto;">A live look at what the JT team has been finishing across Melbourne — real property repairs and maintenance, by suburb and date. This updates automatically as jobs are completed.</p>
     <p style="color:#9aa5b1;font-size:.85rem;margin-top:8px;" id="jobCountLine">Showing the most recent completed jobs · live from our job system.</p>
+    <p style="color:#9aa5b1;font-size:.78rem;margin-top:4px;">Photos are pulled directly from each job file and may show any stage of the work, not always the finished result.</p>
   </div>
 </section>
 
