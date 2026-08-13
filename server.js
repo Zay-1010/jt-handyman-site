@@ -93,7 +93,7 @@ function guessTrade(text) {
 // filter out obvious invoice/screenshot photos.
 async function looksLikeDocument(buffer) {
   try {
-    const img = sharp(buffer).resize(100, 100, { fit: 'inside' }); // downscale for fast analysis
+    const img = sharp(buffer).resize(36, 36, { fit: 'inside' }); // downscale further — smaller image = less CPU-bound pixel work = less chance of blocking other concurrent requests (like the ticker on other pages)
     const { data, info } = await img.raw().toBuffer({ resolveWithObject: true });
     const channels = info.channels;
     let whiteish = 0;
@@ -237,7 +237,7 @@ app.get('/api/recent-jobs', async (req, res) => {
     // skip ones with no attachments, or where every candidate photo got
     // flagged as a likely document/screenshot.
     const RECENT_JOBS_DISPLAY_CAP = 36; // 12 rows x 3 columns
-    const BATCH_SIZE = 8; // how many jobs to analyze concurrently per round
+    const BATCH_SIZE = 5; // how many jobs to analyze concurrently per round — kept modest so this doesn't starve other concurrent requests (like the ticker on other pages) for too long
 
     const jobsWithPhotoAttachments = completedJobs.filter(job => {
       const photos = photosByJob[job.uuid];
