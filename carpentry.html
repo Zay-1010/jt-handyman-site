@@ -80,6 +80,17 @@ body.modal-open { overflow:hidden; }
 .grid-5{ display:grid; grid-template-columns:repeat(5,1fr); gap:28px; }
 @media(max-width:900px){ .grid-5{ grid-template-columns:repeat(2,1fr); } }
 @media(max-width:560px){ .grid-5{ grid-template-columns:1fr; } }
+@media(max-width:640px){
+  .grid-4{ grid-template-columns:repeat(2,1fr) !important; gap:16px !important; }
+  .grid-2{ grid-template-columns:1fr !important; }
+  .grid-3{ grid-template-columns:1fr !important; gap:14px !important; }
+  h1{ font-size:clamp(1.9rem,7vw,2.6rem) !important; }
+  h2{ font-size:clamp(1.5rem,6vw,2rem) !important; }
+  .lede{ font-size:1rem !important; }
+  .cta-row .btn{ width:100%; text-align:center; }
+  .cta-row{ flex-direction:column; }
+  .section{ padding-top:36px !important; padding-bottom:36px !important; }
+}
 </style>
 </head>
 <body>
