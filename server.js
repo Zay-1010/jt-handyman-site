@@ -150,7 +150,7 @@ async function getBestJobPhoto(apiKey, photos) {
     ...scored.filter(p => p.looksLikeBefore),
   ];
 
-  for (const photo of priorityOrder.slice(0, 6)) { // cap checks per job to keep this fast
+  for (const photo of priorityOrder.slice(0, 3)) { // cap checks per job to keep this fast
     try {
       const fileRes = await fetchWithTimeout(`https://api.servicem8.com/api_1.0/attachment/${photo.uuid}.file`, {
         headers: { 'X-API-Key': apiKey }
@@ -201,7 +201,7 @@ app.get('/api/recent-jobs', async (req, res) => {
     const completedJobs = jobs
       .filter(job => job.completion_date && job.completion_date !== '0000-00-00 00:00:00' && job.generated_job_id !== 'SAMPLE')
       .sort((a, b) => new Date(b.completion_date) - new Date(a.completion_date))
-      .slice(0, 80);
+      .slice(0, 90);
 
     console.log('[recent-jobs] fetching attachments for thumbnails...');
     const attUrl = 'https://api.servicem8.com/api_1.0/attachment.json' +
@@ -228,8 +228,12 @@ app.get('/api/recent-jobs', async (req, res) => {
     // Only keep jobs that actually have a safe, real photo to show —
     // skip ones with no attachments, or where every candidate photo got
     // flagged as a likely document/screenshot.
+    const RECENT_JOBS_DISPLAY_CAP = 36; // 12 rows x 3 columns
+
     const safeJobs = [];
     for (const job of completedJobs) {
+      if (safeJobs.length >= RECENT_JOBS_DISPLAY_CAP) break; // stop analyzing once we have enough
+
       const photos = photosByJob[job.uuid];
       if (!photos || photos.length === 0) continue;
 
