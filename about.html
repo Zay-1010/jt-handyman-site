@@ -97,6 +97,14 @@ body.modal-open { overflow:hidden; }
 .header-actions .phone-link{ white-space:nowrap; font-size:.95rem; transition:opacity .2s ease; }
 .header-actions .phone-link:hover{ opacity:.55; }
 .header-actions .btn{ white-space:nowrap; padding:.7rem 1.4rem; margin-left:14px; }
+.job-ticker{ background:#0c0d0f; border-top:2px solid #e7161f; padding:.5rem 0; }
+.job-ticker-inner{ max-width:1160px; margin:0 auto; padding:0 22px; display:flex; align-items:center; gap:14px; }
+.job-ticker-badge{ flex:none; background:#e7161f; color:#fff; font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:.3rem .7rem; border-radius:999px; }
+.job-ticker-track{ color:rgba(255,255,255,.85); font-size:.85rem; overflow:hidden; white-space:nowrap; flex:1; position:relative; }
+.job-ticker-marquee{ display:inline-flex; gap:40px; animation:jtScroll 28s linear infinite; }
+.job-ticker-track:hover .job-ticker-marquee{ animation-play-state:paused; }
+@keyframes jtScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+.job-ticker-item::before{ content:"✓"; color:#22c55e; font-weight:700; margin-right:8px; vertical-align:middle; }
 @media(max-width:900px){
   .main-nav{ display:none; }
   .header-actions .phone-link{ display:none; }
@@ -105,15 +113,6 @@ body.modal-open { overflow:hidden; }
 </head>
 <body>
 <div class="top-strip">Property Repairs &amp; Maintenance · JT Handyman Solutionz · Melbourne-wide</div>
-
-<div class="job-ticker">
-  <div class="job-ticker-inner">
-    <span class="job-ticker-badge">Just completed</span>
-    <div class="job-ticker-track" data-job-ticker>
-      <span class="job-ticker-item show">Loading recent JT jobs…</span>
-    </div>
-  </div>
-</div>
 
 <header class="site-header">
   <div class="container header-inner">
@@ -142,6 +141,36 @@ body.modal-open { overflow:hidden; }
     </div>
   </div>
 </header>
+
+<div class="job-ticker">
+  <div class="job-ticker-inner">
+    <span class="job-ticker-badge">Just completed</span>
+    <div class="job-ticker-track" data-job-ticker>
+      <span class="job-ticker-item show">Loading recent JT jobs…</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(async function () {
+  const track = document.querySelector('[data-job-ticker]');
+  if (!track) return;
+  try {
+    const res = await fetch('/api/jobs');
+    if (!res.ok) throw new Error('Failed to load jobs');
+    const data = await res.json();
+    if (!data.jobs || data.jobs.length === 0) {
+      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant quote today.</span>';
+      return;
+    }
+    const itemsHtml = data.jobs.map(job => `<span class="job-ticker-item">${job.category} completed — ${job.suburb}</span>`).join('');
+    track.innerHTML = `<div class="job-ticker-marquee">${itemsHtml}${itemsHtml}</div>`;
+  } catch (err) {
+    console.error('Job ticker error:', err);
+    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant quote today.</span>';
+  }
+})();
+</script>
 
 <!-- Fixed: hero now dark (was defaulting to white), and the missing 4th stat added -->
 <section class="ab-hero">
