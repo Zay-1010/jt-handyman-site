@@ -62,12 +62,12 @@ h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:"Rajdhani", "Rajdhani F
 .header-actions .phone-link:hover{ opacity:.55; }
 .header-actions .btn{ white-space:nowrap; padding:.7rem 1.4rem; margin-left:14px; }
 @media(max-width:900px){
-  .header-inner{ position:relative; flex-wrap:wrap; }
-  .main-nav{ display:none; width:100%; order:3; }
+  .header-inner{ position:relative; }
+  .main-nav{ display:none; position:absolute; top:100%; left:0; right:0; background:#0c0d0f; z-index:999; box-shadow:0 12px 24px -8px rgba(0,0,0,.6); border-top:1px solid rgba(255,255,255,.1); }
   .main-nav.open{ display:block; }
-  .main-nav ul{ flex-direction:column; align-items:flex-start; gap:0; padding:16px 0; margin-top:12px; border-top:1px solid rgba(255,255,255,.1); }
+  .main-nav ul{ flex-direction:column; align-items:flex-start; gap:0; padding:8px 22px 20px; margin:0; }
   .main-nav ul li{ width:100%; }
-  .main-nav ul li a{ display:block; padding:12px 4px; width:100%; }
+  .main-nav ul li a{ display:block; padding:14px 4px; width:100%; border-bottom:1px solid rgba(255,255,255,.08); }
   .header-actions .phone-link{ display:none; }
   button.nav-toggle{ display:inline-flex !important; align-items:center; justify-content:center; }
 }
