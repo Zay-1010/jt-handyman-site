@@ -46,9 +46,29 @@ h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:"Rajdhani", "Rajdhani F
 .header-actions .btn{ white-space:nowrap; padding:.7rem 1.4rem; margin-left:14px; }
 .site-footer{ background:var(--true-black) !important; }
 @media(max-width:900px){
+  .header-inner{ position:relative; }
   .main-nav{ display:none; }
+  .main-nav.open{
+    display:flex !important;
+    position:fixed !important;
+    top:0 !important; left:0 !important; right:0 !important; bottom:0 !important;
+    width:100vw !important; height:100vh !important;
+    background-color:#0c0d0f !important;
+    z-index:99999 !important;
+    align-items:flex-start !important;
+    justify-content:center !important;
+    padding-top:100px !important;
+    overflow-y:auto !important;
+  }
+  .main-nav.open ul{ flex-direction:column; align-items:center; gap:6px; margin:0; padding:0; width:100%; max-width:320px; }
+  .main-nav.open ul li{ width:100%; text-align:center; }
+  .main-nav.open ul li a{ display:block; padding:11px 4px; width:100%; font-size:.95rem; font-weight:600; border-bottom:1px solid rgba(255,255,255,.1); }
+  button.nav-toggle{ display:inline-flex !important; align-items:center; justify-content:center; position:relative !important; z-index:100000 !important; }
   .header-actions .phone-link{ display:none; }
   .brand img{ height:44px !important; }
+}
+@media(min-width:901px){
+  button.nav-toggle{ display:none !important; }
 }
 
 .job-ticker{ background:#0c0d0f; border-top:2px solid #e7161f; padding:.5rem 0; }
