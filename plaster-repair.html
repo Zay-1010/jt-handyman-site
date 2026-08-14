@@ -61,9 +61,9 @@ h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:"Rajdhani", "Rajdhani F
 /* Services dropdown — desktop: hover reveals; mobile: tap-to-expand */
 .has-dropdown{ position:relative; display:flex; align-items:center; gap:4px; }
 .dropdown-toggle{ background:none; border:0; padding:2px; cursor:pointer; color:inherit; display:flex; align-items:center; }
-.dropdown-menu{ display:none; list-style:none; margin:0; padding:0; }
+.dropdown-menu{ display:none !important; list-style:none; margin:0; padding:0; flex-direction:column !important; }
 @media(min-width:901px){
-  .has-dropdown:hover .dropdown-menu{ display:block; position:absolute; top:100%; left:0; background:#0c0d0f; border:1px solid rgba(255,255,255,.1); border-radius:8px; padding:8px 0; min-width:220px; box-shadow:0 12px 24px -8px rgba(0,0,0,.6); z-index:200; }
+  .has-dropdown:hover .dropdown-menu{ display:flex !important; flex-direction:column !important; position:absolute; top:100%; left:0; background:#0c0d0f; border:1px solid rgba(255,255,255,.1); border-radius:8px; padding:8px 0; min-width:220px; box-shadow:0 12px 24px -8px rgba(0,0,0,.6); z-index:200; }
   .dropdown-menu li a{ display:block; padding:9px 16px; font-size:.9rem; white-space:nowrap; }
   .dropdown-toggle{ display:none; }
 }
@@ -73,7 +73,7 @@ h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:"Rajdhani", "Rajdhani F
   .dropdown-toggle svg{ transition:transform .2s ease; }
   .has-dropdown.expanded .dropdown-toggle svg{ transform:rotate(180deg); }
   .dropdown-menu{ width:100%; padding-left:14px; }
-  .has-dropdown.expanded .dropdown-menu{ display:block; }
+  .has-dropdown.expanded .dropdown-menu{ display:flex !important; flex-direction:column !important; }
   .dropdown-menu li a{ display:block; padding:9px 4px; font-size:.85rem; opacity:.85; border-bottom:0 !important; }
 }
 
