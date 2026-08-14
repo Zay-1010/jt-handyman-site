@@ -107,8 +107,28 @@ body.modal-open { overflow:hidden; }
 .job-ticker-item{ position:static !important; opacity:1 !important; display:inline-block !important; }
 .job-ticker-item::before{ content:"✓"; color:#22c55e; font-weight:700; margin-right:8px; vertical-align:middle; }
 @media(max-width:900px){
+  .header-inner{ position:relative; }
   .main-nav{ display:none; }
+  .main-nav.open{
+    display:flex !important;
+    position:fixed !important;
+    top:0 !important; left:0 !important; right:0 !important; bottom:0 !important;
+    width:100vw !important; height:100vh !important;
+    background-color:#0c0d0f !important;
+    z-index:99999 !important;
+    align-items:flex-start !important;
+    justify-content:center !important;
+    padding-top:100px !important;
+    overflow-y:auto !important;
+  }
+  .main-nav.open ul{ flex-direction:column; align-items:center; gap:6px; margin:0; padding:0; width:100%; max-width:320px; }
+  .main-nav.open ul li{ width:100%; text-align:center; }
+  .main-nav.open ul li a{ display:block; padding:11px 4px; width:100%; font-size:.95rem; font-weight:600; border-bottom:1px solid rgba(255,255,255,.1); }
   .header-actions .phone-link{ display:none; }
+  button.nav-toggle{ display:inline-flex !important; align-items:center; justify-content:center; position:relative !important; z-index:100000 !important; }
+}
+@media(min-width:901px){
+  button.nav-toggle{ display:none !important; }
 }
 </style>
 </head>
