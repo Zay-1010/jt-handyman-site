@@ -10,11 +10,6 @@
 <meta property="og:description" content="Practical property repair and maintenance advice from JT Handyman Solutionz for Melbourne homeowners, property managers and real estate agents.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="css/styles.css">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
 <style>
 .top-strip{ background:#e7161f; color:#fff; text-align:center; font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:.55rem 1rem; }
 .job-ticker{ background:#0c0d0f; border-top:2px solid #e7161f; padding:.5rem 0; }
@@ -59,6 +54,26 @@ p{ font-size:1.02rem; line-height:1.65; }
 .main-nav{ display:flex; margin-left:56px; }
 .main-nav ul{ display:flex; align-items:center; gap:26px; margin:0; padding:0; list-style:none; }
 .main-nav a{ font-size:.95rem; padding:6px 0; white-space:nowrap; }
+
+/* Services dropdown — desktop: hover reveals; mobile: tap-to-expand */
+.has-dropdown{ position:relative; display:flex; align-items:center; gap:4px; }
+.dropdown-toggle{ background:none; border:0; padding:2px; cursor:pointer; color:inherit; display:flex; align-items:center; }
+.dropdown-menu{ display:none !important; list-style:none; margin:0; padding:0; flex-direction:column !important; }
+@media(min-width:901px){
+  .has-dropdown:hover .dropdown-menu{ display:flex !important; flex-direction:column !important; position:absolute; top:100%; left:0; background:#0c0d0f; border:1px solid rgba(255,255,255,.1); border-radius:8px; padding:8px 0; min-width:220px; box-shadow:0 12px 24px -8px rgba(0,0,0,.6); z-index:200; }
+  .dropdown-menu li a{ display:block; padding:9px 16px; font-size:.9rem; white-space:nowrap; }
+  .dropdown-toggle{ display:none; }
+}
+@media(max-width:900px){
+  .has-dropdown{ flex-direction:column; align-items:flex-start; width:100%; }
+  .dropdown-toggle{ position:absolute; right:4px; top:8px; padding:6px; }
+  .dropdown-toggle svg{ transition:transform .2s ease; }
+  .has-dropdown.expanded .dropdown-toggle svg{ transform:rotate(180deg); }
+  .dropdown-menu{ width:100%; padding-left:14px; }
+  .has-dropdown.expanded .dropdown-menu{ display:flex !important; flex-direction:column !important; }
+  .dropdown-menu li a{ display:block; padding:9px 4px; font-size:.85rem; opacity:.85; border-bottom:0 !important; }
+}
+
 .header-actions{ display:flex; align-items:center; gap:22px; flex:none; margin-left:auto; padding-left:24px; }
 .header-actions .phone-link{ white-space:nowrap; font-size:.95rem; transition:opacity .2s ease; }
 .header-actions .phone-link:hover{ opacity:.55; }
@@ -114,7 +129,20 @@ body.modal-open { overflow:hidden; }
     <nav class="main-nav" id="main-nav">
       <ul>
         <li><a href="index.html" class="">Home</a></li>
-        <li><a href="services.html" class="">Services</a></li>
+        <li class="has-dropdown">
+          <a href="services.html">Services</a>
+          <button class="dropdown-toggle" aria-label="Toggle services menu" aria-expanded="false">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="carpentry.html">Carpentry</a></li>
+            <li><a href="plumbing.html">Plumbing</a></li>
+            <li><a href="painting.html">Painting</a></li>
+            <li><a href="plaster-repair.html">Plaster Repair</a></li>
+            <li><a href="bathrooms.html">Bathrooms &amp; Tiling</a></li>
+            <li><a href="windows-glazing.html">Windows &amp; Glazing</a></li>
+          </ul>
+        </li>
         <li><a href="our-work.html" class="">Our Work</a></li>
         <li><a href="recent-jobs.html" class="">Recent Jobs</a></li>
         <li><a href="about.html" class="">About</a></li>
