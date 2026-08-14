@@ -97,6 +97,9 @@ h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:"Rajdhani", "Rajdhani F
 @media (max-width:560px){ .qmodal-crop{ --hdr:92px; --side:18px; --bar:0px; } }
 #quoteFrame { position:relative; left:calc(var(--side) * -1); width:calc(100% + var(--side) + var(--side) + var(--bar)); height:calc(94vh + var(--hdr)); max-height:calc(1520px + var(--hdr)); border:0; display:block; background:#f7fbfd; margin-top:calc(var(--hdr) * -1); }
 body.modal-open { overflow:hidden; }
+.grid-5{ display:grid; grid-template-columns:repeat(5,1fr); gap:28px; }
+@media(max-width:900px){ .grid-5{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:560px){ .grid-5{ grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
@@ -181,6 +184,18 @@ body.modal-open { overflow:hidden; }
   </div>
 </section>
 
+<section class="section band-dark" style="padding-top:32px;padding-bottom:32px;">
+  <div class="container">
+    <div class="grid grid-4">
+      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">10,000+</span><p style="margin:0;">Jobs completed</p></div>
+      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">36 hr</span><p style="margin:0;">Compliance quote turnaround</p></div>
+      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">1</span><p style="margin:0;">Point of contact, always</p></div>
+      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">5.0★</span><p style="margin:0;">Google rated</p></div>
+    </div>
+  </div>
+</section>
+
+
 <section class="section band-grey">
   <div class="container panel">
     <div>
@@ -235,11 +250,61 @@ body.modal-open { overflow:hidden; }
       <span class="eyebrow">How it runs</span>
       <h2>From draughty to done</h2>
     </div>
-    <div class="grid grid-4">
-      <div><div class="step-num" style="margin-bottom:12px;">1</div><h3>Instant quote</h3><p>Send a photo and a few details and get a real price back, often on the spot.</p></div>
-      <div><div class="step-num" style="margin-bottom:12px;">2</div><h3>Repair vs replace</h3><p>We assess honestly whether restoration or replacement makes more sense for your window.</p></div>
-      <div><div class="step-num" style="margin-bottom:12px;">3</div><h3>Restored or re-glazed</h3><p>Frame repaired, glass replaced, hardware freed up and sealed.</p></div>
-      <div><div class="step-num" style="margin-bottom:12px;">4</div><h3>Signed off &amp; photographed</h3><p>Finished to a high standard, backed by our workmanship guarantee.</p></div>
+    <div class="grid grid-5">
+      <div><div class="step-num" style="margin-bottom:12px;">1</div><h3>Instant quote</h3><p>You answer a few quick questions and get a real price on the spot, no waiting, no phone tag.</p></div>
+      <div><div class="step-num" style="margin-bottom:12px;">2</div><h3>One point of contact</h3><p>One person owns your job end to end. You always know who to call and where things are at.</p></div>
+      <div><div class="step-num" style="margin-bottom:12px;">3</div><h3>The office keeps everyone informed</h3><p>Tenants emailed, owners-corp chairperson liaised with, schedules confirmed — everyone knows what's happening, when, and why.</p></div>
+      <div><div class="step-num" style="margin-bottom:12px;">4</div><h3>In-house team, no subbies chased</h3><p>Every trade is ours, coordinated under one roof, so there's no waste, no double-handling, no finger-pointing.</p></div>
+      <div><div class="step-num" style="margin-bottom:12px;">5</div><h3>Done right, photographed, signed off</h3><p>Completed to a high standard with before/after photos. The job finishes, and stays finished.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section band-white">
+  <div class="container text-center" style="max-width:760px;">
+    <span class="eyebrow">Time is your most valuable asset</span>
+    <h2>We don't waste it.</h2>
+    <p class="lede">Speed is the whole reason JT grew. Our quoting is fast, often instant. You put in your details and get a real price based on our pricing, on the spot. No time-wasters, no waiting on a callback that never comes.</p>
+    <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Get a Free Window Quote</a>
+  </div>
+</section>
+
+<section class="section band-grey">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Where the care shows</span>
+      <h2>Real windows, real finish</h2>
+    </div>
+    <div class="grid grid-3" style="gap:18px;">
+      <div class="card"><div class="ph ratio-square"><img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-window-repairs-melbourne.webp" alt="Window repair completed by JT Handyman in Melbourne" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Window repair</strong><span>Melbourne, VIC</span></div></div>
+      <div class="card"><div class="ph ratio-square"><img src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-black-framed-window-melbourne.jpg" alt="New black-framed window by JT Handyman in Brighton East" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>New black-framed window</strong><span>Brighton East, VIC</span></div></div>
+      <div class="card"><div class="ph ratio-square"><img src="img/work/jt-window-repair-melbourne.webp" alt="Window repair by JT Handyman in Melbourne" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Frame &amp; glazing repair</strong><span>Melbourne, VIC</span></div></div>
+    </div>
+    <div class="text-center" style="margin-top:24px;">
+      <a href="our-work.html" class="btn btn-ghost">View all our work →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section band-white">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">What clients say</span>
+      <h2>On time. To a <span class="accent">high standard.</span></h2>
+      <p><strong style="color:#fcbf18;">★★★★★</strong> Rated 5.0 across dozens of Melbourne reviews.</p>
+    </div>
+    <div class="grid grid-2" style="gap:20px;max-width:900px;margin:0 auto;">
+      <div class="docket">
+        <div class="docket-head"><span class="docket-stars" style="color:#fcbf18;">★★★★★</span></div>
+        <blockquote>Jabez took exceptional care of my apartment, ensuring everything was completed on time and to a high standard.</blockquote>
+        <cite>Matthew E<span>Homeowner</span></cite>
+      </div>
+      <div class="docket">
+        <div class="docket-head"><span class="docket-stars" style="color:#fcbf18;">★★★★★</span></div>
+        <blockquote>One of the most professional companies that have ever done work for me. Jabez leads his team efficiently and moves systematically throughout the job.</blockquote>
+        <cite>Daniel R<span>Real Estate Agent</span></cite>
+      </div>
     </div>
   </div>
 </section>
