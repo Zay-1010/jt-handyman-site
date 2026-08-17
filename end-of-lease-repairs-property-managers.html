@@ -98,7 +98,9 @@ h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:"Rajdhani", "Rajdhani F
   .main-nav.open ul{ flex-direction:column; align-items:center; gap:6px; margin:0; padding:0; width:100%; max-width:320px; }
   .main-nav.open ul li{ width:100%; text-align:center; }
   .main-nav.open ul li a{ display:block; padding:11px 4px; width:100%; font-size:.95rem; font-weight:600; border-bottom:1px solid rgba(255,255,255,.1); }
-  .header-actions .phone-link{ display:none; }
+  .header-actions .phone-link{ display:inline-flex; align-items:center; gap:5px; font-size:.82rem; font-weight:700; color:#ffffff !important; }
+  .header-actions .phone-link::before{ content:"\260E"; font-size:1rem; color:#e7161f; }
+  .header-actions .btn{ padding:.55rem .9rem; font-size:.82rem; margin-left:8px; }
   button.nav-toggle{ display:inline-flex !important; align-items:center; justify-content:center; position:relative !important; z-index:100000 !important; }
 }
 @media(min-width:901px){
@@ -106,13 +108,17 @@ h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:"Rajdhani", "Rajdhani F
 }
 
 /* Blog post article styling — matches real reference structure */
-.hero-img{ width:100%; margin:0; }
-.hero-img img{ display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; }
+.hero-img{ width:100%; margin:0; max-height:440px; overflow:hidden; border-bottom:4px solid #e7161f; }
+.hero-img img{ display:block; width:100%; height:100%; aspect-ratio:21/9; object-fit:cover; }
+@media(max-width:760px){ .hero-img{ max-height:260px; } .hero-img img{ aspect-ratio:4/3; } }
 .post-meta{ display:flex; gap:14px; align-items:center; color:var(--slate,#5a6472); font-size:.9rem; margin-bottom:8px; flex-wrap:wrap; }
 .post-meta .cat-tag{ color:#e7161f; font-weight:700; text-transform:uppercase; font-size:.78rem; letter-spacing:.06em; }
 .post-body{ max-width:760px; margin:0 auto; padding-top:36px; }
 .post-body h2{ font-size:clamp(1.5rem,3vw,2rem) !important; margin-top:44px; margin-bottom:16px; }
 .post-body p{ margin-bottom:18px; }
+.post-body ul{ margin:0 0 22px; padding:0; }
+.post-body li{ position:relative; list-style:none; padding-left:26px; margin-bottom:10px; line-height:1.55; }
+.post-body li::before{ content:"\25A0"; position:absolute; left:0; top:.12em; color:#e7161f; font-size:.8em; }
 .post-body ul{ margin:0 0 22px; padding-left:22px; }
 .post-body li{ margin-bottom:10px; line-height:1.6; }
 .post-body h3{ font-size:1.2rem !important; margin-top:28px; margin-bottom:10px; }
