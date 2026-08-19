@@ -60,7 +60,7 @@ fbq('track', 'PageView');
   .dropdown-menu li a{ display:block; padding:9px 4px; font-size:.85rem; opacity:.85; border-bottom:0 !important; }
 }
 
-.job-ticker-marquee{ display:inline-flex; gap:40px; animation:jtScroll 28s linear infinite; }
+.job-ticker-marquee{ display:inline-flex; align-items:center; gap:40px; animation:jtScroll 28s linear infinite; line-height:22px; }
 .job-ticker-track:hover .job-ticker-marquee{ animation-play-state:paused; }
 @keyframes jtScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
 .job-ticker-item{ position:static !important; opacity:1 !important; display:inline-block !important; }
