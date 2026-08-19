@@ -10,8 +10,6 @@ const path = require('path');
 const sharp = require('sharp');
 
 const app = express();
-const { calculateDummyQuote } = require('./dummy-pricing');
-app.use(express.json()); // needed to parse JSON POST bodies from the test quote form
 const PORT = process.env.PORT || 3000;
 let galleryCache = null;
 let galleryCacheTime = 0;
@@ -103,8 +101,6 @@ async function looksLikeDocument(buffer) {
     const channels = info.channels;
     let whiteish = 0;
     let totalSaturationSum = 0;
-    let brandBlueish = 0; // pixels matching a social-app "brand blue" (e.g. Facebook UI chrome), not a natural photo blue
-    const colorBuckets = new Set(); // tracks how many distinct (binned) colors appear — logos/icons use very few, real photos use many
     const pixelCount = data.length / channels;
 
     for (let i = 0; i < data.length; i += channels) {
@@ -113,25 +109,10 @@ async function looksLikeDocument(buffer) {
       const saturation = max === 0 ? 0 : (max - min) / max;
       totalSaturationSum += saturation;
       if (r > 225 && g > 225 && b > 225) whiteish++;
-
-      // Facebook's brand blue sits in a fairly narrow, specific band —
-      // blue clearly dominant over red and green, and not too dark or
-      // too pale. Natural trade-photo blues (tiled pools, sky in a
-      // verandah shot) tend to be either lighter/hazier or have more
-      // red/green mixed in, so this stays fairly narrow on purpose.
-      if (b > 180 && b < 255 && r < 90 && g < 150 && (b - r) > 90) brandBlueish++;
-
-      // Bin into coarse 32-level buckets per channel — real photos have
-      // continuous gradients across hundreds of distinct shades even
-      // at this resolution; flat-colour logos/icons collapse into a
-      // small handful of buckets regardless of brand or colour scheme.
-      const bucketKey = `${Math.floor(r / 32)}-${Math.floor(g / 32)}-${Math.floor(b / 32)}`;
-      colorBuckets.add(bucketKey);
     }
 
     const whiteRatio = whiteish / pixelCount;
     const avgSaturation = totalSaturationSum / pixelCount;
-    const brandBlueRatio = brandBlueish / pixelCount;
 
     // Tuned thresholds — a page of text/invoice is typically >45% near-white
     // background AND very low average saturation. Real photos of finished
@@ -142,20 +123,7 @@ async function looksLikeDocument(buffer) {
     // step before a photo goes live. A missed real photo is an acceptable
     // cost; a client's invoice slipping through publicly is not.
     const isDocument = whiteRatio > 0.35 && avgSaturation < 0.15;
-
-    // Same reasoning applied to screenshots — a job photo that's actually a
-    // Facebook page/post/message screenshot (accidentally attached instead
-    // of real work photos) should be excluded the same way a document is.
-    const isScreenshot = brandBlueRatio > 0.18;
-
-    // General logo/icon detector — brand-agnostic, not tied to any specific
-    // company's colours. A real trade photo at this resolution (36x36)
-    // still lands in well over a hundred distinct colour buckets thanks to
-    // natural lighting, shadow and texture variation. A flat-colour logo or
-    // icon — regardless of which brand — collapses into a much smaller set.
-    const isLogo = colorBuckets.size < 40;
-
-    return isDocument || isScreenshot || isLogo;
+    return isDocument;
   } catch (err) {
     console.error('[photo-analysis] error, assuming OK:', err.message);
     return false; // fail open — don't block a photo just because analysis errored
@@ -431,64 +399,6 @@ app.get('/api/gallery', async (req, res) => {
     res.status(500).json({ error: 'Unexpected server error', detail: err.message });
   }
 });
-
-// ---- TEST ONLY: dummy quote calculator + ServiceM8 job creation ----
-// This endpoint is for prototyping a custom quote form. It uses fake
-// placeholder pricing (see dummy-pricing.js) — NOT real JT pricing.
-// It creates a REAL job in ServiceM8 so you can confirm the write-side
-// of the integration actually works. Delete/archive test jobs afterward,
-// and don't link test-quote.html from the live site.
-app.post('/api/test-quote-submit', async (req, res) => {
-  const API_KEY = process.env.SERVICEM8_API_KEY;
-  if (!API_KEY) return res.status(500).json({ error: 'Missing SERVICEM8_API_KEY in .env' });
-
-  const { name, phone, service, size, address } = req.body;
-  if (!name || !phone || !service || !size || !address) {
-    return res.status(400).json({ error: 'Missing required fields' });
-  }
-
-  const quote = calculateDummyQuote(service, size);
-
-  try {
-    // Create the job in ServiceM8. Job description carries the test
-    // details so it's obvious in the dashboard this is a prototype job,
-    // not a real customer enquiry.
-    const jobPayload = {
-      status: 'Quote',
-      job_address: address,
-      job_description:
-        `[TEST QUOTE FORM PROTOTYPE — not a real customer]\n` +
-        `Name: ${name}\nPhone: ${phone}\nService: ${service}\nJob size: ${size}\n` +
-        `Dummy calculated total: $${quote.total} (base $${quote.base} x ${quote.multiplier} + $${quote.calloutFee} callout)`
-    };
-
-    const createRes = await fetchWithTimeout('https://api.servicem8.com/api_1.0/job.json', {
-      method: 'POST',
-      headers: {
-        'X-API-Key': API_KEY,
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(jobPayload)
-    }, 15000);
-
-    if (!createRes.ok) {
-      const errText = await createRes.text();
-      console.error('[test-quote] ServiceM8 job creation failed:', createRes.status, errText);
-      return res.status(502).json({ error: `ServiceM8 rejected the job (status ${createRes.status})`, detail: errText });
-    }
-
-    // ServiceM8 returns the new record's UUID in the x-record-uuid response header
-    const jobUuid = createRes.headers.get('x-record-uuid') || '(uuid not returned in headers — check ServiceM8 dashboard)';
-
-    console.log('[test-quote] Test job created successfully:', jobUuid);
-    res.json({ success: true, jobUuid, quote });
-  } catch (err) {
-    console.error('[test-quote] error:', err.message);
-    res.status(500).json({ error: 'Unexpected server error', detail: err.message });
-  }
-});
-
 
 app.get('/api/photo/:uuid', async (req, res) => {
   const API_KEY = process.env.SERVICEM8_API_KEY;
