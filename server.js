@@ -10,6 +10,8 @@ const path = require('path');
 const sharp = require('sharp');
 
 const app = express();
+
+app.use(express.json()); // needed to parse JSON POST bodies from the test quote form
 const PORT = process.env.PORT || 3000;
 let galleryCache = null;
 let galleryCacheTime = 0;
@@ -101,6 +103,8 @@ async function looksLikeDocument(buffer) {
     const channels = info.channels;
     let whiteish = 0;
     let totalSaturationSum = 0;
+    let brandBlueish = 0; // pixels matching a social-app "brand blue" (e.g. Facebook UI chrome), not a natural photo blue
+    const colorBuckets = new Set(); // tracks how many distinct (binned) colors appear — logos/icons use very few, real photos use many
     const pixelCount = data.length / channels;
 
     for (let i = 0; i < data.length; i += channels) {
@@ -109,10 +113,25 @@ async function looksLikeDocument(buffer) {
       const saturation = max === 0 ? 0 : (max - min) / max;
       totalSaturationSum += saturation;
       if (r > 225 && g > 225 && b > 225) whiteish++;
+
+      // Facebook's brand blue sits in a fairly narrow, specific band —
+      // blue clearly dominant over red and green, and not too dark or
+      // too pale. Natural trade-photo blues (tiled pools, sky in a
+      // verandah shot) tend to be either lighter/hazier or have more
+      // red/green mixed in, so this stays fairly narrow on purpose.
+      if (b > 180 && b < 255 && r < 90 && g < 150 && (b - r) > 90) brandBlueish++;
+
+      // Bin into coarse 32-level buckets per channel — real photos have
+      // continuous gradients across hundreds of distinct shades even
+      // at this resolution; flat-colour logos/icons collapse into a
+      // small handful of buckets regardless of brand or colour scheme.
+      const bucketKey = `${Math.floor(r / 32)}-${Math.floor(g / 32)}-${Math.floor(b / 32)}`;
+      colorBuckets.add(bucketKey);
     }
 
     const whiteRatio = whiteish / pixelCount;
     const avgSaturation = totalSaturationSum / pixelCount;
+    const brandBlueRatio = brandBlueish / pixelCount;
 
     // Tuned thresholds — a page of text/invoice is typically >45% near-white
     // background AND very low average saturation. Real photos of finished
@@ -123,7 +142,20 @@ async function looksLikeDocument(buffer) {
     // step before a photo goes live. A missed real photo is an acceptable
     // cost; a client's invoice slipping through publicly is not.
     const isDocument = whiteRatio > 0.35 && avgSaturation < 0.15;
-    return isDocument;
+
+    // Same reasoning applied to screenshots — a job photo that's actually a
+    // Facebook page/post/message screenshot (accidentally attached instead
+    // of real work photos) should be excluded the same way a document is.
+    const isScreenshot = brandBlueRatio > 0.18;
+
+    // General logo/icon detector — brand-agnostic, not tied to any specific
+    // company's colours. A real trade photo at this resolution (36x36)
+    // still lands in well over a hundred distinct colour buckets thanks to
+    // natural lighting, shadow and texture variation. A flat-colour logo or
+    // icon — regardless of which brand — collapses into a much smaller set.
+    const isLogo = colorBuckets.size < 40;
+
+    return isDocument || isScreenshot || isLogo;
   } catch (err) {
     console.error('[photo-analysis] error, assuming OK:', err.message);
     return false; // fail open — don't block a photo just because analysis errored
@@ -399,6 +431,7 @@ app.get('/api/gallery', async (req, res) => {
     res.status(500).json({ error: 'Unexpected server error', detail: err.message });
   }
 });
+
 
 app.get('/api/photo/:uuid', async (req, res) => {
   const API_KEY = process.env.SERVICEM8_API_KEY;
