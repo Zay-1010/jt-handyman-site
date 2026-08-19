@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2423588804792143');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2423588804792143&ev=PageView&noscript=1"
+/></noscript>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>JT Handyman Solutionz — Property Repairs & Maintenance, One Team. Instant Quote.</title>
@@ -827,14 +843,26 @@ body.modal-open { overflow:hidden; }
 </div>
 
 <script>
-  function openQuoteModal() {
+  function openQuoteModal(source) {
     var modal = document.getElementById('quoteModal');
     var frame = document.getElementById('quoteFrame');
     if (frame.src === 'about:blank') {
-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
+      // Forward this page's own UTM/click-ID params into the estimate
+      // form so attribution survives the handoff into the iframe.
+      var forwardedParams = window.location.search;
+      frame.src = 'https://jthandymansolutionz.com.au/estimate' + forwardedParams;
     }
     modal.classList.add('open');
     document.body.classList.add('modal-open');
+
+    // Honest click-intent signal — not a completed lead. Uses a custom
+    // event rather than Meta's standard "Lead" event, which should only
+    // fire on a real completed submission.
+    try {
+      if (window.fbq) {
+        fbq('trackCustom', 'QuoteButtonClicked', { button: source || 'unknown' });
+      }
+    } catch (e) {}
   }
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
