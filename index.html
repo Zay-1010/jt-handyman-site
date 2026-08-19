@@ -846,7 +846,7 @@ body.modal-open { overflow:hidden; }
   function openQuoteModal(source) {
     var modal = document.getElementById('quoteModal');
     var frame = document.getElementById('quoteFrame');
-    if (frame.src === 'about:blank') {
+    if (frame.src === 'about:blank' || frame.src === '') {
       // Forward this page's own UTM/click-ID params into the estimate
       // form so attribution survives the handoff into the iframe.
       var forwardedParams = window.location.search;

@@ -415,7 +415,7 @@ body.modal-open { overflow:hidden; }
   function openQuoteModal(source) {
     var modal = document.getElementById('quoteModal');
     var frame = document.getElementById('quoteFrame');
-    if (frame.src === 'about:blank') {
+    if (frame.src === 'about:blank' || frame.src === '') {
       frame.src = 'https://jthandymansolutionz.com.au/estimate';
     }
     modal.classList.add('open');
