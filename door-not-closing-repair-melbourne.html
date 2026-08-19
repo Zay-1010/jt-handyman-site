@@ -395,6 +395,11 @@ body.modal-open { overflow:hidden; }
     }
     modal.classList.add('open');
     document.body.classList.add('modal-open');
+    try {
+      if (window.fbq) {
+        fbq('trackCustom', 'QuoteButtonClicked', { button: source || 'unknown' });
+      }
+    } catch (e) {}
   }
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
