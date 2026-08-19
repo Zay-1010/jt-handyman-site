@@ -1,22 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Meta Pixel -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2423588804792143');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=2423588804792143&ev=PageView&noscript=1"
-/></noscript>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>JT Handyman Solutionz — Property Repairs & Maintenance, One Team. Instant Quote.</title>
@@ -35,7 +19,7 @@ fbq('track', 'PageView');
 .job-ticker{ background:#0c0d0f; border-top:2px solid #e7161f; padding:.5rem 0; }
 .job-ticker-inner{ max-width:1160px; margin:0 auto; padding:0 22px; display:flex; align-items:center; gap:14px; }
 .job-ticker-badge{ flex:none; background:#e7161f; color:#fff; font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:.3rem .7rem; border-radius:999px; }
-.job-ticker-track{ color:rgba(255,255,255,.85); font-size:.85rem; overflow:hidden; white-space:nowrap; flex:1; position:relative; }
+.job-ticker-track{ color:rgba(255,255,255,.85); font-size:.85rem; line-height:1.6; overflow:hidden; white-space:nowrap; flex:1; position:relative; padding:2px 0; }
 .brand{ display:flex; align-items:center; gap:12px; }
 .brand-mark{ font-size:1.7rem; }
 .brand-text{ font-size:1.05rem; line-height:1.25; white-space:nowrap; }
@@ -61,7 +45,7 @@ fbq('track', 'PageView');
   .dropdown-menu li a{ display:block; padding:9px 4px; font-size:.85rem; opacity:.85; border-bottom:0 !important; }
 }
 
-.job-ticker-marquee{ display:inline-flex; gap:40px; animation:jtScroll 28s linear infinite; }
+.job-ticker-marquee{ display:inline-flex; gap:40px; animation:jtScroll 45s linear infinite; }
 .job-ticker-track:hover .job-ticker-marquee{ animation-play-state:paused; }
 @keyframes jtScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
 .job-ticker-item{ position:static !important; opacity:1 !important; display:inline-block !important; }
@@ -190,6 +174,10 @@ p{ font-size:1.02rem; line-height:1.65; }
   height:calc(94vh + var(--hdr)); max-height:calc(1520px + var(--hdr));
   border:0; display:block; background:#f7fbfd; margin-top:calc(var(--hdr) * -1); }
 body.modal-open { overflow:hidden; }
+
+/* ---- Skeleton loading state for job ticker ---- */
+@keyframes skeletonShimmer{ 0%{ background-position:-200% 0; } 100%{ background-position:200% 0; } }
+.job-ticker-skeleton{ display:inline-block; width:220px; height:12px; border-radius:6px; background:linear-gradient(90deg, rgba(255,255,255,.06) 25%, rgba(255,255,255,.14) 37%, rgba(255,255,255,.06) 63%); background-size:400% 100%; animation:skeletonShimmer 1.6s ease-in-out infinite; }
 </style>
 </head>
 <body>
@@ -241,7 +229,7 @@ body.modal-open { overflow:hidden; }
   <div class="job-ticker-inner">
     <span class="job-ticker-badge">Just completed</span>
     <div class="job-ticker-track" data-job-ticker>
-      <span class="job-ticker-item show">Loading recent JT jobs…</span>
+      <span class="job-ticker-item show job-ticker-skeleton"></span>
     </div>
   </div>
 </div>
@@ -258,13 +246,25 @@ body.modal-open { overflow:hidden; }
       track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant quote today.</span>';
       return;
     }
-    const itemsHtml = data.jobs.map(job => `<span class="job-ticker-item">${job.category} completed — ${job.suburb}</span>`).join('');
+    const itemsHtml = data.jobs.map(job => `<span class="job-ticker-item">${job.category} completed — ${job.suburb} — ${job.date}</span>`).join('');
     track.innerHTML = `<div class="job-ticker-marquee">${itemsHtml}${itemsHtml}</div>`;
   } catch (err) {
     console.error('Job ticker error:', err);
     track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant quote today.</span>';
   }
 })();
+
+// Quietly warm up the Recent Jobs cache in the background while the
+// visitor is on this page, so if they later click through to Recent
+// Jobs, the data is often already ready instead of loading from scratch.
+// Waits a few seconds after page load so it doesn't compete with more
+// important things (like the page's own content and this ticker).
+setTimeout(function () {
+  fetch('/api/recent-jobs').catch(function () {
+    // Silent on failure — this is just a background nicety, not
+    // something that should ever show an error to the visitor.
+  });
+}, 4000);
 </script>
 
 <section class="hero band-white text-center">
@@ -843,26 +843,14 @@ body.modal-open { overflow:hidden; }
 </div>
 
 <script>
-  function openQuoteModal(source) {
+  function openQuoteModal() {
     var modal = document.getElementById('quoteModal');
     var frame = document.getElementById('quoteFrame');
-    if (frame.src === 'about:blank' || frame.src === '') {
-      // Forward this page's own UTM/click-ID params into the estimate
-      // form so attribution survives the handoff into the iframe.
-      var forwardedParams = window.location.search;
-      frame.src = 'https://jthandymansolutionz.com.au/estimate' + forwardedParams;
+    if (frame.src === 'about:blank') {
+      frame.src = 'https://jthandymansolutionz.com.au/estimate';
     }
     modal.classList.add('open');
     document.body.classList.add('modal-open');
-
-    // Honest click-intent signal — not a completed lead. Uses a custom
-    // event rather than Meta's standard "Lead" event, which should only
-    // fire on a real completed submission.
-    try {
-      if (window.fbq) {
-        fbq('trackCustom', 'QuoteButtonClicked', { button: source || 'unknown' });
-      }
-    } catch (e) {}
   }
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
