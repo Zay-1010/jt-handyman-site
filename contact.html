@@ -201,7 +201,7 @@ body.modal-open { overflow:hidden; }
       track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant quote today.</span>';
       return;
     }
-    const itemsHtml = data.jobs.map(job => `<span class="job-ticker-item">${job.category} completed — ${job.suburb}</span>`).join('');
+    const itemsHtml = data.jobs.map(job => `<span class="job-ticker-item">${job.category} completed — ${job.suburb} — ${job.date}</span>`).join('');
     track.innerHTML = `<div class="job-ticker-marquee">${itemsHtml}${itemsHtml}</div>`;
   } catch (err) {
     console.error('Job ticker error:', err);

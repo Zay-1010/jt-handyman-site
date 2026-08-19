@@ -954,7 +954,7 @@ body.modal-open{
 
     const itemsHtml = data.jobs
       .map(job =>
-        `<span class="job-ticker-item">${job.category} completed — ${job.suburb}</span>`
+        `<span class="job-ticker-item">${job.category} completed — ${job.suburb} — ${job.date}</span>`
       )
       .join('');
 
