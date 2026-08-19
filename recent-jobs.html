@@ -232,10 +232,33 @@ body.modal-open { overflow:hidden; }
 (async function () {
   const list = document.querySelector('[data-job-list]');
   if (!list) return;
+
+  const CACHE_KEY = 'jt_recent_jobs_prefetch';
+  const CACHE_TIME_KEY = 'jt_recent_jobs_prefetch_time';
+  const CACHE_MAX_AGE_MS = 5 * 60 * 1000; // 5 minutes — matches the background prefetch's own freshness window
+
+  function getCachedData() {
+    const cachedTime = sessionStorage.getItem(CACHE_TIME_KEY);
+    const isFresh = cachedTime && (Date.now() - parseInt(cachedTime, 10)) < CACHE_MAX_AGE_MS;
+    if (!isFresh) return null;
+    try {
+      const raw = sessionStorage.getItem(CACHE_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch (err) {
+      return null; // corrupted cache entry — treat as a miss, fall through to a fresh fetch
+    }
+  }
+
   try {
-    const res = await fetch('/api/recent-jobs');
-    if (!res.ok) throw new Error('Failed to load recent jobs');
-    const data = await res.json();
+    // A visitor who arrived on another page first may already have this
+    // prefetched and cached in the background (see main.js) — if so, it
+    // renders instantly here with no network wait at all.
+    let data = getCachedData();
+    if (!data) {
+      const res = await fetch('/api/recent-jobs');
+      if (!res.ok) throw new Error('Failed to load recent jobs');
+      data = await res.json();
+    }
 
     if (!data.jobs || data.jobs.length === 0) {
       list.innerHTML = '<p style="grid-column:1/-1;color:var(--slate);">No recent completed jobs to show right now — check back soon.</p>';
