@@ -98,7 +98,18 @@ function guessTrade(text) {
 // filter out obvious invoice/screenshot photos.
 async function looksLikeDocument(buffer) {
   try {
-    const img = sharp(buffer).resize(36, 36, { fit: 'inside' }); // downscale further — smaller image = less CPU-bound pixel work = less chance of blocking other concurrent requests (like the ticker on other pages)
+    const sharpImg = sharp(buffer);
+    const metadata = await sharpImg.metadata();
+    const origWidth = metadata.width || 1;
+    const origHeight = metadata.height || 1;
+    // Thermal/paper receipts are characteristically very tall and narrow
+    // (or the reverse if photographed sideways) — a distinct shape signal
+    // separate from colour, useful for catching a receipt even if its
+    // lighting/shadow happens to pass the colour-based checks below.
+    const aspectRatio = Math.max(origWidth, origHeight) / Math.min(origWidth, origHeight);
+    const isReceiptShaped = aspectRatio > 2.6;
+
+    const img = sharpImg.resize(36, 36, { fit: 'inside' }); // downscale further — smaller image = less CPU-bound pixel work = less chance of blocking other concurrent requests (like the ticker on other pages)
     const { data, info } = await img.raw().toBuffer({ resolveWithObject: true });
     const channels = info.channels;
     let whiteish = 0;
@@ -141,7 +152,15 @@ async function looksLikeDocument(buffer) {
     // fewer, since Recent Jobs is fully automated with no manual review
     // step before a photo goes live. A missed real photo is an acceptable
     // cost; a client's invoice slipping through publicly is not.
-    const isDocument = whiteRatio > 0.35 && avgSaturation < 0.15;
+    const isDocument = whiteRatio > 0.25 && avgSaturation < 0.18;
+
+    // A tall/narrow receipt shape combined with even moderately
+    // document-like colouring (lighter, less saturated than a typical
+    // trade photo) is treated as a document too — catches photographed
+    // receipts that don't fully match the stricter isDocument thresholds
+    // above, since a photo (not a scan) of a receipt often has more
+    // shadow/background bleeding into the white-ratio calculation.
+    const isLikelyReceipt = isReceiptShaped && whiteRatio > 0.15 && avgSaturation < 0.28;
 
     // Same reasoning applied to screenshots — a job photo that's actually a
     // Facebook page/post/message screenshot (accidentally attached instead
@@ -155,7 +174,7 @@ async function looksLikeDocument(buffer) {
     // icon — regardless of which brand — collapses into a much smaller set.
     const isLogo = colorBuckets.size < 40;
 
-    return isDocument || isScreenshot || isLogo;
+    return isDocument || isScreenshot || isLogo || isLikelyReceipt;
   } catch (err) {
     console.error('[photo-analysis] error, assuming OK:', err.message);
     return false; // fail open — don't block a photo just because analysis errored
