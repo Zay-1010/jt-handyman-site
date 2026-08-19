@@ -14,7 +14,7 @@
     }
 
     track.innerHTML = data.jobs
-      .map(job => `<span class="job-ticker-item">${job.category} completed — ${job.suburb} — ${job.date}</span>`)
+      .map(job => `<span class="job-ticker-item">${job.category} · ${job.suburb} · ${job.date}</span>`)
       .join('');
 
     const items = track.querySelectorAll('.job-ticker-item');
