@@ -365,7 +365,8 @@ app.get('/api/jobs', async (req, res) => {
       .slice(0, 8)
       .map(job => ({
         category: guessTrade(job.work_done_description || job.job_description),
-        suburb: job.geo_city || 'Melbourne'
+        suburb: job.geo_city || 'Melbourne',
+        date: new Date(job.completion_date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' })
       }));
 
     tickerCache = safeJobs;
