@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Recent Jobs — JT Handyman Solutionz, Live Across Melbourne</title>
-<meta name="description" content="See what JT Handyman has been completing across Melbourne, a live feed of recent property repairs and maintenance jobs, by trade and suburb.">
+<title>Recent Jobs — JT Handyman Solutionz, Across Melbourne</title>
+<meta name="description" content="See what JT Handyman has been completing across Melbourne, real property repairs and maintenance jobs, by trade and suburb.">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="Recent Jobs — JT Handyman Solutionz, Live Across Melbourne">
-<meta property="og:description" content="See what JT Handyman has been completing across Melbourne, a live feed of recent property repairs and maintenance jobs, by trade and suburb.">
+<meta property="og:title" content="Recent Jobs — JT Handyman Solutionz, Across Melbourne">
+<meta property="og:description" content="See what JT Handyman has been completing across Melbourne, real property repairs and maintenance jobs, by trade and suburb.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="css/styles.css">
 <style>
@@ -123,18 +123,6 @@ p{ font-size:1.02rem; line-height:1.65; }
 @media (max-width:560px){ .qmodal-crop{ --hdr:92px; --side:18px; --bar:0px; } }
 #quoteFrame { position:relative; left:calc(var(--side) * -1); width:calc(100% + var(--side) + var(--side) + var(--bar)); height:calc(94vh + var(--hdr)); max-height:calc(1520px + var(--hdr)); border:0; display:block; background:#f7fbfd; margin-top:calc(var(--hdr) * -1); }
 body.modal-open { overflow:hidden; }
-
-/* ---- Skeleton loading states (ticker + job cards) ---- */
-@keyframes skeletonShimmer{ 0%{ background-position:-200% 0; } 100%{ background-position:200% 0; } }
-.job-ticker-skeleton{ display:inline-block; width:220px; height:12px; border-radius:6px; background:linear-gradient(90deg, rgba(255,255,255,.06) 25%, rgba(255,255,255,.14) 37%, rgba(255,255,255,.06) 63%); background-size:400% 100%; animation:skeletonShimmer 1.6s ease-in-out infinite; }
-.docket-skeleton{ padding:0 !important; overflow:hidden; position:relative; }
-.docket-skeleton .skeleton-img{ width:100%; aspect-ratio:16/10; object-fit:cover; display:block; opacity:.55; filter:grayscale(35%); }
-.docket-skeleton .skeleton-badge{ position:absolute; top:10px; left:10px; background:rgba(12,13,15,.85); color:#fff; font-size:.68rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; padding:.3rem .6rem; border-radius:999px; display:flex; align-items:center; gap:6px; }
-.docket-skeleton .skeleton-badge .dot{ width:6px; height:6px; border-radius:50%; background:#e7161f; animation:pulseDot 1.2s ease-in-out infinite; }
-@keyframes pulseDot{ 0%,100%{ opacity:1; } 50%{ opacity:.3; } }
-.docket-skeleton .skeleton-body{ padding:16px 18px; }
-.docket-skeleton .skeleton-line{ height:12px; background:linear-gradient(90deg, #eef1f4 25%, #f7f9fa 37%, #eef1f4 63%); background-size:400% 100%; animation:skeletonShimmer 1.6s ease-in-out infinite; border-radius:6px; margin-bottom:8px; }
-.docket-skeleton .skeleton-line.short{ width:55%; margin-bottom:0; }
 </style>
 </head>
 <body>
@@ -214,107 +202,488 @@ body.modal-open { overflow:hidden; }
 
 <section class="hero band-grey text-center" style="padding-bottom:56px;">
   <div class="container">
-    <span class="eyebrow" style="display:inline-flex;align-items:center;gap:8px;">
-      <span style="width:8px;height:8px;border-radius:50%;background:#22c55e;display:inline-block;animation:pulseDot 1.6s ease-in-out infinite;"></span>
-      Live job feed
-    </span>
+    <span class="eyebrow">Real JT jobs</span>
     <h1>Recently <span style="color:#e7161f;">completed</span></h1>
-    <p class="lede" style="margin:0 auto;">A live look at what the JT team has been finishing across Melbourne — real property repairs and maintenance, by suburb and date. This updates automatically as jobs are completed.</p>
-    <p style="color:#9aa5b1;font-size:.85rem;margin-top:8px;" id="jobCountLine">Showing the most recent completed jobs · live from our job system.</p>
+    <p class="lede" style="margin:0 auto;">A look at what the JT team has been finishing across Melbourne — real property repairs and maintenance, by suburb and date.</p>
+    <p style="color:#9aa5b1;font-size:.85rem;margin-top:8px;">Showing 36 recent completed jobs from our job system.</p>
     <p style="color:#9aa5b1;font-size:.78rem;margin-top:4px;">Photos are pulled directly from each job file and may show any stage of the work, not always the finished result.</p>
   </div>
 </section>
 
-<style>
-@keyframes pulseDot{ 0%,100%{ opacity:1; } 50%{ opacity:.35; } }
-</style>
-
 <section class="section band-white" style="padding-top:0;">
   <div class="container">
-    <div class="grid grid-3" data-job-list style="gap:18px;">
-      <div class="docket docket-skeleton">
-        <img class="skeleton-img" src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-finished-bathroom-vanity-melbourne.webp" alt="">
-        <span class="skeleton-badge"><span class="dot"></span>Loading</span>
-        <div class="skeleton-body"><div class="skeleton-line short"></div><div class="skeleton-line" style="width:75%;margin-top:12px;"></div></div>
-      </div>
-      <div class="docket docket-skeleton">
-        <img class="skeleton-img" src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-tiled-shower-glass-screen-melbourne.webp" alt="">
-        <span class="skeleton-badge"><span class="dot"></span>Loading</span>
-        <div class="skeleton-body"><div class="skeleton-line short"></div><div class="skeleton-line" style="width:75%;margin-top:12px;"></div></div>
-      </div>
-      <div class="docket docket-skeleton">
-        <img class="skeleton-img" src="https://lp.jthandymansolutionz.com.au/assets/img/jt-site/work/jt-finished-timber-floor-melbourne.webp" alt="">
-        <span class="skeleton-badge"><span class="dot"></span>Loading</span>
-        <div class="skeleton-body"><div class="skeleton-line short"></div><div class="skeleton-line" style="width:75%;margin-top:12px;"></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-(async function () {
-  const list = document.querySelector('[data-job-list]');
-  if (!list) return;
-
-  const CACHE_KEY = 'jt_recent_jobs_prefetch';
-  const CACHE_TIME_KEY = 'jt_recent_jobs_prefetch_time';
-  const CACHE_MAX_AGE_MS = 5 * 60 * 1000; // 5 minutes — matches the background prefetch's own freshness window
-
-  function getCachedData() {
-    const cachedTime = sessionStorage.getItem(CACHE_TIME_KEY);
-    const isFresh = cachedTime && (Date.now() - parseInt(cachedTime, 10)) < CACHE_MAX_AGE_MS;
-    if (!isFresh) return null;
-    try {
-      const raw = sessionStorage.getItem(CACHE_KEY);
-      return raw ? JSON.parse(raw) : null;
-    } catch (err) {
-      return null; // corrupted cache entry — treat as a miss, fall through to a fresh fetch
-    }
-  }
-
-  try {
-    // A visitor who arrived on another page first may already have this
-    // prefetched and cached in the background (see main.js) — if so, it
-    // renders instantly here with no network wait at all.
-    let data = getCachedData();
-    if (!data) {
-      const res = await fetch('/api/recent-jobs');
-      if (!res.ok) throw new Error('Failed to load recent jobs');
-      data = await res.json();
-    }
-
-    if (!data.jobs || data.jobs.length === 0) {
-      list.innerHTML = '<p style="grid-column:1/-1;color:var(--slate);">No recent completed jobs to show right now — check back soon.</p>';
-      return;
-    }
-
-    const countLine = document.getElementById('jobCountLine');
-    if (countLine) {
-      countLine.textContent = `Showing the ${data.jobs.length} most recent completed jobs · live from our job system.`;
-    }
-
-    list.innerHTML = data.jobs.map(job => `
+    <div class="grid grid-3" style="gap:18px;">
       <div class="docket" style="padding:0;overflow:hidden;">
         <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
-          <img src="${job.thumbUrl}" alt="${job.category} completed by JT Handyman in ${job.suburb}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <img src="img/work/StAndrewsBeach_landscape.jpg" alt="Windows &amp; Glazing completed by JT Handyman in Saint Andrews Beach" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
         <div style="padding:16px 18px;">
           <div class="job-done-tag" style="margin-bottom:4px;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
-            ${job.category}
+            Windows &amp; Glazing
           </div>
-          <p style="margin:0;color:var(--slate);">${job.suburb}, VIC</p>
-          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed ${job.completed}</p>
+          <p style="margin:0;color:var(--slate);">Saint Andrews Beach, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed today</p>
         </div>
       </div>
-    `).join('');
-
-  } catch (err) {
-    console.error('Recent jobs load error:', err);
-    list.innerHTML = '<p style="grid-column:1/-1;color:var(--slate);">Unable to load recent jobs right now.</p>';
-  }
-})();
-</script>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/01a00d48-6754-7eb2-9934-bf1f391a8b8b" alt="Kitchens completed by JT Handyman in Briar Hill" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Kitchens
+          </div>
+          <p style="margin:0;color:var(--slate);">Briar Hill, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed today</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="img/work/GlenHuntly_landscape.jpg" alt="General maintenance completed by JT Handyman in Glen Huntly" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            General maintenance
+          </div>
+          <p style="margin:0;color:var(--slate);">Glen Huntly, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed today</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/019fb5f5-4466-7eb2-9934-076ab07eb09b" alt="General maintenance completed by JT Handyman in Werribee" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            General maintenance
+          </div>
+          <p style="margin:0;color:var(--slate);">Werribee, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed today</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/17b2185c-503d-4356-a31f-b85126473f11" alt="General maintenance completed by JT Handyman in Keilor Park" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            General maintenance
+          </div>
+          <p style="margin:0;color:var(--slate);">Keilor Park, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed today</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/01a0128f-6cd2-7eb2-9935-81ec903cbc1b" alt="Plumbing completed by JT Handyman in Oakleigh" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Plumbing
+          </div>
+          <p style="margin:0;color:var(--slate);">Oakleigh, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed today</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="img/work/Maribyrnong_landscape.jpg" alt="Kitchens completed by JT Handyman in Maribyrnong" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Kitchens
+          </div>
+          <p style="margin:0;color:var(--slate);">Maribyrnong, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed yesterday</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/9c06d703-de61-4fab-a21a-84633da6dc85" alt="Painting &amp; Plastering completed by JT Handyman in Pascoe Vale" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Painting &amp; Plastering
+          </div>
+          <p style="margin:0;color:var(--slate);">Pascoe Vale, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed yesterday</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/01a00da7-dbbc-7eb2-9935-bfae3d89bd8b" alt="Carpentry &amp; Doors completed by JT Handyman in South Melbourne" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Carpentry &amp; Doors
+          </div>
+          <p style="margin:0;color:var(--slate);">South Melbourne, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed yesterday</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/b6dc87b6-7610-415f-b3ca-2490383734ca" alt="Carpentry &amp; Doors completed by JT Handyman in Richmond" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Carpentry &amp; Doors
+          </div>
+          <p style="margin:0;color:var(--slate);">Richmond, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed yesterday</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/019fcb30-d064-7eb2-9935-a3f4083730ab" alt="Carpentry &amp; Doors completed by JT Handyman in Brunswick" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Carpentry &amp; Doors
+          </div>
+          <p style="margin:0;color:var(--slate);">Brunswick, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed 2 days ago</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/019fcfce-ac79-7eb2-9934-7943952d5feb" alt="Painting &amp; Plastering completed by JT Handyman in Hoppers Crossing" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Painting &amp; Plastering
+          </div>
+          <p style="margin:0;color:var(--slate);">Hoppers Crossing, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed 2 days ago</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/9c835ae3-01bc-4095-8a49-24598193c4ab" alt="Carpentry &amp; Doors completed by JT Handyman in Melbourne" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Carpentry &amp; Doors
+          </div>
+          <p style="margin:0;color:var(--slate);">Melbourne, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed 2 days ago</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/019fb08c-b020-7eb2-9934-ee75c8ed587b" alt="Painting &amp; Plastering completed by JT Handyman in Coburg" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Painting &amp; Plastering
+          </div>
+          <p style="margin:0;color:var(--slate);">Coburg, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed 2 days ago</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/254fad6b-19fb-4f4d-85d7-248e7dbcbc4a" alt="Kitchens completed by JT Handyman in Docklands" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Kitchens
+          </div>
+          <p style="margin:0;color:var(--slate);">Docklands, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed 3 days ago</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/36267bc9-c8d1-4bd2-b6f7-24512ca1a27b" alt="Carpentry &amp; Doors completed by JT Handyman in Hawthorn East" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Carpentry &amp; Doors
+          </div>
+          <p style="margin:0;color:var(--slate);">Hawthorn East, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed 3 days ago</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="img/work/Donvale_landscape.jpg" alt="Painting &amp; Plastering completed by JT Handyman in Donvale" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Painting &amp; Plastering
+          </div>
+          <p style="margin:0;color:var(--slate);">Donvale, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed 3 days ago</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/019fab08-f35f-7eb2-9935-4b314a2584db" alt="Carpentry &amp; Doors completed by JT Handyman in Templestowe" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Carpentry &amp; Doors
+          </div>
+          <p style="margin:0;color:var(--slate);">Templestowe, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed 6 days ago</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="img/work/Broadmeadows_landscape.jpg" alt="Windows &amp; Glazing completed by JT Handyman in Broadmeadows" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Windows &amp; Glazing
+          </div>
+          <p style="margin:0;color:var(--slate);">Broadmeadows, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed 6 days ago</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/019fcf5c-9d91-7eb2-9934-7aa8a87ed6cb" alt="General maintenance completed by JT Handyman in Delahey" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            General maintenance
+          </div>
+          <p style="margin:0;color:var(--slate);">Delahey, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed last week</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="img/work/Sunbury_landscape.jpg" alt="General maintenance completed by JT Handyman in Sunbury" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            General maintenance
+          </div>
+          <p style="margin:0;color:var(--slate);">Sunbury, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed last week</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/019fe8ae-b823-7eb2-9935-159c6e0bdc0b" alt="General maintenance completed by JT Handyman in Epping" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            General maintenance
+          </div>
+          <p style="margin:0;color:var(--slate);">Epping, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed last week</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/019faca4-70a8-7eb2-9935-f02609537a8b" alt="Carpentry &amp; Doors completed by JT Handyman in Balaclava" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Carpentry &amp; Doors
+          </div>
+          <p style="margin:0;color:var(--slate);">Balaclava, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed last week</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/50d10315-0c62-4334-9dbb-24447382603a" alt="Bathrooms &amp; Tiling completed by JT Handyman in Balaclava" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Bathrooms &amp; Tiling
+          </div>
+          <p style="margin:0;color:var(--slate);">Balaclava, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed last week</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/638616ed-4053-4bc4-945e-248a52e4865a" alt="Painting &amp; Plastering completed by JT Handyman in Yarraville" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Painting &amp; Plastering
+          </div>
+          <p style="margin:0;color:var(--slate);">Yarraville, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed last week</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/15c76d56-61b9-45fe-8d14-244fc97aa86b" alt="General maintenance completed by JT Handyman in Melbourne" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            General maintenance
+          </div>
+          <p style="margin:0;color:var(--slate);">Melbourne, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed last week</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/48729538-76ac-4022-b72f-24876c43c3fa" alt="Painting &amp; Plastering completed by JT Handyman in Pascoe Vale" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Painting &amp; Plastering
+          </div>
+          <p style="margin:0;color:var(--slate);">Pascoe Vale, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed last week</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/019f7d31-4647-7eb2-9935-af7265b650ab" alt="General maintenance completed by JT Handyman in Bayswater" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            General maintenance
+          </div>
+          <p style="margin:0;color:var(--slate);">Bayswater, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed last week</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="img/work/NarreWarren_landscape.jpg" alt="Carpentry &amp; Doors completed by JT Handyman in Narre Warren" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Carpentry &amp; Doors
+          </div>
+          <p style="margin:0;color:var(--slate);">Narre Warren, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed last week</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="img/work/NarreWarrenFencing_landscape.jpg" alt="General maintenance completed by JT Handyman in Narre Warren" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            General maintenance
+          </div>
+          <p style="margin:0;color:var(--slate);">Narre Warren, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed last week</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/019fcb89-0038-7eb2-9934-935e5f8d627b" alt="Carpentry &amp; Doors completed by JT Handyman in Docklands" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Carpentry &amp; Doors
+          </div>
+          <p style="margin:0;color:var(--slate);">Docklands, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed last week</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/72cb4276-cac3-409a-8c4c-24832fa3bd2a" alt="General maintenance completed by JT Handyman in Keilor Park" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            General maintenance
+          </div>
+          <p style="margin:0;color:var(--slate);">Keilor Park, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed last week</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/019fd98e-5af0-7eb2-9935-dad65048ab8b" alt="Plumbing completed by JT Handyman in Dallas" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Plumbing
+          </div>
+          <p style="margin:0;color:var(--slate);">Dallas, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed last week</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/e7952d3b-ea88-4be8-9106-2460e1554cda" alt="Carpentry &amp; Doors completed by JT Handyman in Coburg" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Carpentry &amp; Doors
+          </div>
+          <p style="margin:0;color:var(--slate);">Coburg, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed 2 weeks ago</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/019fcef8-9983-7eb2-9934-0c9507a293eb" alt="General maintenance completed by JT Handyman in Epping" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            General maintenance
+          </div>
+          <p style="margin:0;color:var(--slate);">Epping, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed 2 weeks ago</p>
+        </div>
+      </div>
+      <div class="docket" style="padding:0;overflow:hidden;">
+        <div style="width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4f6f8;">
+          <img src="https://jt-handyman-site.vercel.app/api/photo/019fa7b5-853f-7eb2-9934-d983efecda4b" alt="Bathrooms &amp; Tiling completed by JT Handyman in Doncaster" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:16px 18px;">
+          <div class="job-done-tag" style="margin-bottom:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"></path></svg>
+            Bathrooms &amp; Tiling
+          </div>
+          <p style="margin:0;color:var(--slate);">Doncaster, VIC</p>
+          <p style="margin:4px 0 0;color:#9aa5b1;font-size:.85rem;">Completed 2 weeks ago</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section band-dark">
   <div class="container cta-band">
