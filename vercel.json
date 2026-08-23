@@ -6,6 +6,7 @@
     { "src": "css/**", "use": "@vercel/static" },
     { "src": "img/**", "use": "@vercel/static" },
     { "src": "js/**", "use": "@vercel/static" },
+    { "src": "fonts/**", "use": "@vercel/static" },
     { "src": "*.ico", "use": "@vercel/static" },
     { "src": "*.png", "use": "@vercel/static" }
   ],
