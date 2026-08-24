@@ -43,6 +43,17 @@ fbq('track', 'PageView');
 .header-actions{ flex-shrink:0; }
 .header-actions .phone-link{ white-space:nowrap; flex-shrink:0; }
 #standards, #how, #services, #proof{ scroll-margin-top:110px; }
+
+/* Dark/charcoal header, matching the real live site (logo is designed for a dark background) */
+.site-header{ background:#17181b !important; border-bottom:2px solid #e7161f; backdrop-filter:none; }
+.header-inner{ padding:12px 0 !important; gap:20px; }
+.site-header .main-nav a{ color:rgba(255,255,255,.75) !important; }
+.site-header .main-nav a:hover, .site-header .main-nav a.active{ color:#fff !important; }
+.site-header .main-nav a.active::after, .site-header .main-nav a:hover::after{ background:#e7161f !important; }
+.site-header .phone-link{ color:#fff !important; }
+@media(max-width:900px){
+  .site-header .nav-toggle span{ background:#fff; }
+}
 .job-ticker-marquee{ display:inline-flex; align-items:center; gap:40px; animation:jtScroll 28s linear infinite; line-height:22px; }
 .job-ticker-track:hover .job-ticker-marquee{ animation-play-state:paused; }
 @keyframes jtScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
@@ -142,12 +153,8 @@ body.modal-open{ overflow:hidden; }
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="jtcompliance.html" class="brand" style="display:flex;align-items:center;gap:10px;">
-      <img src="img/jtc/logo_jt.png" alt="JT Compliance" style="height:44px;width:auto;display:block;">
-      <span style="line-height:1.15;">
-        <span style="display:block;font-family:'Rajdhani','Rajdhani Fallback',sans-serif;font-weight:700;font-size:1.15rem;color:#1a1a1a;">JT Compliance</span>
-        <span style="display:block;font-size:.72rem;color:#8a8a8a;">Melbourne · Rental Minimum Standards</span>
-      </span>
+    <a href="jtcompliance.html" class="brand" style="display:flex;align-items:center;">
+      <img src="img/work/jt-logo-correct.png" alt="JT Handyman Solutionz" style="height:64px;width:auto;display:block;">
     </a>
 
     <nav class="main-nav" id="main-nav">
