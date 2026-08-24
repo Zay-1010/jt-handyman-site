@@ -70,6 +70,13 @@ fbq('track', 'PageView');
 .ratio-4-3 img{width:100%;height:100%;object-fit:cover;display:block;}
 .card{ border-top:4px solid #e7161f !important; }
 .hero-stat .num{ color:#e7161f !important; }
+.stats-4{ grid-template-columns:repeat(4,1fr) !important; }
+.stats-4 .hero-stat:nth-child(3){ border-right:1px solid rgba(255,255,255,.1); }
+@media(max-width:640px){
+  .stats-4{ grid-template-columns:repeat(2,1fr) !important; }
+  .stats-4 .hero-stat:nth-child(2){ border-right:none; }
+  .stats-4 .hero-stat:nth-child(3){ border-right:1px solid rgba(255,255,255,.1); }
+}
 .video-card{ border:2px solid #0c0d0f !important; box-shadow:none !important; padding:0 !important; background:transparent !important; }
 .video-card video, .video-card img{ border:0 !important; }
 
@@ -136,7 +143,7 @@ body.modal-open{ overflow:hidden; }
 <header class="site-header">
   <div class="container header-inner">
     <a href="jtcompliance.html" class="brand" style="display:flex;align-items:center;gap:10px;">
-      <img src="img/jtc/logo_jt.jpg" alt="JT Compliance" style="height:44px;width:auto;display:block;">
+      <img src="img/jtc/logo_jt.png" alt="JT Compliance" style="height:44px;width:auto;display:block;">
       <span style="line-height:1.15;">
         <span style="display:block;font-family:'Rajdhani','Rajdhani Fallback',sans-serif;font-weight:700;font-size:1.15rem;color:#1a1a1a;">JT Compliance</span>
         <span style="display:block;font-size:.72rem;color:#8a8a8a;">Melbourne · Rental Minimum Standards</span>
@@ -355,7 +362,7 @@ body.modal-open{ overflow:hidden; }
   <div class="container" style="max-width:900px;">
     <span class="eyebrow">A decade on the tools</span>
     <h2>Built to keep a whole rent roll compliant</h2>
-    <div class="hero-stats" style="justify-content:center;margin-top:32px;">
+    <div class="hero-stats stats-4" style="justify-content:center;margin-top:32px;">
       <div class="hero-stat"><span class="num">10,000+</span><span class="label">Jobs completed</span></div>
       <div class="hero-stat"><span class="num">36 hr</span><span class="label">Compliance quote turnaround</span></div>
       <div class="hero-stat"><span class="num">1</span><span class="label">Point of contact, always</span></div>
@@ -644,7 +651,7 @@ body.modal-open{ overflow:hidden; }
     <div class="footer-grid" style="grid-template-columns:1.4fr repeat(3,1fr);">
       <div>
         <div class="footer-brand">
-          <img src="img/jtc/logo_jt.jpg" alt="JT Compliance" style="height:36px;width:auto;vertical-align:middle;margin-right:8px;"> JT Compliance
+          <img src="img/jtc/logo_jt.png" alt="JT Compliance" style="height:36px;width:auto;vertical-align:middle;margin-right:8px;"> JT Compliance
         </div>
         <p style="margin-top:12px;max-width:280px;">powered by JT Handyman Solutionz — one Melbourne partner for your whole rent roll's 2027 minimum standards.</p>
       </div>
