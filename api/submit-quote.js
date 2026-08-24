@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
 
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
-    const { name, email, phone, address, service, message, honeypot } = body;
+    const { name, email, phone, address, service, message, agency, portfolioSize, honeypot } = body;
 
     // Simple spam trap — a hidden field real users never fill in.
     if (honeypot) {
@@ -21,9 +21,14 @@ module.exports = async (req, res) => {
       return;
     }
 
+    // NOTE: `address` is the enquirer's physical/job address in ServiceM8 —
+    // never repurpose it for an agency name or other free text. Agency and
+    // portfolio size are enquiry details, so they go in the description only.
     const companyUuid = await createOrFindCompany({ name, email, phone, address });
 
     const description = [
+      agency ? `Agency/company: ${agency}` : null,
+      portfolioSize ? `Properties in portfolio: ${portfolioSize}` : null,
       service ? `Service requested: ${service}` : null,
       message ? `Details: ${message}` : null,
       `Submitted via website instant quote form.`,
