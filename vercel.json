@@ -12,6 +12,16 @@
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "server.js" },
+    {
+      "src": "/",
+      "has": [{ "type": "host", "value": "jtcompliance.com.au" }],
+      "dest": "/jtcompliance.html"
+    },
+    {
+      "src": "/",
+      "has": [{ "type": "host", "value": "www.jtcompliance.com.au" }],
+      "dest": "/jtcompliance.html"
+    },
     { "src": "/(.*)", "dest": "/$1" }
   ]
 }
