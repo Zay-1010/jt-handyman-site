@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KQXG8LXC');</script>
+<head>
 <!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -53,6 +53,12 @@ fbq('track', 'PageView');
 @media(max-width:900px){
   .site-header .nav-toggle span{ background:#fff; }
 }
+@media(max-width:480px){
+  .brand-logo-icon{ height:36px !important; }
+  .site-header .brand span span:first-child{ font-size:1rem !important; }
+  .site-header .brand span span:last-child{ display:none; }
+  .header-inner{ gap:10px !important; }
+}
 .job-ticker-marquee{ display:inline-flex; align-items:center; gap:40px; animation:jtScroll 28s linear infinite; line-height:22px; }
 .job-ticker-track:hover .job-ticker-marquee{ animation-play-state:paused; }
 @keyframes jtScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
@@ -101,7 +107,12 @@ h3{ font-size:1.25rem !important; font-weight:700 !important; margin-top:1.6em; 
 .article-meta{ font-size:.85rem; color:#8a8a8a; margin:14px 0 26px; }
 .article-body{ max-width:760px; margin:0 auto; }
 .article-body p{ color:#333; line-height:1.7; margin-bottom:1.2em; }
-.article-body ul{ margin:0 0 1.4em 1.3em; }
+.article-body a{ color:#e7161f; text-decoration:underline; font-weight:600; }
+.article-body a:hover{ color:#b3110f; }
+.article-body ul{ margin:0 0 1.4em 0; list-style:none; }
+.article-body ul li{ position:relative; padding-left:26px; }
+.article-body ul li::before{ content:"✓"; position:absolute; left:0; top:0; color:#22c55e; font-weight:700; }
+.article-body ul ul{ margin-top:.5em; }
 .article-body li{ color:#333; line-height:1.6; margin-bottom:.5em; }
 .article-body strong{ color:#1a1a1a; }
 .key-facts{ background:#fbe7e1; border-left:4px solid #e7161f; border-radius:8px; padding:20px 24px; margin:1.6em 0; }
@@ -158,14 +169,21 @@ table tr:nth-child(even) td{ background:#f9fafb; }
 body.modal-open{ overflow:hidden; }
 @media(max-width:600px){ .qmodal-dialog{ margin:0; max-height:100vh; height:100%; border-radius:0; } .form-row{ grid-template-columns:1fr; } }
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": ["GeneralContractor", "LocalBusiness", "Organization"], "@id": "https://jtcompliance.com.au/#business", "name": "JT Compliance", "alternateName": "JT Handyman Solutionz", "url": "https://jtcompliance.com.au/", "logo": "https://jtcompliance.com.au/img/jtc/logo_jt.png", "telephone": "1800 587 659", "priceRange": "$", "address": {"@type": "PostalAddress", "streetAddress": "42/2 Cobham Street", "addressLocality": "Reservoir", "addressRegion": "VIC", "postalCode": "3073", "addressCountry": "AU"}, "areaServed": {"@type": "City", "name": "Melbourne"}}, {"@type": "Article", "@id": "https://jtcompliance.com.au/ceiling-insulation-rental-standard-r5.html#article", "headline": "Ceiling insulation for Victorian rentals: the R5.0 standard from March 2027", "description": "Victorian rentals with no ceiling insulation need R5.0 from 1 March 2027 on a new lease. See the rule, the exemption and VEU rebates that offset the cost.", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "JT Compliance", "url": "https://jtcompliance.com.au/"}, "publisher": {"@id": "https://jtcompliance.com.au/#business"}, "mainEntityOfPage": "https://jtcompliance.com.au/ceiling-insulation-rental-standard-r5.html", "image": "https://jtcompliance.com.au/img/jtc/inspect_jt.jpg", "articleSection": "The 2027 standards", "inLanguage": "en-AU"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://jtcompliance.com.au/jtcompliance.html"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://jtcompliance.com.au/jtcompliance-blog.html"}, {"@type": "ListItem", "position": 3, "name": "Ceiling insulation (R5.0): the 2027 rental standard", "item": "https://jtcompliance.com.au/ceiling-insulation-rental-standard-r5.html"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do all Victorian rentals need R5.0 ceiling insulation from 2027?", "acceptedAnswer": {"@type": "Answer", "text": "No. From 1 March 2027, only rentals with no existing ceiling insulation must have R5.0 installed, and only when a new lease starts or the tenancy converts to periodic. If the ceiling already has any insulation, no upgrade is required regardless of its rating."}}, {"@type": "Question", "name": "What is the exemption for ceiling insulation?", "acceptedAnswer": {"@type": "Answer", "text": "If the ceiling already has any insulation, the property is exempt from the R5.0 upgrade, even if the existing insulation is old, thin or rated well below R5.0. The requirement only applies to ceilings that currently have no insulation at all."}}, {"@type": "Question", "name": "When does the R5.0 ceiling insulation standard start?", "acceptedAnswer": {"@type": "Answer", "text": "It takes effect from 1 March 2027. The obligation is triggered when a new tenancy agreement is entered into or an existing fixed-term agreement converts to a periodic (month-to-month) tenancy on or after that date."}}, {"@type": "Question", "name": "Can I get a rebate for rental ceiling insulation?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The Victorian Energy Upgrades (VEU) ceiling insulation discount opens for general homes from 1 October 2026 (up to $1,482, with a minimum $200 customer contribution) and is expected around 1 January 2027 for rentals, just before the 1 March 2027 start date."}}, {"@type": "Question", "name": "Who can install ceiling insulation to meet the standard?", "acceptedAnswer": {"@type": "Answer", "text": "The insulation must be installed by a qualified installer. The rule is enforced by Consumer Affairs Victoria, and renters can pursue their rights through VCAT if the standard is not met."}}, {"@type": "Question", "name": "Is rooftop solar part of the minimum standards?", "acceptedAnswer": {"@type": "Answer", "text": "No. Solar PV is not a minimum standard. Solar Victoria's Solar for Rentals rebate (up to $1,400 plus a matching interest-free loan up to $1,400) is an incentive only and is separate from the ceiling insulation compliance requirement."}}]}</script>
+<link rel="canonical" href="https://jtcompliance.com.au/ceiling-insulation-rental-standard-r5.html">
 </head>
-<body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<body>
 <div class="top-strip">Victorian Rental Minimum Standards · From 1 March 2027 · Triggered on every lease change</div>
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="jtcompliance.html" class="brand" style="display:flex;align-items:center;">
-      <img src="img/work/jt-logo-correct.png" alt="JT Handyman Solutionz" style="height:64px;width:auto;display:block;">
+    <a href="jtcompliance.html" class="brand" style="display:flex;align-items:center;gap:10px;">
+      <img src="img/jtc/logo_jt.png" alt="JT Compliance" class="brand-logo-icon" style="height:44px;width:auto;display:block;">
+      <span style="line-height:1.15;">
+        <span style="display:block;font-family:'Rajdhani','Rajdhani Fallback',sans-serif;font-weight:700;font-size:1.15rem;color:#fff;">JT Compliance</span>
+        <span style="display:block;font-size:.72rem;color:rgba(255,255,255,.55);">Melbourne · Rental Minimum Standards</span>
+      </span>
     </a>
 
     <nav class="main-nav" id="main-nav">
@@ -246,7 +264,7 @@ body.modal-open{ overflow:hidden; }
     </div>
 
     
-<p>Victorian rental properties that have no ceiling insulation must have <strong>R5.0 ceiling insulation installed by a qualified installer from 1 March 2027</strong>, triggered when a new lease is signed or an existing tenancy converts to periodic. In short: if your rental has a bare ceiling, plan for R5.0 before its next lease turns over. The rule comes from the finalised Residential Tenancies Amendment (Minimum Energy Efficiency Standards) Regulations 2025. There is one important carve-out: if the ceiling already has any insulation, no upgrade is required, whatever its rating. This guide sets out exactly what the standard demands, who it affects across Melbourne and regional Victoria, and how the Victorian Energy Upgrades (VEU) rebate offsets the cost.</p>
+<p>Victorian rental properties that have no ceiling insulation must have <strong>R5.0 ceiling insulation installed by a qualified installer from 1 March 2027</strong>, triggered when a new lease is signed or an existing tenancy converts to periodic. In short: if your rental has a bare ceiling, plan for R5.0 before its next lease turns over. The rule comes from the finalised <a href="https://www.consumer.vic.gov.au/resources-and-tools/legislation/public-consultations-and-reviews/new-minimum-energy-efficiency-standards" target="_blank" rel="noopener">Residential Tenancies Amendment (Minimum Energy Efficiency Standards) Regulations 2025</a>. There is one important carve-out: if the ceiling already has any insulation, no upgrade is required, whatever its rating. This guide sets out exactly what the standard demands, who it affects across Melbourne and regional Victoria, and how the Victorian Energy Upgrades (VEU) rebate offsets the cost.</p>
 
 <h2>What does the R5.0 ceiling insulation standard require?</h2>
 <p>The standard requires ceiling insulation with a minimum total R-value of <strong>R5.0</strong> to be installed in any rental home that currently has <strong>no ceiling insulation</strong>. R-value measures thermal resistance, so a higher number means better performance. R5.0 is a substantial level, chosen to lift Victorian rentals to a genuinely comfortable, energy-efficient baseline rather than a token layer.</p>
@@ -277,14 +295,15 @@ body.modal-open{ overflow:hidden; }
 <h2>When does the R5.0 ceiling insulation rule apply?</h2>
 <p>The trigger is lease-based, not a single hard deadline for ceiling insulation. From <strong>1 March 2027</strong>, the obligation attaches when a <strong>new tenancy agreement is entered into</strong> or an existing fixed-term agreement <strong>rolls over to periodic</strong>. A tenancy that simply continues untouched does not, on its own, trigger the ceiling insulation requirement on day one. In practice, though, tenancies turn over regularly, so most uninsulated rentals across Victoria will hit the trigger within the normal churn of the market.</p>
 <p>Rental providers should also keep the <strong>advertising reform</strong> in mind. Since <strong>25 November 2025</strong>, rental properties must meet the applicable minimum standards <strong>before being advertised</strong> or when an offer to let is made, not merely at key handover. As the new energy standards phase in, the sensible position is to have compliance sorted before a property is listed, not scrambled during an application.</p>
+<p>The rules are administered by <a href="https://www.consumer.vic.gov.au/housing/renting/repairs-alterations-safety-and-pets/minimum-standards/minimum-standards-for-rental-properties" target="_blank" rel="noopener">Consumer Affairs Victoria</a>, and renters enforce their rights through VCAT. The current value of one penalty unit for 2025-26 is <a href="https://www.justice.vic.gov.au/justice-system/fines-and-penalties/penalties-and-values" target="_blank" rel="noopener">$203.51</a>, so it pays to treat these standards as firm obligations rather than aspirations.</p>
 
 <h2>VEU rebates: how the ceiling insulation cost is offset</h2>
-<p>The upgrade does not have to be paid at full retail price. The Victorian Energy Upgrades (VEU) program provides discounts on ceiling insulation, and the timing lines up closely with the new standard.</p>
+<p>The upgrade does not have to be paid at full retail price. The <a href="https://www.energy.vic.gov.au/victorian-energy-upgrades/products/insulation-discounts" target="_blank" rel="noopener">Victorian Energy Upgrades (VEU) program</a> provides discounts on ceiling insulation, and the timing lines up closely with the new standard.</p>
 <ul>
 <li>The VEU <strong>ceiling insulation discount</strong> opens for <strong>general homes from 1 October 2026</strong>, worth <strong>up to $1,482</strong>, with a <strong>minimum $200 customer contribution</strong>.</li>
 <li>The equivalent discount is <strong>expected around 1 January 2027 for rentals</strong>, just ahead of the 1 March 2027 start date.</li>
 </ul>
-<p>So a rental provider who plans ahead can insulate an uninsulated ceiling to R5.0 with a meaningful discount applied, rather than paying full price. It is worth being precise about one thing: rooftop solar is <strong>not</strong> a minimum standard. The separate Solar for Rentals rebate from Solar Victoria (up to $1,400 plus a matching interest-free loan up to $1,400, for a total of up to $2,800 off) is an incentive only, not a compliance requirement.</p>
+<p>So a rental provider who plans ahead can insulate an uninsulated ceiling to R5.0 with a meaningful discount applied, rather than paying full price. It is worth being precise about one thing: rooftop solar is <strong>not</strong> a minimum standard. The separate <a href="https://www.solar.vic.gov.au/solar-rebates-rental-properties" target="_blank" rel="noopener">Solar for Rentals rebate</a> from Solar Victoria (up to $1,400 plus a matching interest-free loan up to $1,400, for a total of up to $2,800 off) is an incentive only, not a compliance requirement.</p>
 
 <h2>Managing ceiling insulation across a whole rent roll</h2>
 <p>For a single property, the path is straightforward: check the ceiling, and if it is bare, book a qualified installer to bring it to R5.0 with the VEU discount applied. Across an entire rent roll of Melbourne rentals, the challenge is coordination, knowing which properties are genuinely uninsulated, which are already covered by the exemption, and how each upgrade lines up with lease renewals and the VEU rebate windows.</p>
