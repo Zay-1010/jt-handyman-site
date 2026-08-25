@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KQXG8LXC');</script>
+<head>
 <!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -53,6 +53,12 @@ fbq('track', 'PageView');
 @media(max-width:900px){
   .site-header .nav-toggle span{ background:#fff; }
 }
+@media(max-width:480px){
+  .brand-logo-icon{ height:36px !important; }
+  .site-header .brand span span:first-child{ font-size:1rem !important; }
+  .site-header .brand span span:last-child{ display:none; }
+  .header-inner{ gap:10px !important; }
+}
 .job-ticker-marquee{ display:inline-flex; align-items:center; gap:40px; animation:jtScroll 28s linear infinite; line-height:22px; }
 .job-ticker-track:hover .job-ticker-marquee{ animation-play-state:paused; }
 @keyframes jtScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
@@ -101,6 +107,8 @@ h3{ font-size:1.25rem !important; font-weight:700 !important; margin-top:1.6em; 
 .article-meta{ font-size:.85rem; color:#8a8a8a; margin:14px 0 26px; }
 .article-body{ max-width:760px; margin:0 auto; }
 .article-body p{ color:#333; line-height:1.7; margin-bottom:1.2em; }
+.article-body a{ color:#e7161f; text-decoration:underline; font-weight:600; }
+.article-body a:hover{ color:#b3110f; }
 .article-body ul{ margin:0 0 1.4em 1.3em; }
 .article-body li{ color:#333; line-height:1.6; margin-bottom:.5em; }
 .article-body strong{ color:#1a1a1a; }
@@ -159,13 +167,17 @@ body.modal-open{ overflow:hidden; }
 @media(max-width:600px){ .qmodal-dialog{ margin:0; max-height:100vh; height:100%; border-radius:0; } .form-row{ grid-template-columns:1fr; } }
 </style>
 </head>
-<body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<body>
 <div class="top-strip">Victorian Rental Minimum Standards · From 1 March 2027 · Triggered on every lease change</div>
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="jtcompliance.html" class="brand" style="display:flex;align-items:center;">
-      <img src="img/work/jt-logo-correct.png" alt="JT Handyman Solutionz" style="height:64px;width:auto;display:block;">
+    <a href="jtcompliance.html" class="brand" style="display:flex;align-items:center;gap:10px;">
+      <img src="img/jtc/logo_jt.png" alt="JT Compliance" class="brand-logo-icon" style="height:44px;width:auto;display:block;">
+      <span style="line-height:1.15;">
+        <span style="display:block;font-family:'Rajdhani','Rajdhani Fallback',sans-serif;font-weight:700;font-size:1.15rem;color:#fff;">JT Compliance</span>
+        <span style="display:block;font-size:.72rem;color:rgba(255,255,255,.55);">Melbourne · Rental Minimum Standards</span>
+      </span>
     </a>
 
     <nav class="main-nav" id="main-nav">
@@ -252,6 +264,7 @@ body.modal-open{ overflow:hidden; }
 
 <h2>What are the 2027 rental minimum standards?</h2>
 <p>The new standards are set by the <strong>Residential Tenancies Amendment (Minimum Energy Efficiency Standards) Regulations 2025</strong>, which are finalised, not a proposal. They sit on top of the base Residential Tenancies Regulations 2021, which introduced 14 minimum standards that have been in force since 29 March 2021. <strong>Consumer Affairs Victoria (CAV)</strong> regulates the standards, and renters enforce them through <strong>VCAT</strong>.</p>
+<p>The full detail is published by <a href="https://www.consumer.vic.gov.au/resources-and-tools/legislation/public-consultations-and-reviews/new-minimum-energy-efficiency-standards" target="_blank" rel="noopener">Consumer Affairs Victoria</a> and <a href="https://www.energy.vic.gov.au/households/electric-and-efficiency-standards-for-buildings/energy-efficiency-for-rental-properties-in-victoria" target="_blank" rel="noopener">Energy Victoria</a>.</p>
 
 <h2>Every new standard, date and trigger</h2>
 <p>Here is every new energy-efficiency standard, the exact threshold, when it takes effect and what triggers the obligation.</p>
@@ -274,10 +287,10 @@ body.modal-open{ overflow:hidden; }
 <p>Everything else in the table is either lease-triggered or on-failure, which means there is no other "everyone must comply by X" cliff. That is why staged auditing works: you map each property's likely trigger and sequence the works.</p>
 
 <h2>What is already in force: advertising from 25 November 2025</h2>
-<p>One reform is already live. From <strong>25 November 2025</strong>, a rental property must meet the existing minimum standards <strong>before it is advertised</strong>, and when an offer to let is made, not only at key handover. This was announced by the Premier of Victoria as part of a package of 150 rental reforms. For property managers, it moves the compliance check earlier in the leasing cycle: a listing that goes up before the property is compliant is now a problem, so pre-advertising audits matter across every Melbourne office.</p>
+<p>One reform is already live. From <strong>25 November 2025</strong>, a rental property must meet the existing minimum standards <strong>before it is advertised</strong>, and when an offer to let is made, not only at key handover. This was announced by the <a href="https://www.premier.vic.gov.au/new-laws-effect-today-strengthen-renter-rights" target="_blank" rel="noopener">Premier of Victoria</a> as part of a package of 150 rental reforms. For property managers, it moves the compliance check earlier in the leasing cycle: a listing that goes up before the property is compliant is now a problem, so pre-advertising audits matter across every Melbourne office.</p>
 
 <h2>The 14 existing minimum standards still apply</h2>
-<p>The new energy rules do not replace the baseline. Since 29 March 2021, every Victorian rental has had to meet 14 minimum standards, published by Consumer Affairs Victoria:</p>
+<p>The new energy rules do not replace the baseline. Since 29 March 2021, every Victorian rental has had to meet 14 minimum standards, published by <a href="https://www.consumer.vic.gov.au/housing/renting/repairs-alterations-safety-and-pets/minimum-standards/minimum-standards-for-rental-properties" target="_blank" rel="noopener">Consumer Affairs Victoria</a>:</p>
 <ul>
 <li>Structural soundness and weatherproofing</li>
 <li>A fixed heater in the main living area (energy-efficient for agreements from 29 March 2023)</li>
@@ -295,12 +308,12 @@ body.modal-open{ overflow:hidden; }
 <li>External door and window locks</li>
 <li>Showerheads at <strong>3-star</strong> (being lifted to 4-star from March 2027)</li>
 </ul>
-<p>An enforceable breach can be taken to VCAT, and the <strong>2025-26 penalty unit</strong> is <strong>$203.51</strong>, indexed by the Department of Treasury and Finance and published by the Department of Justice.</p>
+<p>An enforceable breach can be taken to VCAT, and the <strong>2025-26 penalty unit</strong> is <strong>$203.51</strong>, indexed by the Department of Treasury and Finance and published by the <a href="https://www.justice.vic.gov.au/justice-system/fines-and-penalties/penalties-and-values" target="_blank" rel="noopener">Department of Justice</a>.</p>
 
 <h2>Rebates that offset the upgrades</h2>
 <p>The upgrades come with real incentives, and applying them changes the numbers on every quote.</p>
 <p><strong>Victorian Energy Upgrades (VEU).</strong> Discounts are available now for heating, cooling, hot water, draught and weather sealing, and showerheads. For <strong>ceiling insulation</strong>, the VEU discount opens for general homes from <strong>1 October 2026</strong> (up to <strong>$1,482</strong>, with a minimum $200 customer contribution) and is expected to extend to rentals around <strong>1 January 2027</strong>.</p>
-<p><strong>Solar for Rentals (Solar Victoria).</strong> A rebate of up to <strong>$1,400</strong> plus a matching interest-free loan up to <strong>$1,400</strong> (total up to <strong>$2,800</strong> off, with the loan repaid over four years) is available through Solar Victoria. The renter household income cap drops from <strong>$210,000 to $150,000 from 1 July 2026</strong>, the property must be valued under $3 million, the address must not have been rebated before, and a maximum of two rental rebates apply per financial year. Solar PV is <strong>not</strong> a minimum standard, so this is an incentive only, not an obligation.</p>
+<p><strong>Solar for Rentals (Solar Victoria).</strong> A rebate of up to <strong>$1,400</strong> plus a matching interest-free loan up to <strong>$1,400</strong> (total up to <strong>$2,800</strong> off, with the loan repaid over four years) is available through <a href="https://www.solar.vic.gov.au/solar-rebates-rental-properties" target="_blank" rel="noopener">Solar Victoria</a>. The renter household income cap drops from <strong>$210,000 to $150,000 from 1 July 2026</strong>, the property must be valued under $3 million, the address must not have been rebated before, and a maximum of two rental rebates apply per financial year. Solar PV is <strong>not</strong> a minimum standard, so this is an incentive only, not an obligation.</p>
 
 <h2>How to plan a compliant portfolio</h2>
 <p>The efficient way to handle this across a rent roll is to audit every property against both the 14 baseline standards and the six new ones, record each property's likely trigger date, quote with the rebates already applied, and keep documented evidence for each address. Ceiling insulation and showerheads are usually the quickest wins; heating, hot water and cooling can be sequenced against appliance age and lease dates.</p>
