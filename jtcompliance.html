@@ -70,7 +70,13 @@ fbq('track', 'PageView');
   .header-inner{ gap:10px !important; }
 }
 .mobile-bar{ position:fixed !important; bottom:0 !important; left:0 !important; right:0 !important; z-index:500 !important; }
-.mobile-bar .btn{ font-size:.82rem; white-space:nowrap; }
+.mobile-bar .btn{ font-size:.72rem; white-space:normal; padding:10px 6px !important; line-height:1.15; }
+.mobile-bar .btn::after{ content:none !important; }
+.footer-grid{ grid-template-columns:1.4fr repeat(3,1fr) !important; }
+@media(max-width:700px){
+  .footer-grid{ grid-template-columns:1fr !important; gap:28px !important; }
+  .footer-bottom{ flex-direction:column; gap:8px; text-align:center; }
+}
 .job-ticker-marquee{ display:inline-flex; align-items:center; gap:40px; animation:jtScroll 28s linear infinite; line-height:22px; }
 .job-ticker-track:hover .job-ticker-marquee{ animation-play-state:paused; }
 @keyframes jtScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
@@ -190,7 +196,7 @@ body.modal-open{ overflow:hidden; }
         <li><a href="jtcompliance.html#services">What We Do</a></li>
         <li><a href="jtcompliance-blog.html">Guides</a></li>
         <li><a href="jtcompliance.html#proof">Reviews</a></li>
-        <li><a href="index.html">JT Handyman</a></li>
+        <li><a href="https://jthandymansolutionz.com.au/">JT Handyman</a></li>
       </ul>
     </nav>
 
@@ -839,7 +845,7 @@ body.modal-open{ overflow:hidden; }
 
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-grid" style="grid-template-columns:1.4fr repeat(3,1fr);">
+    <div class="footer-grid">
       <div>
         <div class="footer-brand">
           <img src="img/jtc/logo_jt.png" alt="JT Compliance" style="height:36px;width:auto;vertical-align:middle;margin-right:8px;"> JT Compliance
@@ -860,7 +866,7 @@ body.modal-open{ overflow:hidden; }
         <ul>
           <li><a href="javascript:void(0)" onclick="openQuoteModal()">Book a portfolio review</a></li>
           <li><a href="tel:1800587659">Call 1800 587 659</a></li>
-          <li><a href="index.html">Visit JT Handyman →</a></li>
+          <li><a href="https://jthandymansolutionz.com.au/">Visit JT Handyman →</a></li>
         </ul>
       </div>
       <div>
