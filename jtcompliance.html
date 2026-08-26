@@ -251,9 +251,9 @@ body.modal-open{ overflow:hidden; }
     </h1>
     <p class="lede" style="margin:0 auto;">Victoria's new Rental Minimum Standards trigger on every lease sign or renewal from 1 March 2027. JT is <strong>one maintenance partner for your entire rent roll</strong> — we audit each property, quote the works with rebates applied, complete them in house and hand you documented reports for your records.</p>
     <div class="chip-row" style="justify-content:center;">
-      <span class="chip" style="border:1px solid #e5e8ec;border-radius:999px;padding:6px 14px;color:#22c55e;"><span style="color:#22c55e;">✓</span> <span style="color:#1a1a1a;">One point of contact</span></span>
-      <span class="chip" style="border:1px solid #e5e8ec;border-radius:999px;padding:6px 14px;"><span style="color:#22c55e;">✓</span> <span style="color:#1a1a1a;">Whole portfolio packages</span></span>
-      <span class="chip" style="border:1px solid #e5e8ec;border-radius:999px;padding:6px 14px;"><span style="color:#22c55e;">✓</span> <span style="color:#1a1a1a;">Rebates applied to quote</span></span>
+      <span class="chip" style="border:1px solid #e5e8ec;border-radius:999px;padding:6px 14px;color:#1a1a1a;">One point of contact</span>
+      <span class="chip" style="border:1px solid #e5e8ec;border-radius:999px;padding:6px 14px;color:#1a1a1a;">Whole portfolio packages</span>
+      <span class="chip" style="border:1px solid #e5e8ec;border-radius:999px;padding:6px 14px;color:#1a1a1a;">Rebates applied to quote</span>
     </div>
     <div class="cta-row" style="justify-content:center;">
       <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Book a Portfolio Review</a>
@@ -419,14 +419,14 @@ body.modal-open{ overflow:hidden; }
     </div>
     <div class="grid grid-3">
       <div class="card">
-        <div class="ratio-4-3"><img src="img/jtc/jt-compliance-checklist-melbourne.jpg" alt="JT inspector with a property compliance checklist"></div>
+        <div class="ratio-4-3"><img src="img/jtc/what-we-do/jt-compliance-audit-inspection.jpg" alt="JT technician inspecting a property against the compliance standards"></div>
         <div class="card-body">
           <h3>Compliance audits</h3>
           <p>A property by property checklist so you know exactly what needs work, and what doesn't, before you spend a cent.</p>
         </div>
       </div>
       <div class="card">
-        <div class="ratio-4-3"><img src="img/jtc/jt-between-tenancy-move-in.jpg" alt="Removalists moving a couch into a rental between tenancies"></div>
+        <div class="ratio-4-3"><img src="img/jtc/what-we-do/jt-between-tenancy-vacant.jpg" alt="Empty property ready for the next tenant, maintenance complete"></div>
         <div class="card-body">
           <h3>Between tenancy</h3>
           <p>Full maintenance and compliance list cleared before the new tenant moves in, on your schedule.</p>
@@ -454,7 +454,7 @@ body.modal-open{ overflow:hidden; }
         </div>
       </div>
       <div class="card">
-        <div class="ratio-4-3"><img src="img/jtc/jt-compliance-inspector-melbourne.jpg" alt="JT inspector reviewing a property compliance report"></div>
+        <div class="ratio-4-3"><img src="img/jtc/what-we-do/jt-documented-job-report.jpg" alt="JT technician reviewing compliance documentation on site"></div>
         <div class="card-body">
           <h3>Documented job reports</h3>
           <p>Before/after photos and compliance notes supplied for your records on every property.</p>
@@ -847,30 +847,23 @@ body.modal-open{ overflow:hidden; }
   // "Our work" gallery — 6 fixed slots, images rotate through the full real-job photo pool
   (function () {
     var WORK_PHOTOS = [
-      { src: "img/work/jt-finished-shower-dark-tile-melbourne.jpg", alt: "Full shower fit-out by JT in Melbourne", title: "Full shower fit-out", loc: "Melbourne, VIC" },
-      { src: "img/work/jt-tiled-shower-glass-screen-melbourne.jpg", alt: "Tiled shower with glass screen by JT in East Melbourne", title: "Tiled shower & glass screen", loc: "East Melbourne, VIC" },
-      { src: "img/work/jt-finished-bathroom-vanity-melbourne.jpg", alt: "Finished bathroom vanity by JT in Reservoir", title: "Bathroom vanity renovation", loc: "Reservoir, VIC" },
-      { src: "img/work/jt-tiled-shower-feature-strip-melbourne.jpg", alt: "Feature-strip shower tiling by JT in North Melbourne", title: "Feature-strip shower tiling", loc: "North Melbourne, VIC" },
-      { src: "img/work/jt-black-framed-window-melbourne.jpg", alt: "New black-framed window by JT in Brighton East", title: "Black-framed window", loc: "Brighton East, VIC" },
-      { src: "img/work/jt-hallway-glass-door-courtyard-melbourne.jpg", alt: "Hallway and glass courtyard door by JT in Melbourne", title: "Glass courtyard door", loc: "Melbourne, VIC" },
-      { src: "img/work/jt-door-handle-install-melbourne.jpg", alt: "Door hardware install by JT in Brighton East", title: "Door hardware install", loc: "Brighton East, VIC" },
-      { src: "img/work/jt-finished-timber-floor-melbourne.jpg", alt: "Finished timber floor by JT in Brunswick", title: "Finished timber floor", loc: "Brunswick, VIC" },
-      { src: "img/work/jt-kitchen-sink-gooseneck-tap-melbourne.jpg", alt: "Kitchen sink and gooseneck tap by JT in Brunswick East", title: "Kitchen sink & tap", loc: "Brunswick East, VIC" },
-      { src: "img/work/jt-laminate-flooring-melbourne.jpg", alt: "Laminate flooring by JT in South Yarra", title: "Laminate flooring", loc: "South Yarra, VIC" },
-      { src: "img/work/jt-vinyl-floor-room-melbourne.jpg", alt: "New vinyl floor by JT in Brighton East", title: "New vinyl floor", loc: "Brighton East, VIC" },
-      { src: "img/work/jt-room-prep-melbourne.jpg", alt: "Room repair and prep by JT in Northcote", title: "Room repair & prep", loc: "Northcote, VIC" },
-      { src: "img/work/jt-timber-paling-fence-melbourne.jpg", alt: "New timber paling fence by JT in Brunswick", title: "Timber paling fence", loc: "Brunswick, VIC" },
-      { src: "img/work/jt-black-fence-repair-melbourne.jpg", alt: "Fence repair and repaint by JT in Mitcham", title: "Fence repair & repaint", loc: "Mitcham, VIC" },
-      { src: "img/work/jt-grey-gate-carpentry-melbourne.jpg", alt: "Custom gate carpentry by JT in Brunswick", title: "Custom gate carpentry", loc: "Brunswick, VIC" },
-      { src: "img/work/jt-new-timber-fence-melbourne.jpg", alt: "New timber fence by JT in Mitcham", title: "New timber fence", loc: "Mitcham, VIC" },
-      { src: "img/work/jt-brick-townhouse-exterior-melbourne.jpg", alt: "Townhouse exterior works by JT in Pascoe Vale", title: "Townhouse exterior works", loc: "Pascoe Vale, VIC" },
-      { src: "img/work/jt-modern-facade-cladding-melbourne.jpg", alt: "Facade cladding and timber by JT in Brunswick", title: "Facade cladding", loc: "Brunswick, VIC" },
-      { src: "img/work/jt-painted-brick-garden-wall-melbourne.jpg", alt: "Garden wall repaint by JT in Footscray", title: "Garden wall repaint", loc: "Footscray, VIC" },
-      { src: "img/work/jt-balcony-deck-tiles-melbourne.jpg", alt: "Balcony deck tiles by JT in Reservoir", title: "Balcony deck tiles", loc: "Reservoir, VIC" },
-      { src: "img/work/jt-vj-panelling-shelves-melbourne.jpg", alt: "VJ panelling with floating shelves by JT in Pascoe Vale", title: "VJ panelling & shelves", loc: "Pascoe Vale, VIC" },
-      { src: "img/work/jt-kitchen-drawers-cooktop-melbourne.jpg", alt: "Kitchen drawers and cooktop by JT in Malvern", title: "Kitchen drawers & cooktop", loc: "Malvern, VIC" },
-      { src: "img/work/jt-stainless-stair-handrail-melbourne.jpg", alt: "Stainless steel stair handrail by JT in South Yarra", title: "Stainless steel handrail", loc: "South Yarra, VIC" },
-      { src: "img/work/jt-period-hallway-arch-melbourne.jpg", alt: "Restored period hallway arch by JT in Thornbury", title: "Period hallway arch", loc: "Thornbury, VIC" }
+      { src: "img/jtc/work/jt-aircon-service-fawkner.jpg", alt: "Split-system air conditioner serviced by JT in Fawkner", title: "Split-system AC service", loc: "Fawkner, VIC" },
+      { src: "img/jtc/work/jt-heating-vent-adaptor-south-yarra.jpg", alt: "Ducted heating floor vent boot adaptor replaced by JT in South Yarra", title: "Ducted heating floor vent", loc: "South Yarra, VIC" },
+      { src: "img/jtc/work/jt-roof-access-insulation-reservoir.jpg", alt: "Roof cavity access for ceiling insulation check by JT in Reservoir", title: "Ceiling insulation access", loc: "Reservoir, VIC" },
+      { src: "img/jtc/work/jt-hot-water-unit-coburg.jpg", alt: "Continuous flow hot water unit serviced by JT in Coburg", title: "Hot water unit service", loc: "Coburg, VIC" },
+      { src: "img/jtc/work/jt-handheld-showerhead-melbourne.jpg", alt: "Handheld showerhead installed by JT in Melbourne", title: "Showerhead install", loc: "Melbourne, VIC" },
+      { src: "img/jtc/work/jt-exhaust-fan-strathmore.jpg", alt: "Exhaust fan sealed by JT in Strathmore", title: "Exhaust fan & vent sealing", loc: "Strathmore, VIC" },
+      { src: "img/jtc/work/jt-aircon-install-werribee.jpg", alt: "Outdoor air conditioning unit installed by JT in Werribee", title: "AC condenser install", loc: "Werribee, VIC" },
+      { src: "img/jtc/work/jt-return-air-filter-south-yarra.jpg", alt: "Return air filter installed by JT in South Yarra", title: "Return air filter install", loc: "South Yarra, VIC" },
+      { src: "img/jtc/work/jt-ceiling-insulation-replace.jpg", alt: "New ceiling and insulation installed by JT", title: "New ceiling & insulation", loc: "Melbourne, VIC" },
+      { src: "img/jtc/work/jt-heat-pump-hot-water-beveridge.jpg", alt: "Heat pump hot water system installed by JT in Beveridge", title: "Heat pump hot water", loc: "Beveridge, VIC" },
+      { src: "img/jtc/work/jt-ceiling-showerhead-sunshine.jpg", alt: "Ceiling-mounted rain showerhead installed by JT in Sunshine", title: "Rain showerhead install", loc: "Sunshine, VIC" },
+      { src: "img/jtc/work/jt-window-install-greensborough.jpg", alt: "Weather-sealed window installed by JT in Greensborough", title: "Sealed window install", loc: "Greensborough, VIC" },
+      { src: "img/jtc/work/jt-panel-heater-south-yarra.jpg", alt: "Wall-mounted panel heater installed by JT in South Yarra", title: "Panel heater install", loc: "South Yarra, VIC" },
+      { src: "img/jtc/work/jt-hot-water-plant-heidelberg.jpg", alt: "Hot water plant room works by JT in Heidelberg Heights", title: "Hot water plant works", loc: "Heidelberg Heights, VIC" },
+      { src: "img/jtc/work/jt-showerhead-northcote.jpg", alt: "Wall-mounted showerhead installed by JT in Northcote", title: "Showerhead install", loc: "Northcote, VIC" },
+      { src: "img/jtc/work/jt-window-weatherseal-carlton.jpg", alt: "Window weather seal fitted by JT in Carlton", title: "Window weather seal", loc: "Carlton, VIC" },
+      { src: "img/jtc/work/jt-circulation-pump-heidelberg.jpg", alt: "Hot water circulation pump replaced by JT in Heidelberg Heights", title: "Circulation pump replace", loc: "Heidelberg Heights, VIC" }
     ];
 
     var gallery = document.getElementById('work-gallery');
