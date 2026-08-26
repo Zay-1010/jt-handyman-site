@@ -22,6 +22,12 @@
       "has": [{ "type": "host", "value": "www.jtcompliance.com.au" }],
       "dest": "/jtcompliance.html"
     },
+    {
+      "src": "/team-1/?",
+      "has": [{ "type": "host", "value": "lp.jthandymansolutionz.com.au" }],
+      "status": 301,
+      "headers": { "Location": "/team-1.html" }
+    },
     { "src": "/(.*)", "dest": "/$1" }
   ]
 }
