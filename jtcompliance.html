@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>\n<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\nnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\nj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n})(window,document,'script','dataLayer','GTM-KQXG8LXC');</script>
+<head>
 <!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -60,6 +60,8 @@ fbq('track', 'PageView');
   .site-header .brand span span:last-child{ display:none; }
   .header-inner{ gap:10px !important; }
 }
+.mobile-bar{ position:fixed !important; bottom:0 !important; left:0 !important; right:0 !important; z-index:500 !important; }
+.mobile-bar .btn{ font-size:.82rem; white-space:nowrap; }
 .job-ticker-marquee{ display:inline-flex; align-items:center; gap:40px; animation:jtScroll 28s linear infinite; line-height:22px; }
 .job-ticker-track:hover .job-ticker-marquee{ animation-play-state:paused; }
 @keyframes jtScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
@@ -151,10 +153,10 @@ h2{ font-size:clamp(1.9rem,4.6vw,3.4rem) !important; line-height:1.06 !important
 .qmodal-dialog{ position:relative; max-width:640px; margin:5vh auto; background:#fff; border-radius:16px; padding:36px 32px 28px; max-height:90vh; overflow-y:auto; }
 .qmodal-close{ position:absolute; top:14px; right:16px; background:none; border:0; font-size:1.8rem; line-height:1; cursor:pointer; color:#8a8a8a; }
 body.modal-open{ overflow:hidden; }
-@media(max-width:600px){ .qmodal-dialog{ margin:0; max-height:100vh; height:100%; border-radius:0; } .form-row{ grid-template-columns:1fr; } }
+@media(max-width:600px){ .qmodal-dialog{ margin:0; max-height:100vh; height:100%; width:100%; max-width:100%; border-radius:0; } .form-row{ grid-template-columns:1fr; } body.modal-open{ overflow-x:hidden; } }
 </style>
 </head>
-<body>\n<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"\nheight="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<body>
 <div class="top-strip">Victorian Rental Minimum Standards · From 1 March 2027 · Triggered on every lease change</div>
 
 <header class="site-header">
@@ -707,7 +709,7 @@ body.modal-open{ overflow:hidden; }
 
 <div class="mobile-bar">
   <a href="tel:1800587659" class="btn btn-ghost">Call now</a>
-  <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Portfolio review</a>
+  <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Book a Portfolio Review</a>
 </div>
 
 <!-- Portfolio review modal — native form, posts to /api/submit-quote (ServiceM8), no Techlantis dependency -->
@@ -733,8 +735,8 @@ body.modal-open{ overflow:hidden; }
             <input type="tel" id="cq-phone" name="phone" required>
           </div>
           <div class="field">
-            <label for="cq-email">Email</label>
-            <input type="email" id="cq-email" name="email">
+            <label for="cq-email">Email *</label>
+            <input type="email" id="cq-email" name="email" required>
           </div>
         </div>
         <div class="form-row">

@@ -16,8 +16,8 @@ module.exports = async (req, res) => {
       return;
     }
 
-    if (!name || !phone) {
-      res.status(400).json({ error: 'Please provide at least your name and phone number.' });
+    if (!name || !phone || !email) {
+      res.status(400).json({ error: 'Please provide your name, phone number and email.' });
       return;
     }
 
