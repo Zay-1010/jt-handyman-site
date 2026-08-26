@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KQXG8LXC');</script>
+<head>
 <!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -53,6 +53,12 @@ fbq('track', 'PageView');
 @media(max-width:900px){
   .site-header .nav-toggle span{ background:#fff; }
 }
+@media(max-width:480px){
+  .brand-logo-icon{ height:36px !important; }
+  .site-header .brand span span:first-child{ font-size:1rem !important; }
+  .site-header .brand span span:last-child{ display:none; }
+  .header-inner{ gap:10px !important; }
+}
 .job-ticker-marquee{ display:inline-flex; align-items:center; gap:40px; animation:jtScroll 28s linear infinite; line-height:22px; }
 .job-ticker-track:hover .job-ticker-marquee{ animation-play-state:paused; }
 @keyframes jtScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
@@ -101,7 +107,12 @@ h3{ font-size:1.25rem !important; font-weight:700 !important; margin-top:1.6em; 
 .article-meta{ font-size:.85rem; color:#8a8a8a; margin:14px 0 26px; }
 .article-body{ max-width:760px; margin:0 auto; }
 .article-body p{ color:#333; line-height:1.7; margin-bottom:1.2em; }
-.article-body ul{ margin:0 0 1.4em 1.3em; }
+.article-body a:not(.btn){ color:#e7161f; text-decoration:underline; font-weight:600; }
+.article-body a:not(.btn):hover{ color:#b3110f; }
+.article-body ul{ margin:0 0 1.4em 0; list-style:none; }
+.article-body ul li{ position:relative; padding-left:26px; }
+.article-body ul li::before{ content:"✓"; position:absolute; left:0; top:0; color:#22c55e; font-weight:700; }
+.article-body ul ul{ margin-top:.5em; }
 .article-body li{ color:#333; line-height:1.6; margin-bottom:.5em; }
 .article-body strong{ color:#1a1a1a; }
 .key-facts{ background:#fbe7e1; border-left:4px solid #e7161f; border-radius:8px; padding:20px 24px; margin:1.6em 0; }
@@ -158,14 +169,21 @@ table tr:nth-child(even) td{ background:#f9fafb; }
 body.modal-open{ overflow:hidden; }
 @media(max-width:600px){ .qmodal-dialog{ margin:0; max-height:100vh; height:100%; border-radius:0; } .form-row{ grid-template-columns:1fr; } }
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": ["GeneralContractor", "LocalBusiness", "Organization"], "@id": "https://jtcompliance.com.au/#business", "name": "JT Compliance", "alternateName": "JT Handyman Solutionz", "url": "https://jtcompliance.com.au/", "logo": "https://jtcompliance.com.au/img/jtc/logo_jt.png", "telephone": "1800 587 659", "priceRange": "$", "address": {"@type": "PostalAddress", "streetAddress": "42/2 Cobham Street", "addressLocality": "Reservoir", "addressRegion": "VIC", "postalCode": "3073", "addressCountry": "AU"}, "areaServed": {"@type": "City", "name": "Melbourne"}}, {"@type": "Article", "@id": "https://jtcompliance.com.au/heating-cooling-hot-water-electric-rental-2027.html#article", "headline": "Heating, cooling and hot water: Victoria's efficient-electric rental standards", "description": "Victoria's 2027 efficient-electric rental rules for heating, cooling and hot water: exact GEMS thresholds, end-of-life triggers and the 1 July 2030 cooling.", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "JT Compliance", "url": "https://jtcompliance.com.au/"}, "publisher": {"@id": "https://jtcompliance.com.au/#business"}, "mainEntityOfPage": "https://jtcompliance.com.au/heating-cooling-hot-water-electric-rental-2027.html", "image": "https://jtcompliance.com.au/img/jtc/insulation-after.jpg", "articleSection": "The 2027 standards", "inLanguage": "en-AU"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://jtcompliance.com.au/jtcompliance.html"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://jtcompliance.com.au/jtcompliance-blog.html"}, {"@type": "ListItem", "position": 3, "name": "Heating, cooling & hot water: the electric standards", "item": "https://jtcompliance.com.au/heating-cooling-hot-water-electric-rental-2027.html"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When do the new heating, cooling and hot water rental standards start in Victoria?", "acceptedAnswer": {"@type": "Answer", "text": "The efficient-electric standards for heating, cooling and hot water take effect from 1 March 2027 under the Residential Tenancies Amendment (Minimum Energy Efficiency Standards) Regulations 2025. Cooling also carries a hard portfolio-wide deadline of 1 July 2030."}}, {"@type": "Question", "name": "Do I have to replace a working heater or hot water system on 1 March 2027?", "acceptedAnswer": {"@type": "Answer", "text": "No. Heating and hot water are end-of-life standards. You only have to meet the new benchmark when the existing appliance fails and needs replacing. A failed heater must be replaced with reverse-cycle rated 2-star or higher (or ducted SPF 3.2+), and failed hot water with a heat pump or electric-boosted solar system."}}, {"@type": "Question", "name": "What is the cooling deadline for Victorian rentals?", "acceptedAnswer": {"@type": "Answer", "text": "Every Victorian rental must have efficient electric cooling in the main living area, rated 3-star or higher or ducted TCSPF 3.8 or higher, by 1 July 2030. From 1 March 2027 the requirement also applies at a new lease or conversion to periodic. This is the only hard portfolio-wide deadline in the reform."}}, {"@type": "Question", "name": "What rating does a replacement heater need under the new standard?", "acceptedAnswer": {"@type": "Answer", "text": "A replacement heater in the main living area must be an efficient electric reverse-cycle air conditioner rated 2-star or higher under GEMS, or a ducted system with a seasonal performance factor (SPF) of 3.2 or higher."}}, {"@type": "Question", "name": "Are there rebates to help cover these upgrades?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Victorian Energy Upgrades (VEU) discounts are available now for heating, cooling and hot water. Solar for Rentals through Solar Victoria offers up to $1,400 plus a matching interest-free loan up to $1,400 (total up to $2,800 off), though the household income cap drops from $210,000 to $150,000 from 1 July 2026. Solar is an incentive, not a minimum standard."}}, {"@type": "Question", "name": "Can one appliance meet both the heating and cooling standards?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. A reverse-cycle air conditioner provides both efficient electric heating and cooling, so a single compliant RCAC unit can satisfy the heating benchmark (2-star or higher) and the cooling benchmark (3-star or higher) in the main living area at once."}}]}</script>
+<link rel="canonical" href="https://jtcompliance.com.au/heating-cooling-hot-water-electric-rental-2027.html">
 </head>
-<body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<body>
 <div class="top-strip">Victorian Rental Minimum Standards · From 1 March 2027 · Triggered on every lease change</div>
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="jtcompliance.html" class="brand" style="display:flex;align-items:center;">
-      <img src="img/work/jt-logo-correct.png" alt="JT Handyman Solutionz" style="height:64px;width:auto;display:block;">
+    <a href="jtcompliance.html" class="brand" style="display:flex;align-items:center;gap:10px;">
+      <img src="img/jtc/logo_jt.png" alt="JT Compliance" class="brand-logo-icon" style="height:44px;width:auto;display:block;">
+      <span style="line-height:1.15;">
+        <span style="display:block;font-family:'Rajdhani','Rajdhani Fallback',sans-serif;font-weight:700;font-size:1.15rem;color:#fff;">JT Compliance</span>
+        <span style="display:block;font-size:.72rem;color:rgba(255,255,255,.55);">Melbourne · Rental Minimum Standards</span>
+      </span>
     </a>
 
     <nav class="main-nav" id="main-nav">
@@ -247,7 +265,7 @@ body.modal-open{ overflow:hidden; }
 
     
 <p>From <strong>1 March 2027</strong>, Victoria's rental minimum standards require heating, cooling and hot water in rental homes to meet defined efficient-electric benchmarks. In plain terms: when a heater fails it must be replaced with a reverse-cycle air conditioner rated <strong>2-star or higher</strong> (or a ducted system with an SPF of <strong>3.2 or higher</strong>); when a hot water system fails it must be replaced with a <strong>heat pump</strong> or an <strong>electric-boosted solar</strong> system; and the main living area must have efficient electric cooling rated <strong>3-star or higher</strong> (ducted <strong>TCSPF 3.8 or higher</strong>). Cooling carries the one firm portfolio-wide date: every rental must have it by <strong>1 July 2030</strong>.</p>
-<p>These rules are administered by Consumer Affairs Victoria and enforced by renters through VCAT, with penalties tied to the Victorian penalty unit indexed each year. They are finalised, not a proposal. For property managers and landlords across Melbourne, the practical challenge is not the individual appliance, it is knowing which trigger applies to which property and planning the works before a lease or a broken heater forces the decision.</p>
+<p>These rules are administered by <a href="https://www.consumer.vic.gov.au/resources-and-tools/legislation/public-consultations-and-reviews/new-minimum-energy-efficiency-standards" target="_blank" rel="noopener">Consumer Affairs Victoria</a> and enforced by renters through VCAT, with penalties tied to the Victorian penalty unit indexed each year. They are finalised, not a proposal. For property managers and landlords across Melbourne, the practical challenge is not the individual appliance, it is knowing which trigger applies to which property and planning the works before a lease or a broken heater forces the decision.</p>
 
 <h2>The three appliance standards at a glance</h2>
 <p>Each of the three standards has its own threshold and its own trigger. Two of them, heating and hot water, only apply when the existing appliance reaches end of life. Cooling is different: it is the only one with a hard deadline that applies to every home regardless of whether anything has failed.</p>
@@ -281,9 +299,11 @@ body.modal-open{ overflow:hidden; }
 <li><strong>Hard portfolio-wide deadline</strong>: cooling only, <strong>1 July 2030</strong>, applying to every home.</li>
 </ul>
 
+<p>A separate reform already bites. From <strong>25 November 2025</strong>, rentals must meet the existing minimum standards before being advertised or when an offer to let is made, not just at key handover, under the <a href="https://www.premier.vic.gov.au/new-laws-effect-today-strengthen-renter-rights" target="_blank" rel="noopener">Victorian Government's rental reforms</a>. That advertising rule covers the current 14 standards, and it signals the direction of travel: compliance is increasingly checked at the front of the leasing process, not the back.</p>
+
 <h2>Rebates that offset the appliance upgrades</h2>
-<p>The Victorian Energy Upgrades (VEU) program offers discounts <strong>now</strong> on heating, cooling, hot water, draught sealing and showerheads, so a reverse-cycle install or a heat pump swap can attract a discount at the point of installation.</p>
-<p>Solar sits alongside as an incentive rather than a standard. Solar for Rentals through Solar Victoria offers a rebate of up to <strong>$1,400</strong> plus a matching interest-free loan up to <strong>$1,400</strong>, a total of up to <strong>$2,800</strong> off, with the loan repaid over four years. Note the eligibility change: the renter household income cap drops from <strong>$210,000 to $150,000 from 1 July 2026</strong>, the property must be valued under $3 million, the address must not have been rebated before, and there is a maximum of two rental rebates per financial year.</p>
+<p>The <a href="https://www.energy.vic.gov.au/households/electric-and-efficiency-standards-for-buildings/energy-efficiency-for-rental-properties-in-victoria" target="_blank" rel="noopener">Victorian Energy Upgrades (VEU)</a> program offers discounts <strong>now</strong> on heating, cooling, hot water, draught sealing and showerheads, so a reverse-cycle install or a heat pump swap can attract a discount at the point of installation.</p>
+<p>Solar sits alongside as an incentive rather than a standard. Solar for Rentals through <a href="https://www.solar.vic.gov.au/solar-rebates-rental-properties" target="_blank" rel="noopener">Solar Victoria</a> offers a rebate of up to <strong>$1,400</strong> plus a matching interest-free loan up to <strong>$1,400</strong>, a total of up to <strong>$2,800</strong> off, with the loan repaid over four years. Note the eligibility change: the renter household income cap drops from <strong>$210,000 to $150,000 from 1 July 2026</strong>, the property must be valued under $3 million, the address must not have been rebated before, and there is a maximum of two rental rebates per financial year.</p>
 
 <h2>Bringing a whole rent roll up to standard</h2>
 <p>For Melbourne agencies managing dozens or hundreds of tenancies, the work is less about any single appliance and more about sequencing across a portfolio, matching each property to the right trigger, and getting rebates applied before the works are booked. JT Compliance is one Melbourne partner that handles this end to end. We audit every property against the heating, cooling and hot water standards, quote the works with the available VEU discounts already factored in, complete the installs with qualified trades, and hand back documented reports so managers can evidence compliance at a lease, at advertising, and well ahead of the 1 July 2030 cooling deadline.</p>

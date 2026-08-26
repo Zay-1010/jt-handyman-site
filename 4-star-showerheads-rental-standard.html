@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KQXG8LXC');</script>
+<head>
 <!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -53,6 +53,12 @@ fbq('track', 'PageView');
 @media(max-width:900px){
   .site-header .nav-toggle span{ background:#fff; }
 }
+@media(max-width:480px){
+  .brand-logo-icon{ height:36px !important; }
+  .site-header .brand span span:first-child{ font-size:1rem !important; }
+  .site-header .brand span span:last-child{ display:none; }
+  .header-inner{ gap:10px !important; }
+}
 .job-ticker-marquee{ display:inline-flex; align-items:center; gap:40px; animation:jtScroll 28s linear infinite; line-height:22px; }
 .job-ticker-track:hover .job-ticker-marquee{ animation-play-state:paused; }
 @keyframes jtScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
@@ -101,7 +107,12 @@ h3{ font-size:1.25rem !important; font-weight:700 !important; margin-top:1.6em; 
 .article-meta{ font-size:.85rem; color:#8a8a8a; margin:14px 0 26px; }
 .article-body{ max-width:760px; margin:0 auto; }
 .article-body p{ color:#333; line-height:1.7; margin-bottom:1.2em; }
-.article-body ul{ margin:0 0 1.4em 1.3em; }
+.article-body a:not(.btn){ color:#e7161f; text-decoration:underline; font-weight:600; }
+.article-body a:not(.btn):hover{ color:#b3110f; }
+.article-body ul{ margin:0 0 1.4em 0; list-style:none; }
+.article-body ul li{ position:relative; padding-left:26px; }
+.article-body ul li::before{ content:"✓"; position:absolute; left:0; top:0; color:#22c55e; font-weight:700; }
+.article-body ul ul{ margin-top:.5em; }
 .article-body li{ color:#333; line-height:1.6; margin-bottom:.5em; }
 .article-body strong{ color:#1a1a1a; }
 .key-facts{ background:#fbe7e1; border-left:4px solid #e7161f; border-radius:8px; padding:20px 24px; margin:1.6em 0; }
@@ -158,14 +169,21 @@ table tr:nth-child(even) td{ background:#f9fafb; }
 body.modal-open{ overflow:hidden; }
 @media(max-width:600px){ .qmodal-dialog{ margin:0; max-height:100vh; height:100%; border-radius:0; } .form-row{ grid-template-columns:1fr; } }
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": ["GeneralContractor", "LocalBusiness", "Organization"], "@id": "https://jtcompliance.com.au/#business", "name": "JT Compliance", "alternateName": "JT Handyman Solutionz", "url": "https://jtcompliance.com.au/", "logo": "https://jtcompliance.com.au/img/jtc/logo_jt.png", "telephone": "1800 587 659", "priceRange": "$", "address": {"@type": "PostalAddress", "streetAddress": "42/2 Cobham Street", "addressLocality": "Reservoir", "addressRegion": "VIC", "postalCode": "3073", "addressCountry": "AU"}, "areaServed": {"@type": "City", "name": "Melbourne"}}, {"@type": "Article", "@id": "https://jtcompliance.com.au/4-star-showerheads-rental-standard.html#article", "headline": "4-star WELS showerheads: the 2027 rental water-efficiency standard", "description": "Victoria's rental showerhead standard rises from 3-star to 4-star WELS on 1 March 2027, triggered at a new lease. What Melbourne property managers must know.", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "JT Compliance", "url": "https://jtcompliance.com.au/"}, "publisher": {"@id": "https://jtcompliance.com.au/#business"}, "mainEntityOfPage": "https://jtcompliance.com.au/4-star-showerheads-rental-standard.html", "image": "https://jtcompliance.com.au/img/jtc/jt-showerhead-upgrade-melbourne.jpg", "articleSection": "The 2027 standards", "inLanguage": "en-AU"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://jtcompliance.com.au/jtcompliance.html"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://jtcompliance.com.au/jtcompliance-blog.html"}, {"@type": "ListItem", "position": 3, "name": "4-star WELS showerheads: the water standard", "item": "https://jtcompliance.com.au/4-star-showerheads-rental-standard.html"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When do Victorian rentals need 4-star showerheads?", "acceptedAnswer": {"@type": "Answer", "text": "From 1 March 2027. All showers in a Victorian rental must have a 4-star WELS showerhead, up from the current 3-star minimum, triggered when a new lease starts or a fixed-term tenancy converts to periodic."}}, {"@type": "Question", "name": "Do all showers need to be upgraded, or just the main bathroom?", "acceptedAnswer": {"@type": "Answer", "text": "All showers. The standard applies to every shower in the property, so a home with an ensuite or a second bathroom needs a compliant 4-star showerhead on each one."}}, {"@type": "Question", "name": "What is the current showerhead standard in Victorian rentals?", "acceptedAnswer": {"@type": "Answer", "text": "3-star WELS. Water-efficient showerheads have been one of the 14 minimum standards since 29 March 2021 at a 3-star minimum. Only the rating is rising to 4-star from 1 March 2027."}}, {"@type": "Question", "name": "What triggers the 4-star showerhead requirement?", "acceptedAnswer": {"@type": "Answer", "text": "A new rental agreement or a conversion to a periodic (month-to-month) tenancy from 1 March 2027. It is not a single fixed portfolio deadline, but properties must also meet minimum standards before being advertised, in force since 25 November 2025."}}, {"@type": "Question", "name": "Are there rebates for upgrading showerheads?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The Victorian Energy Upgrades (VEU) program offers discounts on water-efficient showerheads now, before the deadline. The rebate often covers most or all of the cost of a low-priced fitting."}}, {"@type": "Question", "name": "What is the penalty for a non-compliant rental?", "acceptedAnswer": {"@type": "Answer", "text": "Non-compliance is assessed in penalty units, and the 2025-26 penalty unit value is $203.51. Renters can raise the issue with Consumer Affairs Victoria and pursue it at VCAT, so gaps across a portfolio add up."}}]}</script>
+<link rel="canonical" href="https://jtcompliance.com.au/4-star-showerheads-rental-standard.html">
 </head>
-<body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<body>
 <div class="top-strip">Victorian Rental Minimum Standards · From 1 March 2027 · Triggered on every lease change</div>
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="jtcompliance.html" class="brand" style="display:flex;align-items:center;">
-      <img src="img/work/jt-logo-correct.png" alt="JT Handyman Solutionz" style="height:64px;width:auto;display:block;">
+    <a href="jtcompliance.html" class="brand" style="display:flex;align-items:center;gap:10px;">
+      <img src="img/jtc/logo_jt.png" alt="JT Compliance" class="brand-logo-icon" style="height:44px;width:auto;display:block;">
+      <span style="line-height:1.15;">
+        <span style="display:block;font-family:'Rajdhani','Rajdhani Fallback',sans-serif;font-weight:700;font-size:1.15rem;color:#fff;">JT Compliance</span>
+        <span style="display:block;font-size:.72rem;color:rgba(255,255,255,.55);">Melbourne · Rental Minimum Standards</span>
+      </span>
     </a>
 
     <nav class="main-nav" id="main-nav">
@@ -249,9 +267,9 @@ body.modal-open{ overflow:hidden; }
 <p>Victoria's rental showerhead standard is rising from <strong>3-star to 4-star WELS on 1 March 2027</strong>. Every shower in a Victorian rental will need to be fitted with a showerhead rated <strong>4-star or higher</strong> under the Water Efficiency Labelling and Standards (WELS) scheme, and the requirement is triggered when a <strong>new lease begins or a fixed-term tenancy converts to a periodic (month-to-month) agreement</strong>. Of all the new minimum standards landing in 2027, this is the quickest and cheapest to satisfy, which makes it the easiest early win for property managers and landlords across Melbourne.</p>
 
 <h2>What exactly changes on 1 March 2027?</h2>
-<p>Water-efficient showerheads are not a new idea in Victorian rentals. They have been one of the <strong>14 minimum standards since 29 March 2021</strong>, set at a minimum of <strong>3-star WELS</strong>. What changes on 1 March 2027 is only the rating: the floor lifts from <strong>3-star to 4-star</strong>.</p>
+<p>Water-efficient showerheads are not a new idea in Victorian rentals. They have been one of the <strong>14 minimum standards since 29 March 2021</strong>, set at a minimum of <strong>3-star WELS</strong> (see <a href="https://www.consumer.vic.gov.au/housing/renting/repairs-alterations-safety-and-pets/minimum-standards/minimum-standards-for-rental-properties" target="_blank" rel="noopener">Consumer Affairs Victoria</a>). What changes on 1 March 2027 is only the rating: the floor lifts from <strong>3-star to 4-star</strong>.</p>
 <p>The requirement applies to <strong>all showers</strong> in the property, not just the main bathroom. A two-bathroom home in Glen Waverley or a townhouse in Brunswick with an ensuite needs a compliant 4-star showerhead on <strong>every</strong> shower, not just one.</p>
-<p>This change sits inside the Residential Tenancies Amendment (Minimum Energy Efficiency Standards) Regulations 2025, which is finalised, not a proposal. The standard is administered by Consumer Affairs Victoria (CAV), and renters enforce their rights through the Victorian Civil and Administrative Tribunal (VCAT).</p>
+<p>This change sits inside the Residential Tenancies Amendment (Minimum Energy Efficiency Standards) Regulations 2025, which is finalised, not a proposal. The standard is administered by <a href="https://www.consumer.vic.gov.au/resources-and-tools/legislation/public-consultations-and-reviews/new-minimum-energy-efficiency-standards" target="_blank" rel="noopener">Consumer Affairs Victoria</a> (CAV), and renters enforce their rights through the Victorian Civil and Administrative Tribunal (VCAT).</p>
 
 <h2>What triggers the 4-star showerhead upgrade?</h2>
 <p>The 4-star showerhead standard is <strong>lease-triggered</strong>, not tied to a single hard portfolio deadline. In practice, the obligation kicks in from 1 March 2027 when one of these events occurs:</p>
@@ -260,7 +278,7 @@ body.modal-open{ overflow:hidden; }
 <li>An existing fixed-term agreement <strong>converts to a periodic</strong> (rolling month-to-month) tenancy.</li>
 </ul>
 <p>If a good tenant stays on the same fixed-term lease well past March 2027 without any change, the trigger has not yet fired for that property. But most rent rolls turn over often enough that the practical answer is simple: get every property to 4-star before it is next advertised or re-let, and the trigger never catches you out.</p>
-<p>That last point matters because of a separate reform already in force. From <strong>25 November 2025</strong>, Victorian rental properties must meet the existing minimum standards <strong>before they are advertised or when an offer to let is made</strong>, not just at key handover. Once the 4-star rating is in force, that advertising rule captures it too, so leaving a showerhead swap to the last minute risks holding up a listing.</p>
+<p>That last point matters because of a separate reform already in force. From <strong>25 November 2025</strong>, Victorian rental properties must meet the existing minimum standards <strong>before they are advertised or when an offer to let is made</strong>, not just at key handover (see the <a href="https://www.premier.vic.gov.au/new-laws-effect-today-strengthen-renter-rights" target="_blank" rel="noopener">Premier of Victoria's announcement</a>). Once the 4-star rating is in force, that advertising rule captures it too, so leaving a showerhead swap to the last minute risks holding up a listing.</p>
 
 <h2>How the showerhead standard compares to the other 2027 changes</h2>
 <div class="table-wrap">
@@ -282,8 +300,12 @@ body.modal-open{ overflow:hidden; }
 <p>Because the change is so contained, the showerhead standard is a sensible <strong>first move</strong> when bringing a rent roll up to the new rules. It clears one of the six new obligations off the list quickly and demonstrates progress to owners while the larger heating, cooling and hot water items are staged over time.</p>
 
 <h2>Are there rebates for the showerhead upgrade?</h2>
-<p>Yes. Under the Victorian Energy Upgrades (VEU) program, discounts on water-efficient showerheads are available <strong>now</strong>, before the 2027 deadline. VEU also offers discounts on heating, cooling, hot water and draught sealing, so a well-planned upgrade round can pull several rebates into one visit.</p>
+<p>Yes. Under the <a href="https://www.energy.vic.gov.au/households/electric-and-efficiency-standards-for-buildings/energy-efficiency-for-rental-properties-in-victoria" target="_blank" rel="noopener">Victorian Energy Upgrades</a> (VEU) program, discounts on water-efficient showerheads are available <strong>now</strong>, before the 2027 deadline. VEU also offers discounts on heating, cooling, hot water and draught sealing, so a well-planned upgrade round can pull several rebates into one visit.</p>
 <p>Showerheads are a small enough item that the rebate often covers most or all of the fitting cost, which is another reason to treat this as the low-friction starting point. Acting early, while a property is between tenants, means the work is done before the advertising and re-letting rules can bite.</p>
+
+<h2>What happens if a rental is not compliant?</h2>
+<p>Water-efficient showerheads are a <strong>minimum standard</strong>, so a rental that does not meet the 4-star requirement once triggered is not compliant. Renters can raise the issue with Consumer Affairs Victoria and pursue it at VCAT, and a renter can request an urgent repair or seek an order where a minimum standard is not met.</p>
+<p>The financial exposure is measured in penalty units. The <strong>2025-26 penalty unit value is $203.51</strong> (<a href="https://www.justice.vic.gov.au/justice-system/fines-and-penalties/penalties-and-values" target="_blank" rel="noopener">Department of Justice and Community Safety</a>), and because breaches are assessed per property, gaps across a portfolio add up. The safer and cheaper path is straightforward: get every shower to 4-star before the property is next advertised.</p>
 
 <h2>How JT Compliance handles it across Melbourne rent rolls</h2>
 <p>JT Compliance is a Melbourne maintenance firm that brings entire rent rolls up to Victoria's rental minimum standards, and the showerhead standard is a natural part of that work. We <strong>audit every property</strong> to record which showers already meet 4-star WELS and which need swapping, <strong>quote the works with any VEU discounts applied</strong>, <strong>complete the upgrades</strong> with qualified trades, and hand back a <strong>documented compliance report</strong> the agency can keep on file.</p>

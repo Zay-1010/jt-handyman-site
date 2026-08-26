@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KQXG8LXC');</script>
+<head>
 <!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -53,6 +53,12 @@ fbq('track', 'PageView');
 @media(max-width:900px){
   .site-header .nav-toggle span{ background:#fff; }
 }
+@media(max-width:480px){
+  .brand-logo-icon{ height:36px !important; }
+  .site-header .brand span span:first-child{ font-size:1rem !important; }
+  .site-header .brand span span:last-child{ display:none; }
+  .header-inner{ gap:10px !important; }
+}
 .job-ticker-marquee{ display:inline-flex; align-items:center; gap:40px; animation:jtScroll 28s linear infinite; line-height:22px; }
 .job-ticker-track:hover .job-ticker-marquee{ animation-play-state:paused; }
 @keyframes jtScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
@@ -101,7 +107,12 @@ h3{ font-size:1.25rem !important; font-weight:700 !important; margin-top:1.6em; 
 .article-meta{ font-size:.85rem; color:#8a8a8a; margin:14px 0 26px; }
 .article-body{ max-width:760px; margin:0 auto; }
 .article-body p{ color:#333; line-height:1.7; margin-bottom:1.2em; }
-.article-body ul{ margin:0 0 1.4em 1.3em; }
+.article-body a:not(.btn){ color:#e7161f; text-decoration:underline; font-weight:600; }
+.article-body a:not(.btn):hover{ color:#b3110f; }
+.article-body ul{ margin:0 0 1.4em 0; list-style:none; }
+.article-body ul li{ position:relative; padding-left:26px; }
+.article-body ul li::before{ content:"✓"; position:absolute; left:0; top:0; color:#22c55e; font-weight:700; }
+.article-body ul ul{ margin-top:.5em; }
 .article-body li{ color:#333; line-height:1.6; margin-bottom:.5em; }
 .article-body strong{ color:#1a1a1a; }
 .key-facts{ background:#fbe7e1; border-left:4px solid #e7161f; border-radius:8px; padding:20px 24px; margin:1.6em 0; }
@@ -158,14 +169,21 @@ table tr:nth-child(even) td{ background:#f9fafb; }
 body.modal-open{ overflow:hidden; }
 @media(max-width:600px){ .qmodal-dialog{ margin:0; max-height:100vh; height:100%; border-radius:0; } .form-row{ grid-template-columns:1fr; } }
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": ["GeneralContractor", "LocalBusiness", "Organization"], "@id": "https://jtcompliance.com.au/#business", "name": "JT Compliance", "alternateName": "JT Handyman Solutionz", "url": "https://jtcompliance.com.au/", "logo": "https://jtcompliance.com.au/img/jtc/logo_jt.png", "telephone": "1800 587 659", "priceRange": "$", "address": {"@type": "PostalAddress", "streetAddress": "42/2 Cobham Street", "addressLocality": "Reservoir", "addressRegion": "VIC", "postalCode": "3073", "addressCountry": "AU"}, "areaServed": {"@type": "City", "name": "Melbourne"}}, {"@type": "Article", "@id": "https://jtcompliance.com.au/property-manager-2027-compliance-checklist.html#article", "headline": "The property manager's 2027 rental compliance checklist", "description": "The 2027 rental compliance checklist for Victorian property managers: per-property audit items, lease-renewal triggers, exact dates and how to avoid VCAT.", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "JT Compliance", "url": "https://jtcompliance.com.au/"}, "publisher": {"@id": "https://jtcompliance.com.au/#business"}, "mainEntityOfPage": "https://jtcompliance.com.au/property-manager-2027-compliance-checklist.html", "image": "https://jtcompliance.com.au/img/jtc/jt-compliance-checklist-melbourne.jpg", "articleSection": "For property managers", "inLanguage": "en-AU"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://jtcompliance.com.au/jtcompliance.html"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://jtcompliance.com.au/jtcompliance-blog.html"}, {"@type": "ListItem", "position": 3, "name": "The property manager's 2027 compliance checklist", "item": "https://jtcompliance.com.au/property-manager-2027-compliance-checklist.html"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When do the new Victorian rental energy efficiency standards start?", "acceptedAnswer": {"@type": "Answer", "text": "Most start from 1 March 2027, triggered by a new lease or conversion to a periodic agreement. Draught proofing applies from 1 July 2027. The only hard, all-homes deadline is efficient electric cooling in every rental by 1 July 2030."}}, {"@type": "Question", "name": "What triggers a compliance upgrade under the 2027 rules?", "acceptedAnswer": {"@type": "Answer", "text": "Ceiling insulation, 4-star showerheads, cooling and draught proofing are triggered by a new lease or a conversion to a periodic agreement. Heating and hot water are triggered only when the existing system reaches end of life and fails. Cooling also has a fixed 1 July 2030 deadline for all homes."}}, {"@type": "Question", "name": "Does every rental need ceiling insulation installed?", "acceptedAnswer": {"@type": "Answer", "text": "No. Ceiling insulation must reach R5.0 only where none currently exists. If a property already has any ceiling insulation, no upgrade is required regardless of its rating."}}, {"@type": "Question", "name": "Can a non-compliant property still be advertised for rent?", "acceptedAnswer": {"@type": "Answer", "text": "No. Since 25 November 2025, a rental must meet the existing minimum standards before it is advertised and when an offer to let is made, so the compliance check now happens before listing, not at key handover."}}, {"@type": "Question", "name": "What rebates help cover the cost of these upgrades?", "acceptedAnswer": {"@type": "Answer", "text": "Victorian Energy Upgrades discounts apply now to heating, cooling, hot water, sealing and showerheads, with ceiling insulation discounts up to $1,482 from 1 October 2026 for general homes. Solar for Rentals offers up to $1,400 rebate plus a matching interest-free loan, up to $2,800 total, though solar is an incentive rather than a minimum standard."}}, {"@type": "Question", "name": "Who enforces the standards and what is the penalty?", "acceptedAnswer": {"@type": "Answer", "text": "Consumer Affairs Victoria regulates the standards and renters enforce them through VCAT. Penalties are counted in penalty units, and the 2025-26 penalty unit value is $203.51. Keeping installer certificates, invoices, ratings and photos for each property is the simplest way to stay clear of a dispute."}}]}</script>
+<link rel="canonical" href="https://jtcompliance.com.au/property-manager-2027-compliance-checklist.html">
 </head>
-<body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<body>
 <div class="top-strip">Victorian Rental Minimum Standards · From 1 March 2027 · Triggered on every lease change</div>
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="jtcompliance.html" class="brand" style="display:flex;align-items:center;">
-      <img src="img/work/jt-logo-correct.png" alt="JT Handyman Solutionz" style="height:64px;width:auto;display:block;">
+    <a href="jtcompliance.html" class="brand" style="display:flex;align-items:center;gap:10px;">
+      <img src="img/jtc/logo_jt.png" alt="JT Compliance" class="brand-logo-icon" style="height:44px;width:auto;display:block;">
+      <span style="line-height:1.15;">
+        <span style="display:block;font-family:'Rajdhani','Rajdhani Fallback',sans-serif;font-weight:700;font-size:1.15rem;color:#fff;">JT Compliance</span>
+        <span style="display:block;font-size:.72rem;color:rgba(255,255,255,.55);">Melbourne · Rental Minimum Standards</span>
+      </span>
     </a>
 
     <nav class="main-nav" id="main-nav">
@@ -247,11 +265,11 @@ body.modal-open{ overflow:hidden; }
 
     
 <p>Every Victorian property manager should audit each managed property now, flag which upgrades trigger at the next new lease from 1 March 2027 and at 1 July 2027, and diarise the one hard portfolio deadline of 1 July 2030 for efficient electric cooling. That is the whole job in one sentence, and the rest of this checklist makes it practical.</p>
-<p>Every property manager now works to two rule sets. The first is the 14 existing minimum standards, in force since 29 March 2021, covering everything from a fixed heater in the main living area to working smoke alarms and external door and window locks. The second is the new energy efficiency layer, set by the Residential Tenancies Amendment (Minimum Energy Efficiency Standards) Regulations 2025, which is finalised, not a proposal, and staged from 1 March 2027.</p>
+<p>Every property manager now works to two rule sets. The first is the 14 existing minimum standards, in force since 29 March 2021, covering everything from a fixed heater in the main living area to working smoke alarms and external door and window locks. The second is the new energy efficiency layer, set by the <a href="https://www.consumer.vic.gov.au/resources-and-tools/legislation/public-consultations-and-reviews/new-minimum-energy-efficiency-standards" target="_blank" rel="noopener">Residential Tenancies Amendment (Minimum Energy Efficiency Standards) Regulations 2025</a>, which is finalised, not a proposal, and staged from 1 March 2027.</p>
 <p>For a rent roll, the practical job is simple to state and involved to deliver: know which upgrade each property already meets, know which trigger date applies to each one, and hold the documentation that proves it. This checklist walks through that per property, then through the lease-renewal workflow that keeps a whole portfolio ahead of the dates.</p>
 
 <h2>The advertising rule already applies (25 November 2025)</h2>
-<p>Before anything in 2027, one change is live now. From <strong>25 November 2025</strong>, a rental property must meet the existing minimum standards before it is advertised for rent, and when an offer to let is made, not just at key handover.</p>
+<p>Before anything in 2027, one change is live now. From <strong>25 November 2025</strong>, a rental property must meet the existing minimum standards before it is advertised for rent, and when an offer to let is made, not just at key handover. This was confirmed by the <a href="https://www.premier.vic.gov.au/new-laws-effect-today-strengthen-renter-rights" target="_blank" rel="noopener">Premier of Victoria</a> as part of the broader package of rental reforms.</p>
 <p>For property managers across Melbourne this shifts the compliance check earlier in the leasing cycle. A property with a non-compliant heater, a missing lock or a failed smoke alarm cannot legally be listed. The first item on any rent roll audit is therefore the current 14 standards, property by property, before a single new listing goes live.</p>
 
 <h2>The staged energy efficiency deadlines, at a glance</h2>
@@ -284,14 +302,22 @@ body.modal-open{ overflow:hidden; }
 <p>Because most triggers fire at a new lease or a conversion to periodic, the cleanest way to manage rent roll compliance for 2027 is to bolt the audit onto the leasing calendar.</p>
 <ul>
 <li><strong>Six to eight weeks before a lease ends,</strong> pull the property's audit record and check which 1 March 2027 or 1 July 2027 items will trigger on the renewal.</li>
-<li><strong>Get quotes with rebates applied.</strong> Several upgrades are discounted under the Victorian Energy Upgrades program, so a like-for-like quote misstates the real cost.</li>
+<li><strong>Get quotes with rebates applied.</strong> Several upgrades are discounted under the Victorian Energy Upgrades program (below), so a like-for-like quote misstates the real cost.</li>
 <li><strong>Schedule works before the new agreement starts,</strong> so the property is compliant on day one of the lease.</li>
 <li><strong>File the evidence.</strong> Installer certificates, invoices, product ratings and photos are what protect the agency if a renter raises the issue at VCAT.</li>
 <li><strong>Update the property record</strong> so the next renewal starts from an accurate baseline.</li>
 </ul>
 
 <h2>Documentation and how to avoid VCAT</h2>
-<p>Consumer Affairs Victoria regulates the standards, and renters enforce them through VCAT. A rent roll that keeps clean records rarely ends up there. For each property, hold the installer or trade certificate, the product star rating or WELS rating, the dated invoice, and before-and-after photos. Where a standard did not apply, for example ceiling insulation on a property that already had insulation, note why. The 2025-26 penalty unit is $203.51, and penalties are counted in units, so accurate records are the cheapest form of protection.</p>
+<p>Consumer Affairs Victoria regulates the standards, and renters enforce them through VCAT. A rent roll that keeps clean records rarely ends up there. For each property, hold the installer or trade certificate, the product star rating or WELS rating, the dated invoice, and before-and-after photos. Where a standard did not apply, for example ceiling insulation on a property that already had insulation, note why. The <a href="https://www.justice.vic.gov.au/justice-system/fines-and-penalties/penalties-and-values" target="_blank" rel="noopener">2025-26 penalty unit is $203.51</a>, and penalties are counted in units, so accurate records are the cheapest form of protection.</p>
+
+<h2>Rebates that offset the upgrades</h2>
+<p>The upgrades come with real incentives, and applying them changes the numbers you present to landlords.</p>
+<ul>
+<li><strong>Victorian Energy Upgrades (VEU)</strong> discounts are available now for heating, cooling, hot water, draught and weather sealing, and showerheads. For <a href="https://www.energy.vic.gov.au/victorian-energy-upgrades/products/insulation-discounts" target="_blank" rel="noopener">ceiling insulation</a>, the VEU discount opens for general homes from <strong>1 October 2026</strong> (up to <strong>$1,482</strong>, with a minimum $200 customer contribution) and is expected around <strong>1 January 2027</strong> for rentals.</li>
+<li><a href="https://www.solar.vic.gov.au/solar-rebates-rental-properties" target="_blank" rel="noopener">Solar for Rentals</a> from Solar Victoria offers a rebate up to <strong>$1,400</strong> plus a matching interest-free loan up to $1,400, so up to <strong>$2,800</strong> off, with the loan repaid over four years. From <strong>1 July 2026</strong> the renter household income cap drops from $210,000 to <strong>$150,000</strong>, the property must be worth under $3 million, the address must not have been rebated before, and there is a maximum of two rental rebates per financial year. Solar is an incentive only, not a minimum standard.</li>
+</ul>
+<p>More detail on the wider energy rules sits with <a href="https://www.energy.vic.gov.au/households/electric-and-efficiency-standards-for-buildings/energy-efficiency-for-rental-properties-in-victoria" target="_blank" rel="noopener">Energy Victoria</a>.</p>
 
 <h2>Managing the whole portfolio with one Melbourne partner</h2>
 <p>Running this across a rent roll is a scheduling problem as much as a trades problem. JT Compliance handles Victorian portfolios end to end: we audit every property against the current standards and the 2027 items, quote the works with VEU and Solar for Rentals rebates already applied, complete the upgrades with qualified installers, and hand back a documented report the agency can file and rely on at renewal or if a matter ever reaches VCAT. For agencies across Melbourne, that turns a moving compliance target into a booked calendar of works tied to each lease.</p>

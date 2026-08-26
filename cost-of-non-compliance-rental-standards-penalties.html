@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KQXG8LXC');</script>
+<head>
 <!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -53,6 +53,12 @@ fbq('track', 'PageView');
 @media(max-width:900px){
   .site-header .nav-toggle span{ background:#fff; }
 }
+@media(max-width:480px){
+  .brand-logo-icon{ height:36px !important; }
+  .site-header .brand span span:first-child{ font-size:1rem !important; }
+  .site-header .brand span span:last-child{ display:none; }
+  .header-inner{ gap:10px !important; }
+}
 .job-ticker-marquee{ display:inline-flex; align-items:center; gap:40px; animation:jtScroll 28s linear infinite; line-height:22px; }
 .job-ticker-track:hover .job-ticker-marquee{ animation-play-state:paused; }
 @keyframes jtScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
@@ -101,7 +107,12 @@ h3{ font-size:1.25rem !important; font-weight:700 !important; margin-top:1.6em; 
 .article-meta{ font-size:.85rem; color:#8a8a8a; margin:14px 0 26px; }
 .article-body{ max-width:760px; margin:0 auto; }
 .article-body p{ color:#333; line-height:1.7; margin-bottom:1.2em; }
-.article-body ul{ margin:0 0 1.4em 1.3em; }
+.article-body a:not(.btn){ color:#e7161f; text-decoration:underline; font-weight:600; }
+.article-body a:not(.btn):hover{ color:#b3110f; }
+.article-body ul{ margin:0 0 1.4em 0; list-style:none; }
+.article-body ul li{ position:relative; padding-left:26px; }
+.article-body ul li::before{ content:"✓"; position:absolute; left:0; top:0; color:#22c55e; font-weight:700; }
+.article-body ul ul{ margin-top:.5em; }
 .article-body li{ color:#333; line-height:1.6; margin-bottom:.5em; }
 .article-body strong{ color:#1a1a1a; }
 .key-facts{ background:#fbe7e1; border-left:4px solid #e7161f; border-radius:8px; padding:20px 24px; margin:1.6em 0; }
@@ -158,14 +169,21 @@ table tr:nth-child(even) td{ background:#f9fafb; }
 body.modal-open{ overflow:hidden; }
 @media(max-width:600px){ .qmodal-dialog{ margin:0; max-height:100vh; height:100%; border-radius:0; } .form-row{ grid-template-columns:1fr; } }
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": ["GeneralContractor", "LocalBusiness", "Organization"], "@id": "https://jtcompliance.com.au/#business", "name": "JT Compliance", "alternateName": "JT Handyman Solutionz", "url": "https://jtcompliance.com.au/", "logo": "https://jtcompliance.com.au/img/jtc/logo_jt.png", "telephone": "1800 587 659", "priceRange": "$", "address": {"@type": "PostalAddress", "streetAddress": "42/2 Cobham Street", "addressLocality": "Reservoir", "addressRegion": "VIC", "postalCode": "3073", "addressCountry": "AU"}, "areaServed": {"@type": "City", "name": "Melbourne"}}, {"@type": "Article", "@id": "https://jtcompliance.com.au/cost-of-non-compliance-rental-standards-penalties.html#article", "headline": "The real cost of non-compliance with Victorian rental standards", "description": "What rental non-compliance costs in Victoria: penalty units at $203.51, VCAT orders, the 25 Nov 2025 advertising rule, plus vacancy across Melbourne rent rolls.", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "JT Compliance", "url": "https://jtcompliance.com.au/"}, "publisher": {"@id": "https://jtcompliance.com.au/#business"}, "mainEntityOfPage": "https://jtcompliance.com.au/cost-of-non-compliance-rental-standards-penalties.html", "image": "https://jtcompliance.com.au/img/jtc/jt-compliance-inspector-melbourne.jpg", "articleSection": "Costs & rebates", "inLanguage": "en-AU"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://jtcompliance.com.au/jtcompliance.html"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://jtcompliance.com.au/jtcompliance-blog.html"}, {"@type": "ListItem", "position": 3, "name": "The cost of non-compliance: penalties & VCAT", "item": "https://jtcompliance.com.au/cost-of-non-compliance-rental-standards-penalties.html"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What happens if my rental does not meet the standards in Victoria?", "acceptedAnswer": {"@type": "Answer", "text": "Two things bite. Since 25 November 2025 you cannot legally advertise the property or make an offer to let until it meets the minimum standards, so it stays off the market and loses rent. Separately, a renter can apply to VCAT for orders to bring the property up to standard, plus compensation or rent reductions, and Consumer Affairs Victoria can pursue penalties counted in penalty units worth $203.51 each in 2025-26."}}, {"@type": "Question", "name": "How much is a penalty unit in Victoria in 2025-26?", "acceptedAnswer": {"@type": "Answer", "text": "One penalty unit is worth $203.51 in the 2025-26 financial year. Rental breaches are expressed in penalty units rather than fixed dollar amounts, and the value is indexed each year by the Victorian Government, so a single breach counted in multiple units can run into thousands of dollars."}}, {"@type": "Question", "name": "Who enforces Victoria's rental minimum standards?", "acceptedAnswer": {"@type": "Answer", "text": "Consumer Affairs Victoria is the regulator that sets and oversees the rules. Individual renters enforce their rights through VCAT, the Victorian Civil and Administrative Tribunal, which can order a rental provider to bring a property up to standard and can support compensation or rent reductions."}}, {"@type": "Question", "name": "Can I advertise a rental in Victoria that does not meet the standards?", "acceptedAnswer": {"@type": "Answer", "text": "No. Since 25 November 2025, a rental property must meet the minimum standards before it is advertised and before an offer to let is made, not just by the time the tenant moves in. A non-compliant property cannot legally go to market, which means lost rent every week it waits."}}, {"@type": "Question", "name": "When do the new energy-efficiency standards start?", "acceptedAnswer": {"@type": "Answer", "text": "Most begin on 1 March 2027, triggered by a new lease, a conversion to a periodic agreement, or an appliance failing. Draught proofing starts 1 July 2027. The only hard portfolio-wide deadline is efficient electric cooling in the main living area of all homes by 1 July 2030."}}, {"@type": "Question", "name": "Do I need to upgrade ceiling insulation if the property already has some?", "acceptedAnswer": {"@type": "Answer", "text": "No. If a property already has any ceiling insulation, no upgrade is required regardless of its rating. The R5.0 requirement from 1 March 2027 only applies where no ceiling insulation currently exists, and it is triggered by a new lease or conversion to periodic."}}, {"@type": "Question", "name": "Are there rebates to offset the cost of getting compliant?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Victorian Energy Upgrades offers discounts now on heating, cooling, hot water, draught sealing and showerheads, with ceiling insulation discounts up to $1,482 arriving for general homes from 1 October 2026. Solar for Rentals offers up to $1,400 plus a matching interest-free loan, for total support up to $2,800."}}]}</script>
+<link rel="canonical" href="https://jtcompliance.com.au/cost-of-non-compliance-rental-standards-penalties.html">
 </head>
-<body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<body>
 <div class="top-strip">Victorian Rental Minimum Standards · From 1 March 2027 · Triggered on every lease change</div>
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="jtcompliance.html" class="brand" style="display:flex;align-items:center;">
-      <img src="img/work/jt-logo-correct.png" alt="JT Handyman Solutionz" style="height:64px;width:auto;display:block;">
+    <a href="jtcompliance.html" class="brand" style="display:flex;align-items:center;gap:10px;">
+      <img src="img/jtc/logo_jt.png" alt="JT Compliance" class="brand-logo-icon" style="height:44px;width:auto;display:block;">
+      <span style="line-height:1.15;">
+        <span style="display:block;font-family:'Rajdhani','Rajdhani Fallback',sans-serif;font-weight:700;font-size:1.15rem;color:#fff;">JT Compliance</span>
+        <span style="display:block;font-size:.72rem;color:rgba(255,255,255,.55);">Melbourne · Rental Minimum Standards</span>
+      </span>
     </a>
 
     <nav class="main-nav" id="main-nav">
@@ -249,15 +267,15 @@ body.modal-open{ overflow:hidden; }
 <p>Non-compliance with Victoria's rental minimum standards carries a stack of costs that most owners underestimate. There is the direct enforcement path through Consumer Affairs Victoria and the Victorian Civil and Administrative Tribunal (VCAT), where penalties are counted in penalty units worth <strong>$203.51</strong> each in 2025-26. There is the leasing cost, because since <strong>25 November 2025</strong> a property that does not meet the standards cannot legally be advertised. And there is the quieter cost of vacancy, rent reductions, repair orders and reputational damage to an agency's rent roll. This guide sets out each of those in plain terms, so property managers and landlords across Melbourne can weigh the real exposure.</p>
 
 <h2>What does non-compliance actually cost in Victoria?</h2>
-<p>The honest answer is that the headline fine is rarely the biggest number. Victorian penalties are expressed in penalty units rather than fixed dollars, and one penalty unit is worth <strong>$203.51</strong> in the 2025-26 financial year, a figure indexed annually and published by the Victorian Government. A breach that attracts a modest number of units can still run into thousands of dollars, and breaches can compound across a portfolio where the same defect repeats property after property.</p>
+<p>The honest answer is that the headline fine is rarely the biggest number. Victorian penalties are expressed in penalty units rather than fixed dollars, and one penalty unit is worth <strong>$203.51</strong> in the 2025-26 financial year, a figure indexed annually and published by the Victorian Government (see the <a href="https://www.justice.vic.gov.au/justice-system/fines-and-penalties/penalties-and-values" target="_blank" rel="noopener">penalty unit value</a>). A breach that attracts a modest number of units can still run into thousands of dollars, and breaches can compound across a portfolio where the same defect repeats property after property.</p>
 <p>The larger exposure sits alongside the fine. A rental sitting empty because it cannot legally be advertised loses rent every week. A tribunal order to complete repairs on a deadline forces reactive, premium-priced work. And an agency known for compliance problems loses landlords. Those costs are harder to invoice but they are the ones that hurt a rent roll most.</p>
 
 <h2>Who enforces the rental minimum standards?</h2>
 <p>Two bodies matter here. <strong>Consumer Affairs Victoria (CAV)</strong> is the regulator that sets and oversees the rental laws, and renters enforce their individual rights through <strong>VCAT</strong>, the Victorian Civil and Administrative Tribunal. A renter who moves into a Carlton apartment with no working heater, or a Frankston house with a non-compliant showerhead, can apply to VCAT for orders. Those orders can require the rental provider to bring the property up to standard, and can support compensation or rent reductions for the period the property fell short.</p>
-<p>This is a renter-driven system as much as a regulator-driven one. A property manager rarely gets a warning letter from CAV first. The trigger is usually a tenant who knows their rights, and Victorian renters are increasingly well informed thanks to CAV's own guidance.</p>
+<p>This is a renter-driven system as much as a regulator-driven one. A property manager rarely gets a warning letter from CAV first. The trigger is usually a tenant who knows their rights, and Victorian renters are increasingly well informed thanks to CAV's own guidance on the <a href="https://www.consumer.vic.gov.au/housing/renting/repairs-alterations-safety-and-pets/minimum-standards/minimum-standards-for-rental-properties" target="_blank" rel="noopener">minimum standards for rental properties</a>.</p>
 
 <h2>What changed on 25 November 2025 for advertising a rental?</h2>
-<p>The single most important recent change is easy to state. From <strong>25 November 2025</strong>, a rental property must meet the minimum standards <strong>before it is advertised, and before an offer to let is made</strong>, not merely by the time a tenant collects the keys.</p>
+<p>The single most important recent change is easy to state. From <strong>25 November 2025</strong>, a rental property must meet the minimum standards <strong>before it is advertised, and before an offer to let is made</strong>, not merely by the time a tenant collects the keys. This was confirmed by the <a href="https://www.premier.vic.gov.au/new-laws-effect-today-strengthen-renter-rights" target="_blank" rel="noopener">Premier of Victoria</a> as part of a broader package of rental reforms.</p>
 <p>That reform turns compliance from a background risk into a leasing gate. Previously an agency could list a property, sign a tenant and remediate around the edges. Now a non-compliant property in Richmond or Werribee simply cannot go to market. Every day it waits for a showerhead swap, a lock, or a heater is a day of lost rent, and the pressure to rush works at short notice is exactly where quality and cost both suffer.</p>
 
 <h2>What are the standards a property has to meet?</h2>
@@ -274,11 +292,11 @@ body.modal-open{ overflow:hidden; }
 <tr><td>Draught proofing</td><td>Seal doors, windows, unsealed vents</td><td>1 Jul 2027</td><td>New lease / conversion</td></tr>
 </table>
 </div>
-<p>The single hard portfolio-wide deadline is <strong>cooling in all homes by 1 July 2030</strong>. Everything else is triggered by a lease event or an appliance failing. It is also worth noting that if a property already has any ceiling insulation, no upgrade is required regardless of its rating.</p>
+<p>The single hard portfolio-wide deadline is <strong>cooling in all homes by 1 July 2030</strong>. Everything else is triggered by a lease event or an appliance failing. It is also worth noting that if a property already has any ceiling insulation, no upgrade is required regardless of its rating. Full details sit with <a href="https://www.consumer.vic.gov.au/resources-and-tools/legislation/public-consultations-and-reviews/new-minimum-energy-efficiency-standards" target="_blank" rel="noopener">Consumer Affairs Victoria</a> and <a href="https://www.energy.vic.gov.au/households/electric-and-efficiency-standards-for-buildings/energy-efficiency-for-rental-properties-in-victoria" target="_blank" rel="noopener">Energy Victoria</a>.</p>
 
 <h2>Rebates take the sting out of the upgrade cost</h2>
-<p>The cost of getting compliant is smaller than most owners fear, because Victorian rebates are designed to offset these exact upgrades. The Victorian Energy Upgrades (VEU) program offers discounts now on heating, cooling, hot water, draught and weather sealing, and showerheads. Ceiling insulation discounts arrive for general homes from <strong>1 October 2026</strong>, worth up to <strong>$1,482</strong> with a minimum $200 customer contribution, and are expected to open for rentals around <strong>1 January 2027</strong>.</p>
-<p>Separately, Solar for Rentals through Solar Victoria offers a rebate of up to <strong>$1,400</strong> plus a matching interest-free loan up to $1,400, for total support up to <strong>$2,800</strong>, with the loan repaid over four years. From <strong>1 July 2026</strong> the renter household income cap drops from $210k to <strong>$150k</strong>, the property must be valued under $3m, the address must not have been rebated before, and there is a limit of two rental rebates per financial year. Solar is an incentive, not a minimum standard.</p>
+<p>The cost of getting compliant is smaller than most owners fear, because Victorian rebates are designed to offset these exact upgrades. The Victorian Energy Upgrades (VEU) program offers discounts now on heating, cooling, hot water, draught and weather sealing, and showerheads. Ceiling insulation discounts arrive for general homes from <strong>1 October 2026</strong>, worth up to <strong>$1,482</strong> with a minimum $200 customer contribution, and are expected to open for rentals around <strong>1 January 2027</strong> (see the <a href="https://www.energy.vic.gov.au/victorian-energy-upgrades/products/insulation-discounts" target="_blank" rel="noopener">VEU insulation discounts</a>).</p>
+<p>Separately, Solar for Rentals through Solar Victoria offers a rebate of up to <strong>$1,400</strong> plus a matching interest-free loan up to $1,400, for total support up to <strong>$2,800</strong>, with the loan repaid over four years. From <strong>1 July 2026</strong> the renter household income cap drops from $210k to <strong>$150k</strong>, the property must be valued under $3m, the address must not have been rebated before, and there is a limit of two rental rebates per financial year. Solar is an incentive, not a minimum standard. The current terms sit on the <a href="https://www.solar.vic.gov.au/solar-rebates-rental-properties" target="_blank" rel="noopener">Solar for Rentals</a> page.</p>
 
 <h2>Why treating the whole rent roll at once is cheaper</h2>
 <p>The expensive way to handle all of this is property by property, at the worst possible moment, when a tenant has already complained or a listing is already stalled. The cheaper way is to audit the whole portfolio ahead of the trigger dates, fix the low-cost gaps first, and schedule the appliance-linked works so they happen on planned upgrades rather than emergency callouts.</p>

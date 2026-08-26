@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KQXG8LXC');</script>
+<head>
 <!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -53,6 +53,12 @@ fbq('track', 'PageView');
 @media(max-width:900px){
   .site-header .nav-toggle span{ background:#fff; }
 }
+@media(max-width:480px){
+  .brand-logo-icon{ height:36px !important; }
+  .site-header .brand span span:first-child{ font-size:1rem !important; }
+  .site-header .brand span span:last-child{ display:none; }
+  .header-inner{ gap:10px !important; }
+}
 .job-ticker-marquee{ display:inline-flex; align-items:center; gap:40px; animation:jtScroll 28s linear infinite; line-height:22px; }
 .job-ticker-track:hover .job-ticker-marquee{ animation-play-state:paused; }
 @keyframes jtScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
@@ -101,7 +107,12 @@ h3{ font-size:1.25rem !important; font-weight:700 !important; margin-top:1.6em; 
 .article-meta{ font-size:.85rem; color:#8a8a8a; margin:14px 0 26px; }
 .article-body{ max-width:760px; margin:0 auto; }
 .article-body p{ color:#333; line-height:1.7; margin-bottom:1.2em; }
-.article-body ul{ margin:0 0 1.4em 1.3em; }
+.article-body a:not(.btn){ color:#e7161f; text-decoration:underline; font-weight:600; }
+.article-body a:not(.btn):hover{ color:#b3110f; }
+.article-body ul{ margin:0 0 1.4em 0; list-style:none; }
+.article-body ul li{ position:relative; padding-left:26px; }
+.article-body ul li::before{ content:"✓"; position:absolute; left:0; top:0; color:#22c55e; font-weight:700; }
+.article-body ul ul{ margin-top:.5em; }
 .article-body li{ color:#333; line-height:1.6; margin-bottom:.5em; }
 .article-body strong{ color:#1a1a1a; }
 .key-facts{ background:#fbe7e1; border-left:4px solid #e7161f; border-radius:8px; padding:20px 24px; margin:1.6em 0; }
@@ -158,14 +169,21 @@ table tr:nth-child(even) td{ background:#f9fafb; }
 body.modal-open{ overflow:hidden; }
 @media(max-width:600px){ .qmodal-dialog{ margin:0; max-height:100vh; height:100%; border-radius:0; } .form-row{ grid-template-columns:1fr; } }
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": ["GeneralContractor", "LocalBusiness", "Organization"], "@id": "https://jtcompliance.com.au/#business", "name": "JT Compliance", "alternateName": "JT Handyman Solutionz", "url": "https://jtcompliance.com.au/", "logo": "https://jtcompliance.com.au/img/jtc/logo_jt.png", "telephone": "1800 587 659", "priceRange": "$", "address": {"@type": "PostalAddress", "streetAddress": "42/2 Cobham Street", "addressLocality": "Reservoir", "addressRegion": "VIC", "postalCode": "3073", "addressCountry": "AU"}, "areaServed": {"@type": "City", "name": "Melbourne"}}, {"@type": "Article", "@id": "https://jtcompliance.com.au/draught-proofing-rental-standard-2027.html#article", "headline": "Draught proofing Victorian rentals: what the July 2027 standard requires", "description": "From 1 July 2027, Victorian rentals must weather seal external doors, windows and unsealed wall vents at a new lease. Full standard, triggers and rebates.", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "JT Compliance", "url": "https://jtcompliance.com.au/"}, "publisher": {"@id": "https://jtcompliance.com.au/#business"}, "mainEntityOfPage": "https://jtcompliance.com.au/draught-proofing-rental-standard-2027.html", "image": "https://jtcompliance.com.au/img/jtc/insulation-after.jpg", "articleSection": "The 2027 standards", "inLanguage": "en-AU"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://jtcompliance.com.au/jtcompliance.html"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://jtcompliance.com.au/jtcompliance-blog.html"}, {"@type": "ListItem", "position": 3, "name": "Draught proofing: the July 2027 sealing standard", "item": "https://jtcompliance.com.au/draught-proofing-rental-standard-2027.html"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When does the draught proofing rental standard start in Victoria?", "acceptedAnswer": {"@type": "Answer", "text": "The draught proofing standard takes effect on 1 July 2027. It is the latest start date among Victoria's new energy efficiency standards, most of which begin on 1 March 2027. It applies when a new lease is signed or a tenancy converts to periodic."}}, {"@type": "Question", "name": "What exactly has to be sealed under the standard?", "acceptedAnswer": {"@type": "Answer", "text": "The standard requires weather stripping all gaps in external doors, windows and unsealed wall vents. If a door, window or vent already seals well, no further work is needed on that element. Any ventilation the home is legally required to keep must be retained."}}, {"@type": "Question", "name": "Is draught proofing a hard deadline for all rentals?", "acceptedAnswer": {"@type": "Answer", "text": "No. Draught proofing is triggered by a new lease or a conversion to a periodic tenancy on or after 1 July 2027, so it staggers across a rent roll as tenancies turn over. The only hard portfolio wide deadline in the new standards is efficient electric cooling in all homes by 1 July 2030."}}, {"@type": "Question", "name": "Are there rebates for weather sealing a rental?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The Victorian Energy Upgrades (VEU) program offers discounts on draught and weather sealing right now, alongside heating, cooling, hot water and showerhead discounts. Because sealing works are relatively low cost, the VEU discount can offset a meaningful share of the cost per property."}}, {"@type": "Question", "name": "Who enforces the draught proofing standard?", "acceptedAnswer": {"@type": "Answer", "text": "Consumer Affairs Victoria regulates the minimum standards, and renters can enforce them at VCAT. The 2025-26 penalty unit value is $203.51, indexed annually by the Department of Treasury and Finance."}}, {"@type": "Question", "name": "Does draught proofing affect advertising a rental?", "acceptedAnswer": {"@type": "Answer", "text": "Since 25 November 2025, rentals must meet the existing minimum standards before being advertised or when an offer to let is made. As the new energy standards phase in through 2027, a property generally needs to meet the applicable standard before it can be re let at lease turnover."}}]}</script>
+<link rel="canonical" href="https://jtcompliance.com.au/draught-proofing-rental-standard-2027.html">
 </head>
-<body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<body>
 <div class="top-strip">Victorian Rental Minimum Standards · From 1 March 2027 · Triggered on every lease change</div>
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="jtcompliance.html" class="brand" style="display:flex;align-items:center;">
-      <img src="img/work/jt-logo-correct.png" alt="JT Handyman Solutionz" style="height:64px;width:auto;display:block;">
+    <a href="jtcompliance.html" class="brand" style="display:flex;align-items:center;gap:10px;">
+      <img src="img/jtc/logo_jt.png" alt="JT Compliance" class="brand-logo-icon" style="height:44px;width:auto;display:block;">
+      <span style="line-height:1.15;">
+        <span style="display:block;font-family:'Rajdhani','Rajdhani Fallback',sans-serif;font-weight:700;font-size:1.15rem;color:#fff;">JT Compliance</span>
+        <span style="display:block;font-size:.72rem;color:rgba(255,255,255,.55);">Melbourne · Rental Minimum Standards</span>
+      </span>
     </a>
 
     <nav class="main-nav" id="main-nav">
@@ -246,7 +264,7 @@ body.modal-open{ overflow:hidden; }
     </div>
 
     
-<p>From <strong>1 July 2027</strong>, every Victorian rental property must be draught proofed whenever a <strong>new lease is signed or a fixed term tenancy converts to periodic</strong>. In practice, that means a rental provider must weather seal all <strong>external doors, windows and unsealed wall vents</strong> so the home no longer leaks conditioned air through obvious gaps. The requirement comes from the Residential Tenancies Amendment (Minimum Energy Efficiency Standards) Regulations 2025, which are finalised, not a proposal, and administered by Consumer Affairs Victoria.</p>
+<p>From <strong>1 July 2027</strong>, every Victorian rental property must be draught proofed whenever a <strong>new lease is signed or a fixed term tenancy converts to periodic</strong>. In practice, that means a rental provider must weather seal all <strong>external doors, windows and unsealed wall vents</strong> so the home no longer leaks conditioned air through obvious gaps. The requirement comes from the Residential Tenancies Amendment (Minimum Energy Efficiency Standards) Regulations 2025, which are finalised, not a proposal, and administered by <a href="https://www.consumer.vic.gov.au/housing/renting/repairs-alterations-safety-and-pets/minimum-standards/minimum-standards-for-rental-properties" target="_blank" rel="noopener">Consumer Affairs Victoria</a>.</p>
 <p>Draught proofing is one of six new energy efficiency standards Victoria is staging in from 2027. It carries the <strong>latest start date</strong> of the group. Most of the other measures, including ceiling insulation and water efficient showerheads, begin on 1 March 2027, while draught proofing follows on 1 July 2027. This gives owners and property managers across Melbourne a slightly longer runway to plan the works.</p>
 
 <h2>Why draught proofing matters for Victorian rentals</h2>
@@ -274,6 +292,8 @@ body.modal-open{ overflow:hidden; }
 <p>This matters for how you plan across a rent roll. A tenanted property that simply continues under an unchanged fixed term does not trigger the draught proofing requirement on day one. The obligation lands the next time that property turns over to a new lease or rolls to periodic. Across a Melbourne rent roll, that means the work naturally staggers as tenancies cycle, rather than falling due all at once.</p>
 <p>There is only <strong>one hard portfolio wide deadline</strong> among the entire package of new standards, and it is not draught proofing. That single fixed date is efficient electric <strong>cooling in the main living area, required in all homes by 1 July 2030</strong>. Draught proofing, ceiling insulation, showerheads and the heating and hot water rules are all either lease triggered or triggered on end of life failure of an appliance.</p>
 
+<p>Alongside these energy measures, a separate reform is already in force. Since <strong>25 November 2025</strong>, rental properties must meet the existing minimum standards <strong>before being advertised or when an offer to let is made</strong>, not only at key handover, under the <a href="https://www.premier.vic.gov.au/new-laws-effect-today-strengthen-renter-rights" target="_blank" rel="noopener">Victorian Government's rental reforms</a>. That advertising rule applies to the fourteen existing minimum standards in force since 29 March 2021. As the new energy standards come online through 2027, expect the same before advertising discipline to shape how compliant a property needs to be before it hits realestate.com.au.</p>
+
 <h2>What products and works are involved?</h2>
 <p>Draught proofing is one of the more affordable standards to satisfy, because the works are typically <strong>weather stripping and sealing products</strong> rather than major appliance replacements. Common items include:</p>
 <ul>
@@ -285,11 +305,11 @@ body.modal-open{ overflow:hidden; }
 <p>The important caveat is ventilation. Homes still need to meet ventilation requirements, so sealing must be done sensibly. JT Compliance seals the gaps that leak conditioned air while leaving in place any ventilation the property is legally required to keep, for example around gas appliances or bathrooms.</p>
 
 <h2>Are there rebates for weather sealing?</h2>
-<p>Yes. The Victorian Energy Upgrades (VEU) program offers discounts on <strong>draught and weather sealing right now</strong>, alongside discounts for heating, cooling, hot water and showerheads. Because draught proofing works are relatively low cost, the VEU discount can offset a meaningful share of the outlay per property.</p>
-<p>VEU discounts are also available for other 2027 measures. Ceiling insulation discounts under VEU open to general homes from <strong>1 October 2026</strong>, worth up to <strong>$1,482</strong> with a minimum $200 customer contribution, and are expected to extend to rentals from around <strong>1 January 2027</strong>. Solar panels are not a minimum standard, but the separate Solar for Rentals rebate offers up to <strong>$1,400</strong> plus a matching interest free loan up to $1,400, for a total of up to <strong>$2,800</strong> off, with the household income cap dropping from $210,000 to <strong>$150,000 from 1 July 2026</strong>.</p>
+<p>Yes. The <a href="https://www.energy.vic.gov.au/households/electric-and-efficiency-standards-for-buildings/energy-efficiency-for-rental-properties-in-victoria" target="_blank" rel="noopener">Victorian Energy Upgrades (VEU)</a> program offers discounts on <strong>draught and weather sealing right now</strong>, alongside discounts for heating, cooling, hot water and showerheads. Because draught proofing works are relatively low cost, the VEU discount can offset a meaningful share of the outlay per property.</p>
+<p>VEU discounts are also available for other 2027 measures. Ceiling insulation discounts under VEU open to general homes from <strong>1 October 2026</strong>, worth up to <strong>$1,482</strong> with a minimum $200 customer contribution, and are expected to extend to rentals from around <strong>1 January 2027</strong>. Solar panels are not a minimum standard, but the separate <a href="https://www.solar.vic.gov.au/solar-rebates-rental-properties" target="_blank" rel="noopener">Solar for Rentals</a> rebate offers up to <strong>$1,400</strong> plus a matching interest free loan up to $1,400, for a total of up to <strong>$2,800</strong> off, with the household income cap dropping from $210,000 to <strong>$150,000 from 1 July 2026</strong>.</p>
 
 <h2>What happens if a property is not compliant?</h2>
-<p>Consumer Affairs Victoria regulates the minimum standards, and renters enforce them through <strong>VCAT</strong>. Penalties in Victoria are expressed in penalty units, and the <strong>2025-26 penalty unit value is $203.51</strong>, indexed each year by the Department of Treasury and Finance. Beyond any penalty exposure, non compliance carries a practical cost: a property that fails the standard may not be lawfully re let once the trigger applies, and under the advertising reform it may not be advertised until it meets the standards.</p>
+<p>Consumer Affairs Victoria regulates the minimum standards, and renters enforce them through <strong>VCAT</strong>. Penalties in Victoria are expressed in penalty units, and the <strong>2025-26 penalty unit value is $203.51</strong>, indexed each year by the <a href="https://www.justice.vic.gov.au/justice-system/fines-and-penalties/penalties-and-values" target="_blank" rel="noopener">Department of Treasury and Finance</a>. Beyond any penalty exposure, non compliance carries a practical cost: a property that fails the standard may not be lawfully re let once the trigger applies, and under the advertising reform it may not be advertised until it meets the standards.</p>
 <p>For agencies managing rent rolls across Melbourne, the efficient path is a portfolio audit against every new standard and its trigger date, so nothing is missed at lease turnover. JT Compliance is one Melbourne partner that handles the whole portfolio end to end: we audit every property against the fourteen existing standards and the six new energy standards, quote with rebates applied, complete the works, and hand over documented compliance reports for your files.</p>
 
 
