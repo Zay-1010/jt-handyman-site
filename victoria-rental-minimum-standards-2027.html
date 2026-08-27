@@ -45,14 +45,17 @@ fbq('track', 'PageView');
 #standards, #how, #services, #proof{ scroll-margin-top:110px; }
 
 .site-header{ background:#17181b !important; border-bottom:2px solid #e7161f; backdrop-filter:none; }
-.header-inner{ padding:12px 0 !important; gap:20px; }
+.header-inner{ padding:12px 16px !important; gap:20px; }
 .site-header .main-nav a{ color:rgba(255,255,255,.75) !important; }
 .site-header .main-nav a:hover, .site-header .main-nav a.active{ color:#fff !important; }
 .site-header .main-nav a.active::after, .site-header .main-nav a:hover::after{ background:#e7161f !important; }
 .site-header .phone-link{ color:#fff !important; }
 @media(max-width:900px){
   .site-header .nav-toggle span{ background:#fff; }
+  .site-header .header-actions .btn-primary{ display:none; }
 }
+.main-nav{ background:#17181b !important; z-index:600 !important; }
+.main-nav a{ border-bottom-color:rgba(255,255,255,.12) !important; }
 @media(max-width:480px){
   .brand-logo-icon{ height:36px !important; }
   .site-header .brand span span:first-child{ font-size:1rem !important; }
@@ -200,7 +203,7 @@ body.modal-open{ overflow:hidden; }
     <div class="header-actions">
       <a href="tel:1800587659" class="phone-link">1800 587 659</a>
       <a href="javascript:void(0)" onclick="openQuoteModal()" class="btn btn-primary">Book a Portfolio Review</a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" style="display:none;background:none;border:0;cursor:pointer;padding:8px;margin-left:8px;">
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" style="background:none;border:0;cursor:pointer;padding:8px;margin-left:8px;">
         <svg class="nav-toggle-icon-open" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         <svg class="nav-toggle-icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" style="display:none;"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
       </button>
