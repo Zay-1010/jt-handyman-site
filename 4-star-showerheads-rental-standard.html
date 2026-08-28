@@ -50,17 +50,30 @@ fbq('track', 'PageView');
 .site-header .main-nav a:hover, .site-header .main-nav a.active{ color:#fff !important; }
 .site-header .main-nav a.active::after, .site-header .main-nav a:hover::after{ background:#e7161f !important; }
 .site-header .phone-link{ color:#fff !important; }
+.brand{ flex-shrink:0; }
+.site-header .brand span span:first-child{ white-space:nowrap; }
+.site-header .brand span span:last-child{ white-space:nowrap; }
+.header-inner{ flex-wrap:nowrap; gap:14px !important; }
+.main-nav ul{ gap:12px !important; }
+.site-header .main-nav a{ font-size:.76rem !important; letter-spacing:0 !important; }
+.site-header .phone-link{ font-size:.78rem !important; white-space:nowrap; }
+.header-actions{ gap:10px !important; }
+.site-header .header-actions .btn-primary{ padding:10px 16px !important; font-size:.76rem !important; white-space:nowrap; }
 @media(max-width:900px){
   .site-header .nav-toggle span{ background:#fff; }
   .site-header .header-actions .btn-primary{ display:none; }
 }
 .main-nav{ background:#17181b !important; z-index:600 !important; }
 .main-nav a{ border-bottom-color:rgba(255,255,255,.12) !important; }
-@media(max-width:480px){
-  .brand-logo-icon{ height:36px !important; }
-  .site-header .brand span span:first-child{ font-size:1rem !important; }
+@media(max-width:900px){
+  .brand-logo-icon{ height:48px !important; }
+  .site-header .brand span span:first-child{ font-size:1.05rem !important; white-space:nowrap; }
   .site-header .brand span span:last-child{ display:none; }
   .header-inner{ gap:10px !important; }
+  .brand{ flex-shrink:0; }
+}
+@media(max-width:480px){
+  .brand-logo-icon{ height:40px !important; }
 }
 .job-ticker-marquee{ display:inline-flex; align-items:center; gap:40px; animation:jtScroll 28s linear infinite; line-height:22px; }
 .job-ticker-track:hover .job-ticker-marquee{ animation-play-state:paused; }
