@@ -63,7 +63,12 @@ fbq('track', 'PageView');
 .brand{ flex-shrink:0; }
 .site-header .brand span span:first-child{ white-space:nowrap; }
 .site-header .brand span span:last-child{ white-space:nowrap; }
-.header-inner{ flex-wrap:wrap; row-gap:10px; }
+.header-inner{ flex-wrap:nowrap; gap:14px !important; }
+.main-nav ul{ gap:12px !important; }
+.site-header .main-nav a{ font-size:.76rem !important; letter-spacing:0 !important; }
+.site-header .phone-link{ font-size:.78rem !important; white-space:nowrap; }
+.header-actions{ gap:10px !important; }
+.site-header .header-actions .btn-primary{ padding:10px 16px !important; font-size:.76rem !important; white-space:nowrap; }
 @media(max-width:900px){
   .site-header .nav-toggle span{ background:#fff; }
   .site-header .header-actions .btn-primary{ display:none; }
@@ -338,7 +343,7 @@ body.modal-open{ overflow:hidden; }
 <section class="section band-white" id="how">
   <div class="container panel reverse">
     <div class="panel-media">
-      <div class="ratio-4-3"><img src="img/jtc/jt-property-panel-exterior.jpg" alt="The JT team completing compliance works across a portfolio"></div>
+      <div class="ratio-4-3"><img src="img/jtc/jt-property-panel-exterior.jpg" alt="A Melbourne rental property JT keeps compliant across the portfolio"></div>
     </div>
     <div>
       <span class="eyebrow">How JT Compliance works</span>
