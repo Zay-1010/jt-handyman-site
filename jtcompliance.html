@@ -60,6 +60,10 @@ fbq('track', 'PageView');
 .site-header .main-nav a:hover, .site-header .main-nav a.active{ color:#fff !important; }
 .site-header .main-nav a.active::after, .site-header .main-nav a:hover::after{ background:#e7161f !important; }
 .site-header .phone-link{ color:#fff !important; }
+.brand{ flex-shrink:0; }
+.site-header .brand span span:first-child{ white-space:nowrap; }
+.site-header .brand span span:last-child{ white-space:nowrap; }
+.site-header .main-nav{ flex-shrink:1; min-width:0; }
 @media(max-width:900px){
   .site-header .nav-toggle span{ background:#fff; }
   .site-header .header-actions .btn-primary{ display:none; }
