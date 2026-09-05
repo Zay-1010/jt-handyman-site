@@ -861,8 +861,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (frame.src === 'about:blank') {
       // Forward this page's own UTM/click-ID params into the estimate
       // form so attribution survives the handoff into the iframe.
-      var forwardedParams = window.location.search;
-      frame.src = 'https://jthandymansolutionz.com.au/estimate' + forwardedParams;
+      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
     }
     modal.classList.add('open');
     document.body.classList.add('modal-open');

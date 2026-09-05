@@ -117,3 +117,38 @@ document.addEventListener('DOMContentLoaded', () => {
   // placeholder text a few seconds after page load.
 
 });
+
+// ============================================
+// Meta CAPI attribution bridge — quote iframe
+// ============================================
+// The instant-quote iframe (#quoteFrame) loads a page on a different
+// subdomain (jthandymansolutionz.com.au), so it can't read this page's
+// _fbp/_fbc cookies via JS, and it never sees the fbclid query param
+// from the original ad click unless we forward it ourselves. Without
+// this, the estimator backend has no way to include fbp/fbc/fbclid in
+// its Meta Conversions API (CAPI) payload, which hurts event match
+// quality / attribution for Lead events.
+//
+// This builds a query string carrying:
+//   - every existing query param on this page (so fbclid, utm_*, etc.
+//     from the ad click survive into the iframe URL)
+//   - fbp: the _fbp cookie value, if the Meta Pixel has set one
+//   - fbc: the _fbc cookie value, if the Meta Pixel has set one
+// The estimator backend should read fbp/fbc/fbclid from its own
+// incoming request's query string and include them in its CAPI
+// payload (client_ip_address and client_user_agent don't need this —
+// the backend can read those directly off the incoming HTTP request).
+function jtGetCookie(name) {
+  var match = document.cookie.match('(?:^|;\\s*)' + name + '=([^;]*)');
+  return match ? decodeURIComponent(match[1]) : null;
+}
+
+function jtBuildQuoteFrameParams() {
+  var params = new URLSearchParams(window.location.search);
+  var fbp = jtGetCookie('_fbp');
+  var fbc = jtGetCookie('_fbc');
+  if (fbp) { params.set('fbp', fbp); }
+  if (fbc) { params.set('fbc', fbc); }
+  var qs = params.toString();
+  return qs ? '?' + qs : '';
+}

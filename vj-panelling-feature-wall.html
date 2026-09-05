@@ -383,7 +383,7 @@ body.modal-open { overflow:hidden; }
     var modal = document.getElementById('quoteModal');
     var frame = document.getElementById('quoteFrame');
     if (frame.src === 'about:blank' || frame.src === '') {
-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
+      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
     }
     modal.classList.add('open');
     document.body.classList.add('modal-open');
