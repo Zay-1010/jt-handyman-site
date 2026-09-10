@@ -152,3 +152,21 @@ function jtBuildQuoteFrameParams() {
   var qs = params.toString();
   return qs ? '?' + qs : '';
 }
+
+// ============================================
+// RedTrack Lander→Offer click notification
+// ============================================
+// Fires a background, fire-and-forget call to RedTrack's /click
+// endpoint when someone opens the quote modal, so RedTrack can log
+// a Landing Page Click for this Lander→Offer hop. This does NOT
+// navigate anywhere or touch the quote iframe at all — it runs
+// alongside openQuoteModal(), not instead of it. Uses the confirmed
+// parameter name `clickid` (not `rtkclickid`) per RedTrack's actual
+// response when tested directly.
+function fireRedTrackClick() {
+  try {
+    var clickId = jtGetCookie('rtkclickid-store');
+    if (!clickId) { return; }
+    fetch('https://track.jthandymansolutionz.com.au/click?clickid=' + encodeURIComponent(clickId), { mode: 'no-cors' });
+  } catch (e) {}
+}

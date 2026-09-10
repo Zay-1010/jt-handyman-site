@@ -1,0 +1,711 @@
+diff --git a/about.html b/about.html
+index 08a8e48..9ed743b 100644
+--- a/about.html
++++ b/about.html
+@@ -512,7 +512,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/agent-pre-sale-repairs-advice.html b/agent-pre-sale-repairs-advice.html
+index 7f8d2c3..3f3d5cb 100644
+--- a/agent-pre-sale-repairs-advice.html
++++ b/agent-pre-sale-repairs-advice.html
+@@ -373,7 +373,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/bathroom-nook-storage-melbourne.html b/bathroom-nook-storage-melbourne.html
+index 1ca8187..76acdfe 100644
+--- a/bathroom-nook-storage-melbourne.html
++++ b/bathroom-nook-storage-melbourne.html
+@@ -378,7 +378,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/bathroom-renovation-cost-melbourne.html b/bathroom-renovation-cost-melbourne.html
+index 8eb3e8b..526f4cf 100644
+--- a/bathroom-renovation-cost-melbourne.html
++++ b/bathroom-renovation-cost-melbourne.html
+@@ -392,7 +392,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/bathrooms.html b/bathrooms.html
+index c9d86c2..7bcea53 100644
+--- a/bathrooms.html
++++ b/bathrooms.html
+@@ -463,7 +463,7 @@ setTimeout(function () {
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/before-after-photos-every-job.html b/before-after-photos-every-job.html
+index 1be706d..0a80fb4 100644
+--- a/before-after-photos-every-job.html
++++ b/before-after-photos-every-job.html
+@@ -374,7 +374,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/black-framed-windows-trend-melbourne.html b/black-framed-windows-trend-melbourne.html
+index a9b29db..5cc5013 100644
+--- a/black-framed-windows-trend-melbourne.html
++++ b/black-framed-windows-trend-melbourne.html
+@@ -373,7 +373,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/blog.html b/blog.html
+index c345c40..a1ff694 100644
+--- a/blog.html
++++ b/blog.html
+@@ -396,7 +396,7 @@ setTimeout(function () {
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/brick-townhouse-exterior-repairs-melbourne.html b/brick-townhouse-exterior-repairs-melbourne.html
+index dfc5b85..950acd3 100644
+--- a/brick-townhouse-exterior-repairs-melbourne.html
++++ b/brick-townhouse-exterior-repairs-melbourne.html
+@@ -379,7 +379,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/building-inspection-pre-sale-repairs.html b/building-inspection-pre-sale-repairs.html
+index bf49119..b373ec3 100644
+--- a/building-inspection-pre-sale-repairs.html
++++ b/building-inspection-pre-sale-repairs.html
+@@ -377,7 +377,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/carpentry.html b/carpentry.html
+index 041d886..afb5701 100644
+--- a/carpentry.html
++++ b/carpentry.html
+@@ -510,7 +510,7 @@ setTimeout(function () {
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/contact.html b/contact.html
+index 1ff032d..b869d03 100644
+--- a/contact.html
++++ b/contact.html
+@@ -405,7 +405,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/custom-gate-carpentry-melbourne.html b/custom-gate-carpentry-melbourne.html
+index f6ae1b9..dec289b 100644
+--- a/custom-gate-carpentry-melbourne.html
++++ b/custom-gate-carpentry-melbourne.html
+@@ -373,7 +373,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/dark-tile-shower-melbourne.html b/dark-tile-shower-melbourne.html
+index 85e8f90..0663cad 100644
+--- a/dark-tile-shower-melbourne.html
++++ b/dark-tile-shower-melbourne.html
+@@ -373,7 +373,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/door-not-closing-repair-melbourne.html b/door-not-closing-repair-melbourne.html
+index ac17dfc..a31eb05 100644
+--- a/door-not-closing-repair-melbourne.html
++++ b/door-not-closing-repair-melbourne.html
+@@ -392,7 +392,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/end-of-lease-repairs-property-managers.html b/end-of-lease-repairs-property-managers.html
+index 2f91dcd..23ddb9e 100644
+--- a/end-of-lease-repairs-property-managers.html
++++ b/end-of-lease-repairs-property-managers.html
+@@ -417,7 +417,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/exterior-colours-weatherboard-melbourne.html b/exterior-colours-weatherboard-melbourne.html
+index f7479aa..300ee9d 100644
+--- a/exterior-colours-weatherboard-melbourne.html
++++ b/exterior-colours-weatherboard-melbourne.html
+@@ -381,7 +381,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/glass-courtyard-door-melbourne.html b/glass-courtyard-door-melbourne.html
+index 0416e39..50db4ae 100644
+--- a/glass-courtyard-door-melbourne.html
++++ b/glass-courtyard-door-melbourne.html
+@@ -378,7 +378,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/handrail-balustrade-safety-melbourne.html b/handrail-balustrade-safety-melbourne.html
+index 6787413..8566baf 100644
+--- a/handrail-balustrade-safety-melbourne.html
++++ b/handrail-balustrade-safety-melbourne.html
+@@ -378,7 +378,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/img/work/painting.html b/img/work/painting.html
+index 2d6496f..adc3b90 100644
+--- a/img/work/painting.html
++++ b/img/work/painting.html
+@@ -346,7 +346,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/in-house-team-vs-multiple-trades.html b/in-house-team-vs-multiple-trades.html
+index 6dd596a..7a603a4 100644
+--- a/in-house-team-vs-multiple-trades.html
++++ b/in-house-team-vs-multiple-trades.html
+@@ -373,7 +373,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/index.html b/index.html
+index 992b0e3..3015a9f 100644
+--- a/index.html
++++ b/index.html
+@@ -861,8 +861,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+     if (frame.src === 'about:blank') {
+       // Forward this page's own UTM/click-ID params into the estimate
+       // form so attribution survives the handoff into the iframe.
+-      var forwardedParams = window.location.search;
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate' + forwardedParams;
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/instant-quote-how-it-works.html b/instant-quote-how-it-works.html
+index f7479aa..300ee9d 100644
+--- a/instant-quote-how-it-works.html
++++ b/instant-quote-how-it-works.html
+@@ -381,7 +381,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/js/main.js b/js/main.js
+index 53eb398..13e3a3f 100644
+--- a/js/main.js
++++ b/js/main.js
+@@ -116,4 +116,39 @@ document.addEventListener('DOMContentLoaded', () => {
+   // silently overwriting the correctly-loaded real data with fallback
+   // placeholder text a few seconds after page load.
+ 
+-});
+\ No newline at end of file
++});
++
++// ============================================
++// Meta CAPI attribution bridge — quote iframe
++// ============================================
++// The instant-quote iframe (#quoteFrame) loads a page on a different
++// subdomain (jthandymansolutionz.com.au), so it can't read this page's
++// _fbp/_fbc cookies via JS, and it never sees the fbclid query param
++// from the original ad click unless we forward it ourselves. Without
++// this, the estimator backend has no way to include fbp/fbc/fbclid in
++// its Meta Conversions API (CAPI) payload, which hurts event match
++// quality / attribution for Lead events.
++//
++// This builds a query string carrying:
++//   - every existing query param on this page (so fbclid, utm_*, etc.
++//     from the ad click survive into the iframe URL)
++//   - fbp: the _fbp cookie value, if the Meta Pixel has set one
++//   - fbc: the _fbc cookie value, if the Meta Pixel has set one
++// The estimator backend should read fbp/fbc/fbclid from its own
++// incoming request's query string and include them in its CAPI
++// payload (client_ip_address and client_user_agent don't need this —
++// the backend can read those directly off the incoming HTTP request).
++function jtGetCookie(name) {
++  var match = document.cookie.match('(?:^|;\\s*)' + name + '=([^;]*)');
++  return match ? decodeURIComponent(match[1]) : null;
++}
++
++function jtBuildQuoteFrameParams() {
++  var params = new URLSearchParams(window.location.search);
++  var fbp = jtGetCookie('_fbp');
++  var fbc = jtGetCookie('_fbc');
++  if (fbp) { params.set('fbp', fbp); }
++  if (fbc) { params.set('fbc', fbc); }
++  var qs = params.toString();
++  return qs ? '?' + qs : '';
++}
+\ No newline at end of file
+diff --git a/kitchen-splashback-options-melbourne.html b/kitchen-splashback-options-melbourne.html
+index 82635ce..41f62e0 100644
+--- a/kitchen-splashback-options-melbourne.html
++++ b/kitchen-splashback-options-melbourne.html
+@@ -375,7 +375,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/kitchen-tap-upgrade-melbourne.html b/kitchen-tap-upgrade-melbourne.html
+index f4a5dcb..63098ac 100644
+--- a/kitchen-tap-upgrade-melbourne.html
++++ b/kitchen-tap-upgrade-melbourne.html
+@@ -382,7 +382,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/laminate-vs-vinyl-flooring.html b/laminate-vs-vinyl-flooring.html
+index 3b8f5f9..566bd60 100644
+--- a/laminate-vs-vinyl-flooring.html
++++ b/laminate-vs-vinyl-flooring.html
+@@ -1318,7 +1318,7 @@ function openQuoteModal(source) {
+   var frame = document.getElementById('quoteFrame');
+ 
+   if (frame.src === 'about:blank' || frame.src === '') {
+-    frame.src = 'https://jthandymansolutionz.com.au/estimate';
++    frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+   }
+ 
+   modal.classList.add('open');
+diff --git a/our-work.html b/our-work.html
+index b35f9ae..abf9fa0 100644
+--- a/our-work.html
++++ b/our-work.html
+@@ -365,7 +365,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/painted-brick-garden-wall-melbourne.html b/painted-brick-garden-wall-melbourne.html
+index db29f03..d94fb7f 100644
+--- a/painted-brick-garden-wall-melbourne.html
++++ b/painted-brick-garden-wall-melbourne.html
+@@ -378,7 +378,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/painting.html b/painting.html
+index 1befb90..081fc92 100644
+--- a/painting.html
++++ b/painting.html
+@@ -463,7 +463,7 @@ setTimeout(function () {
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/period-hallway-restoration-melbourne.html b/period-hallway-restoration-melbourne.html
+index e05befc..46f0765 100644
+--- a/period-hallway-restoration-melbourne.html
++++ b/period-hallway-restoration-melbourne.html
+@@ -374,7 +374,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/plaster-repair.html b/plaster-repair.html
+index 1c7b88a..4aeab6b 100644
+--- a/plaster-repair.html
++++ b/plaster-repair.html
+@@ -490,7 +490,7 @@ setTimeout(function () {
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/plumbing.html b/plumbing.html
+index 5af1da1..89e1a21 100644
+--- a/plumbing.html
++++ b/plumbing.html
+@@ -463,7 +463,7 @@ setTimeout(function () {
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/property-maintenance-melbourne-one-team.html b/property-maintenance-melbourne-one-team.html
+index 6d31813..1aa8814 100644
+--- a/property-maintenance-melbourne-one-team.html
++++ b/property-maintenance-melbourne-one-team.html
+@@ -401,7 +401,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/recent-jobs.html b/recent-jobs.html
+index fdc837e..4f1c0b1 100644
+--- a/recent-jobs.html
++++ b/recent-jobs.html
+@@ -771,7 +771,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/regrouting-vs-retiling-bathroom.html b/regrouting-vs-retiling-bathroom.html
+index 3611b31..1a92e69 100644
+--- a/regrouting-vs-retiling-bathroom.html
++++ b/regrouting-vs-retiling-bathroom.html
+@@ -386,7 +386,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/routine-rental-inspections-melbourne.html b/routine-rental-inspections-melbourne.html
+index df98b29..e621492 100644
+--- a/routine-rental-inspections-melbourne.html
++++ b/routine-rental-inspections-melbourne.html
+@@ -374,7 +374,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/services.html b/services.html
+index 3ea9673..2cec897 100644
+--- a/services.html
++++ b/services.html
+@@ -509,7 +509,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/shower-leak-repair-melbourne.html b/shower-leak-repair-melbourne.html
+index 147c9e7..4a3e903 100644
+--- a/shower-leak-repair-melbourne.html
++++ b/shower-leak-repair-melbourne.html
+@@ -388,7 +388,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/smoke-alarm-compliance-melbourne.html b/smoke-alarm-compliance-melbourne.html
+index 4de163f..2241df0 100644
+--- a/smoke-alarm-compliance-melbourne.html
++++ b/smoke-alarm-compliance-melbourne.html
+@@ -378,7 +378,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/strike-plate-lock-alignment.html b/strike-plate-lock-alignment.html
+index 68d710d..8bc723f 100644
+--- a/strike-plate-lock-alignment.html
++++ b/strike-plate-lock-alignment.html
+@@ -385,7 +385,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/team-1.html b/team-1.html
+index fcdc24d..27d5561 100644
+--- a/team-1.html
++++ b/team-1.html
+@@ -460,7 +460,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/timber-deck-maintenance-melbourne.html b/timber-deck-maintenance-melbourne.html
+index 9cdebdf..5110f56 100644
+--- a/timber-deck-maintenance-melbourne.html
++++ b/timber-deck-maintenance-melbourne.html
+@@ -384,7 +384,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/timber-floor-installation-melbourne.html b/timber-floor-installation-melbourne.html
+index 5bd5c18..e4e784f 100644
+--- a/timber-floor-installation-melbourne.html
++++ b/timber-floor-installation-melbourne.html
+@@ -380,7 +380,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/timber-look-flooring-melbourne.html b/timber-look-flooring-melbourne.html
+index 033e4ae..5250312 100644
+--- a/timber-look-flooring-melbourne.html
++++ b/timber-look-flooring-melbourne.html
+@@ -378,7 +378,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/timber-paling-fence-repair-replace.html b/timber-paling-fence-repair-replace.html
+index b489b71..701fc91 100644
+--- a/timber-paling-fence-repair-replace.html
++++ b/timber-paling-fence-repair-replace.html
+@@ -381,7 +381,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/verandah-repair-restoration-melbourne.html b/verandah-repair-restoration-melbourne.html
+index 290eb98..323747c 100644
+--- a/verandah-repair-restoration-melbourne.html
++++ b/verandah-repair-restoration-melbourne.html
+@@ -376,7 +376,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/vinyl-flooring-melbourne-homes.html b/vinyl-flooring-melbourne-homes.html
+index bd3cda0..c1df625 100644
+--- a/vinyl-flooring-melbourne-homes.html
++++ b/vinyl-flooring-melbourne-homes.html
+@@ -376,7 +376,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/vj-panelling-feature-wall.html b/vj-panelling-feature-wall.html
+index 507e3ae..8b77abc 100644
+--- a/vj-panelling-feature-wall.html
++++ b/vj-panelling-feature-wall.html
+@@ -383,7 +383,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/water-damaged-ceiling-repair.html b/water-damaged-ceiling-repair.html
+index be20f8f..54b3fc8 100644
+--- a/water-damaged-ceiling-repair.html
++++ b/water-damaged-ceiling-repair.html
+@@ -381,7 +381,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/window-repair-vs-replace-melbourne.html b/window-repair-vs-replace-melbourne.html
+index 666a0d4..6690e7b 100644
+--- a/window-repair-vs-replace-melbourne.html
++++ b/window-repair-vs-replace-melbourne.html
+@@ -386,7 +386,7 @@ body.modal-open { overflow:hidden; }
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank' || frame.src === '') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
+diff --git a/windows-glazing.html b/windows-glazing.html
+index 6b2d975..dad7aa1 100644
+--- a/windows-glazing.html
++++ b/windows-glazing.html
+@@ -463,7 +463,7 @@ setTimeout(function () {
+     var modal = document.getElementById('quoteModal');
+     var frame = document.getElementById('quoteFrame');
+     if (frame.src === 'about:blank') {
+-      frame.src = 'https://jthandymansolutionz.com.au/estimate';
++      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+     }
+     modal.classList.add('open');
+     document.body.classList.add('modal-open');
