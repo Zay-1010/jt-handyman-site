@@ -1033,6 +1033,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         statusEl.classList.add('show', 'ok');
         form.reset();
         try { if (window.fbq) fbq('trackCustom', 'CompliancePortfolioReviewSubmitted', {}); } catch (e) {}
+        try { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: 'portfolio_review_submit' }); } catch (e) {}
       } catch (err) {
         statusEl.textContent = err.message.includes('fetch')
           ? "Something went wrong sending that. Please call 1800 587 659 or try again."
