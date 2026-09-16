@@ -34,8 +34,6 @@ h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:"Rajdhani", "Rajdhani F
 :root{ --true-black:#0c0d0f; }
 .site-header{ background:var(--true-black) !important; border-bottom:1px solid rgba(255,255,255,.08); }
 .site-header .brand-text, .site-header .brand-text small{ color:#fff; }
-.site-header .main-nav a{ color:rgba(255,255,255,.82) !important; }
-.site-header .main-nav a:hover, .site-header .main-nav a.active{ color:#fff !important; }
 .site-header .phone-link{ color:rgba(255,255,255,.82) !important; }
 .site-footer{ background:var(--true-black) !important; }
 
@@ -53,58 +51,18 @@ h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:"Rajdhani", "Rajdhani F
 @keyframes jtScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
 .job-ticker-item{ position:static !important; opacity:1 !important; display:inline-block !important; line-height:22px; }
 .job-ticker-item::before{ content:"✓"; color:#22c55e; font-weight:700; margin-right:8px; vertical-align:middle; }
-.header-inner{ display:flex !important; align-items:center !important; gap:0; flex-wrap:nowrap; }
-.main-nav{ display:flex; margin-left:56px; }
-.main-nav ul{ display:flex; align-items:center; gap:26px; margin:0; padding:0; list-style:none; }
-.main-nav a{ font-size:.95rem; padding:6px 0; white-space:nowrap; }
-
-/* Services dropdown — desktop: hover reveals; mobile: tap-to-expand */
-.has-dropdown{ position:relative; display:flex; align-items:center; gap:4px; }
-.dropdown-toggle{ background:none; border:0; padding:2px; cursor:pointer; color:inherit; display:flex; align-items:center; }
-.dropdown-menu{ display:none !important; list-style:none; margin:0; padding:0; flex-direction:column !important; }
-@media(min-width:901px){
-  .has-dropdown:hover .dropdown-menu{ display:flex !important; flex-direction:column !important; position:absolute; top:100%; left:0; background:#0c0d0f; border:1px solid rgba(255,255,255,.1); border-radius:8px; padding:8px 0; min-width:220px; box-shadow:0 12px 24px -8px rgba(0,0,0,.6); z-index:200; }
-  .dropdown-menu li a{ display:block; padding:9px 16px; font-size:.9rem; white-space:nowrap; }
-  .dropdown-toggle{ display:none; }
-}
-@media(max-width:900px){
-  .has-dropdown{ flex-direction:column; align-items:flex-start; width:100%; }
-  .dropdown-toggle{ position:absolute; right:4px; top:8px; padding:6px; }
-  .dropdown-toggle svg{ transition:transform .2s ease; }
-  .has-dropdown.expanded .dropdown-toggle svg{ transform:rotate(180deg); }
-  .dropdown-menu{ width:100%; padding-left:14px; }
-  .has-dropdown.expanded .dropdown-menu{ display:flex !important; flex-direction:column !important; }
-  .dropdown-menu li a{ display:block; padding:9px 4px; font-size:.85rem; opacity:.85; border-bottom:0 !important; }
-}
+.header-inner{ display:flex !important; align-items:center !important; gap:0; flex-wrap:nowrap; justify-content:space-between; }
 
 .header-actions{ display:flex; align-items:center; gap:22px; flex:none; margin-left:auto; padding-left:24px; }
 .header-actions .phone-link{ white-space:nowrap; font-size:.95rem; transition:opacity .2s ease; }
 .header-actions .phone-link:hover{ opacity:.55; }
 .header-actions .btn{ white-space:nowrap; padding:.7rem 1.4rem; margin-left:14px; }
-@media(max-width:900px){
+@media(max-width:560px){
   .header-inner{ position:relative; padding-left:14px; padding-right:14px; }
   .brand{ margin-left:2px; }
-  .main-nav{ display:none; }
-  .main-nav.open{
-    display:flex !important;
-    position:fixed !important;
-    top:0 !important; left:0 !important; right:0 !important; bottom:0 !important;
-    width:100vw !important; height:100vh !important;
-    background-color:#0c0d0f !important;
-    z-index:99999 !important;
-    align-items:flex-start !important;
-    justify-content:center !important;
-    padding-top:100px !important;
-    overflow-y:auto !important;
-  }
-  .main-nav.open ul{ flex-direction:column; align-items:center; gap:6px; margin:0; padding:0; width:100%; max-width:320px; }
-  .main-nav.open ul li{ width:100%; text-align:center; }
-  .main-nav.open ul li a{ display:block; padding:11px 4px; width:100%; font-size:.95rem; font-weight:600; border-bottom:1px solid rgba(255,255,255,.1); }
+  .header-actions{ gap:10px; padding-left:10px; }
   .header-actions .phone-link{ display:none; }
-  button.nav-toggle{ display:inline-flex !important; align-items:center; justify-content:center; position:relative !important; z-index:100000 !important; }
-}
-@media(min-width:901px){
-  button.nav-toggle{ display:none !important; }
+  .header-actions .btn{ margin-left:0; padding:.6rem 1rem; font-size:.85rem; }
 }
 
 .qmodal { position:fixed; inset:0; z-index:1000; display:none; align-items:center; justify-content:center; padding:clamp(10px,2vw,28px); }
@@ -121,49 +79,45 @@ body.modal-open { overflow:hidden; }
 .grid-5{ display:grid; grid-template-columns:repeat(5,1fr); gap:28px; }
 @media(max-width:900px){ .grid-5{ grid-template-columns:repeat(2,1fr); } }
 @media(max-width:560px){ .grid-5{ grid-template-columns:1fr; } }
+
+/* --- Hero: supporting "pain point" question line --- */
+.hero-pain-points{
+  font-family:"Rajdhani", "Rajdhani Fallback", "Rubik", sans-serif;
+  font-size:1.2rem;
+  font-weight:600;
+  color:var(--slate, #5a6472);
+  margin:10px 0 14px;
+  line-height:1.4;
+}
+@media(max-width:560px){
+  .hero-pain-points{ font-size:1.05rem; }
+}
+
+/* --- Problem / urgency section cards --- */
+.problem-card-label{
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  font-size:1.05rem;
+}
+
+/* --- Differentiator: trade hand-off flow --- */
+.flow-step{ display:inline-block; background:#fff; border:1px solid #e5e8ec; border-radius:8px; padding:10px 20px; font-weight:600; font-family:"Rajdhani","Rajdhani Fallback","Rubik",sans-serif; font-size:1.05rem; }
+.flow-arrow{ color:#e7161f; font-weight:700; font-size:1.2rem; margin:2px 0; }
 </style>
 </head>
 <body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<div class="top-strip">Property Repairs &amp; Maintenance · JT Handyman Solutionz · Melbourne-wide</div>
+<div class="top-strip">Window &amp; glazing repairs · JT Handyman Solutionz · Melbourne-wide</div>
 
-<header class="site-header">
+<!-- 1. HEADER -->
+<header class="site-header lp-header">
   <div class="container header-inner">
     <a href="index.html" class="brand" style="display:flex;align-items:center;">
       <img src="img/work/jt-logo-correct.png" alt="JT Handyman Solutionz" style="height:64px;width:auto;display:block;">
     </a>
 
-    <nav class="main-nav" id="main-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li class="has-dropdown">
-          <a href="services.html">Services</a>
-          <button class="dropdown-toggle" aria-label="Toggle services menu" aria-expanded="false">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </button>
-          <ul class="dropdown-menu">
-            <li><a href="carpentry.html">Carpentry</a></li>
-            <li><a href="plumbing.html">Plumbing</a></li>
-            <li><a href="painting.html">Painting</a></li>
-            <li><a href="plaster-repair.html">Plaster Repair</a></li>
-            <li><a href="bathrooms.html">Bathrooms &amp; Tiling</a></li>
-            <li><a href="windows-glazing.html">Windows &amp; Glazing</a></li>
-          </ul>
-        </li>
-        <li><a href="our-work.html">Our Work</a></li>
-        <li><a href="recent-jobs.html">Recent Jobs</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-
     <div class="header-actions">
       <a href="tel:1800587659" class="phone-link">1800 587 659</a>
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get Instant Quote</a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" style="display:none;background:none;border:0;cursor:pointer;padding:8px;margin-left:8px;">
-        <svg class="nav-toggle-icon-open" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-        <svg class="nav-toggle-icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" style="display:none;"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
-      </button>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
     </div>
   </div>
 </header>
@@ -210,14 +164,16 @@ setTimeout(function () {
 }, 4000);
 </script>
 
+<!-- 2. HERO -->
 <section class="hero band-white">
   <div class="container hero-grid">
     <div>
-      <span class="eyebrow">Windows &amp; glazing · Melbourne-wide</span>
-      <h1>Drafty, stuck or cracked windows?<br><span class="accent">Restored to like-new before winter really bites.</span></h1>
-      <p class="lede">Deteriorated frames, failed seals, cracked glass, windows that won't open or close properly — JT's in-house team restores and repairs windows across Melbourne, keeping the draft out and your character features intact.</p>
+      <span class="eyebrow">Windows &amp; Glazing · Melbourne-wide</span>
+      <h1>Windows, glazing and repairs <span class="accent">— handled by one team.</span></h1>
+      <p class="hero-pain-points">Need new windows? Replacing cracked glass? Fixing a broken lock? Repairing a damaged sill?</p>
+      <p class="lede">JT handles window installation, repairs, glazing and finishing through <strong>one coordinated team</strong>, so you don't have to chase multiple tradies.</p>
       <div class="cta-row">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get a Free Window Quote</a>
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
         <a href="tel:1800587659" class="btn btn-ghost">Call 1800 587 659</a>
       </div>
       <div class="chip-row">
@@ -230,6 +186,7 @@ setTimeout(function () {
   </div>
 </section>
 
+<!-- 3. TRUST BAR -->
 <section class="section band-dark" style="padding-top:32px;padding-bottom:32px;">
   <div class="container">
     <div class="grid grid-4">
@@ -241,6 +198,71 @@ setTimeout(function () {
   </div>
 </section>
 
+<!-- 4. PROBLEM / HESITATION -->
+<section class="section band-grey">
+  <div class="container text-center" style="max-width:760px;margin-left:auto;margin-right:auto;">
+    <h2>Got a window job you've been putting off?</h2>
+    <p class="lede">A window that won't open. Cracked or fogged glass. A broken lock. Draughts around the frame. A damaged window sill. Or maybe you're ready for new windows altogether.</p>
+    <p class="lede">It's easy to think, "I'll deal with it later."</p>
+    <p class="lede"><strong>If you've been meaning to get it sorted, now is a good time to start.</strong></p>
+  </div>
+  <div class="container">
+    <div class="grid grid-3" style="margin-top:28px;">
+      <div class="card"><div class="card-body"><h3 class="problem-card-label">Repairs &amp; Hardware</h3><p>Sticking windows, damaged frames, window sills, broken locks and worn hardware.</p></div></div>
+      <div class="card"><div class="card-body"><h3 class="problem-card-label">Glass &amp; Glazing</h3><p>Cracked, broken or fogged glass, plus glass replacement and glazing work.</p></div></div>
+      <div class="card"><div class="card-body"><h3 class="problem-card-label">New Windows &amp; Blinds</h3><p>Window installation, replacement windows and blinds to finish the space.</p></div></div>
+    </div>
+    <div class="text-center cta-row" style="margin-top:28px;justify-content:center;">
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote Now</a>
+      <a href="tel:1800587659" class="btn btn-ghost">Call 1800 587 659</a>
+    </div>
+  </div>
+</section>
+
+<!-- 5. REAL JT WORK -->
+<section class="section band-white">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Real JT work</span>
+      <h2>Actual window &amp; glazing projects <span class="accent">across Melbourne</span></h2>
+    </div>
+    <div class="grid grid-3" style="gap:18px;">
+      <div class="card"><div class="ph ratio-square"><img src="img/jt-window-repairs-melbourne.webp" alt="Window repair completed by JT Handyman in Melbourne" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Window repair</strong><span>Melbourne, VIC</span></div></div>
+      <div class="card"><div class="ph ratio-square"><img src="img/work/jt-black-framed-window-melbourne.jpg" alt="New black-framed window by JT Handyman in Brighton East" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>New black-framed window</strong><span>Brighton East, VIC</span></div></div>
+      <div class="card"><div class="ph ratio-square"><img src="img/work/jt-window-repair-melbourne.webp" alt="Window repair by JT Handyman in Melbourne" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Frame &amp; glazing repair</strong><span>Melbourne, VIC</span></div></div>
+    </div>
+    <div class="text-center" style="margin-top:24px;">
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- 6. DIFFERENTIATOR -->
+<section class="section band-grey">
+  <div class="container panel reverse">
+    <div class="photo-frame"><img src="img/work/jt-black-framed-window-melbourne.jpg" alt="New black-framed window by JT Handyman in Brighton East, VIC" loading="lazy"></div>
+    <div>
+      <span class="eyebrow">One team, start to finish</span>
+      <h2>One team. One point of contact.</h2>
+      <div style="margin:16px 0;display:flex;flex-direction:column;align-items:flex-start;gap:2px;">
+        <span class="flow-step">Window repair</span>
+        <span class="flow-arrow">↓</span>
+        <span class="flow-step">Glazing</span>
+        <span class="flow-arrow">↓</span>
+        <span class="flow-step">Carpentry</span>
+        <span class="flow-arrow">↓</span>
+        <span class="flow-step">Painting</span>
+      </div>
+      <p>A window job can involve more than just the glass. JT's in-house team can coordinate the carpentry, glazing and finishing work through one point of contact.</p>
+      <p style="font-weight:700;">No chasing different tradies. No coordinating multiple jobs yourself.</p>
+      <p style="margin-top:16px;">
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-ghost" style="font-size:.9rem;">Get a Free Window Quote →</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 7. REVIEWS -->
 <section class="section band-white">
   <div class="container">
     <div class="section-head">
@@ -270,99 +292,76 @@ setTimeout(function () {
   </div>
 </section>
 
-
-<section class="section band-grey">
-  <div class="container panel">
-    <div>
-      <span class="eyebrow">Why now</span>
-      <h2>Melbourne's cold months <span class="accent">find every weak window</span></h2>
-      <p>A window that was fine in summer suddenly whistles, sticks or fogs up once the temperature drops. Swollen timber, perished seals and old putty all show up hardest in Melbourne's cooler months — and a drafty window is quietly costing you on heating every single day it's left as-is. JT's team restores frames rather than defaulting straight to a costly full replacement.</p>
-      <ul class="panel-list">
-        <li>Frame restoration for period &amp; older homes</li>
-        <li>Re-sealing to cut draughts and heating loss</li>
-        <li>Cracked or fogged glass replacement</li>
-      </ul>
-    </div>
-    <div class="photo-frame"><img src="img/jt-window-repairs-melbourne.webp" alt="JT window repairs Melbourne" loading="lazy"></div>
-  </div>
-</section>
-
-<section class="section band-white">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">What we fix</span>
-      <h2>Windows, <span class="accent">frame to glass</span></h2>
-    </div>
-    <div class="grid grid-3">
-      <div class="card"><div class="card-body"><h3>Deteriorated frames</h3><p>Rotten, swollen or peeling timber frames restored section by section — keeping the original character instead of ripping it all out.</p></div></div>
-      <div class="card"><div class="card-body"><h3>Sticking or jammed windows</h3><p>Sashes, tracks and hardware freed up and adjusted so windows open and close properly again.</p></div></div>
-      <div class="card"><div class="card-body"><h3>Cracked or fogged glass</h3><p>Single panes and failed double-glazed units replaced, re-glazed and puttied to a clean, weatherproof finish.</p></div></div>
-      <div class="card"><div class="card-body"><h3>Draught &amp; seal repair</h3><p>Perished seals and gaps re-sealed to cut cold draughts and reduce heating loss through winter.</p></div></div>
-      <div class="card"><div class="card-body"><h3>Locks &amp; hardware</h3><p>Broken window locks, stays and handles repaired or replaced for security and everyday ease of use.</p></div></div>
-      <div class="card"><div class="card-body"><h3>Flyscreens</h3><p>Torn, bent or missing flyscreens rebuilt or refitted to match the window.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="section band-grey">
-  <div class="container panel reverse">
-    <div class="photo-frame"><img src="img/work/jt-black-framed-window-melbourne.jpg" alt="New black-framed window by JT Handyman in Brighton East, VIC" loading="lazy"></div>
-    <div>
-      <span class="eyebrow">One team, start to finish</span>
-      <h2>Window repair, then paint — same crew, one job</h2>
-      <p>Restored timber almost always needs a paint finish to match. Because JT's carpenters, glaziers and painters are the same in-house team, your window job can roll straight into a finish coat without a second booking or a second quote.</p>
-      <p style="margin-top:16px;">
-  <a href="recent-jobs.html" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:.9rem;">See recent window jobs →</a>
-</p>
-    </div>
-  </div>
-</section>
-
+<!-- 8. HOW IT WORKS -->
 <section class="section band-dark">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">How it runs</span>
+      <span class="eyebrow">How it works</span>
       <h2>From draughty to done</h2>
     </div>
-    <div class="grid grid-5">
-      <div><div class="step-num" style="margin-bottom:12px;">1</div><h3>Instant quote</h3><p>You answer a few quick questions and get a real price on the spot, no waiting, no phone tag.</p></div>
-      <div><div class="step-num" style="margin-bottom:12px;">2</div><h3>One point of contact</h3><p>One person owns your job end to end. You always know who to call and where things are at.</p></div>
-      <div><div class="step-num" style="margin-bottom:12px;">3</div><h3>The office keeps everyone informed</h3><p>Tenants emailed, owners-corp chairperson liaised with, schedules confirmed — everyone knows what's happening, when, and why.</p></div>
-      <div><div class="step-num" style="margin-bottom:12px;">4</div><h3>In-house team, no subbies chased</h3><p>Every trade is ours, coordinated under one roof, so there's no waste, no double-handling, no finger-pointing.</p></div>
-      <div><div class="step-num" style="margin-bottom:12px;">5</div><h3>Done right, photographed, signed off</h3><p>Completed to a high standard with before/after photos. The job finishes, and stays finished.</p></div>
+    <div class="grid grid-3">
+      <div class="text-center"><div class="step-num" style="margin-bottom:12px;">1</div><h3>Tell us about the job</h3><p>Answer a few quick questions about what needs fixing.</p></div>
+      <div class="text-center"><div class="step-num" style="margin-bottom:12px;">2</div><h3>Get your quote</h3><p>Get a real price back fast, often instant.</p></div>
+      <div class="text-center"><div class="step-num" style="margin-bottom:12px;">3</div><h3>JT gets it sorted</h3><p>One team, one point of contact, from start to finish.</p></div>
+    </div>
+    <div class="text-center" style="margin-top:28px;">
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
     </div>
   </div>
 </section>
 
-
-<section class="section band-white">
-  <div class="container text-center" style="max-width:760px;">
-    <span class="eyebrow">Time is your most valuable asset</span>
-    <h2>We don't waste it.</h2>
-    <p class="lede">Speed is the whole reason JT grew. Our quoting is fast, often instant. You put in your details and get a real price based on our pricing, on the spot. No time-wasters, no waiting on a callback that never comes.</p>
+<!-- 9. TIME / CONVENIENCE (compact, not a full standalone section) -->
+<section class="section band-white" style="padding-top:32px;padding-bottom:32px;">
+  <div class="container text-center" style="max-width:640px;margin-left:auto;margin-right:auto;">
+    <h3 style="margin-bottom:8px;">Your time matters. We make the process easier.</h3>
+    <p class="lede" style="margin:0 0 4px;">From your first quote through to the finished job, JT coordinates the work through one team and one point of contact.</p>
+    <p style="margin:0 0 16px;font-size:1.15rem;font-weight:700;color:#e7161f;">Less chasing. Less back-and-forth. One team to get it sorted.</p>
     <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get a Free Window Quote</a>
   </div>
 </section>
 
+<!-- 10. TECHNICAL AUTHORITY -->
 <section class="section band-grey">
+  <div class="container panel">
+    <div>
+      <span class="eyebrow">Technical authority</span>
+      <h2>Repair it, restore it <span class="accent">or replace it.</span></h2>
+      <p>Not every window problem needs the same solution. JT assesses the window, frame, glass, hardware and surrounding finish to determine what work is needed.</p>
+    </div>
+    <div class="photo-frame"><img src="img/jt-window-repairs-melbourne.webp" alt="JT window repairs Melbourne" loading="lazy"></div>
+  </div>
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Where the care shows</span>
-      <h2>Real windows, real finish</h2>
-    </div>
-    <div class="grid grid-3" style="gap:18px;">
-      <div class="card"><div class="ph ratio-square"><img src="img/jt-window-repairs-melbourne.webp" alt="Window repair completed by JT Handyman in Melbourne" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Window repair</strong><span>Melbourne, VIC</span></div></div>
-      <div class="card"><div class="ph ratio-square"><img src="img/work/jt-black-framed-window-melbourne.jpg" alt="New black-framed window by JT Handyman in Brighton East" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>New black-framed window</strong><span>Brighton East, VIC</span></div></div>
-      <div class="card"><div class="ph ratio-square"><img src="img/work/jt-window-repair-melbourne.webp" alt="Window repair by JT Handyman in Melbourne" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Frame &amp; glazing repair</strong><span>Melbourne, VIC</span></div></div>
-    </div>
-    <div class="text-center" style="margin-top:24px;">
-      <a href="our-work.html" class="btn btn-ghost">View all our work →</a>
+    <div class="grid grid-3" style="margin-top:28px;">
+      <div class="card"><div class="card-body"><h3 class="problem-card-label">Repair Where Practical</h3><p>Fix sticking windows, locks, seals and other issues where repair makes sense.</p></div></div>
+      <div class="card"><div class="card-body"><h3 class="problem-card-label">Restore The Original</h3><p>Restore timber frames, sills and existing profiles where practical.</p></div></div>
+      <div class="card"><div class="card-body"><h3 class="problem-card-label">Install &amp; Finish</h3><p>From new windows and glass to blinds and finishing, JT can coordinate the work through one team.</p></div></div>
     </div>
   </div>
 </section>
 
-
+<!-- 11. WHAT WE DO -->
 <section class="section band-white">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">What we do</span>
+      <h2>Windows, <span class="accent">frame to glass</span></h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><div class="card-body"><h3>Window installation &amp; replacement</h3><p>New windows and replacement windows fitted to suit the property.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Glass &amp; glazing</h3><p>Cracked, broken, fogged or damaged glass.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Window frame repairs</h3><p>Timber and other frame repairs where practical.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Window sills</h3><p>Repair or replacement of damaged or deteriorated sills.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Locks &amp; hardware</h3><p>Broken, worn or difficult-to-use window locks and hardware.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Draughts &amp; seals</h3><p>Gaps, worn seals and draught-related issues.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Blinds</h3><p>Window blinds supplied/installed as part of the job.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Flyscreens</h3><p>Repairs, replacement or installation where offered.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Timber frame restoration</h3><p>Restoration of existing timber windows and period features where practical.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. FAQ -->
+<section class="section band-grey">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Common questions</span>
@@ -376,64 +375,32 @@ setTimeout(function () {
   </div>
 </section>
 
+<!-- 13. FINAL CTA -->
 <section class="section band-dark">
   <div class="container cta-band">
-    <span class="eyebrow on-dark">Renovations take time. Your quote shouldn't.</span>
-    <h2>Get your windows sorted before winter really sets in.</h2>
-    <p>Tell us what's stuck, cracked or draughty and get a real price back fast.</p>
+    <h2>Ready to get that window job sorted?</h2>
+    <p>Tell us what's stuck, cracked, damaged or in need of replacing and get your free quote started today.</p>
     <div class="cta-row">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get a Free Window Quote</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote Now</a>
       <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
     </div>
   </div>
 </section>
+
+<!-- 14. FOOTER -->
 <footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">
-          <img src="img/work/jt-icon-mark-correct.png" alt="JT Handyman Solutionz" style="height:36px;width:auto;vertical-align:middle;margin-right:8px;"> JT Handyman Solutionz
-        </div>
-        <p style="margin-top:12px;max-width:260px;">One team, one point of contact, one-stop shop for property repairs &amp; maintenance across Melbourne.</p>
-      </div>
-      <div>
-        <h4>Services</h4>
-        <ul>
-          <li><a href="services.html">All services</a></li>
-          <li><a href="bathrooms.html">Bathrooms &amp; tiling</a></li>
-          <li><a href="carpentry.html">Carpentry &amp; doors</a></li>
-          <li><a href="plaster-repair.html">Plaster repair</a></li>
-          <li><a href="windows-glazing.html">Windows &amp; glazing</a></li>
-          <li><a href="plumbing.html">Plumbing &amp; leaks</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <ul>
-          <li><a href="about.html">About JT</a></li>
-          <li><a href="our-work.html">Our work</a></li>
-          <li><a href="recent-jobs.html">Recent jobs</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Get started</h4>
-        <ul>
-          <li><a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();">Instant quote</a></li>
-          <li><a href="tel:1800587659">Call 1800 587 659</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Areas</h4>
-        <ul>
-          <li>Melbourne-wide</li>
-          <li>Inner north &amp; east</li>
-          <li>Bayside &amp; south-east</li>
-        </ul>
-      </div>
+  <div class="container text-center">
+    <div class="footer-brand" style="display:flex;align-items:center;justify-content:center;gap:10px;">
+      <img src="img/work/jt-icon-mark-correct.png" alt="JT Handyman Solutionz" style="height:36px;width:auto;">
+      <span>JT Handyman Solutionz</span>
     </div>
-    <div class="footer-bottom">
+    <p style="margin-top:12px;max-width:480px;margin-left:auto;margin-right:auto;">One team, one point of contact, one-stop shop for window and glazing repairs across Melbourne.</p>
+    <p style="margin-top:8px;font-size:.85rem;opacity:.75;">Melbourne-wide · Inner north &amp; east · Bayside &amp; south-east</p>
+    <div class="cta-row" style="justify-content:center;margin-top:20px;">
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+      <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
+    </div>
+    <div class="footer-bottom" style="margin-top:24px;flex-direction:column;gap:4px;justify-content:center;">
       <span>JT Handyman Solutionz · 1800 587 659 · Unit 42/2 Cobham St, Reservoir VIC 3073 · ABN 14 686 830 473</span>
       <span>© 2026 JT Handyman Solutionz</span>
     </div>
