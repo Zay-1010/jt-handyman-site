@@ -10,6 +10,15 @@
 <meta property="og:description" content="Plaster repair across Melbourne, cracked walls and ceilings, water damage, cornice repair and paint-ready finishes. One in-house team, instant quote.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="css/styles.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X4SK9WP3FG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-X4SK9WP3FG');
+</script>
 <style>
 .top-strip{ background:#e7161f; color:#fff; text-align:center; font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:.55rem 1rem; }
 .band-dark{ background:#0c0d0f !important; color:#fff; }
@@ -434,11 +443,28 @@ setTimeout(function () {
     }
     modal.classList.add('open');
     document.body.classList.add('modal-open');
+    if (typeof gtag === 'function') {
+      gtag('event', 'quote_modal_opened', {
+        page_location: window.location.href,
+        page_title: document.title
+      });
+    }
   }
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
       document.getElementById('quoteModal').classList.remove('open');
       document.body.classList.remove('modal-open');
+    }
+  });
+  // Track phone number clicks (tel: links) as a GA4 event
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('a[href^="tel:"]');
+    if (link && typeof gtag === 'function') {
+      gtag('event', 'phone_click', {
+        phone_number: link.getAttribute('href').replace('tel:', ''),
+        page_location: window.location.href,
+        page_title: document.title
+      });
     }
   });
 </script>

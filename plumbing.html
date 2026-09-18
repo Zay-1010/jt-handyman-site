@@ -10,6 +10,15 @@
 <meta property="og:description" content="Plumbing repairs across Melbourne — dripping taps, blocked drains, leaking pipes and hot water issues, traced and fixed properly. Instant quote.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="css/styles.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X4SK9WP3FG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-X4SK9WP3FG');
+</script>
 <style>
 .top-strip{ background:#e7161f; color:#fff; text-align:center; font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:.55rem 1rem; }
 .band-dark{ background:#0c0d0f !important; color:#fff; }
@@ -324,7 +333,7 @@ setTimeout(function () {
 <section class="section band-grey">
   <div class="container panel">
     <div>
-      <span class="eyebrow">Find the source</span>
+      <span class="eyebrow">Find The Source</span>
       <h2>Fix the source, <span class="accent">not just the symptom.</span></h2>
       <p>A drip that keeps returning, or a drain that's slow again a month later, can mean the underlying issue hasn't been addressed. JT traces the actual source before calling the job done, so the aim is to fix the problem properly rather than have you booking the same repair twice.</p>
     </div>
@@ -432,11 +441,28 @@ setTimeout(function () {
     }
     modal.classList.add('open');
     document.body.classList.add('modal-open');
+    if (typeof gtag === 'function') {
+      gtag('event', 'quote_modal_opened', {
+        page_location: window.location.href,
+        page_title: document.title
+      });
+    }
   }
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
       document.getElementById('quoteModal').classList.remove('open');
       document.body.classList.remove('modal-open');
+    }
+  });
+  // Track phone number clicks (tel: links) as a GA4 event
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('a[href^="tel:"]');
+    if (link && typeof gtag === 'function') {
+      gtag('event', 'phone_click', {
+        phone_number: link.getAttribute('href').replace('tel:', ''),
+        page_location: window.location.href,
+        page_title: document.title
+      });
     }
   });
 </script>
