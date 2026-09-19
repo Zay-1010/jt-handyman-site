@@ -103,13 +103,6 @@ body.modal-open { overflow:hidden; }
 
 .flow-step{ display:inline-block; background:#fff; border:1px solid #e5e8ec; border-radius:8px; padding:10px 20px; font-weight:600; font-family:"Rajdhani","Rajdhani Fallback","Rubik",sans-serif; font-size:1.05rem; }
 .flow-arrow{ color:#e7161f; font-weight:700; font-size:1.2rem; margin:2px 0; }
-
-/* --- Local "just completed" proof badge --- */
-.area-proof{
-  display:inline-flex; align-items:center; gap:8px; background:#f4f6f8; border:1px solid #e5e8ec;
-  border-radius:999px; padding:.5rem 1rem; font-size:.88rem; font-weight:600; color:#1a1a1a; margin:12px 0;
-}
-.area-proof::before{ content:"✓"; color:#22c55e; font-weight:700; }
 </style>
 </head>
 <body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -161,44 +154,6 @@ body.modal-open { overflow:hidden; }
 setTimeout(function () {
   fetch('/api/recent-jobs').catch(function () {});
 }, 4000);
-
-// --- Local area proof: pulls the most recent completed job from the
-// same live feed as the header ticker, filtered to this page's target
-// suburbs, so the "in your area" claim is always real and never goes
-// stale. Falls back to honest general copy if nothing in the target
-// area shows up in the recent feed, if the request fails, or if it
-// takes too long to respond (so the badge can never get stuck on
-// "Loading…" indefinitely).
-(async function () {
-  const el = document.getElementById('area-proof-text');
-  if (!el) return;
-  const fallbackText = 'Regularly working across Bundoora, Mill Park, Reservoir & the outer north-east';
-  const targetSuburbs = ['bundoora', 'mill park', 'reservoir', 'epping', 'south morang'];
-
-  // Safety timeout: if nothing has resolved this within 6 seconds,
-  // show the fallback text so the badge never hangs on "Loading…".
-  const timeoutId = setTimeout(function () {
-    el.textContent = fallbackText;
-  }, 6000);
-
-  try {
-    const res = await fetch('/api/jobs');
-    if (!res.ok) throw new Error('Failed to load jobs');
-    const data = await res.json();
-    const match = (data.jobs || []).find(job =>
-      job.suburb && targetSuburbs.includes(job.suburb.trim().toLowerCase())
-    );
-    clearTimeout(timeoutId);
-    if (match) {
-      el.textContent = `Just completed: ${match.category} in ${match.suburb} · ${match.date}`;
-    } else {
-      el.textContent = fallbackText;
-    }
-  } catch (err) {
-    clearTimeout(timeoutId);
-    el.textContent = fallbackText;
-  }
-})();
 </script>
 
 <!-- 2. HERO -->
@@ -207,7 +162,6 @@ setTimeout(function () {
     <div>
       <span class="eyebrow">Bundoora &amp; Outer North-East Melbourne</span>
       <h1>Property repairs &amp; maintenance <span class="accent">for Bundoora and the outer north-east.</span></h1>
-      <div class="area-proof"><span id="area-proof-text">Loading recent jobs near you…</span></div>
       <p class="lede">JT handles repairs, maintenance and renovations for homeowners across Bundoora, Mill Park, Reservoir, Epping and South Morang — through <strong>one team and one point of contact</strong>.</p>
       <div class="cta-row">
         <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
@@ -219,7 +173,7 @@ setTimeout(function () {
         <span class="chip">Workmanship guaranteed</span>
       </div>
     </div>
-    <div class="photo-frame"><img src="img/Bundoora_landscape.jpg" alt="Bundoora, VIC — part of JT's outer north-east service area" loading="lazy"></div>
+    <div class="photo-frame"><img src="img/Bundoora_Roofing.jpg" alt="Roof sheeting installation by JT Handyman in Bundoora, VIC" loading="lazy"></div>
   </div>
 </section>
 
@@ -240,12 +194,12 @@ setTimeout(function () {
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Real JT work</span>
-      <h2>Real JT work <span class="accent">across Melbourne</span></h2>
+      <h2>Real JT work <span class="accent">in the outer north-east</span></h2>
     </div>
     <div class="grid grid-3" style="gap:18px;">
-      <div class="card"><div class="ph ratio-square"><img src="img/work/jt-finished-bathroom-vanity-melbourne.webp" alt="Finished bathroom vanity renovation by JT Handyman in Reservoir" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Bathroom vanity renovation</strong><span>Reservoir, VIC</span></div></div>
-      <div class="card"><div class="ph ratio-square"><img src="img/work/jt-tiled-shower-glass-screen-melbourne.webp" alt="Tiled shower with glass screen by JT Handyman" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Tiled shower &amp; glass screen</strong><span>Melbourne, VIC</span></div></div>
-      <div class="card"><div class="ph ratio-square"><img src="img/work/jt-verandah-posts-carpentry-melbourne.webp" alt="Verandah posts and brackets by JT Handyman" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Verandah &amp; carpentry works</strong><span>Melbourne, VIC</span></div></div>
+      <div class="card"><div class="ph ratio-square"><img src="img/Bundoora_Roofing.jpg" alt="Roof sheeting installation by JT Handyman in Bundoora" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Roof sheeting installation</strong><span>Bundoora, VIC</span></div></div>
+      <div class="card"><div class="ph ratio-square"><img src="img/South_Morang_Roof_Tiles.jpg" alt="Roof and gutter work by JT Handyman in South Morang" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Roof &amp; gutter work</strong><span>South Morang, VIC</span></div></div>
+      <div class="card"><div class="ph ratio-square"><img src="img/South_Morang_security_camera_install.jpg" alt="Smart lock and security system installed by JT Handyman in South Morang" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Smart lock &amp; security install</strong><span>South Morang, VIC</span></div></div>
     </div>
     <div class="text-center" style="margin-top:24px;">
       <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
@@ -277,7 +231,7 @@ setTimeout(function () {
 <!-- 6. DIFFERENTIATOR -->
 <section class="section band-white">
   <div class="container panel reverse">
-    <div class="photo-frame"><img src="img/work/jt-tiled-shower-glass-screen-melbourne.webp" alt="Tiled shower with glass screen by JT Handyman" loading="lazy"></div>
+    <div class="photo-frame"><img src="img/South_Morang_Roof_Tiles.jpg" alt="Roof and gutter work by JT Handyman in South Morang" loading="lazy"></div>
     <div>
       <span class="eyebrow">One team, start to finish</span>
       <h2>One team. One point of contact.</h2>
