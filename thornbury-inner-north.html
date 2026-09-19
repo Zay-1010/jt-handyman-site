@@ -103,13 +103,6 @@ body.modal-open { overflow:hidden; }
 
 .flow-step{ display:inline-block; background:#fff; border:1px solid #e5e8ec; border-radius:8px; padding:10px 20px; font-weight:600; font-family:"Rajdhani","Rajdhani Fallback","Rubik",sans-serif; font-size:1.05rem; }
 .flow-arrow{ color:#e7161f; font-weight:700; font-size:1.2rem; margin:2px 0; }
-
-/* --- Local "just completed" proof badge --- */
-.area-proof{
-  display:inline-flex; align-items:center; gap:8px; background:#f4f6f8; border:1px solid #e5e8ec;
-  border-radius:999px; padding:.5rem 1rem; font-size:.88rem; font-weight:600; color:#1a1a1a; margin:12px 0;
-}
-.area-proof::before{ content:"✓"; color:#22c55e; font-weight:700; }
 </style>
 </head>
 <body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -161,44 +154,6 @@ body.modal-open { overflow:hidden; }
 setTimeout(function () {
   fetch('/api/recent-jobs').catch(function () {});
 }, 4000);
-
-// --- Local area proof: pulls the most recent completed job from the
-// same live feed as the header ticker, filtered to this page's target
-// suburbs, so the "just finished nearby" claim is always real and
-// never goes stale. Falls back to honest general copy if nothing in
-// the target area shows up in the recent feed, if the request fails,
-// or if it takes too long to respond (so the badge can never get
-// stuck on "Loading…" indefinitely).
-(async function () {
-  const el = document.getElementById('area-proof-text');
-  if (!el) return;
-  const fallbackText = 'Regularly working across Thornbury, Northcote, Preston & the inner north';
-  const targetSuburbs = ['thornbury', 'northcote', 'preston', 'fairfield', 'alphington', 'coburg'];
-
-  // Safety timeout: if nothing has resolved this within 6 seconds,
-  // show the fallback text so the badge never hangs on "Loading…".
-  const timeoutId = setTimeout(function () {
-    el.textContent = fallbackText;
-  }, 6000);
-
-  try {
-    const res = await fetch('/api/jobs');
-    if (!res.ok) throw new Error('Failed to load jobs');
-    const data = await res.json();
-    const match = (data.jobs || []).find(job =>
-      job.suburb && targetSuburbs.includes(job.suburb.trim().toLowerCase())
-    );
-    clearTimeout(timeoutId);
-    if (match) {
-      el.textContent = `Just completed: ${match.category} in ${match.suburb} · ${match.date}`;
-    } else {
-      el.textContent = fallbackText;
-    }
-  } catch (err) {
-    clearTimeout(timeoutId);
-    el.textContent = fallbackText;
-  }
-})();
 </script>
 
 <!-- 2. HERO -->
@@ -207,7 +162,6 @@ setTimeout(function () {
     <div>
       <span class="eyebrow">Thornbury &amp; Inner North Melbourne</span>
       <h1>Property repairs &amp; maintenance <span class="accent">for Thornbury and the inner north.</span></h1>
-      <div class="area-proof"><span id="area-proof-text">Loading recent jobs near you…</span></div>
       <p class="lede">JT handles repairs, maintenance and renovations for homeowners across Thornbury, Northcote, Preston, Fairfield, Alphington and Coburg — through <strong>one team and one point of contact</strong>.</p>
       <div class="cta-row">
         <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
