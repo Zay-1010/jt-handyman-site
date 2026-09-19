@@ -166,11 +166,21 @@ setTimeout(function () {
 // same live feed as the header ticker, filtered to this page's target
 // suburbs, so the "in your area" claim is always real and never goes
 // stale. Falls back to honest general copy if nothing in the target
-// area shows up in the recent feed.
+// area shows up in the recent feed, if the request fails, or if it
+// takes too long to respond (so the badge can never get stuck on
+// "Loading…" indefinitely).
 (async function () {
   const el = document.getElementById('area-proof-text');
   if (!el) return;
+  const fallbackText = 'Regularly working across Bundoora, Mill Park, Reservoir & the outer north-east';
   const targetSuburbs = ['bundoora', 'mill park', 'reservoir', 'epping', 'south morang'];
+
+  // Safety timeout: if nothing has resolved this within 6 seconds,
+  // show the fallback text so the badge never hangs on "Loading…".
+  const timeoutId = setTimeout(function () {
+    el.textContent = fallbackText;
+  }, 6000);
+
   try {
     const res = await fetch('/api/jobs');
     if (!res.ok) throw new Error('Failed to load jobs');
@@ -178,13 +188,15 @@ setTimeout(function () {
     const match = (data.jobs || []).find(job =>
       job.suburb && targetSuburbs.includes(job.suburb.trim().toLowerCase())
     );
+    clearTimeout(timeoutId);
     if (match) {
       el.textContent = `Just completed: ${match.category} in ${match.suburb} · ${match.date}`;
     } else {
-      el.textContent = 'Regularly working across Bundoora, Mill Park, Reservoir & the outer north-east';
+      el.textContent = fallbackText;
     }
   } catch (err) {
-    el.textContent = 'Regularly working across Bundoora, Mill Park, Reservoir & the outer north-east';
+    clearTimeout(timeoutId);
+    el.textContent = fallbackText;
   }
 })();
 </script>
