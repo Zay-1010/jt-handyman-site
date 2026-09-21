@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Property Repairs Thornbury & Inner North Melbourne | JT Handyman</title>
-<meta name="description" content="Property repairs, maintenance and renovations for Thornbury, Northcote, Preston, Fairfield, Alphington and Coburg. One in-house team, instant quote.">
+<meta name="description" content="Property repairs, maintenance and renovations for Thornbury, Northcote, Preston, Fairfield, Alphington and Coburg. One in-house team, instant estimate.">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Property Repairs Thornbury & Inner North Melbourne | JT Handyman">
-<meta property="og:description" content="Property repairs, maintenance and renovations for Thornbury, Northcote, Preston, Fairfield, Alphington and Coburg. One in-house team, instant quote.">
+<meta property="og:description" content="Property repairs, maintenance and renovations for Thornbury, Northcote, Preston, Fairfield, Alphington and Coburg. One in-house team, instant estimate.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="css/styles.css">
 
@@ -117,7 +117,7 @@ body.modal-open { overflow:hidden; }
 
     <div class="header-actions">
       <a href="tel:1800587659" class="phone-link">1800 587 659</a>
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
     </div>
   </div>
 </header>
@@ -140,14 +140,14 @@ body.modal-open { overflow:hidden; }
     if (!res.ok) throw new Error('Failed to load jobs');
     const data = await res.json();
     if (!data.jobs || data.jobs.length === 0) {
-      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant quote today.</span>';
+      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant estimate today.</span>';
       return;
     }
     const itemsHtml = data.jobs.map(job => `<span class="job-ticker-item">${job.category} · ${job.suburb} · ${job.date}</span>`).join('');
     track.innerHTML = `<div class="job-ticker-marquee">${itemsHtml}${itemsHtml}</div>`;
   } catch (err) {
     console.error('Job ticker error:', err);
-    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant quote today.</span>';
+    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant estimate today.</span>';
   }
 })();
 
@@ -164,7 +164,7 @@ setTimeout(function () {
       <h1>Property repairs &amp; maintenance <span class="accent">for Thornbury and the inner north.</span></h1>
       <p class="lede">JT handles repairs, maintenance and renovations for homeowners across Thornbury, Northcote, Preston, Fairfield, Alphington and Coburg — through <strong>one team and one point of contact</strong>.</p>
       <div class="cta-row">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
         <a href="tel:1800587659" class="btn btn-ghost">Call 1800 587 659</a>
       </div>
       <div class="chip-row">
@@ -182,7 +182,7 @@ setTimeout(function () {
   <div class="container">
     <div class="grid grid-4">
       <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">10,000+</span><p style="margin:0;">Jobs completed</p></div>
-      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">36 hr</span><p style="margin:0;">Quote Turnaround</p></div>
+      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">36 hr</span><p style="margin:0;">Estimate Turnaround</p></div>
       <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">1</span><p style="margin:0;">Point of contact, always</p></div>
       <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">5.0★</span><p style="margin:0;">Google rated</p></div>
     </div>
@@ -204,7 +204,7 @@ setTimeout(function () {
       <div class="card"><div class="card-body"><h3 class="problem-card-label">Multi-Trade Jobs</h3><p>Carpentry, plumbing, painting and plaster — all through one point of contact.</p></div></div>
     </div>
     <div class="text-center cta-row" style="margin-top:28px;justify-content:center;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote Now</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate Now</a>
       <a href="tel:1800587659" class="btn btn-ghost">Call 1800 587 659</a>
     </div>
   </div>
@@ -223,7 +223,7 @@ setTimeout(function () {
       <div class="card"><div class="ph ratio-square"><img src="img/work/jt-restored-period-plasterwork-thornbury.webp" alt="Restored period plasterwork by JT Handyman in Thornbury" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Restored period plasterwork</strong><span>Thornbury, VIC</span></div></div>
     </div>
     <div class="text-center" style="margin-top:24px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
     </div>
   </div>
 </section>
@@ -247,7 +247,7 @@ setTimeout(function () {
       <p>Older homes can often need more than one trade. JT can coordinate the related work through one team instead of you organising multiple tradies.</p>
       <p style="font-weight:700;">No chasing different tradies. One coordinated job.</p>
       <p style="margin-top:16px;">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-ghost" style="font-size:.9rem;">Get My Free Quote →</a>
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-ghost" style="font-size:.9rem;">Get My Free Estimate →</a>
       </p>
     </div>
   </div>
@@ -288,15 +288,15 @@ setTimeout(function () {
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">How it works</span>
-      <h2>From quote to done</h2>
+      <h2>From estimate to done</h2>
     </div>
     <div class="grid grid-3">
       <div class="text-center"><div class="step-num" style="margin-bottom:12px;">1</div><h3>Tell us what you need</h3><p>Answer a few quick questions about the job.</p></div>
-      <div class="text-center"><div class="step-num" style="margin-bottom:12px;">2</div><h3>Get your quote</h3><p>We assess what needs doing and provide the next step.</p></div>
+      <div class="text-center"><div class="step-num" style="margin-bottom:12px;">2</div><h3>Get your estimate</h3><p>We assess what needs doing and provide the next step.</p></div>
       <div class="text-center"><div class="step-num" style="margin-bottom:12px;">3</div><h3>JT gets it sorted</h3><p>One team coordinates the job from start to finish.</p></div>
     </div>
     <div class="text-center" style="margin-top:28px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
     </div>
   </div>
 </section>
@@ -305,9 +305,9 @@ setTimeout(function () {
 <section class="section band-white" style="padding-top:32px;padding-bottom:32px;">
   <div class="container text-center" style="max-width:640px;margin-left:auto;margin-right:auto;">
     <h3 style="margin-bottom:8px;">Your time matters. We make the process easier.</h3>
-    <p class="lede" style="margin:0 0 4px;">From your first quote through to the finished job, JT coordinates the work through one team and one point of contact.</p>
+    <p class="lede" style="margin:0 0 4px;">From your first estimate through to the finished job, JT coordinates the work through one team and one point of contact.</p>
     <p style="margin:0 0 16px;font-size:1.15rem;font-weight:700;color:#e7161f;">Less chasing. Less back-and-forth. One team to get it sorted.</p>
-    <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+    <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
   </div>
 </section>
 
@@ -367,9 +367,9 @@ setTimeout(function () {
 <section class="section band-dark">
   <div class="container cta-band">
     <h2>Ready to get it sorted while we're in the area?</h2>
-    <p>Tell us what you need and get your free quote started today.</p>
+    <p>Tell us what you need and get your free estimate started today.</p>
     <div class="cta-row">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote Now</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate Now</a>
       <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
     </div>
   </div>
@@ -385,7 +385,7 @@ setTimeout(function () {
     <p style="margin-top:12px;max-width:480px;margin-left:auto;margin-right:auto;">One team, one point of contact, one-stop shop for property repairs across Thornbury &amp; the inner north.</p>
     <p style="margin-top:8px;font-size:.85rem;opacity:.75;">Thornbury · Northcote · Preston · Fairfield · Alphington · Coburg</p>
     <div class="cta-row" style="justify-content:center;margin-top:20px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
       <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
     </div>
     <div class="footer-bottom" style="margin-top:24px;flex-direction:column;gap:4px;justify-content:center;">
@@ -397,18 +397,18 @@ setTimeout(function () {
 
 <div class="mobile-bar">
   <a href="tel:1800587659" class="btn btn-ghost">Call now</a>
-  <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get quote</a>
+  <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get estimate</a>
 </div>
 
 <div id="quoteModal" class="qmodal">
   <div class="qmodal-backdrop" onclick="document.getElementById('quoteModal').classList.remove('open'); document.body.classList.remove('modal-open');"></div>
   <div class="qmodal-dialog">
-    <button type="button" class="qmodal-close" aria-label="Close quote form"
+    <button type="button" class="qmodal-close" aria-label="Close estimate form"
       onclick="document.getElementById('quoteModal').classList.remove('open'); document.body.classList.remove('modal-open');">
       &times;
     </button>
     <div class="qmodal-crop">
-      <iframe id="quoteFrame" src="about:blank" title="JT Handyman instant quote"></iframe>
+      <iframe id="quoteFrame" src="about:blank" title="JT Handyman instant estimate"></iframe>
     </div>
   </div>
 </div>
