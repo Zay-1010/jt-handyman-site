@@ -25,11 +25,11 @@ fbq('track', 'PageView');
 /></noscript>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>JT Handyman Solutionz — Property Repairs & Maintenance, One Team. Instant Quote.</title>
-<meta name="description" content="Sick of chasing multiple trades? JT is your one team, one point of contact, one-stop shop for property repairs and maintenance across Melbourne. Renovations take time — your quote shouldn't. Get an instant quote.">
+<title>JT Handyman Solutionz — Property Repairs & Maintenance, One Team. Instant Estimate.</title>
+<meta name="description" content="Sick of chasing multiple trades? JT is your one team, one point of contact, one-stop shop for property repairs and maintenance across Melbourne. Renovations take time — your estimate shouldn't. Get an instant estimate.">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="JT Handyman Solutionz — One Team. One Point of Contact. One-Stop Shop.">
-<meta property="og:description" content="Property repairs & maintenance across Melbourne. Sick of chasing trades? Get an instant quote — slow is a no-go.">
+<meta property="og:description" content="Property repairs & maintenance across Melbourne. Sick of chasing trades? Get an instant estimate — slow is a no-go.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="css/styles.css">
 
@@ -143,7 +143,7 @@ p{ font-size:1.02rem; line-height:1.65; }
   .header-actions .btn{ margin-left:0; padding:.6rem 1rem; font-size:.85rem; }
 }
 
-/* ---- Instant quote modal (matches real LP behavior) ---- */
+/* ---- Instant estimate modal (matches real LP behavior) ---- */
 .qmodal { position:fixed; inset:0; z-index:1000; display:none; align-items:center; justify-content:center;
   padding:clamp(10px,2vw,28px); }
 .qmodal.open { display:flex; }
@@ -189,7 +189,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="header-actions">
       <a href="tel:1800587659" class="phone-link">1800 587 659</a>
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
     </div>
   </div>
 </header>
@@ -212,14 +212,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (!res.ok) throw new Error('Failed to load jobs');
     const data = await res.json();
     if (!data.jobs || data.jobs.length === 0) {
-      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant quote today.</span>';
+      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant estimate today.</span>';
       return;
     }
     const itemsHtml = data.jobs.map(job => `<span class="job-ticker-item">${job.category} · ${job.suburb} · ${job.date}</span>`).join('');
     track.innerHTML = `<div class="job-ticker-marquee">${itemsHtml}${itemsHtml}</div>`;
   } catch (err) {
     console.error('Job ticker error:', err);
-    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant quote today.</span>';
+    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant estimate today.</span>';
   }
 })();
 </script>
@@ -231,7 +231,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h1 style="color:#1a1a1a;">Sick of chasing different tradies for one job?</h1>
     <p class="lede" style="margin:0 auto 28px;">JT brings repairs, maintenance and multiple trades together under <strong>one team and one point of contact</strong>.</p>
     <div class="cta-row" style="justify-content:center;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
       <a href="tel:1800587659" class="btn btn-ghost">Call 1800 587 659</a>
     </div>
     <div class="google-rating-line">
@@ -274,8 +274,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div style="flex:0 0 auto;width:180px;position:relative;border-radius:10px;overflow:hidden;">
         <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
-        <img src="img/work/jt-finished-timber-floor-melbourne.webp" alt="Hybrid flooring install, Brunswick VIC" style="width:100%;height:130px;object-fit:cover;display:block;">
-        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Hybrid flooring install<br><span style="opacity:.65;">Brunswick, VIC</span></div>
+        <img src="img/work/jt-finished-timber-floor-melbourne.webp" alt="Hybrid timber flooring install, Brunswick VIC" style="width:100%;height:130px;object-fit:cover;display:block;">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Hybrid timber flooring install<br><span style="opacity:.65;">Brunswick, VIC</span></div>
       </div>
       <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
         <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
@@ -314,11 +314,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="grid grid-3" style="margin-top:28px;">
       <div class="card"><div class="card-body"><h3 class="problem-card-label">Too Many Tradies</h3><p>Different contractors for different parts of the same property job.</p></div></div>
-      <div class="card"><div class="card-body"><h3 class="problem-card-label">Too Much Waiting</h3><p>Quotes, callbacks and scheduling can drag the job out.</p></div></div>
+      <div class="card"><div class="card-body"><h3 class="problem-card-label">Too Much Waiting</h3><p>Estimates, callbacks and scheduling can drag the job out.</p></div></div>
       <div class="card"><div class="card-body"><h3 class="problem-card-label">No One Owns The Whole Job</h3><p>When multiple trades are involved, it can be unclear who is responsible for what.</p></div></div>
     </div>
     <div class="text-center cta-row" style="margin-top:28px;justify-content:center;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote Now</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate Now</a>
     </div>
   </div>
 </section>
@@ -341,9 +341,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="flow-step">Electrical</span><span class="flow-arrow">→</span>
         <span class="flow-step">Renovations</span>
       </div>
-      <p style="font-weight:700;">From the first quote to the final photo, one team coordinates the job.</p>
+      <p style="font-weight:700;">From the first estimate to the final photo, one team coordinates the job.</p>
       <div class="cta-row" style="margin-top:20px;">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
       </div>
     </div>
   </div>
@@ -359,11 +359,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="grid grid-4" style="gap:18px;">
       <div class="card"><div class="ph ratio-square"><img src="img/work/jt-finished-bathroom-vanity-melbourne.webp" alt="Finished bathroom vanity by JT Handyman in Reservoir" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Bathroom vanity renovation</strong><span>Reservoir, VIC</span></div></div>
       <div class="card"><div class="ph ratio-square"><img src="img/work/jt-tiled-shower-glass-screen-melbourne.webp" alt="Tiled shower with glass screen by JT Handyman in East Melbourne" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Tiled shower &amp; glass screen</strong><span>East Melbourne, VIC</span></div></div>
-      <div class="card"><div class="ph ratio-square"><img src="img/work/jt-finished-timber-floor-melbourne.webp" alt="Finished hybrid floor by JT Handyman in Brunswick" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Hybrid flooring</strong><span>Brunswick, VIC</span></div></div>
+      <div class="card"><div class="ph ratio-square"><img src="img/work/jt-finished-timber-floor-melbourne.webp" alt="Finished hybrid timber floor by JT Handyman in Brunswick" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Hybrid timber flooring</strong><span>Brunswick, VIC</span></div></div>
       <div class="card"><div class="ph ratio-square"><img src="img/work/jt-verandah-posts-carpentry-melbourne.webp" alt="Verandah posts and brackets by JT Handyman in Doncaster" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Verandah works</strong><span>Doncaster, VIC</span></div></div>
     </div>
     <div class="text-center" style="margin-top:24px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
     </div>
   </div>
 </section>
@@ -431,9 +431,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container" style="max-width:760px;">
     <span class="eyebrow">Your time matters</span>
     <h2>We don't waste it.</h2>
-    <p class="lede" style="margin:0 auto 28px;">One point of contact. Fast quoting. Clear updates. One team coordinating the work.</p>
+    <p class="lede" style="margin:0 auto 28px;">One point of contact. Fast estimating. Clear updates. One team coordinating the work.</p>
     <div class="cta-row" style="justify-content:center;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
     </div>
   </div>
 </section>
@@ -443,15 +443,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">How it works</span>
-      <h2>From quote to done, without the tradie juggling.</h2>
+      <h2>From estimate to done, without the tradie juggling.</h2>
     </div>
     <div class="grid grid-3">
       <div class="text-center"><div class="step-num" style="margin-bottom:12px;">1</div><h3>Tell us what you need</h3><p>Answer a few quick questions.</p></div>
-      <div class="text-center"><div class="step-num" style="margin-bottom:12px;">2</div><h3>Get your quote</h3><p>JT reviews the job and provides the next step.</p></div>
+      <div class="text-center"><div class="step-num" style="margin-bottom:12px;">2</div><h3>Get your estimate</h3><p>JT reviews the job and provides the next step.</p></div>
       <div class="text-center"><div class="step-num" style="margin-bottom:12px;">3</div><h3>JT gets it sorted</h3><p>One team coordinates the work through to completion.</p></div>
     </div>
     <div class="cta-row" style="margin-top:32px;justify-content:center;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
     </div>
   </div>
 </section>
@@ -491,7 +491,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="cta-row" style="justify-content:center;margin-top:24px;max-width:800px;margin-left:auto;margin-right:auto;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
     </div>
   </div>
 </section>
@@ -506,7 +506,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="faq-accordion">
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
-          <span>How fast can I get a quote?</span><span class="faq-icon">+</span>
+          <span>How fast can I get a estimate?</span><span class="faq-icon">+</span>
         </button>
         <div class="faq-a"><p>Answer a few quick questions and get a real price back, often instant. No waiting days for a callback.</p></div>
       </div>
@@ -520,7 +520,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button class="faq-q" onclick="toggleFaq(this)">
           <span>Do you handle multiple trades on the same job?</span><span class="faq-icon">+</span>
         </button>
-        <div class="faq-a"><p>Yes — that's the whole point of JT. If your job touches more than one trade, it's still one team, one quote and one point of contact.</p></div>
+        <div class="faq-a"><p>Yes — that's the whole point of JT. If your job touches more than one trade, it's still one team, one estimate and one point of contact.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
@@ -536,9 +536,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
-          <span>Do I need to be home for the quote?</span><span class="faq-icon">+</span>
+          <span>Do I need to be home for the estimate?</span><span class="faq-icon">+</span>
         </button>
-        <div class="faq-a"><p>Not necessarily — many quotes can be done from a few photos and details. We'll let you know if an on-site look is needed.</p></div>
+        <div class="faq-a"><p>Not necessarily — many estimates can be done from a few photos and details. We'll let you know if an on-site look is needed.</p></div>
       </div>
     </div>
   </div>
@@ -549,9 +549,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container cta-band">
     <span class="eyebrow" style="color:#ff4d55;">Ready to get it sorted?</span>
     <h2 style="color:#fff;">Get your property repairs moving.</h2>
-    <p>Tell us what you need and get your free quote started today.</p>
+    <p>Tell us what you need and get your free estimate started today.</p>
     <div class="cta-row">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote Now</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate Now</a>
       <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
     </div>
     <p style="margin-top:18px;margin-bottom:0;">One team · One point of contact · Melbourne-wide.</p>
@@ -568,7 +568,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p style="margin-top:12px;max-width:480px;margin-left:auto;margin-right:auto;">One team, one point of contact, one-stop shop for property repairs &amp; maintenance across Melbourne.</p>
     <p style="margin-top:8px;font-size:.85rem;opacity:.75;">Melbourne-wide · Inner north &amp; east · Bayside &amp; south-east</p>
     <div class="cta-row" style="justify-content:center;margin-top:20px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
       <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
     </div>
     <div class="footer-bottom" style="margin-top:24px;flex-direction:column;gap:4px;justify-content:center;">
@@ -580,19 +580,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="mobile-bar">
   <a href="tel:1800587659" class="btn btn-ghost">Call now</a>
-  <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get quote</a>
+  <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get estimate</a>
 </div>
 
-<!-- Quote modal -->
+<!-- Estimate modal -->
 <div id="quoteModal" class="qmodal">
   <div class="qmodal-backdrop" onclick="document.getElementById('quoteModal').classList.remove('open'); document.body.classList.remove('modal-open');"></div>
   <div class="qmodal-dialog">
-    <button type="button" class="qmodal-close" aria-label="Close quote form"
+    <button type="button" class="qmodal-close" aria-label="Close estimate form"
       onclick="document.getElementById('quoteModal').classList.remove('open'); document.body.classList.remove('modal-open');">
       &times;
     </button>
     <div class="qmodal-crop">
-      <iframe id="quoteFrame" src="about:blank" title="JT Handyman instant quote"></iframe>
+      <iframe id="quoteFrame" src="about:blank" title="JT Handyman instant estimate"></iframe>
     </div>
   </div>
 </div>

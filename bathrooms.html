@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bathrooms & Tiling Melbourne — Leaks, Retiling & Renovations | JT Handyman</title>
-<meta name="description" content="Bathroom repairs and renovations across Melbourne — leaking showers, retiling, vanities and full refits, done watertight. One in-house team, instant quote.">
+<meta name="description" content="Bathroom repairs and renovations across Melbourne — leaking showers, retiling, vanities and full refits, done watertight. One in-house team, instant estimate.">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Bathrooms & Tiling Melbourne — Leaks, Retiling & Renovations | JT Handyman">
-<meta property="og:description" content="Bathroom repairs and renovations across Melbourne — leaking showers, retiling, vanities and full refits, done watertight. One in-house team, instant quote.">
+<meta property="og:description" content="Bathroom repairs and renovations across Melbourne — leaking showers, retiling, vanities and full refits, done watertight. One in-house team, instant estimate.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="css/styles.css">
 
@@ -122,7 +122,7 @@ body.modal-open { overflow:hidden; }
 
     <div class="header-actions">
       <a href="tel:1800587659" class="phone-link">1800 587 659</a>
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
     </div>
   </div>
 </header>
@@ -145,14 +145,14 @@ body.modal-open { overflow:hidden; }
     if (!res.ok) throw new Error('Failed to load jobs');
     const data = await res.json();
     if (!data.jobs || data.jobs.length === 0) {
-      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant quote today.</span>';
+      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant estimate today.</span>';
       return;
     }
     const itemsHtml = data.jobs.map(job => `<span class="job-ticker-item">${job.category} · ${job.suburb} · ${job.date}</span>`).join('');
     track.innerHTML = `<div class="job-ticker-marquee">${itemsHtml}${itemsHtml}</div>`;
   } catch (err) {
     console.error('Job ticker error:', err);
-    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant quote today.</span>';
+    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant estimate today.</span>';
   }
 })();
 
@@ -170,7 +170,7 @@ setTimeout(function () {
       <p class="hero-pain-points">Leaking shower? Slow drain? Damaged tiles? Planning a bathroom upgrade?</p>
       <p class="lede">JT handles waterproofing, plumbing, tiling and fit-off through <strong>one coordinated team</strong>, so you don't have to chase multiple tradies.</p>
       <div class="cta-row">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
         <a href="tel:1800587659" class="btn btn-ghost">Call 1800 587 659</a>
       </div>
       <div class="chip-row">
@@ -188,7 +188,7 @@ setTimeout(function () {
   <div class="container">
     <div class="grid grid-4">
       <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">10,000+</span><p style="margin:0;">Jobs completed</p></div>
-      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">36 hr</span><p style="margin:0;">Quote Turnaround</p></div>
+      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">36 hr</span><p style="margin:0;">Estimate Turnaround</p></div>
       <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">1</span><p style="margin:0;">Point of contact, always</p></div>
       <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">5.0★</span><p style="margin:0;">Google rated</p></div>
     </div>
@@ -210,7 +210,7 @@ setTimeout(function () {
       <div class="card"><div class="card-body"><h3 class="problem-card-label">Bathroom Upgrades</h3><p>The longer you wait, the harder it can be to plan around the job.</p></div></div>
     </div>
     <div class="text-center cta-row" style="margin-top:28px;justify-content:center;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote Now</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate Now</a>
       <a href="tel:1800587659" class="btn btn-ghost">Call 1800 587 659</a>
     </div>
   </div>
@@ -229,7 +229,7 @@ setTimeout(function () {
       <div class="card"><div class="ph ratio-square"><img src="img/work/bathroom-and-tiling.jpg" alt="Newly tiled bathroom with a modern shower installed by JT Handyman Solutionz" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Bathroom cabinet &amp; nook</strong><span>Keilor Downs, VIC</span></div></div>
     </div>
     <div class="text-center" style="margin-top:24px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
     </div>
   </div>
 </section>
@@ -241,9 +241,9 @@ setTimeout(function () {
     <div>
       <span class="eyebrow">One team</span>
       <h2>One team. One point of contact.</h2>
-      <p>A bathroom job usually touches tiling and plumbing at once. Because JT's tilers and plumbers are the same in-house team, your bathroom is quoted, scheduled and finished as one job — not two separate bookings you have to coordinate yourself.</p>
+      <p>A bathroom job usually touches tiling and plumbing at once. Because JT's tilers and plumbers are the same in-house team, your bathroom is estimated, scheduled and finished as one job — not two separate bookings you have to coordinate yourself.</p>
       <p style="margin-top:16px;">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-ghost" style="font-size:.9rem;">Get a Free Bathroom Quote →</a>
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-ghost" style="font-size:.9rem;">Get a Free Bathroom Estimate →</a>
       </p>
     </div>
   </div>
@@ -287,7 +287,7 @@ setTimeout(function () {
       <h2>From leak to finished bathroom</h2>
     </div>
     <div class="grid grid-5">
-      <div><div class="step-num" style="margin-bottom:12px;">1</div><h3>Instant quote</h3><p>You answer a few quick questions and get a real price on the spot, no waiting, no phone tag.</p></div>
+      <div><div class="step-num" style="margin-bottom:12px;">1</div><h3>Instant estimate</h3><p>You answer a few quick questions and get a real price on the spot, no waiting, no phone tag.</p></div>
       <div><div class="step-num" style="margin-bottom:12px;">2</div><h3>One point of contact</h3><p>One person owns your job end to end. You always know who to call and where things are at.</p></div>
       <div><div class="step-num" style="margin-bottom:12px;">3</div><h3>The office keeps everyone informed</h3><p>Tenants emailed, owners-corp chairperson liaised with, schedules confirmed — everyone knows what's happening, when, and why.</p></div>
       <div><div class="step-num" style="margin-bottom:12px;">4</div><h3>In-house team, no subbies chased</h3><p>Every trade is ours, coordinated under one roof, so there's no waste, no double-handling, no finger-pointing.</p></div>
@@ -300,17 +300,17 @@ setTimeout(function () {
 <section class="section band-white" style="padding-top:32px;padding-bottom:32px;">
   <div class="container text-center" style="max-width:640px;margin-left:auto;margin-right:auto;">
     <h3 style="margin-bottom:8px;">Your time matters. We make the process easier.</h3>
-    <p class="lede" style="margin:0 0 4px;">From your first quote through to the finished job, JT coordinates the work through one team and one point of contact.</p>
+    <p class="lede" style="margin:0 0 4px;">From your first estimate through to the finished job, JT coordinates the work through one team and one point of contact.</p>
     <p style="margin:0 0 16px;font-size:1.15rem;font-weight:700;color:#e7161f;">Less chasing. Less back-and-forth. One team to get it sorted.</p>
-    <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get a Free Bathroom Quote</a>
+    <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get a Free Bathroom Estimate</a>
   </div>
 </section>
 
-<!-- 10. WHAT'S UNDERNEATH MATTERS -->
+<!-- 10. TECHNICAL AUTHORITY -->
 <section class="section band-grey">
   <div class="container panel">
     <div>
-      <span class="eyebrow">What's underneath matters</span>
+      <span class="eyebrow">Technical authority</span>
       <h2>A tile job is only as good as <span class="accent">what's underneath it</span></h2>
       <p>A quick re-grout over a failed waterproofing membrane looks fine for a few months, then the leak comes back through the ceiling below. JT checks the waterproofing and substrate before anything gets tiled over, so the fix holds for years, not months.</p>
       <ul class="panel-list">
@@ -349,7 +349,7 @@ setTimeout(function () {
       <h2>Bathrooms &amp; tiling, answered</h2>
     </div>
     <div class="grid grid-3">
-      <div class="card"><div class="card-body"><h3>Is my leak the tiling or the waterproofing?</h3><p>Often it's the membrane underneath, not the tile itself. We check both before quoting so you're not paying to fix the wrong thing.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Is my leak the tiling or the waterproofing?</h3><p>Often it's the membrane underneath, not the tile itself. We check both before estimating so you're not paying to fix the wrong thing.</p></div></div>
       <div class="card"><div class="card-body"><h3>Can you match my existing tiles?</h3><p>Where possible yes — for repairs we'll try to source a close match; for larger jobs we can help select a full new tile range.</p></div></div>
       <div class="card"><div class="card-body"><h3>Do you handle full renovations, not just repairs?</h3><p>Yes — from a single re-grout through to a complete bathroom refit, coordinated by one point of contact.</p></div></div>
     </div>
@@ -360,9 +360,9 @@ setTimeout(function () {
 <section class="section band-dark">
   <div class="container cta-band">
     <h2>Ready to get your bathroom sorted?</h2>
-    <p>Tell us what you need and get your free quote started today. ↓</p>
+    <p>Tell us what you need and get your free estimate started today. ↓</p>
     <div class="cta-row">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote Now</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate Now</a>
       <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
     </div>
   </div>
@@ -378,7 +378,7 @@ setTimeout(function () {
     <p style="margin-top:12px;max-width:480px;margin-left:auto;margin-right:auto;">One team, one point of contact, one-stop shop for bathroom repairs and renovations across Melbourne.</p>
     <p style="margin-top:8px;font-size:.85rem;opacity:.75;">Melbourne-wide · Inner north &amp; east · Bayside &amp; south-east</p>
     <div class="cta-row" style="justify-content:center;margin-top:20px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
       <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
     </div>
     <div class="footer-bottom" style="margin-top:24px;flex-direction:column;gap:4px;justify-content:center;">
@@ -390,18 +390,18 @@ setTimeout(function () {
 
 <div class="mobile-bar">
   <a href="tel:1800587659" class="btn btn-ghost">Call now</a>
-  <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get quote</a>
+  <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get estimate</a>
 </div>
 
 <div id="quoteModal" class="qmodal">
   <div class="qmodal-backdrop" onclick="document.getElementById('quoteModal').classList.remove('open'); document.body.classList.remove('modal-open');"></div>
   <div class="qmodal-dialog">
-    <button type="button" class="qmodal-close" aria-label="Close quote form"
+    <button type="button" class="qmodal-close" aria-label="Close estimate form"
       onclick="document.getElementById('quoteModal').classList.remove('open'); document.body.classList.remove('modal-open');">
       &times;
     </button>
     <div class="qmodal-crop">
-      <iframe id="quoteFrame" src="about:blank" title="JT Handyman instant quote"></iframe>
+      <iframe id="quoteFrame" src="about:blank" title="JT Handyman instant estimate"></iframe>
     </div>
   </div>
 </div>

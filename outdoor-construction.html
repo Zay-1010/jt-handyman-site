@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Decks, Fencing & Outdoor Construction Melbourne | JT Handyman</title>
-<meta name="description" content="Decks, fencing, pergolas and outdoor structures across Melbourne — new builds, repairs and restoration. One in-house team, instant quote.">
+<meta name="description" content="Decks, fencing, pergolas and outdoor structures across Melbourne — new builds, repairs and restoration. One in-house team, instant estimate.">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Decks, Fencing & Outdoor Construction Melbourne | JT Handyman">
-<meta property="og:description" content="Decks, fencing, pergolas and outdoor structures across Melbourne — new builds, repairs and restoration. One in-house team, instant quote.">
+<meta property="og:description" content="Decks, fencing, pergolas and outdoor structures across Melbourne — new builds, repairs and restoration. One in-house team, instant estimate.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="css/styles.css">
 
@@ -126,7 +126,7 @@ body.modal-open { overflow:hidden; }
 
     <div class="header-actions">
       <a href="tel:1800587659" class="phone-link">1800 587 659</a>
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
     </div>
   </div>
 </header>
@@ -149,14 +149,14 @@ body.modal-open { overflow:hidden; }
     if (!res.ok) throw new Error('Failed to load jobs');
     const data = await res.json();
     if (!data.jobs || data.jobs.length === 0) {
-      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant quote today.</span>';
+      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant estimate today.</span>';
       return;
     }
     const itemsHtml = data.jobs.map(job => `<span class="job-ticker-item">${job.category} · ${job.suburb} · ${job.date}</span>`).join('');
     track.innerHTML = `<div class="job-ticker-marquee">${itemsHtml}${itemsHtml}</div>`;
   } catch (err) {
     console.error('Job ticker error:', err);
-    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant quote today.</span>';
+    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant estimate today.</span>';
   }
 })();
 
@@ -182,7 +182,7 @@ setTimeout(function () {
       <p class="hero-pain-points">Need a new deck? Repairing a fence? Planning a pergola, verandah or outdoor upgrade?</p>
       <p class="lede">JT handles outdoor construction and repairs through <strong>one coordinated team</strong>.</p>
       <div class="cta-row">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
         <a href="tel:1800587659" class="btn btn-ghost">Call 1800 587 659</a>
       </div>
       <div class="chip-row">
@@ -191,7 +191,7 @@ setTimeout(function () {
         <span class="chip">Workmanship guaranteed</span>
       </div>
     </div>
-    <div class="photo-frame"><img src="img/deck painting & staining.png" alt="New timber decking by JT Handyman" loading="lazy"></div>
+    <div class="photo-frame"><img src="img/work/outdoor_decking.jpg" alt="New timber decking by JT Handyman" loading="lazy"></div>
   </div>
 </section>
 
@@ -200,7 +200,7 @@ setTimeout(function () {
   <div class="container">
     <div class="grid grid-4">
       <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">10,000+</span><p style="margin:0;">Jobs completed</p></div>
-      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">36 hr</span><p style="margin:0;">Quote Turnaround</p></div>
+      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">36 hr</span><p style="margin:0;">Estimate Turnaround</p></div>
       <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">1</span><p style="margin:0;">Point of contact, always</p></div>
       <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">5.0★</span><p style="margin:0;">Google rated</p></div>
     </div>
@@ -221,7 +221,7 @@ setTimeout(function () {
       <div class="card"><div class="card-body"><h3 class="problem-card-label">Pergolas &amp; Verandahs</h3><p>Create or improve an outdoor space with a pergola, verandah or other structure.</p></div></div>
     </div>
     <div class="text-center cta-row" style="margin-top:28px;justify-content:center;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote Now</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate Now</a>
       <a href="tel:1800587659" class="btn btn-ghost">Call 1800 587 659</a>
     </div>
   </div>
@@ -235,12 +235,12 @@ setTimeout(function () {
       <h2>See what we've <span class="accent">actually done</span></h2>
     </div>
     <div class="grid grid-3" style="gap:18px;">
-      <div class="card"><div class="ph ratio-square"><img src="img/deck painting & staining.png" alt="New timber decking by JT Handyman" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>New timber decking</strong><span>Melbourne, VIC</span></div></div>
-      <div class="card"><div class="ph ratio-square"><img src="img/Hampton_modern-blackandtimber-slat-fence.jpg" alt="Modern black and timber slat fence by JT Handyman in Hampton" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Modern black &amp; timber slat fence</strong><span>Hampton, VIC</span></div></div>
-      <div class="card"><div class="ph ratio-square"><img src="img/Caulfield_finished-slatted-steel-pergola-roof.jpg" alt="Finished slatted steel pergola roof by JT Handyman in Caulfield" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Slatted steel pergola roof</strong><span>Caulfield, VIC</span></div></div>
+      <div class="card"><div class="ph ratio-square"><img src="img/work/outdoor_decking.jpg" alt="New timber decking by JT Handyman" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>New timber decking</strong><span>Melbourne, VIC</span></div></div>
+      <div class="card"><div class="ph ratio-square"><img src="img/work/Hampton_modern-blackandtimber-slat-fence.jpg" alt="Modern black and timber slat fence by JT Handyman in Hampton" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Modern black &amp; timber slat fence</strong><span>Hampton, VIC</span></div></div>
+      <div class="card"><div class="ph ratio-square"><img src="img/work/Caulfield_finished-slatted-steel-pergola-roof.jpg" alt="Finished slatted steel pergola roof by JT Handyman in Caulfield" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Slatted steel pergola roof</strong><span>Caulfield, VIC</span></div></div>
     </div>
     <div class="text-center" style="margin-top:24px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote Now</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate Now</a>
     </div>
   </div>
 </section>
@@ -248,7 +248,7 @@ setTimeout(function () {
 <!-- 6. DIFFERENTIATOR -->
 <section class="section band-grey">
   <div class="container panel reverse">
-    <div class="photo-frame"><img src="img/Templestowe_finished-timber-fence-with-garden.jpg" alt="Finished timber fence with garden by JT Handyman in Templestowe" loading="lazy"></div>
+    <div class="photo-frame"><img src="img/work/Templestowe_finished-timber-fence-with-garden.jpg" alt="Finished timber fence with garden by JT Handyman in Templestowe" loading="lazy"></div>
     <div>
       <span class="eyebrow">One team, start to finish</span>
       <h2>One team. One point of contact.</h2>
@@ -264,7 +264,7 @@ setTimeout(function () {
       <p>An outdoor project often involves more than one trade — decking, fencing, carpentry and a paint or stain finish. JT can coordinate the related work through one team instead of you organising multiple tradies.</p>
       <p style="font-weight:700;">No chasing different tradies. One coordinated job.</p>
       <p style="margin-top:16px;">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-ghost" style="font-size:.9rem;">Get My Free Quote Now →</a>
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-ghost" style="font-size:.9rem;">Get My Free Estimate Now →</a>
       </p>
     </div>
   </div>
@@ -309,11 +309,11 @@ setTimeout(function () {
     </div>
     <div class="grid grid-3">
       <div class="text-center"><div class="step-num" style="margin-bottom:12px;">1</div><h3>Tell us about the job</h3><p>Answer a few quick questions about what you need built or repaired.</p></div>
-      <div class="text-center"><div class="step-num" style="margin-bottom:12px;">2</div><h3>Get your quote</h3><p>We assess what needs doing and provide the next step.</p></div>
+      <div class="text-center"><div class="step-num" style="margin-bottom:12px;">2</div><h3>Get your estimate</h3><p>We assess what needs doing and provide the next step.</p></div>
       <div class="text-center"><div class="step-num" style="margin-bottom:12px;">3</div><h3>JT gets it sorted</h3><p>One team coordinates the job from start to finish.</p></div>
     </div>
     <div class="text-center" style="margin-top:28px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote Now</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate Now</a>
     </div>
   </div>
 </section>
@@ -322,21 +322,21 @@ setTimeout(function () {
 <section class="section band-white" style="padding-top:32px;padding-bottom:32px;">
   <div class="container text-center" style="max-width:640px;margin-left:auto;margin-right:auto;">
     <h3 style="margin-bottom:8px;">Your time matters. We make the process easier.</h3>
-    <p class="lede" style="margin:0 0 4px;">From your first quote through to the finished job, JT coordinates the work through one team and one point of contact.</p>
+    <p class="lede" style="margin:0 0 4px;">From your first estimate through to the finished job, JT coordinates the work through one team and one point of contact.</p>
     <p style="margin:0 0 16px;font-size:1.15rem;font-weight:700;color:#e7161f;">Less chasing. Less back-and-forth. One team to get it sorted.</p>
-    <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote Now</a>
+    <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate Now</a>
   </div>
 </section>
 
-<!-- 10. BUILT TO LAST -->
+<!-- 10. TECHNICAL AUTHORITY -->
 <section class="section band-grey">
   <div class="container panel">
     <div>
-      <span class="eyebrow">Built to last</span>
+      <span class="eyebrow">Technical authority</span>
       <h2>Build it properly <span class="accent">from the ground up.</span></h2>
       <p>An outdoor structure needs to hold up to Melbourne's weather all year round, not just look good on day one. JT builds and repairs decks, fencing and outdoor structures with proper footings, materials and finishes so the result lasts.</p>
     </div>
-    <div class="photo-frame"><img src="img/AltonaMeadows_landscape.jpg" alt="Outdoor landscaping and construction by JT Handyman in Altona Meadows" loading="lazy"></div>
+    <div class="photo-frame"><img src="img/work/AltonaMeadows_landscape.jpg" alt="Outdoor landscaping and construction by JT Handyman in Altona Meadows" loading="lazy"></div>
   </div>
   <div class="container">
     <div class="grid grid-3" style="margin-top:28px;">
@@ -391,9 +391,9 @@ setTimeout(function () {
 <section class="section band-dark">
   <div class="container cta-band">
     <h2>Ready to get your outdoor space sorted?</h2>
-    <p>Tell us what you need built, repaired or replaced and get your free quote started today.</p>
+    <p>Tell us what you need built, repaired or replaced and get your free estimate started today.</p>
     <div class="cta-row">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote Now</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate Now</a>
       <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
     </div>
   </div>
@@ -409,7 +409,7 @@ setTimeout(function () {
     <p style="margin-top:12px;max-width:480px;margin-left:auto;margin-right:auto;">One team, one point of contact, one-stop shop for outdoor construction and repairs across Melbourne.</p>
     <p style="margin-top:8px;font-size:.85rem;opacity:.75;">Melbourne-wide · Inner north &amp; east · Bayside &amp; south-east</p>
     <div class="cta-row" style="justify-content:center;margin-top:20px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
       <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
     </div>
     <div class="footer-bottom" style="margin-top:24px;flex-direction:column;gap:4px;justify-content:center;">
@@ -421,18 +421,18 @@ setTimeout(function () {
 
 <div class="mobile-bar">
   <a href="tel:1800587659" class="btn btn-ghost">Call now</a>
-  <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get quote</a>
+  <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get estimate</a>
 </div>
 
 <div id="quoteModal" class="qmodal">
   <div class="qmodal-backdrop" onclick="document.getElementById('quoteModal').classList.remove('open'); document.body.classList.remove('modal-open');"></div>
   <div class="qmodal-dialog">
-    <button type="button" class="qmodal-close" aria-label="Close quote form"
+    <button type="button" class="qmodal-close" aria-label="Close estimate form"
       onclick="document.getElementById('quoteModal').classList.remove('open'); document.body.classList.remove('modal-open');">
       &times;
     </button>
     <div class="qmodal-crop">
-      <iframe id="quoteFrame" src="about:blank" title="JT Handyman instant quote"></iframe>
+      <iframe id="quoteFrame" src="about:blank" title="JT Handyman instant estimate"></iframe>
     </div>
   </div>
 </div>

@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Roof Repairs Melbourne — Leaks, Gutters & Flashing | JT Handyman</title>
-<meta name="description" content="Roof and gutter repairs across Melbourne — leaks, flashing, downpipes and roof plumbing where required. One in-house team, instant quote.">
+<meta name="description" content="Roof and gutter repairs across Melbourne — leaks, flashing, downpipes and roof plumbing where required. One in-house team, instant estimate.">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Roof Repairs Melbourne — Leaks, Gutters & Flashing | JT Handyman">
-<meta property="og:description" content="Roof and gutter repairs across Melbourne — leaks, flashing, downpipes and roof plumbing where required. One in-house team, instant quote.">
+<meta property="og:description" content="Roof and gutter repairs across Melbourne — leaks, flashing, downpipes and roof plumbing where required. One in-house team, instant estimate.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="css/styles.css">
 
@@ -126,7 +126,7 @@ body.modal-open { overflow:hidden; }
 
     <div class="header-actions">
       <a href="tel:1800587659" class="phone-link">1800 587 659</a>
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
     </div>
   </div>
 </header>
@@ -149,14 +149,14 @@ body.modal-open { overflow:hidden; }
     if (!res.ok) throw new Error('Failed to load jobs');
     const data = await res.json();
     if (!data.jobs || data.jobs.length === 0) {
-      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant quote today.</span>';
+      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant estimate today.</span>';
       return;
     }
     const itemsHtml = data.jobs.map(job => `<span class="job-ticker-item">${job.category} · ${job.suburb} · ${job.date}</span>`).join('');
     track.innerHTML = `<div class="job-ticker-marquee">${itemsHtml}${itemsHtml}</div>`;
   } catch (err) {
     console.error('Job ticker error:', err);
-    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant quote today.</span>';
+    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant estimate today.</span>';
   }
 })();
 
@@ -174,7 +174,7 @@ setTimeout(function () {
       <p class="hero-pain-points">Don't let a small roof problem turn into a bigger property repair.</p>
       <p class="lede">JT handles roof repairs, gutter repairs and related property maintenance through <strong>one coordinated team</strong>.</p>
       <div class="cta-row">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
         <a href="tel:1800587659" class="btn btn-ghost">Call 1800 587 659</a>
       </div>
       <div class="chip-row">
@@ -183,7 +183,7 @@ setTimeout(function () {
         <span class="chip">Workmanship guaranteed</span>
       </div>
     </div>
-    <div class="photo-frame"><img src="img/WyndhamVale_modern-dark-render-exterior-and-roofline_2026-01-29_job-6518 (1).jpg" alt="Modern roofline and gutter installation by JT Handyman in Wyndham Vale" loading="lazy"></div>
+    <div class="photo-frame"><img src="img/WyndhamVale_modern-dark-render-exterior-and-roofline_2026-01-29_job-6518__1_.jpg" alt="Modern roofline and gutter installation by JT Handyman in Wyndham Vale" loading="lazy"></div>
   </div>
 </section>
 
@@ -192,7 +192,7 @@ setTimeout(function () {
   <div class="container">
     <div class="grid grid-4">
       <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">10,000+</span><p style="margin:0;">Jobs completed</p></div>
-      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">36 hr</span><p style="margin:0;">Quote Turnaround</p></div>
+      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">36 hr</span><p style="margin:0;">Estimate Turnaround</p></div>
       <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">1</span><p style="margin:0;">Point of contact, always</p></div>
       <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">5.0★</span><p style="margin:0;">Google rated</p></div>
     </div>
@@ -215,7 +215,7 @@ setTimeout(function () {
       <div class="card"><div class="card-body"><h3 class="problem-card-label">Roof &amp; Gutter Maintenance</h3><p>Keep your roof drainage and related components working properly.</p></div></div>
     </div>
     <div class="text-center cta-row" style="margin-top:28px;justify-content:center;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote Now</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate Now</a>
       <a href="tel:1800587659" class="btn btn-ghost">Call 1800 587 659</a>
     </div>
   </div>
@@ -229,12 +229,12 @@ setTimeout(function () {
       <h2>See what we've <span class="accent">actually done</span></h2>
     </div>
     <div class="grid grid-3" style="gap:18px;">
-      <div class="card"><div class="ph ratio-square"><img src="img/roof repair.png" alt="Roof leak repair by JT Handyman in Melbourne" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Roof leak repair</strong><span>Melbourne, VIC</span></div></div>
-      <div class="card"><div class="ph ratio-square"><img src="img/gutter repair.png" alt="Gutter repair by JT Handyman in Melbourne" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Gutter repair</strong><span>Melbourne, VIC</span></div></div>
+      <div class="card"><div class="ph ratio-square"><img src="img/roof_repair.png" alt="Roof leak repair by JT Handyman in Melbourne" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Roof leak repair</strong><span>Melbourne, VIC</span></div></div>
+      <div class="card"><div class="ph ratio-square"><img src="img/gutter_repair.png" alt="Gutter repair by JT Handyman in Melbourne" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Gutter repair</strong><span>Melbourne, VIC</span></div></div>
       <div class="card"><div class="ph ratio-square"><img src="img/roofgutter.png" alt="Roof and gutter drainage by JT Handyman in Melbourne" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Downpipe &amp; drainage repair</strong><span>Melbourne, VIC</span></div></div>
     </div>
     <div class="text-center" style="margin-top:24px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote Now</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate Now</a>
     </div>
   </div>
 </section>
@@ -242,7 +242,7 @@ setTimeout(function () {
 <!-- 6. DIFFERENTIATOR -->
 <section class="section band-grey">
   <div class="container panel reverse">
-    <div class="photo-frame"><img src="img/flashing repair.avif" alt="Flashing repair by JT Handyman in Melbourne" loading="lazy"></div>
+    <div class="photo-frame"><img src="img/flashing_repair.avif" alt="Flashing repair by JT Handyman in Melbourne" loading="lazy"></div>
     <div>
       <span class="eyebrow">One team, start to finish</span>
       <h2>One team. One point of contact.</h2>
@@ -258,7 +258,7 @@ setTimeout(function () {
       <p>A roof or gutter issue can affect more than just the roof — fascia, eaves or ceiling damage may need attention too. JT can coordinate the related work through one team.</p>
       <p style="font-weight:700;">No chasing different tradies. One coordinated job.</p>
       <p style="margin-top:16px;">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-ghost" style="font-size:.9rem;">Get My Free Quote Now →</a>
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-ghost" style="font-size:.9rem;">Get My Free Estimate Now →</a>
       </p>
     </div>
   </div>
@@ -303,11 +303,11 @@ setTimeout(function () {
     </div>
     <div class="grid grid-3">
       <div class="text-center"><div class="step-num" style="margin-bottom:12px;">1</div><h3>Tell us about the problem</h3><p>Answer a few quick questions.</p></div>
-      <div class="text-center"><div class="step-num" style="margin-bottom:12px;">2</div><h3>Get your quote</h3><p>We assess what needs doing and provide the next step.</p></div>
+      <div class="text-center"><div class="step-num" style="margin-bottom:12px;">2</div><h3>Get your estimate</h3><p>We assess what needs doing and provide the next step.</p></div>
       <div class="text-center"><div class="step-num" style="margin-bottom:12px;">3</div><h3>JT gets it sorted</h3><p>One team coordinates the job from start to finish.</p></div>
     </div>
     <div class="text-center" style="margin-top:28px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote Now</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate Now</a>
     </div>
   </div>
 </section>
@@ -316,13 +316,13 @@ setTimeout(function () {
 <section class="section band-white" style="padding-top:32px;padding-bottom:32px;">
   <div class="container text-center" style="max-width:640px;margin-left:auto;margin-right:auto;">
     <h3 style="margin-bottom:8px;">Your time matters. We make the process easier.</h3>
-    <p class="lede" style="margin:0 0 4px;">From your first quote through to the finished job, JT coordinates the work through one team and one point of contact.</p>
+    <p class="lede" style="margin:0 0 4px;">From your first estimate through to the finished job, JT coordinates the work through one team and one point of contact.</p>
     <p style="margin:0 0 16px;font-size:1.15rem;font-weight:700;color:#e7161f;">Less chasing. Less back-and-forth. One team to get it sorted.</p>
-    <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote Now</a>
+    <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate Now</a>
   </div>
 </section>
 
-<!-- 10. FIND THE SOURCE -->
+<!-- 10. TECHNICAL AUTHORITY -->
 <section class="section band-grey">
   <div class="container panel">
     <div>
@@ -330,7 +330,7 @@ setTimeout(function () {
       <h2>Find the source. <span class="accent">Fix the problem.</span></h2>
       <p>A visible leak isn't always where the water is getting in. JT assesses the affected area and the related roof components to determine what needs attention.</p>
     </div>
-    <div class="photo-frame"><img src="img/roof flashing.png" alt="Roof flashing and box gutter detail by JT Handyman in Melbourne" loading="lazy"></div>
+    <div class="photo-frame"><img src="img/roof_flashing.png" alt="Roof flashing and box gutter detail by JT Handyman in Melbourne" loading="lazy"></div>
   </div>
   <div class="container">
     <div class="grid grid-3" style="margin-top:28px;">
@@ -373,7 +373,7 @@ setTimeout(function () {
     <div class="grid grid-3">
       <div class="card"><div class="card-body"><h3>Is this a licensed roof plumber, or general handyman work?</h3><p>Everyday roof and gutter repairs are handled in-house; licensed roof plumbing is brought in wherever the job legally requires it, so you're never left uncertain about compliance.</p></div></div>
       <div class="card"><div class="card-body"><h3>Can you find a leak I can't locate?</h3><p>Yes — tracing the actual source, not just the visible damage, is exactly the kind of job JT is built for.</p></div></div>
-      <div class="card"><div class="card-body"><h3>Do you handle both the roof repair and any damage it's caused inside?</h3><p>Yes — if a roof leak has damaged ceilings, plaster or paint, the same team can quote and complete that repair too.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Do you handle both the roof repair and any damage it's caused inside?</h3><p>Yes — if a roof leak has damaged ceilings, plaster or paint, the same team can estimate and complete that repair too.</p></div></div>
     </div>
   </div>
 </section>
@@ -382,9 +382,9 @@ setTimeout(function () {
 <section class="section band-dark">
   <div class="container cta-band">
     <h2>Ready to get that roof problem sorted?</h2>
-    <p>Tell us what's leaking, blocked or damaged and get your free quote started today.</p>
+    <p>Tell us what's leaking, blocked or damaged and get your free estimate started today.</p>
     <div class="cta-row">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote Now</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate Now</a>
       <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
     </div>
   </div>
@@ -400,7 +400,7 @@ setTimeout(function () {
     <p style="margin-top:12px;max-width:480px;margin-left:auto;margin-right:auto;">One team, one point of contact, one-stop shop for roof and gutter repairs across Melbourne.</p>
     <p style="margin-top:8px;font-size:.85rem;opacity:.75;">Melbourne-wide · Inner north &amp; east · Bayside &amp; south-east</p>
     <div class="cta-row" style="justify-content:center;margin-top:20px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Quote</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
       <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
     </div>
     <div class="footer-bottom" style="margin-top:24px;flex-direction:column;gap:4px;justify-content:center;">
@@ -412,18 +412,18 @@ setTimeout(function () {
 
 <div class="mobile-bar">
   <a href="tel:1800587659" class="btn btn-ghost">Call now</a>
-  <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get quote</a>
+  <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get estimate</a>
 </div>
 
 <div id="quoteModal" class="qmodal">
   <div class="qmodal-backdrop" onclick="document.getElementById('quoteModal').classList.remove('open'); document.body.classList.remove('modal-open');"></div>
   <div class="qmodal-dialog">
-    <button type="button" class="qmodal-close" aria-label="Close quote form"
+    <button type="button" class="qmodal-close" aria-label="Close estimate form"
       onclick="document.getElementById('quoteModal').classList.remove('open'); document.body.classList.remove('modal-open');">
       &times;
     </button>
     <div class="qmodal-crop">
-      <iframe id="quoteFrame" src="about:blank" title="JT Handyman instant quote"></iframe>
+      <iframe id="quoteFrame" src="about:blank" title="JT Handyman instant estimate"></iframe>
     </div>
   </div>
 </div>
