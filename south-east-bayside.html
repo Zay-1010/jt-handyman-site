@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KQXG8LXC');</script>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2423588804792143');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2423588804792143&ev=PageView&noscript=1"
+/></noscript>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Property Repairs South-East & Bayside Melbourne | JT Handyman</title>
@@ -415,7 +432,7 @@ setTimeout(function () {
 </div>
 
 <script>
-  function openQuoteModal() {
+  function openQuoteModal(source) {
     var modal = document.getElementById('quoteModal');
     var frame = document.getElementById('quoteFrame');
     if (frame.src === 'about:blank') {
@@ -423,6 +440,16 @@ setTimeout(function () {
     }
     modal.classList.add('open');
     document.body.classList.add('modal-open');
+
+    // Honest click-intent signal — not a completed lead. Uses a custom
+    // event rather than Meta's standard "Lead" event, which should only
+    // fire on a real completed submission.
+    try {
+      if (window.fbq) {
+        fbq('trackCustom', 'QuoteButtonClicked', { button: source || 'unknown' });
+      }
+    } catch (e) {}
+
     if (typeof gtag === 'function') {
       gtag('event', 'quote_modal_opened', {
         page_location: window.location.href,
