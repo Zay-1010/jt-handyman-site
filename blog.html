@@ -25,6 +25,9 @@ fbq('track', 'PageView');
 <meta property="og:title" content="JT Handyman Blog — Property Repair & Maintenance Tips for Melbourne">
 <meta property="og:description" content="Practical property repair and maintenance advice from JT Handyman Solutionz for Melbourne homeowners, property managers and real estate agents.">
 <meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 <style>
 .top-strip{ background:#e7161f; color:#fff; text-align:center; font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:.55rem 1rem; }
@@ -170,7 +173,7 @@ body.modal-open { overflow:hidden; }
 
     <div class="header-actions">
       <a href="tel:1800587659" class="phone-link">1800 587 659</a>
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get Instant Quote</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get Instant Estimate</a>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" style="display:none;background:none;border:0;cursor:pointer;padding:8px;margin-left:8px;">
         <svg class="nav-toggle-icon-open" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         <svg class="nav-toggle-icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" style="display:none;"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
@@ -197,14 +200,14 @@ body.modal-open { overflow:hidden; }
     if (!res.ok) throw new Error('Failed to load jobs');
     const data = await res.json();
     if (!data.jobs || data.jobs.length === 0) {
-      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant quote today.</span>';
+      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant estimate today.</span>';
       return;
     }
     const itemsHtml = data.jobs.map(job => `<span class="job-ticker-item">${job.category} · ${job.suburb} · ${job.date}</span>`).join('');
     track.innerHTML = `<div class="job-ticker-marquee">${itemsHtml}${itemsHtml}</div>`;
   } catch (err) {
     console.error('Job ticker error:', err);
-    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant quote today.</span>';
+    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant estimate today.</span>';
   }
 })();
 
@@ -240,7 +243,7 @@ setTimeout(function () {
       </div>
 
       <div class="grid grid-3">
-        <a href="instant-quote-how-it-works.html" style="text-decoration:none;color:inherit;display:block;"><div class="card blog-item" data-category="homeowners"><div class="ph ratio-wide" style="overflow:hidden;"><img src="img/work/instant-quote.jpg" alt="JT job completed" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="card-body"><span class="tag">Homeowners</span><h3>How JT's Instant Quote Actually Works, and Why Speed Matters</h3><p>A real price back the same day. How JT's instant quote actually works, and why speed matters more than people expect.</p></div></div></a>
+        <a href="instant-estimate-how-it-works.html" style="text-decoration:none;color:inherit;display:block;"><div class="card blog-item" data-category="homeowners"><div class="ph ratio-wide" style="overflow:hidden;"><img src="img/work/instant-estimate.jpg" alt="JT job completed" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="card-body"><span class="tag">Homeowners</span><h3>How JT's Instant Estimate Actually Works, and Why Speed Matters</h3><p>A real price back the same day. How JT's instant estimate actually works, and why speed matters more than people expect.</p></div></div></a>
         <a href="in-house-team-vs-multiple-trades.html" style="text-decoration:none;color:inherit;display:block;"><div class="card blog-item" data-category="homeowners"><div class="ph ratio-wide" style="overflow:hidden;"><img src="img/work/handyman-call-outs.webp" alt="JT in-house team job" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="card-body"><span class="tag">Homeowners</span><h3>Why One In-House Team Beats Coordinating Five Separate Trades</h3><p>The real cost of a renovation is rarely the trades — it's coordinating them. Why an in-house team removes that hidden cost.</p></div></div></a>
         <a href="before-after-photos-every-job.html" style="text-decoration:none;color:inherit;display:block;"><div class="card blog-item" data-category="homeowners"><div class="ph ratio-wide" style="overflow:hidden;"><img src="img/work/before-and-after.png" alt="Documented JT job" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="card-body"><span class="tag">Homeowners</span><h3>What Before-and-After Photos on Every Job Actually Mean for You</h3><p>Every JT job is documented, before and after. Why that matters more than it might seem.</p></div></div></a>
         <a href="agent-pre-sale-repairs-advice.html" style="text-decoration:none;color:inherit;display:block;"><div class="card blog-item" data-category="agents"><div class="ph ratio-wide" style="overflow:hidden;"><img src="img/work/pre-sale-property.webp" alt="Pre-sale repair completed" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="card-body"><span class="tag">Real Estate Agents</span><h3>What Real Estate Agents Need to Know Before Recommending Pre-Sale Repairs</h3><p>Recommending the right pre-sale repairs to a vendor is a balance. What agents should weigh up before advising.</p></div></div></a>
@@ -315,11 +318,17 @@ setTimeout(function () {
     <h2>Got a job instead of a question?</h2>
     <p>Skip the reading. Tell us what needs doing and get a real price back, often instantly.</p>
     <div class="cta-row">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get an Instant Quote</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get an Instant Estimate</a>
       <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
     </div>
   </div>
 </section>
+<section class="section band-grey text-center" style="padding-top:28px;padding-bottom:28px;">
+  <div class="container">
+    <a href="javascript:void(0)" onclick="openCallbackModal();" style="display:inline-flex;align-items:center;gap:8px;background:#fdecea;border:1px solid #f3c6c0;border-radius:999px;padding:.6rem 1.2rem;font-size:.9rem;font-weight:600;color:#c0392b;cursor:pointer;">📞 Short on time? Request a quick callback instead</a>
+  </div>
+</section>
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -353,7 +362,7 @@ setTimeout(function () {
       <div>
         <h4>Get started</h4>
         <ul>
-          <li><a href="contact.html">Instant quote</a></li>
+          <li><a href="contact.html">Instant estimate</a></li>
           <li><a href="tel:1800587659">Call 1800 587 659</a></li>
         </ul>
       </div>
@@ -375,18 +384,91 @@ setTimeout(function () {
 
 <div class="mobile-bar">
   <a href="tel:1800587659" class="btn btn-ghost">Call now</a>
-  <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get quote</a>
+  <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get estimate</a>
 </div>
 
 <div id="quoteModal" class="qmodal">
   <div class="qmodal-backdrop" onclick="document.getElementById('quoteModal').classList.remove('open'); document.body.classList.remove('modal-open');"></div>
   <div class="qmodal-dialog">
-    <button type="button" class="qmodal-close" aria-label="Close quote form"
+    <button type="button" class="qmodal-close" aria-label="Close estimate form"
       onclick="document.getElementById('quoteModal').classList.remove('open'); document.body.classList.remove('modal-open');">
       &times;
     </button>
     <div class="qmodal-crop">
-      <iframe id="quoteFrame" src="about:blank" title="JT Handyman instant quote"></iframe>
+      <iframe id="quoteFrame" src="about:blank" title="JT Handyman instant estimate"></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- Callback request modal — lightweight alternative to the full
+     estimate flow, for visitors who don't want to upload photos or
+     write a description. Submits straight to a Zapier webhook. -->
+<div id="callbackModal" class="qmodal">
+  <div class="qmodal-backdrop" onclick="closeCallbackModal();"></div>
+  <div class="qmodal-dialog" style="height:auto;max-height:90vh;">
+    <button type="button" class="qmodal-close" aria-label="Close callback form" onclick="closeCallbackModal();">&times;</button>
+    <div style="padding:36px 28px;overflow-y:auto;">
+      <div id="callbackFormWrap">
+        <h3 style="margin-bottom:6px;">Request a callback</h3>
+        <p style="color:#5a6472;font-size:.92rem;margin-bottom:20px;">Leave your details and we'll call you back.</p>
+        <form id="callbackForm" onsubmit="submitCallbackForm(event);">
+          <div style="margin-bottom:14px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">First name</label>
+            <input type="text" name="first_name" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+          </div>
+          <div style="margin-bottom:14px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Last name</label>
+            <input type="text" name="last_name" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+          </div>
+          <div style="margin-bottom:14px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Mobile number</label>
+            <input type="tel" name="mobile" required placeholder="04XX XXX XXX" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+          </div>
+          <div style="margin-bottom:14px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Email (optional)</label>
+            <input type="email" name="email" placeholder="you@example.com" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+          </div>
+          <div style="margin-bottom:14px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Suburb</label>
+            <input type="text" name="suburb" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+          </div>
+          <div style="margin-bottom:18px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">What do you need help with?</label>
+            <select name="job_type" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;background:#fff;box-sizing:border-box;">
+              <option value="">Select a job type</option>
+              <option>Carpentry</option>
+              <option>Plumbing</option>
+              <option>Painting &amp; Plaster</option>
+              <option>Bathrooms</option>
+              <option>Windows &amp; Glazing</option>
+              <option>Outdoor Construction</option>
+              <option>Roofing &amp; Gutters</option>
+              <option>Property Maintenance</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <!-- Honeypot — hidden from real users via off-screen positioning;
+               bots that auto-fill every field will fill this one too. -->
+          <div style="position:absolute;left:-9999px;" aria-hidden="true">
+            <label>Leave this field blank</label>
+            <input type="text" name="company_website" tabindex="-1" autocomplete="off">
+          </div>
+          <input type="hidden" name="gclid">
+          <input type="hidden" name="fbclid">
+          <input type="hidden" name="rtkclickid">
+          <input type="hidden" name="landing_page">
+          <input type="hidden" name="all_params">
+          <input type="hidden" name="fbc">
+          <input type="hidden" name="fbp">
+          <div id="callbackFormError" style="display:none;color:#c0392b;font-size:.88rem;margin-bottom:12px;"></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Request My Callback</button>
+        </form>
+      </div>
+      <div id="callbackThankYou" style="display:none;text-align:center;padding:20px 0;">
+        <div style="font-size:2.4rem;margin-bottom:10px;">✓</div>
+        <h3 style="margin-bottom:8px;">Thanks — we'll call you back shortly.</h3>
+        <p style="color:#5a6472;font-size:.92rem;">One of our team will be in touch soon to help sort it out.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -410,6 +492,147 @@ setTimeout(function () {
     if (e.key === 'Escape') {
       document.getElementById('quoteModal').classList.remove('open');
       document.body.classList.remove('modal-open');
+    }
+  });
+</script>
+
+<script>
+  var CALLBACK_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/28634189/4mk0dx9/';
+
+  function getUrlParam(name) {
+    var params = new URLSearchParams(window.location.search);
+    return params.get(name) || '';
+  }
+
+  function getCookie(name) {
+    var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    return match ? decodeURIComponent(match[2]) : '';
+  }
+
+  function getRtkClickId() {
+    var fromUrl = getUrlParam('rtkclickid');
+    if (fromUrl) return fromUrl;
+    var fromCookie = getCookie('rtkclickid-store');
+    if (fromCookie) return fromCookie;
+    try {
+      return window.localStorage.getItem('rtkclickid-store') || '';
+    } catch (e) {
+      return '';
+    }
+  }
+
+  function openCallbackModal() {
+    var form = document.getElementById('callbackForm');
+    form.gclid.value = getUrlParam('gclid');
+    form.fbclid.value = getUrlParam('fbclid');
+    form.rtkclickid.value = getRtkClickId();
+    form.landing_page.value = window.location.href;
+    form.all_params.value = window.location.search.replace(/^\?/, '');
+    form.fbc.value = getCookie('_fbc');
+    form.fbp.value = getCookie('_fbp');
+
+    document.getElementById('callbackModal').classList.add('open');
+    document.body.classList.add('modal-open');
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'callback_form_opened', {
+        page_location: window.location.href,
+        page_title: document.title
+      });
+    }
+  }
+
+  function closeCallbackModal() {
+    document.getElementById('callbackModal').classList.remove('open');
+    document.body.classList.remove('modal-open');
+  }
+
+  function isValidAuMobile(value) {
+    var digits = value.replace(/[\s()-]/g, '');
+    return /^(\+?61|0)4\d{8}$/.test(digits);
+  }
+
+  function submitCallbackForm(e) {
+    e.preventDefault();
+    var form = e.target;
+    var errorBox = document.getElementById('callbackFormError');
+    errorBox.style.display = 'none';
+
+    if (form.company_website.value) {
+      showCallbackThankYou();
+      return;
+    }
+
+    var mobile = form.mobile.value.trim();
+    if (!isValidAuMobile(mobile)) {
+      errorBox.textContent = 'Please enter a valid Australian mobile number.';
+      errorBox.style.display = 'block';
+      return;
+    }
+
+    var submitBtn = document.getElementById('callbackSubmitBtn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    var payload = {
+      first_name: form.first_name.value.trim(),
+      last_name: form.last_name.value.trim(),
+      mobile: mobile,
+      email: form.email.value.trim(),
+      suburb: form.suburb.value.trim(),
+      job_type: form.job_type.value,
+      gclid: form.gclid.value,
+      fbclid: form.fbclid.value,
+      rtkclickid: form.rtkclickid.value,
+      landing_page: form.landing_page.value,
+      all_params: form.all_params.value,
+      fbc: form.fbc.value,
+      fbp: form.fbp.value,
+      page_title: document.title
+    };
+
+    // Sent as application/x-www-form-urlencoded rather than JSON —
+    // this is one of the few content types the browser actually allows
+    // through in no-cors mode, and Zapier's Catch Hook parses it into
+    // clean separate fields automatically (JSON arrives as one raw blob).
+    var formBody = Object.keys(payload)
+      .map(function (key) {
+        return encodeURIComponent(key) + '=' + encodeURIComponent(payload[key]);
+      })
+      .join('&');
+
+    fetch(CALLBACK_WEBHOOK_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formBody
+    }).then(function () {
+      handleCallbackSuccess(payload);
+    }).catch(function () {
+      handleCallbackSuccess(payload);
+    });
+  }
+
+  function handleCallbackSuccess(payload) {
+    showCallbackThankYou();
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push({
+      event: 'callback_form_submit',
+      form_type: 'callback',
+      job_type: payload.job_type,
+      suburb: payload.suburb
+    });
+  }
+
+  function showCallbackThankYou() {
+    document.getElementById('callbackFormWrap').style.display = 'none';
+    document.getElementById('callbackThankYou').style.display = 'block';
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      var cm = document.getElementById('callbackModal');
+      if (cm) closeCallbackModal();
     }
   });
 </script>
