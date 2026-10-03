@@ -529,8 +529,12 @@ body.modal-open { overflow:hidden; }
         <p style="color:#5a6472;font-size:.92rem;margin-bottom:20px;">Leave your details and we'll call you back.</p>
         <form id="callbackForm" onsubmit="submitCallbackForm(event);">
           <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Name</label>
-            <input type="text" name="name" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">First name</label>
+            <input type="text" name="first_name" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+          </div>
+          <div style="margin-bottom:14px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Last name</label>
+            <input type="text" name="last_name" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
           </div>
           <div style="margin-bottom:14px;">
             <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Mobile number</label>
@@ -609,7 +613,7 @@ body.modal-open { overflow:hidden; }
 </script>
 
 <script>
-  var CALLBACK_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/28634189/4mk0dx9/';
+  var CALLBACK_WEBHOOK_URL = 'PASTE_YOUR_ZAPIER_WEBHOOK_URL_HERE';
 
   function getUrlParam(name) {
     var params = new URLSearchParams(window.location.search);
@@ -687,7 +691,8 @@ body.modal-open { overflow:hidden; }
     submitBtn.textContent = 'Sending…';
 
     var payload = {
-      name: form.name.value.trim(),
+      first_name: form.first_name.value.trim(),
+      last_name: form.last_name.value.trim(),
       mobile: mobile,
       email: form.email.value.trim(),
       suburb: form.suburb.value.trim(),
@@ -702,11 +707,21 @@ body.modal-open { overflow:hidden; }
       page_title: document.title
     };
 
+    // Sent as application/x-www-form-urlencoded rather than JSON —
+    // this is one of the few content types the browser actually allows
+    // through in no-cors mode, and Zapier's Catch Hook parses it into
+    // clean separate fields automatically (JSON arrives as one raw blob).
+    var formBody = Object.keys(payload)
+      .map(function (key) {
+        return encodeURIComponent(key) + '=' + encodeURIComponent(payload[key]);
+      })
+      .join('&');
+
     fetch(CALLBACK_WEBHOOK_URL, {
       method: 'POST',
       mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formBody
     }).then(function () {
       handleCallbackSuccess(payload);
     }).catch(function () {
