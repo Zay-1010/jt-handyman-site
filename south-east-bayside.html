@@ -123,6 +123,7 @@ body.modal-open { overflow:hidden; }
 
 .flow-step{ display:inline-block; background:#fff; border:1px solid #e5e8ec; border-radius:8px; padding:10px 20px; font-weight:600; font-family:"Rajdhani","Rajdhani Fallback","Rubik",sans-serif; font-size:1.05rem; }
 .flow-arrow{ color:#e7161f; font-weight:700; font-size:1.2rem; margin:2px 0; }
+textarea[name="message"]::placeholder{ color:#b3bac2; }
 </style>
 </head>
 <body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -332,10 +333,7 @@ setTimeout(function () {
     <h3 style="margin-bottom:8px;">Your time matters. We make the process easier.</h3>
     <p class="lede" style="margin:0 0 4px;">From your first estimate through to the finished job, JT coordinates the work through one team and one point of contact.</p>
     <p style="margin:0 0 16px;font-size:1.15rem;font-weight:700;color:#e7161f;">Less chasing. Less back-and-forth. One team to get it sorted.</p>
-    <p style="margin:0 0 16px;">
-      <a href="javascript:void(0)" onclick="openCallbackModal();" style="font-size:.88rem;color:#c0392b;font-weight:600;text-decoration:underline;cursor:pointer;">No time right now? Leave your number and we'll call to chat it through →</a>
-    </p>
-    <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
+    <a href="javascript:void(0)" onclick="openCallbackModal();" class="btn btn-primary">Request a Callback Instead</a>
   </div>
 </section>
 
@@ -424,7 +422,7 @@ setTimeout(function () {
 
 <div class="mobile-bar">
   <a href="tel:1800587659" class="btn btn-ghost">Call now</a>
-  <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get estimate</a>
+  <a href="javascript:void(0)" onclick="openCallbackModal();" class="btn btn-primary">Get a callback</a>
 </div>
 
 <div id="quoteModal" class="qmodal">
@@ -452,40 +450,50 @@ setTimeout(function () {
         <h3 style="margin-bottom:6px;">Request a callback</h3>
         <p style="color:#5a6472;font-size:.92rem;margin-bottom:20px;">No photos needed — just leave your details and we'll call you back.</p>
         <form id="callbackForm" onsubmit="submitCallbackForm(event);">
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">First name</label>
-            <input type="text" name="first_name" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+            <div>
+              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">First name</label>
+              <input type="text" name="first_name" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+            </div>
+            <div>
+              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Last name</label>
+              <input type="text" name="last_name" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+            </div>
           </div>
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Last name</label>
-            <input type="text" name="last_name" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+            <div>
+              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Mobile number</label>
+              <input type="tel" name="mobile" required placeholder="04XX XXX XXX" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+            </div>
+            <div>
+              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Email (optional)</label>
+              <input type="email" name="email" placeholder="you@example.com" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+            </div>
           </div>
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Mobile number</label>
-            <input type="tel" name="mobile" required placeholder="04XX XXX XXX" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-          </div>
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Email (optional)</label>
-            <input type="email" name="email" placeholder="you@example.com" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-          </div>
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Suburb</label>
-            <input type="text" name="suburb" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;">
+            <div>
+              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Suburb</label>
+              <input type="text" name="suburb" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+            </div>
+            <div>
+              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">What do you need help with?</label>
+              <select name="job_type" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
+                <option value="">Select a job type</option>
+                <option>Carpentry</option>
+                <option>Plumbing</option>
+                <option>Painting &amp; Plaster</option>
+                <option>Bathrooms</option>
+                <option>Windows &amp; Glazing</option>
+                <option>Outdoor Construction</option>
+                <option>Roofing &amp; Gutters</option>
+                <option>Property Maintenance</option>
+                <option>Other</option>
+              </select>
+            </div>
           </div>
           <div style="margin-bottom:18px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">What do you need help with?</label>
-            <select name="job_type" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;background:#fff;box-sizing:border-box;">
-              <option value="">Select a job type</option>
-              <option>Carpentry</option>
-              <option>Plumbing</option>
-              <option>Painting &amp; Plaster</option>
-              <option>Bathrooms</option>
-              <option>Windows &amp; Glazing</option>
-              <option>Outdoor Construction</option>
-              <option>Roofing &amp; Gutters</option>
-              <option>Property Maintenance</option>
-              <option>Other</option>
-            </select>
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Briefly describe what you need (optional)</label>
+            <textarea name="message" rows="3" placeholder="e.g. Full bathroom renovation — need carpentry, plumbing, tiling and painting coordinated by one team" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;resize:vertical;"></textarea>
           </div>
           <!-- Honeypot — hidden from real users via off-screen positioning;
                bots that auto-fill every field will fill this one too. -->
@@ -659,6 +667,7 @@ setTimeout(function () {
       email: form.email.value.trim(),
       suburb: form.suburb.value.trim(),
       job_type: form.job_type.value,
+      message: form.message.value.trim(),
       gclid: form.gclid.value,
       fbclid: form.fbclid.value,
       rtkclickid: form.rtkclickid.value,

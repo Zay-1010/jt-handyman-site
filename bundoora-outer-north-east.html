@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KQXG8LXC');</script>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2423588804792143');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2423588804792143&ev=PageView&noscript=1"
+/></noscript>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Property Repairs Bundoora & Outer North-East Melbourne | JT Handyman</title>
@@ -9,6 +26,9 @@
 <meta property="og:title" content="Property Repairs Bundoora & Outer North-East Melbourne | JT Handyman">
 <meta property="og:description" content="Property repairs, maintenance and renovations for Bundoora, Mill Park, Reservoir, Epping and South Morang. One in-house team, instant estimate.">
 <meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 
 <!-- Google tag (gtag.js) -->
@@ -103,6 +123,7 @@ body.modal-open { overflow:hidden; }
 
 .flow-step{ display:inline-block; background:#fff; border:1px solid #e5e8ec; border-radius:8px; padding:10px 20px; font-weight:600; font-family:"Rajdhani","Rajdhani Fallback","Rubik",sans-serif; font-size:1.05rem; }
 .flow-arrow{ color:#e7161f; font-weight:700; font-size:1.2rem; margin:2px 0; }
+textarea[name="message"]::placeholder{ color:#b3bac2; }
 </style>
 </head>
 <body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -176,6 +197,9 @@ setTimeout(function () {
       </div>
     </div>
     <div class="photo-frame"><img src="img/Bundoora_landscape.jpg" alt="Bundoora, VIC — part of JT's outer north-east service area" loading="lazy"></div>
+  </div>
+  <div class="container text-center" style="margin-top:18px;">
+    <a href="javascript:void(0)" onclick="openCallbackModal();" style="display:inline-flex;align-items:center;gap:8px;background:#fdecea;border:1px solid #f3c6c0;border-radius:999px;padding:.6rem 1.2rem;font-size:.9rem;font-weight:600;color:#c0392b;cursor:pointer;">📞 Short on time? Request a quick callback instead</a>
   </div>
 </section>
 
@@ -309,7 +333,7 @@ setTimeout(function () {
     <h3 style="margin-bottom:8px;">Your time matters. We make the process easier.</h3>
     <p class="lede" style="margin:0 0 4px;">From your first estimate through to the finished job, JT coordinates the work through one team and one point of contact.</p>
     <p style="margin:0 0 16px;font-size:1.15rem;font-weight:700;color:#e7161f;">Less chasing. Less back-and-forth. One team to get it sorted.</p>
-    <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
+    <a href="javascript:void(0)" onclick="openCallbackModal();" class="btn btn-primary">Request a Callback Instead</a>
   </div>
 </section>
 
@@ -398,7 +422,7 @@ setTimeout(function () {
 
 <div class="mobile-bar">
   <a href="tel:1800587659" class="btn btn-ghost">Call now</a>
-  <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get estimate</a>
+  <a href="javascript:void(0)" onclick="openCallbackModal();" class="btn btn-primary">Get a callback</a>
 </div>
 
 <div id="quoteModal" class="qmodal">
@@ -414,8 +438,91 @@ setTimeout(function () {
   </div>
 </div>
 
+<!-- Callback request modal — lightweight alternative to the full
+     estimate flow, for visitors who don't want to upload photos or
+     write a description. Submits straight to a Zapier webhook. -->
+<div id="callbackModal" class="qmodal">
+  <div class="qmodal-backdrop" onclick="closeCallbackModal();"></div>
+  <div class="qmodal-dialog" style="height:auto;max-height:90vh;">
+    <button type="button" class="qmodal-close" aria-label="Close callback form" onclick="closeCallbackModal();">&times;</button>
+    <div style="padding:36px 28px;overflow-y:auto;">
+      <div id="callbackFormWrap">
+        <h3 style="margin-bottom:6px;">Request a callback</h3>
+        <p style="color:#5a6472;font-size:.92rem;margin-bottom:20px;">No photos needed — just leave your details and we'll call you back.</p>
+        <form id="callbackForm" onsubmit="submitCallbackForm(event);">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+            <div>
+              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">First name</label>
+              <input type="text" name="first_name" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+            </div>
+            <div>
+              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Last name</label>
+              <input type="text" name="last_name" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+            <div>
+              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Mobile number</label>
+              <input type="tel" name="mobile" required placeholder="04XX XXX XXX" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+            </div>
+            <div>
+              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Email (optional)</label>
+              <input type="email" name="email" placeholder="you@example.com" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;">
+            <div>
+              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Suburb</label>
+              <input type="text" name="suburb" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+            </div>
+            <div>
+              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">What do you need help with?</label>
+              <select name="job_type" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
+                <option value="">Select a job type</option>
+                <option>Carpentry</option>
+                <option>Plumbing</option>
+                <option>Painting &amp; Plaster</option>
+                <option>Bathrooms</option>
+                <option>Windows &amp; Glazing</option>
+                <option>Outdoor Construction</option>
+                <option>Roofing &amp; Gutters</option>
+                <option>Property Maintenance</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div style="margin-bottom:18px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Briefly describe what you need (optional)</label>
+            <textarea name="message" rows="3" placeholder="e.g. Full bathroom renovation — need carpentry, plumbing, tiling and painting coordinated by one team" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;resize:vertical;"></textarea>
+          </div>
+          <!-- Honeypot — hidden from real users via off-screen positioning;
+               bots that auto-fill every field will fill this one too. -->
+          <div style="position:absolute;left:-9999px;" aria-hidden="true">
+            <label>Leave this field blank</label>
+            <input type="text" name="company_website" tabindex="-1" autocomplete="off">
+          </div>
+          <input type="hidden" name="gclid">
+          <input type="hidden" name="fbclid">
+          <input type="hidden" name="rtkclickid">
+          <input type="hidden" name="landing_page">
+          <input type="hidden" name="all_params">
+          <input type="hidden" name="fbc">
+          <input type="hidden" name="fbp">
+          <div id="callbackFormError" style="display:none;color:#c0392b;font-size:.88rem;margin-bottom:12px;"></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Request My Callback</button>
+        </form>
+      </div>
+      <div id="callbackThankYou" style="display:none;text-align:center;padding:20px 0;">
+        <div style="font-size:2.4rem;margin-bottom:10px;">✓</div>
+        <h3 style="margin-bottom:8px;">Thanks — we'll call you back shortly.</h3>
+        <p style="color:#5a6472;font-size:.92rem;">One of our team will be in touch soon to help sort it out.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
-  function openQuoteModal() {
+  function openQuoteModal(source) {
     var modal = document.getElementById('quoteModal');
     var frame = document.getElementById('quoteFrame');
     if (frame.src === 'about:blank') {
@@ -423,6 +530,16 @@ setTimeout(function () {
     }
     modal.classList.add('open');
     document.body.classList.add('modal-open');
+
+    // Honest click-intent signal — not a completed lead. Uses a custom
+    // event rather than Meta's standard "Lead" event, which should only
+    // fire on a real completed submission.
+    try {
+      if (window.fbq) {
+        fbq('trackCustom', 'QuoteButtonClicked', { button: source || 'unknown' });
+      }
+    } catch (e) {}
+
     if (typeof gtag === 'function') {
       gtag('event', 'quote_modal_opened', {
         page_location: window.location.href,
@@ -444,6 +561,174 @@ setTimeout(function () {
         page_location: window.location.href,
         page_title: document.title
       });
+    }
+  });
+</script>
+
+<script>
+  // ---- Callback form: lightweight alternative to the full estimate
+  // flow. Submits directly to a Zapier webhook, which creates the job
+  // in ServiceM8 with the same click-ID attribution as other leads.
+  // Paste your Zapier "Catch Hook" webhook URL below before going live.
+  var CALLBACK_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/28634189/4mk0dx9/';
+
+  function getUrlParam(name) {
+    var params = new URLSearchParams(window.location.search);
+    return params.get(name) || '';
+  }
+
+  function getCookie(name) {
+    var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    return match ? decodeURIComponent(match[2]) : '';
+  }
+
+  function getRtkClickId() {
+    // rtkclickid is often NOT present on the URL at all — RedTrack's own
+    // tracking script typically stores it client-side instead. Checked
+    // in order: URL param (in case a given campaign does append it),
+    // then RedTrack's documented cookie/localStorage key.
+    var fromUrl = getUrlParam('rtkclickid');
+    if (fromUrl) return fromUrl;
+    var fromCookie = getCookie('rtkclickid-store');
+    if (fromCookie) return fromCookie;
+    try {
+      return window.localStorage.getItem('rtkclickid-store') || '';
+    } catch (e) {
+      return '';
+    }
+  }
+
+  function openCallbackModal() {
+    var form = document.getElementById('callbackForm');
+    form.gclid.value = getUrlParam('gclid');
+    form.fbclid.value = getUrlParam('fbclid');
+    form.rtkclickid.value = getRtkClickId();
+    form.landing_page.value = window.location.href;
+    // Catch-all — different traffic sources append different param sets
+    // (RedTrack's own cmpid/sub1-8, UTM params, etc.), so the full raw
+    // query string is captured as well, not just the three named fields
+    // above. This way nothing is lost regardless of which platform or
+    // redirect chain sent the click.
+    form.all_params.value = window.location.search.replace(/^\?/, '');
+    // Meta's own first-party cookies — same ones Russell's estimate flow
+    // already captures, used to improve Meta Conversions API match quality.
+    form.fbc.value = getCookie('_fbc');
+    form.fbp.value = getCookie('_fbp');
+
+    document.getElementById('callbackModal').classList.add('open');
+    document.body.classList.add('modal-open');
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'callback_form_opened', {
+        page_location: window.location.href,
+        page_title: document.title
+      });
+    }
+  }
+
+  function closeCallbackModal() {
+    document.getElementById('callbackModal').classList.remove('open');
+    document.body.classList.remove('modal-open');
+  }
+
+  function isValidAuMobile(value) {
+    var digits = value.replace(/[\s()-]/g, '');
+    return /^(\+?61|0)4\d{8}$/.test(digits);
+  }
+
+  function submitCallbackForm(e) {
+    e.preventDefault();
+    var form = e.target;
+    var errorBox = document.getElementById('callbackFormError');
+    errorBox.style.display = 'none';
+
+    // Honeypot — if a bot filled this hidden field, pretend success
+    // without actually sending anything to the webhook.
+    if (form.company_website.value) {
+      showCallbackThankYou();
+      return;
+    }
+
+    var mobile = form.mobile.value.trim();
+    if (!isValidAuMobile(mobile)) {
+      errorBox.textContent = 'Please enter a valid Australian mobile number.';
+      errorBox.style.display = 'block';
+      return;
+    }
+
+    var submitBtn = document.getElementById('callbackSubmitBtn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    var payload = {
+      first_name: form.first_name.value.trim(),
+      last_name: form.last_name.value.trim(),
+      mobile: mobile,
+      email: form.email.value.trim(),
+      suburb: form.suburb.value.trim(),
+      job_type: form.job_type.value,
+      message: form.message.value.trim(),
+      gclid: form.gclid.value,
+      fbclid: form.fbclid.value,
+      rtkclickid: form.rtkclickid.value,
+      landing_page: form.landing_page.value,
+      all_params: form.all_params.value,
+      fbc: form.fbc.value,
+      fbp: form.fbp.value,
+      page_title: document.title
+    };
+
+    // Zapier's Catch Hook typically has no CORS headers, so this request
+    // is sent with mode:'no-cors' — meaning we can't read back whether
+    // Zapier actually received it, only whether the request itself was
+    // sent. Test this end-to-end in ServiceM8 before relying on it.
+    // Sent as application/x-www-form-urlencoded rather than JSON —
+    // this is one of the few content types the browser actually allows
+    // through in no-cors mode, and Zapier's Catch Hook parses it into
+    // clean separate fields automatically (JSON arrives as one raw blob).
+    var formBody = Object.keys(payload)
+      .map(function (key) {
+        return encodeURIComponent(key) + '=' + encodeURIComponent(payload[key]);
+      })
+      .join('&');
+
+    fetch(CALLBACK_WEBHOOK_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formBody
+    }).then(function () {
+      handleCallbackSuccess(payload);
+    }).catch(function () {
+      handleCallbackSuccess(payload);
+    });
+  }
+
+  function handleCallbackSuccess(payload) {
+    showCallbackThankYou();
+
+    // Pushed to GTM's dataLayer rather than calling fbq()/gtag()
+    // directly, so Meta's "Lead" event and GA4's "form_submit" event
+    // can be configured as GTM tags triggered off this one event —
+    // this is a real completed lead, not just click-intent.
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push({
+      event: 'callback_form_submit',
+      form_type: 'callback',
+      job_type: payload.job_type,
+      suburb: payload.suburb
+    });
+  }
+
+  function showCallbackThankYou() {
+    document.getElementById('callbackFormWrap').style.display = 'none';
+    document.getElementById('callbackThankYou').style.display = 'block';
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      var cm = document.getElementById('callbackModal');
+      if (cm) closeCallbackModal();
     }
   });
 </script>
