@@ -762,7 +762,7 @@ body.modal-open { overflow:hidden; }
 
 <div class="mobile-bar">
   <a href="tel:1800587659" class="btn btn-ghost">Call now</a>
-  <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get estimate</a>
+  <a href="javascript:void(0)" onclick="openCallbackModal();" class="btn btn-primary">Get a callback</a>
 </div>
 
 <div id="quoteModal" class="qmodal">
@@ -824,6 +824,10 @@ body.modal-open { overflow:hidden; }
               <option>Property Maintenance</option>
               <option>Other</option>
             </select>
+          </div>
+          <div style="margin-bottom:18px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Briefly describe what you need (optional)</label>
+            <textarea name="message" rows="3" placeholder="e.g. Full bathroom renovation — need carpentry, plumbing, tiling and painting coordinated by one team" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;resize:vertical;"></textarea>
           </div>
           <!-- Honeypot — hidden from real users via off-screen positioning;
                bots that auto-fill every field will fill this one too. -->
@@ -959,6 +963,7 @@ body.modal-open { overflow:hidden; }
       email: form.email.value.trim(),
       suburb: form.suburb.value.trim(),
       job_type: form.job_type.value,
+      message: form.message.value.trim(),
       gclid: form.gclid.value,
       fbclid: form.fbclid.value,
       rtkclickid: form.rtkclickid.value,
