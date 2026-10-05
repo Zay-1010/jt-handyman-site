@@ -124,6 +124,18 @@ body.modal-open { overflow:hidden; }
 .flow-step{ display:inline-block; background:#fff; border:1px solid #e5e8ec; border-radius:8px; padding:10px 20px; font-weight:600; font-family:"Rajdhani","Rajdhani Fallback","Rubik",sans-serif; font-size:1.05rem; }
 .flow-arrow{ color:#e7161f; font-weight:700; font-size:1.2rem; margin:2px 0; }
 textarea[name="message"]::placeholder{ color:#b3bac2; }
+/* ---- Estimate / callback choice pair ---- */
+.choice-row{ display:flex; flex-wrap:wrap; gap:14px 18px; margin-bottom:12px; align-items:flex-start; }
+.choice{ display:flex; flex-direction:column; gap:7px; flex:1 1 230px; max-width:280px; }
+.choice .btn{ width:100%; }
+.choice-note{ font-size:.78rem; line-height:1.35; color:var(--slate); text-align:center; }
+.choice-call{ font-size:.9rem; margin:0 0 24px; }
+.choice-call a{ font-weight:700; color:var(--black); text-decoration:underline; }
+.cta-band .choice-row{ justify-content:center; }
+.cta-band .choice-note{ color:rgba(255,255,255,.7); }
+.cta-band .choice-call{ text-align:center; color:rgba(255,255,255,.75); margin-bottom:0; }
+.cta-band .choice-call a{ color:#fff; }
+@media(max-width:720px){ .header-callback{ display:none !important; } }
 </style>
 </head>
 <body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -138,7 +150,8 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
 
     <div class="header-actions">
       <a href="tel:1800587659" class="phone-link">1800 587 659</a>
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
+      <a href="javascript:void(0)" onclick="openCallbackModal('header');" class="btn btn-ghost on-dark header-callback">Request a callback</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('header');" class="btn btn-primary">Get My Free Estimate</a>
     </div>
   </div>
 </header>
@@ -185,11 +198,18 @@ setTimeout(function () {
     <div>
       <span class="eyebrow">South-East &amp; Bayside Melbourne</span>
       <h1>Property repairs &amp; maintenance <span class="accent">for the South-East and Bayside.</span></h1>
-      <p class="lede">JT handles repairs, maintenance and renovations for homeowners across St Kilda, Port Melbourne, Elwood, Caulfield, Bentleigh East, Moorabbin, Brighton, Hampton, Sandringham and Black Rock — through one team and one point of contact</strong>.</p>
-      <div class="cta-row">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
-        <a href="tel:1800587659" class="btn btn-ghost">Call 1800 587 659</a>
+      <p class="lede">JT handles repairs, maintenance and renovations for homeowners across St Kilda, Bentleigh East, Brighton, Elwood, Hampton, Caulfield, Sandringham and Black Rock — through <strong>one team and one point of contact</strong>.</p>
+      <div class="choice-row">
+        <div class="choice">
+          <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('hero');" class="btn btn-primary">Get an Instant Estimate</a>
+          <span class="choice-note">Upload a photo and get your estimate price instantly</span>
+        </div>
+        <div class="choice">
+          <a href="javascript:void(0)" onclick="openCallbackModal('hero');" class="btn btn-ghost">Request a Callback</a>
+          <span class="choice-note">We call you first, estimate follows</span>
+        </div>
       </div>
+      <p class="choice-call">Prefer to talk now? <a href="tel:1800587659">Call 1800 587 659</a></p>
       <div class="chip-row">
         <span class="chip">Regularly working across the south-east &amp; bayside</span>
         <span class="chip">Every trade in-house</span>
@@ -197,9 +217,6 @@ setTimeout(function () {
       </div>
     </div>
     <div class="photo-frame"><img src="img/Elwood_freshly_painted_external_door.jpg" alt="Freshly painted external door with security screen by JT Handyman in Elwood, VIC"></div>
-  </div>
-  <div class="container text-center" style="margin-top:18px;">
-    <a href="javascript:void(0)" onclick="openCallbackModal();" style="display:inline-flex;align-items:center;gap:8px;background:#fdecea;border:1px solid #f3c6c0;border-radius:999px;padding:.6rem 1.2rem;font-size:.9rem;font-weight:600;color:#c0392b;cursor:pointer;">📞 Short on time? Request a quick callback instead</a>
   </div>
 </section>
 
@@ -228,7 +245,7 @@ setTimeout(function () {
       <div class="card"><div class="ph ratio-square"><img src="img/Elwood_bathroom_painting.jpg" alt="Bathroom painting by JT Handyman in Elwood" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Bathroom painting</strong><span>Elwood, VIC</span></div></div>
     </div>
     <div class="text-center" style="margin-top:24px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get My Free Estimate</a>
     </div>
   </div>
 </section>
@@ -248,7 +265,7 @@ setTimeout(function () {
       <div class="card"><div class="card-body"><h3 class="problem-card-label">Multi-Trade Jobs</h3><p>Carpentry, plumbing, painting and plaster — all through one point of contact.</p></div></div>
     </div>
     <div class="text-center cta-row" style="margin-top:28px;justify-content:center;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate Now</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get My Free Estimate Now</a>
       <a href="tel:1800587659" class="btn btn-ghost">Call 1800 587 659</a>
     </div>
   </div>
@@ -273,7 +290,7 @@ setTimeout(function () {
       <p>A property job often touches more than one trade. JT can coordinate the related work through one team instead of you organising multiple tradies.</p>
       <p style="font-weight:700;">No chasing different tradies. One coordinated job.</p>
       <p style="margin-top:16px;">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-ghost" style="font-size:.9rem;">Get My Free Estimate →</a>
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-ghost" style="font-size:.9rem;">Get My Free Estimate →</a>
       </p>
     </div>
   </div>
@@ -322,7 +339,7 @@ setTimeout(function () {
       <div class="text-center"><div class="step-num" style="margin-bottom:12px;">3</div><h3>JT gets it sorted</h3><p>One team coordinates the job from start to finish.</p></div>
     </div>
     <div class="text-center" style="margin-top:28px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get My Free Estimate</a>
     </div>
   </div>
 </section>
@@ -333,7 +350,7 @@ setTimeout(function () {
     <h3 style="margin-bottom:8px;">Your time matters. We make the process easier.</h3>
     <p class="lede" style="margin:0 0 4px;">From your first estimate through to the finished job, JT coordinates the work through one team and one point of contact.</p>
     <p style="margin:0 0 16px;font-size:1.15rem;font-weight:700;color:#e7161f;">Less chasing. Less back-and-forth. One team to get it sorted.</p>
-    <a href="javascript:void(0)" onclick="openCallbackModal();" class="btn btn-primary">Request a Callback Instead</a>
+    <a href="javascript:void(0)" onclick="openCallbackModal('time_section');" class="btn btn-primary">Request a Callback Instead</a>
   </div>
 </section>
 
@@ -342,7 +359,7 @@ setTimeout(function () {
   <div class="container text-center" style="max-width:720px;margin-left:auto;margin-right:auto;">
     <span class="eyebrow">Local relevance</span>
     <h2>Working across the <span class="accent">south-east &amp; bayside</span></h2>
-    <p class="lede">From smaller repairs and maintenance through to multi-trade renovation work, JT's team regularly works across St Kilda, Port Melbourne, Bentleigh East, Moorabbin and surrounding suburbs.</p>
+    <p class="lede">From smaller repairs and maintenance through to multi-trade renovation work, JT's team regularly works across St Kilda, Bentleigh East and surrounding suburbs.</p>
   </div>
   <div class="container">
     <div class="grid grid-3" style="margin-top:28px;">
@@ -379,7 +396,7 @@ setTimeout(function () {
       <h2>South-East &amp; Bayside, answered</h2>
     </div>
     <div class="grid grid-3">
-      <div class="card"><div class="card-body"><h3>Do you service St Kilda, Bentleigh East and the surrounding suburbs?</h3><p>Yes — JT works across St Kilda, Port Melbourne, Elwood, Caulfield, Bentleigh East, Moorabbin, Brighton, Hampton, Sandringham and Black Rock, alongside the rest of Melbourne.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Do you service St Kilda, Bentleigh East and the surrounding suburbs?</h3><p>Yes — JT regularly works across St Kilda, Bentleigh East, Brighton, Elwood, Hampton, Caulfield, Sandringham and Black Rock, alongside the rest of Melbourne.</p></div></div>
       <div class="card"><div class="card-body"><h3>Can you handle a period home or a newer property?</h3><p>Both — JT's team is used to working on a mix of established and newer builds.</p></div></div>
       <div class="card"><div class="card-body"><h3>Do you handle multiple trades on the same job?</h3><p>Yes — carpentry, plumbing, painting and plaster can all be coordinated through one team and one point of contact.</p></div></div>
     </div>
@@ -391,10 +408,17 @@ setTimeout(function () {
   <div class="container cta-band">
     <h2>Ready to get it sorted while we're in the area?</h2>
     <p>Tell us what you need and get your free estimate started today.</p>
-    <div class="cta-row">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate Now</a>
-      <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
+    <div class="choice-row">
+      <div class="choice">
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('final_cta');" class="btn btn-primary">Get an Instant Estimate</a>
+        <span class="choice-note">Upload a photo and get your estimate price instantly</span>
+      </div>
+      <div class="choice">
+        <a href="javascript:void(0)" onclick="openCallbackModal('final_cta');" class="btn btn-ghost on-dark">Request a Callback</a>
+        <span class="choice-note">We call you first, estimate follows</span>
+      </div>
     </div>
+    <p class="choice-call">Prefer to talk now? <a href="tel:1800587659">Call 1800 587 659</a></p>
   </div>
 </section>
 
@@ -410,7 +434,7 @@ setTimeout(function () {
     <p style="margin-top:12px;max-width:480px;margin-left:auto;margin-right:auto;">One team, one point of contact, one-stop shop for property repairs across the South-East &amp; Bayside.</p>
     <p style="margin-top:8px;font-size:.85rem;opacity:.75;">St Kilda · Bentleigh East · Brighton · Elwood · Hampton · Caulfield · Sandringham · Black Rock</p>
     <div class="cta-row" style="justify-content:center;margin-top:20px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('footer');" class="btn btn-primary">Get My Free Estimate</a>
       <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
     </div>
     <div class="footer-bottom" style="margin-top:24px;flex-direction:column;gap:4px;justify-content:center;">
@@ -422,7 +446,7 @@ setTimeout(function () {
 
 <div class="mobile-bar">
   <a href="tel:1800587659" class="btn btn-ghost">Call now</a>
-  <a href="javascript:void(0)" onclick="openCallbackModal();" class="btn btn-primary">Get a callback</a>
+  <a href="javascript:void(0)" onclick="openCallbackModal('sticky_bar');" class="btn btn-primary">Request a callback</a>
 </div>
 
 <div id="quoteModal" class="qmodal">
@@ -542,6 +566,7 @@ setTimeout(function () {
 
     if (typeof gtag === 'function') {
       gtag('event', 'quote_modal_opened', {
+        cta_location: source || 'unknown',
         page_location: window.location.href,
         page_title: document.title
       });
@@ -598,7 +623,7 @@ setTimeout(function () {
     }
   }
 
-  function openCallbackModal() {
+  function openCallbackModal(source) {
     var form = document.getElementById('callbackForm');
     form.gclid.value = getUrlParam('gclid');
     form.fbclid.value = getUrlParam('fbclid');
@@ -618,8 +643,17 @@ setTimeout(function () {
     document.getElementById('callbackModal').classList.add('open');
     document.body.classList.add('modal-open');
 
+    window.__callbackSource = source || 'unknown';
+
+    try {
+      if (window.fbq) {
+        fbq('trackCustom', 'CallbackButtonClicked', { button: source || 'unknown' });
+      }
+    } catch (e) {}
+
     if (typeof gtag === 'function') {
       gtag('event', 'callback_form_opened', {
+        cta_location: source || 'unknown',
         page_location: window.location.href,
         page_title: document.title
       });
@@ -716,7 +750,8 @@ setTimeout(function () {
       event: 'callback_form_submit',
       form_type: 'callback',
       job_type: payload.job_type,
-      suburb: payload.suburb
+      suburb: payload.suburb,
+      cta_location: window.__callbackSource || 'unknown'
     });
   }
 

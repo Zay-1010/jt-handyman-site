@@ -176,6 +176,18 @@ body.modal-open { overflow:hidden; }
 .flow-row{ display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:8px; margin:20px 0; }
 .flow-row .flow-arrow{ color:#e7161f; font-weight:700; }
 textarea[name="message"]::placeholder{ color:#b3bac2; }
+/* ---- Estimate / callback choice pair ---- */
+.choice-row{ display:flex; flex-wrap:wrap; gap:14px 18px; margin-bottom:12px; align-items:flex-start; }
+.choice{ display:flex; flex-direction:column; gap:7px; flex:1 1 230px; max-width:280px; }
+.choice .btn{ width:100%; }
+.choice-note{ font-size:.78rem; line-height:1.35; color:var(--slate); text-align:center; }
+.choice-call{ font-size:.9rem; margin:0 0 24px; }
+.choice-call a{ font-weight:700; color:var(--black); text-decoration:underline; }
+.cta-band .choice-row{ justify-content:center; }
+.cta-band .choice-note{ color:rgba(255,255,255,.7); }
+.cta-band .choice-call{ text-align:center; color:rgba(255,255,255,.75); margin-bottom:0; }
+.cta-band .choice-call a{ color:#fff; }
+@media(max-width:720px){ .header-callback{ display:none !important; } }
 </style>
 </head>
 <body>
@@ -193,7 +205,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="header-actions">
       <a href="tel:1800587659" class="phone-link">1800 587 659</a>
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
+      <a href="javascript:void(0)" onclick="openCallbackModal('header');" class="btn btn-ghost on-dark header-callback">Request a callback</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('header');" class="btn btn-primary">Get My Free Estimate</a>
     </div>
   </div>
 </header>
@@ -236,10 +249,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="eyebrow">Property Repairs &amp; Maintenance · Melbourne-wide</span>
     <h1 style="color:#1a1a1a;">Sick of chasing different tradies for one job?</h1>
     <p class="lede" style="margin:0 auto 28px;">JT brings repairs, maintenance and multiple trades together under <strong>one team and one point of contact</strong>.</p>
-    <div class="cta-row" style="justify-content:center;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
-      <a href="tel:1800587659" class="btn btn-ghost">Call 1800 587 659</a>
+    <div class="choice-row" style="justify-content:center;">
+      <div class="choice">
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('hero');" class="btn btn-primary">Get an Instant Estimate</a>
+        <span class="choice-note">Upload a photo and get your estimate price instantly</span>
+      </div>
+      <div class="choice">
+        <a href="javascript:void(0)" onclick="openCallbackModal('hero');" class="btn btn-ghost">Request a Callback</a>
+        <span class="choice-note">We call you first, estimate follows</span>
+      </div>
     </div>
+    <p class="choice-call" style="text-align:center;">Prefer to talk now? <a href="tel:1800587659">Call 1800 587 659</a></p>
     <div class="google-rating-line">
       <svg viewBox="0 0 24 24" width="20" height="20"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
       <span class="stars-mini">★★★★★</span>
@@ -356,9 +376,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
   </div>
-  <div class="container text-center" style="margin-top:18px;">
-    <a href="javascript:void(0)" onclick="openCallbackModal();" style="display:inline-flex;align-items:center;gap:8px;background:#fdecea;border:1px solid #f3c6c0;border-radius:999px;padding:.6rem 1.2rem;font-size:.9rem;font-weight:600;color:#c0392b;cursor:pointer;">📞 Short on time? Request a quick callback instead</a>
-  </div>
 </section>
 
 <!-- 3. TRUST BAR -->
@@ -388,7 +405,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="card"><div class="card-body"><h3 class="problem-card-label">No One Owns The Whole Job</h3><p>When multiple trades are involved, it can be unclear who is responsible for what.</p></div></div>
     </div>
     <div class="text-center cta-row" style="margin-top:28px;justify-content:center;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate Now</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get My Free Estimate Now</a>
     </div>
   </div>
 </section>
@@ -413,7 +430,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <p style="font-weight:700;">From the first estimate to the final photo, one team coordinates the job.</p>
       <div class="cta-row" style="margin-top:20px;">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get My Free Estimate</a>
       </div>
     </div>
   </div>
@@ -433,7 +450,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="card"><div class="ph ratio-square"><img src="img/work/jt-verandah-posts-carpentry-melbourne.webp" alt="Verandah posts and brackets by JT Handyman in Doncaster" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Verandah works</strong><span>Doncaster, VIC</span></div></div>
     </div>
     <div class="text-center" style="margin-top:24px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get My Free Estimate</a>
     </div>
   </div>
 </section>
@@ -503,7 +520,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2>We don't waste it.</h2>
     <p class="lede" style="margin:0 auto 4px;">One point of contact. Fast estimating. Clear updates. One team coordinating the work.</p>
     <div class="cta-row" style="justify-content:center;">
-      <a href="javascript:void(0)" onclick="openCallbackModal();" class="btn btn-primary">Request a Callback Instead</a>
+      <a href="javascript:void(0)" onclick="openCallbackModal('time_section');" class="btn btn-primary">Request a Callback Instead</a>
     </div>
   </div>
 </section>
@@ -521,7 +538,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="text-center"><div class="step-num" style="margin-bottom:12px;">3</div><h3>JT gets it sorted</h3><p>One team coordinates the work through to completion.</p></div>
     </div>
     <div class="cta-row" style="margin-top:32px;justify-content:center;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get My Free Estimate</a>
     </div>
   </div>
 </section>
@@ -561,7 +578,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="cta-row" style="justify-content:center;margin-top:24px;max-width:800px;margin-left:auto;margin-right:auto;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get My Free Estimate</a>
     </div>
   </div>
 </section>
@@ -620,10 +637,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="eyebrow" style="color:#ff4d55;">Ready to get it sorted?</span>
     <h2 style="color:#fff;">Get your property repairs moving.</h2>
     <p>Tell us what you need and get your free estimate started today.</p>
-    <div class="cta-row">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate Now</a>
-      <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
+    <div class="choice-row">
+      <div class="choice">
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('final_cta');" class="btn btn-primary">Get an Instant Estimate</a>
+        <span class="choice-note">Upload a photo and get your estimate price instantly</span>
+      </div>
+      <div class="choice">
+        <a href="javascript:void(0)" onclick="openCallbackModal('final_cta');" class="btn btn-ghost on-dark">Request a Callback</a>
+        <span class="choice-note">We call you first, estimate follows</span>
+      </div>
     </div>
+    <p class="choice-call">Prefer to talk now? <a href="tel:1800587659">Call 1800 587 659</a></p>
     <p style="margin-top:18px;margin-bottom:0;">One team · One point of contact · Melbourne-wide.</p>
   </div>
 </section>
@@ -640,7 +664,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p style="margin-top:12px;max-width:480px;margin-left:auto;margin-right:auto;">One team, one point of contact, one-stop shop for property repairs &amp; maintenance across Melbourne.</p>
     <p style="margin-top:8px;font-size:.85rem;opacity:.75;">Melbourne-wide · Inner north &amp; east · Bayside &amp; south-east</p>
     <div class="cta-row" style="justify-content:center;margin-top:20px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get My Free Estimate</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('footer');" class="btn btn-primary">Get My Free Estimate</a>
       <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
     </div>
     <div class="footer-bottom" style="margin-top:24px;flex-direction:column;gap:4px;justify-content:center;">
@@ -652,7 +676,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="mobile-bar">
   <a href="tel:1800587659" class="btn btn-ghost">Call now</a>
-  <a href="javascript:void(0)" onclick="openCallbackModal();" class="btn btn-primary">Get a callback</a>
+  <a href="javascript:void(0)" onclick="openCallbackModal('sticky_bar');" class="btn btn-primary">Request a callback</a>
 </div>
 
 <!-- Estimate modal -->
@@ -775,6 +799,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     if (typeof gtag === 'function') {
       gtag('event', 'quote_modal_opened', {
+        cta_location: source || 'unknown',
         page_location: window.location.href,
         page_title: document.title,
         button: source || 'unknown'
@@ -867,7 +892,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   }
 
-  function openCallbackModal() {
+  function openCallbackModal(source) {
     var form = document.getElementById('callbackForm');
     form.gclid.value = getUrlParam('gclid');
     form.fbclid.value = getUrlParam('fbclid');
@@ -887,8 +912,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     document.getElementById('callbackModal').classList.add('open');
     document.body.classList.add('modal-open');
 
+    window.__callbackSource = source || 'unknown';
+
+    try {
+      if (window.fbq) {
+        fbq('trackCustom', 'CallbackButtonClicked', { button: source || 'unknown' });
+      }
+    } catch (e) {}
+
     if (typeof gtag === 'function') {
       gtag('event', 'callback_form_opened', {
+        cta_location: source || 'unknown',
         page_location: window.location.href,
         page_title: document.title
       });
@@ -985,7 +1019,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       event: 'callback_form_submit',
       form_type: 'callback',
       job_type: payload.job_type,
-      suburb: payload.suburb
+      suburb: payload.suburb,
+      cta_location: window.__callbackSource || 'unknown'
     });
   }
 
