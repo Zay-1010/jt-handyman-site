@@ -741,7 +741,7 @@ setTimeout(function () {
   function handleCallbackSuccess(payload) {
     showCallbackThankYou();
 
-    // Pushed to GTM's dataLayer rather than calling fbq()/gtag()
+    if (typeof gtag === 'function') { gtag('event', 'callback_submit', { form_type: 'callback', job_type: payload.job_type, suburb: payload.suburb, cta_location: window.__callbackSource || 'unknown' }); } // Pushed to GTM's dataLayer rather than calling fbq()/gtag()
     // directly, so Meta's "Lead" event and GA4's "form_submit" event
     // can be configured as GTM tags triggered off this one event —
     // this is a real completed lead, not just click-intent.
