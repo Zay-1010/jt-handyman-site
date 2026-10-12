@@ -188,6 +188,11 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
 .cta-band .choice-call{ text-align:center; color:rgba(255,255,255,.75); margin-bottom:0; }
 .cta-band .choice-call a{ color:#fff; }
 @media(max-width:720px){ .header-callback{ display:none !important; } }
+/* Callback option: red outline so it reads as a button (light areas), lighter red on dark for contrast */
+.btn.btn-alt{ border-color:var(--red); color:var(--red); background:#fff; }
+.btn.btn-alt:hover{ background:var(--red); color:#fff; }
+.btn.btn-alt.on-dark{ border-color:var(--red); color:#FF5A5F; background:transparent; }
+.btn.btn-alt.on-dark:hover{ background:var(--red); color:#fff; }
 </style>
 </head>
 <body>
@@ -205,7 +210,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="header-actions">
       <a href="tel:1800587659" class="phone-link">1800 587 659</a>
-      <a href="javascript:void(0)" onclick="openCallbackModal('header');" class="btn btn-ghost on-dark header-callback">Tailored Quote</a>
+      <a href="javascript:void(0)" onclick="openCallbackModal('header');" class="btn btn-ghost on-dark btn-alt header-callback">Tailored Quote</a>
       <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('header');" class="btn btn-primary">Get My Free Estimate</a>
     </div>
   </div>
@@ -255,7 +260,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="choice-note">Enter your details, answer a few quick questions and add a photo. Get your price in minutes.</span>
       </div>
       <div class="choice">
-        <a href="javascript:void(0)" onclick="openCallbackModal('hero');" class="btn btn-ghost">Request a Tailored Quote</a>
+        <a href="javascript:void(0)" onclick="openCallbackModal('hero');" class="btn btn-ghost btn-alt">Request a Tailored Quote</a>
         <span class="choice-note">Happy to wait? Tell us about your job and we'll follow up with your quote within 72 hours.</span>
       </div>
     </div>
@@ -643,7 +648,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="choice-note">Enter your details, answer a few quick questions and add a photo. Get your price in minutes.</span>
       </div>
       <div class="choice">
-        <a href="javascript:void(0)" onclick="openCallbackModal('final_cta');" class="btn btn-ghost on-dark">Request a Tailored Quote</a>
+        <a href="javascript:void(0)" onclick="openCallbackModal('final_cta');" class="btn btn-ghost on-dark btn-alt">Request a Tailored Quote</a>
         <span class="choice-note">Happy to wait? Tell us about your job and we'll follow up with your quote within 72 hours.</span>
       </div>
     </div>
