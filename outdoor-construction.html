@@ -548,13 +548,15 @@ setTimeout(function () {
             <textarea name="message" rows="3" required placeholder="e.g. Full bathroom renovation — need carpentry, plumbing, tiling and painting coordinated by one team" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;resize:vertical;font-family:inherit;"></textarea>
           </div>
           <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Job size (optional)</label>
-            <select name="job_size" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Estimated job size</label>
+            <select name="job_size" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
               <option value="">Select job size</option>
-              <option>One or two small items</option>
-              <option>A few jobs (about a day)</option>
-              <option>Larger project (several days or more)</option>
+              <option>Under $500 (min. $300)</option>
+              <option>Small ($500 – $1,000)</option>
+              <option>Medium ($1,000 – $5,000)</option>
+              <option>Large ($5,000+)</option>
             </select>
+            <p style="margin:6px 0 0;font-size:.78rem;color:#5a6472;">Our minimum job size is $300.</p>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;align-items:end;">
             <div>
