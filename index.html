@@ -482,7 +482,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- 8. REVIEWS -->
-<section class="section band-grey">
+<style>#reviews .review-extra{display:none;}#reviews.show-all .review-extra{display:block;}</style>
+<section class="section band-grey" id="reviews" style="scroll-margin-top:80px;">
   <div class="container" style="max-width:none;">
     <div class="section-head" style="max-width:760px;margin-left:auto;margin-right:auto;">
       <span class="eyebrow">What clients say</span>
@@ -490,7 +491,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="google-rating-line">
         <svg viewBox="0 0 24 24" width="20" height="20"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
         <span class="stars-mini">★★★★★</span>
-        <p style="margin:0;">Rated <strong>5.0</strong> across dozens of Melbourne reviews.</p>
+        <p style="margin:0;"><strong>5.0</strong> from <strong>90+</strong> Google reviews</p>
       </div>
     </div>
     <div class="grid grid-2" style="gap:20px;max-width:900px;margin:24px auto 0;">
@@ -514,6 +515,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <blockquote>They repaired a damaged door frame the same day it was reported. Their fast response time made all the difference.</blockquote>
         <cite>Priya S<span>Property Manager</span></cite>
       </div>
+      <div class="docket review-extra">
+        <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+        <blockquote>Excellent customer service from start to end. Had my roof repaired and had to call back for warranty works, which Glenn came back within a few days to complete. Would definitely use this company again and recommend to others.</blockquote>
+        <cite>Nada B.<span>Roof repair</span></cite>
+      </div>
+      <div class="docket review-extra">
+        <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+        <blockquote>A great experience with JT Handymen… such expertise and willingness to achieve the best outcome for our works. Thoroughly recommend these guys.</blockquote>
+        <cite>Sayanan S.<span>Interior painting</span></cite>
+      </div>
+      <div class="docket review-extra">
+        <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+        <blockquote>The estimation process was incredibly easy and friendly, and once I accepted the estimate the team was onsite before I even expected them. Their workmanship was excellent, and they made the whole process feel easy and stress‑free.</blockquote>
+        <cite>Lee-Anne<span>Homeowner</span></cite>
+      </div>
+      <div class="docket review-extra">
+        <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+        <blockquote>Extremely efficient admin, reliable handyman, outstanding service. Very happy and highly recommend.</blockquote>
+        <cite>Vivien R.<span>Homeowner</span></cite>
+      </div>
+      <div class="docket review-extra">
+        <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+        <blockquote>Easy process of explaining what work I needed done, to getting a quote and then having the work completed.</blockquote>
+        <cite>Lou I.<span>Homeowner</span></cite>
+      </div>
+      <div class="docket review-extra">
+        <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+        <blockquote>Every single tradie was professional, friendly, courteous and very respectful. They listened to what I wanted and went above and beyond to deliver. The work site was left in a clean and tidy condition. I am over the moon with the end result.</blockquote>
+        <cite>Liz T.<span>General construction</span></cite>
+      </div>
+    </div>
+    <div class="text-center" style="margin-top:24px;">
+      <button type="button" id="moreReviewsBtn" class="btn btn-ghost" style="cursor:pointer;" onclick="document.getElementById('reviews').classList.add('show-all');this.style.display='none';">Show more reviews</button>
     </div>
   </div>
 </section>
@@ -707,8 +741,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <button type="button" class="qmodal-close" aria-label="Close callback form" onclick="closeCallbackModal();">&times;</button>
     <div style="padding:36px 28px;overflow-y:auto;">
       <div id="callbackFormWrap">
-        <h3 style="margin-bottom:6px;">Request a Tailored Quote</h3>
-        <p style="color:#5a6472;font-size:.92rem;margin-bottom:20px;">No photos needed. Tell us about the job and we'll follow up within 72 hours. Need a price now? <a href="javascript:void(0)" onclick="closeCallbackModal(); fireRedTrackClick(); openQuoteModal('callback_popup');" style="font-weight:700;color:inherit;text-decoration:underline;">Use the instant estimate.</a></p>
+        <h3 style="margin-bottom:6px;">Get your property jobs quoted without the back-and-forth</h3>
+        <p style="color:#5a6472;font-size:.92rem;margin-bottom:20px;">No photos needed. Tell us what needs doing around your property and we'll follow up within 72 hours.</p>
         <form id="callbackForm" onsubmit="submitCallbackForm(event);">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
             <div>
@@ -770,8 +804,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div style="margin-bottom:14px;">
             <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Estimated job size</label>
-            <select name="job_size" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
+            <select name="job_size" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
               <option value="">Select job size</option>
+              <option>Under $500 (min. $300)</option>
               <option>Small ($500 – $1,000)</option>
               <option>Medium ($1,000 – $5,000)</option>
               <option>Large ($5,000+)</option>
@@ -813,7 +848,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <input type="hidden" name="fbc">
           <input type="hidden" name="fbp">
           <div id="callbackFormError" style="display:none;color:#c0392b;font-size:.88rem;margin-bottom:12px;"></div>
-          <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Send My Details</button>
+          <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Get My Tailored Quote</button>
+          <p style="margin:10px 0 0;font-size:.8rem;color:#5a6472;text-align:center;">We'll follow up within 72 hours with your tailored quote and next steps.</p>
+          <p style="margin:14px 0 0;font-size:.78rem;color:#7b8591;text-align:center;">Need a rough cost now? <a href="javascript:void(0)" onclick="closeCallbackModal(); fireRedTrackClick(); openQuoteModal('callback_popup');" style="color:inherit;text-decoration:underline;">Try our instant estimate.</a></p>
         </form>
       </div>
       <div id="callbackThankYou" style="display:none;text-align:center;padding:20px 0;">
