@@ -138,12 +138,13 @@ p{ font-size:1.02rem; line-height:1.65; }
 .header-actions .btn{ white-space:nowrap; padding:.7rem 1.4rem; margin-left:14px; }
 .video-card{ border:2px solid #0c0d0f !important; box-shadow:none !important; padding:0 !important; background:transparent !important; }
 .video-card video, .video-card img{ border:0 !important; }
+.header-inner{ padding-left:24px !important; padding-right:24px !important; }
 @media(max-width:560px){
-  .header-inner{ position:relative; padding-left:14px; padding-right:14px; }
-  .brand{ margin-left:2px; }
+  .header-inner{ position:relative; padding-left:16px !important; padding-right:16px !important; }
+  .brand{ margin-left:0; }
   .header-actions{ gap:10px; }
   .header-actions .phone-link{ display:none; }
-  .header-actions .btn{ margin-left:0; padding:.6rem 1rem; font-size:.85rem; }
+  .header-actions .btn{ margin-left:0; padding:.55rem .9rem; font-size:.78rem; letter-spacing:.04em; }
 }
 
 /* ---- Instant estimate modal (matches real LP behavior) ---- */
@@ -491,7 +492,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-ghost btn-alt" style="width:100%;text-align:center;">Get a Rough Estimate</a>
         <p class="enq-note">Answer a few quick questions (about 5 steps) and you'll see a starting price range. Adding a photo at the end sends it to JT. Some jobs need a closer look at access, materials or condition before we can give a firm quote. If your estimator quote differs from the written quote, that's usually why.</p>
       </div>
-      <div class="enq-card">
+      <div class="enq-card" id="jobBriefCard" style="scroll-margin-top:92px;">
         <div id="callbackFormWrap">
           <h3>Get your property jobs quoted without the back-and-forth</h3>
           <p style="color:#5a6472;font-size:.95rem;margin-bottom:6px;">Some jobs can't be priced from a photo. Tell us what needs doing and our team will contact you within 48 hours. No photos needed.</p>
@@ -1076,7 +1077,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   function openCallbackModal(source) {
     prepareCallbackForm();
     window.__callbackSource = source || 'unknown';
-    var target = document.getElementById('start');
+    var target = document.getElementById('jobBriefCard') || document.getElementById('start');
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     try {
