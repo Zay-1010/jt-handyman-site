@@ -187,7 +187,7 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
 .cta-band .choice-note{ color:rgba(255,255,255,.7); }
 .cta-band .choice-call{ text-align:center; color:rgba(255,255,255,.75); margin-bottom:0; }
 .cta-band .choice-call a{ color:#fff; }
-@media(max-width:720px){ .header-callback{ display:none !important; } }
+@media(max-width:720px){ .header-brief{ display:none !important; } }
 /* Callback option: red outline so it reads as a button (light areas), lighter red on dark for contrast */
 .btn.btn-alt{ border-color:var(--red); color:var(--red); background:#fff; }
 .btn.btn-alt:hover{ background:var(--red); color:#fff; }
@@ -253,6 +253,7 @@ h2{ font-size:clamp(1.7rem,3.4vw,2.6rem) !important; letter-spacing:.005em; }
 .enq-card{ border:1.5px solid #d9d5cc; border-top:4px solid var(--red); }
 .enq-card .enq-note{ border-top:1px solid #e3dfd6; padding-top:14px; margin-top:18px; }
 #callbackFormWrap > h3 + p{ padding-left:14px; border-left:3px solid var(--red); }
+}
 .form-step{ padding-bottom:10px; border-bottom:1px solid #e3dfd6; }
 .proof-shots{ gap:18px; }
 .proof-shots img{ border-radius:14px; border:0; box-shadow:0 20px 40px -26px rgba(12,13,15,.45); }
@@ -282,6 +283,8 @@ h2{ font-size:clamp(1.7rem,3.4vw,2.6rem) !important; letter-spacing:.005em; }
 .hero2 .choice-note{ color:rgba(255,255,255,.62); text-align:left; }
 .hero2 .btn.btn-alt{ background:transparent; color:#fff; border-color:var(--red); }
 .hero2 .btn.btn-alt:hover{ background:var(--red); color:#fff; border-color:var(--red); }
+.site-header .btn.btn-alt{ color:#fff; background:transparent; }
+.site-header .btn.btn-alt:hover{ background:var(--red); }
 .hero2 .choice-call{ color:rgba(255,255,255,.7); text-align:left; margin:6px 0 26px; }
 .hero2 .choice-call a{ color:#fff; }
 .hero2 .chip-row{ justify-content:flex-start; margin:0; }
@@ -328,7 +331,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="header-actions">
       <a href="tel:1800587659" class="phone-link">1800 587 659</a>
       <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('header');" class="btn btn-ghost on-dark btn-alt header-callback">Get a Rough Estimate</a>
-      <a href="javascript:void(0)" onclick="openCallbackModal('header');" class="btn btn-primary">Start My Job Brief</a>
+      <a href="javascript:void(0)" onclick="openCallbackModal('header');" class="btn btn-primary header-brief">Start My Job Brief</a>
     </div>
   </div>
 </header>
