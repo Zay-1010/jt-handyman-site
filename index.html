@@ -267,6 +267,45 @@ h2{ font-size:clamp(1.7rem,3.4vw,2.6rem) !important; letter-spacing:.005em; }
 .faq-item{ border-radius:14px; border-color:var(--hair); }
 .faq-q span:first-child{ font-weight:600; }
 .cta-band h2{ max-width:16em; margin-left:auto; margin-right:auto; }
+
+/* ---- Dark photographic hero ---- */
+.hero2{ background:radial-gradient(900px 520px at 8% 0%, rgba(229,37,42,.20), transparent 62%), #0c0d0f; color:#fff; padding:clamp(32px,4vw,56px) 0 clamp(48px,6vw,88px); }
+.hero2-grid{ display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(32px,5vw,72px); align-items:center; max-width:1160px; margin:0 auto; padding:0 24px; }
+.hero2 h1{ color:#fff; text-align:left; max-width:none; margin:0 0 .45em; font-size:clamp(2.1rem,4vw,3.3rem) !important; line-height:1.05 !important; }
+.hero2 .lede{ color:rgba(255,255,255,.74); text-align:left; margin:0 0 28px; max-width:27em; font-size:clamp(1rem,1.3vw,1.15rem) !important; }
+.hero2 .eyebrow{ display:block; text-align:left; margin-bottom:14px; }
+.hero2 .choice-row{ justify-content:flex-start; }
+.hero2 .choice-note{ color:rgba(255,255,255,.62); text-align:left; }
+.hero2 .btn.btn-alt{ background:transparent; color:#fff; border-color:rgba(255,255,255,.5); }
+.hero2 .btn.btn-alt:hover{ background:#fff; color:#0c0d0f; border-color:#fff; }
+.hero2 .choice-call{ color:rgba(255,255,255,.7); text-align:left; margin:6px 0 26px; }
+.hero2 .choice-call a{ color:#fff; }
+.hero2 .chip-row{ justify-content:flex-start; margin:0; }
+.hero2 .chip{ color:rgba(255,255,255,.88); }
+.collage{ position:relative; display:grid; grid-template-columns:1.15fr 1fr; grid-template-rows:1fr 1fr; gap:12px; aspect-ratio:1/.95; }
+.collage img{ width:100%; height:100%; object-fit:cover; border-radius:20px; display:block; }
+.collage .big{ grid-row:1 / 3; }
+.rating-card{ position:absolute; left:-30px; bottom:26px; background:#fff; color:#0c0d0f; border-radius:16px; padding:14px 18px; box-shadow:0 28px 54px -22px rgba(0,0,0,.7); max-width:290px; }
+.rating-card .top{ display:flex; flex-wrap:wrap; align-items:center; gap:2px 8px; font-size:.9rem; line-height:1.3; }
+.rating-card .top svg{ flex:none; }
+.rating-card .stars-mini{ color:#fcbf18; letter-spacing:1px; }
+.rating-card p{ margin:6px 0 0; font-size:.84rem; line-height:1.4; color:#3a4350; }
+.rating-card p span{ display:block; color:#6b7480; font-size:.78rem; margin-top:2px; }
+@media(max-width:900px){
+  .hero2-grid{ grid-template-columns:1fr; }
+  .collage{ aspect-ratio:4/3.2; }
+  .rating-card{ left:12px; bottom:12px; max-width:240px; padding:10px 14px; }
+  .rating-card p{ display:none; }
+}
+/* ---- Photo service tiles ---- */
+.svc-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; max-width:1020px; margin:0 auto; }
+.svc-tile{ position:relative; border-radius:18px; overflow:hidden; aspect-ratio:4/3; background:#0c0d0f; }
+.svc-tile img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+.svc-tile:hover img{ transform:scale(1.04); }
+.svc-tile::after{ content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(12,13,15,.8), rgba(12,13,15,0) 58%); }
+.svc-tile h3{ position:absolute; left:20px; bottom:16px; z-index:2; color:#fff !important; margin:0; font-size:1.25rem !important; }
+@media(max-width:820px){ .svc-grid{ grid-template-columns:1fr 1fr; } }
+@media(max-width:520px){ .svc-grid{ grid-template-columns:1fr; } .svc-tile{ aspect-ratio:16/10; } }
 </style>
 </head>
 <body>
@@ -323,32 +362,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- 2. HERO -->
 <main>
 
-<section class="hero band-white text-center">
-  <div class="container" style="max-width:900px;text-align:center;">
-    <span class="eyebrow">Property Repairs &amp; Maintenance · Melbourne-wide</span>
-    <h1 style="color:#1a1a1a;">Stop managing repairs yourself. Get one team to own the job.</h1>
-    <p class="lede" style="margin:0 auto 28px;">Carpentry, plumbing, painting, plaster and electrical, coordinated by one team. For Melbourne homeowners with work ready to go ahead.</p>
-    <div class="choice-row" style="justify-content:center;">
-      <div class="choice">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('hero');" class="btn btn-primary">Get a Rough Estimate</a>
-        <span class="choice-note">Upload a photo, submit, and see a starting range in minutes.</span>
+<section class="hero2">
+  <div class="hero2-grid">
+    <div>
+      <h1>Stop managing repairs yourself. Get one team to own the job.</h1>
+      <p class="lede">Carpentry, plumbing, painting, plaster and electrical, coordinated by one team. For Melbourne homeowners with work ready to go ahead.</p>
+      <div class="choice-row">
+        <div class="choice">
+          <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('hero');" class="btn btn-primary">Get a Rough Estimate</a>
+          <span class="choice-note">Upload a photo, submit, and see a starting range in minutes.</span>
+        </div>
+        <div class="choice">
+          <a href="javascript:void(0)" onclick="openCallbackModal('hero');" class="btn btn-ghost btn-alt">Start My Job Brief</a>
+          <span class="choice-note">Complex job? No photos needed. Our team will contact you within 48 hours.</span>
+        </div>
       </div>
-      <div class="choice">
-        <a href="javascript:void(0)" onclick="openCallbackModal('hero');" class="btn btn-ghost btn-alt">Start My Job Brief</a>
-        <span class="choice-note">Complex job? No photos needed. Our team will contact you within 48 hours.</span>
+      <p class="choice-call">Prefer to talk now? <a href="tel:1800587659">Call 1800 587 659</a></p>
+      <div class="chip-row">
+        <span class="chip">One point of contact</span>
+        <span class="chip">Multi-trade team</span>
+        <span class="chip">Workmanship guarantee</span>
       </div>
     </div>
-    <p class="choice-call" style="text-align:center;">Prefer to talk now? <a href="tel:1800587659">Call 1800 587 659</a></p>
-    <div class="google-rating-line">
-      <svg viewBox="0 0 24 24" width="20" height="20"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-      <span class="stars-mini">★★★★★</span>
-      <p style="margin:0;"><strong>5.0</strong> from <strong>90+</strong> Google reviews</p>
-    </div>
-    <p class="hero-quote">“One of the most professional companies that have ever done work for me.”<span>Daniel R, Real Estate Agent</span></p>
-    <div class="chip-row" style="justify-content:center;margin-top:18px;">
-      <span class="chip">One point of contact</span>
-      <span class="chip">Multi-trade team</span>
-      <span class="chip">Workmanship guarantee</span>
+    <div class="collage">
+      <img class="big" src="img/Carpentry_kitchen_complete.jpg" alt="Finished kitchen carpentry and cabinetry by JT" width="1400" height="1050">
+      <img src="img/Bathroom_finished_vanity_joinery.jpg" alt="Finished bathroom vanity and joinery by JT" width="1400" height="1050">
+      <img src="img/Richmond_pergola_wide.jpg" alt="Timber pergola built by JT in Richmond" width="896" height="672">
+      <div class="rating-card">
+        <div class="top"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg><span class="stars-mini">★★★★★</span><strong>5.0</strong> from 90+ Google reviews</div>
+        <p>“One of the most professional companies that have ever done work for me.”<span>Daniel R, Real Estate Agent</span></p>
+      </div>
     </div>
   </div>
 </section>
@@ -375,6 +418,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="cta-row" style="justify-content:center;margin-top:24px;max-width:800px;margin-left:auto;margin-right:auto;">
       <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get a Rough Estimate</a>
       <a href="javascript:void(0)" onclick="openCallbackModal('mid_page');" class="btn btn-ghost btn-alt">Start My Job Brief</a>
+    </div>
+  </div>
+</section>
+
+<!-- 6. TRUST BAR -->
+<section class="section band-dark" style="padding-top:32px;padding-bottom:32px;">
+  <div class="container">
+    <div class="grid grid-4">
+      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">10,000+</span><p style="margin:0;">Jobs completed</p></div>
+      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">500+</span><p style="margin:0;">Melbourne suburbs</p></div>
+      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">1</span><p style="margin:0;">Point of contact</p></div>
+      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">5.0★</span><p style="margin:0;">Google rated</p></div>
     </div>
   </div>
 </section>
@@ -497,14 +552,111 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- 6. TRUST BAR -->
-<section class="section band-dark" style="padding-top:32px;padding-bottom:32px;">
-  <div class="container">
-    <div class="grid grid-4">
-      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">10,000+</span><p style="margin:0;">Jobs completed</p></div>
-      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">500+</span><p style="margin:0;">Melbourne suburbs</p></div>
-      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">1</span><p style="margin:0;">Point of contact</p></div>
-      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">5.0★</span><p style="margin:0;">Google rated</p></div>
+<!-- JOBS CAROUSEL -->
+<section style="background:#fff;padding:clamp(40px,5vw,64px) 0;overflow:hidden;">
+  <div class="testi-marquee-wrap" style="margin-top:0;">
+    <div class="testi-marquee" style="animation-duration:42s;gap:14px;">
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-finished-bathroom-vanity-melbourne.webp" alt="Bathroom vanity renovation, Reservoir VIC" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Bathroom vanity renovation<br><span style="opacity:.65;">Reservoir, VIC</span></div>
+      </div>
+      <div style="flex:0 0 auto;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-vj-panelling-shelves-melbourne.jpg" alt="VJ panelling and floating shelves by JT Handyman in Pascoe Vale" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">VJ panelling &amp; shelving<br><span style="opacity:.65;">Pascoe Vale, VIC</span></div>
+      </div>
+      <div style="flex:0 0 auto;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-freshly-painted-door-albert-park.jpg" alt="Freshly painted white panel door by JT Handyman in Albert Park" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Freshly painted door<br><span style="opacity:.65;">Albert Park, VIC</span></div>
+      </div>
+      <div style="flex:0 0 auto;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-restored-period-plasterwork-thornbury.webp" alt="Restored period plasterwork by JT Handyman in Thornbury" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Restored period plasterwork<br><span style="opacity:.65;">Thornbury, VIC</span></div>
+      </div>
+      <div style="flex:0 0 auto;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-black-framed-window-melbourne.jpg" alt="New black-framed window by JT Handyman in Brighton East" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">New black-framed window<br><span style="opacity:.65;">Brighton East, VIC</span></div>
+      </div>
+      <div style="flex:0 0 auto;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-kitchen-sink-gooseneck-tap-melbourne.jpg" alt="Kitchen sink and gooseneck tap installed by JT Handyman" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Kitchen sink &amp; tap<br><span style="opacity:.65;">Melbourne, VIC</span></div>
+      </div>
+      <div style="flex:0 0 auto;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/deck painting & staining.png" alt="New timber decking by JT Handyman" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">New timber decking<br><span style="opacity:.65;">Melbourne, VIC</span></div>
+      </div>
+      <div style="flex:0 0 auto;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-finished-timber-floor-melbourne.webp" alt="Hybrid timber flooring install, Brunswick VIC" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Hybrid timber flooring install<br><span style="opacity:.65;">Brunswick, VIC</span></div>
+      </div>
+      <div style="flex:0 0 auto;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/Bundoora_Roofing.jpg" alt="Roof sheeting installation by JT Handyman in Bundoora" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Roof sheeting installation<br><span style="opacity:.65;">Bundoora, VIC</span></div>
+      </div>
+      <div style="flex:0 0 auto;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-tiled-shower-glass-screen-melbourne.webp" alt="Tiled shower and glass screen, East Melbourne VIC" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Tiled shower &amp; glass screen<br><span style="opacity:.65;">East Melbourne, VIC</span></div>
+      </div>
+      <!-- duplicate set for seamless loop -->
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-finished-bathroom-vanity-melbourne.webp" alt="Bathroom vanity renovation, Reservoir VIC" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Bathroom vanity renovation<br><span style="opacity:.65;">Reservoir, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-vj-panelling-shelves-melbourne.jpg" alt="VJ panelling and floating shelves by JT Handyman in Pascoe Vale" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">VJ panelling &amp; shelving<br><span style="opacity:.65;">Pascoe Vale, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-freshly-painted-door-albert-park.jpg" alt="Freshly painted white panel door by JT Handyman in Albert Park" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Freshly painted door<br><span style="opacity:.65;">Albert Park, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-restored-period-plasterwork-thornbury.webp" alt="Restored period plasterwork by JT Handyman in Thornbury" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Restored period plasterwork<br><span style="opacity:.65;">Thornbury, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-black-framed-window-melbourne.jpg" alt="New black-framed window by JT Handyman in Brighton East" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">New black-framed window<br><span style="opacity:.65;">Brighton East, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-kitchen-sink-gooseneck-tap-melbourne.jpg" alt="Kitchen sink and gooseneck tap installed by JT Handyman" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Kitchen sink &amp; tap<br><span style="opacity:.65;">Melbourne, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/deck painting & staining.png" alt="New timber decking by JT Handyman" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">New timber decking<br><span style="opacity:.65;">Melbourne, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-finished-timber-floor-melbourne.webp" alt="Hybrid timber flooring install, Brunswick VIC" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Hybrid timber flooring install<br><span style="opacity:.65;">Brunswick, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/Bundoora_Roofing.jpg" alt="Roof sheeting installation by JT Handyman in Bundoora" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Roof sheeting installation<br><span style="opacity:.65;">Bundoora, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-tiled-shower-glass-screen-melbourne.webp" alt="Tiled shower and glass screen, East Melbourne VIC" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Tiled shower &amp; glass screen<br><span style="opacity:.65;">East Melbourne, VIC</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -587,20 +739,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="section band-white">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">One-stop property repairs</span>
       <h2 style="max-width:700px;margin-left:auto;margin-right:auto;">Whatever needs fixing, <span class="accent">we've got a team for it.</span></h2>
     </div>
-    <div class="svc-grid">
-      <div class="card"><div class="card-body"><h3>Carpentry &amp; Repairs</h3></div></div>
-      <div class="card"><div class="card-body"><h3>Plumbing</h3></div></div>
-      <div class="card"><div class="card-body"><h3>Painting &amp; Plaster</h3></div></div>
-      <div class="card"><div class="card-body"><h3>Bathrooms</h3></div></div>
-      <div class="card"><div class="card-body"><h3>Windows &amp; Glazing</h3></div></div>
-      <div class="card"><div class="card-body"><h3>Outdoor Construction</h3></div></div>
-      <div class="card"><div class="card-body"><h3>Roofing &amp; Gutters</h3></div></div>
-      <div class="card"><div class="card-body"><h3>Electrical</h3></div></div>
-      <div class="card"><div class="card-body"><h3>Property Maintenance</h3></div></div>
-    </div>
+    <div class="svc-grid"><div class="svc-tile"><img src="img/Carpentry_kitchen_complete.jpg" alt="" loading="lazy"><h3>Carpentry &amp; Repairs</h3></div><div class="svc-tile"><img src="img/Plumbing_basin_wall_mixer.jpg" alt="" loading="lazy"><h3>Plumbing</h3></div><div class="svc-tile"><img src="img/Elwood_freshly_painted_external_door.jpg" alt="" loading="lazy"><h3>Painting &amp; Plaster</h3></div><div class="svc-tile"><img src="img/Bathroom_finished_vanity_joinery.jpg" alt="" loading="lazy"><h3>Bathrooms</h3></div><div class="svc-tile"><img src="img/Windows_awning_window.jpg" alt="" loading="lazy"><h3>Windows &amp; Glazing</h3></div><div class="svc-tile"><img src="img/Caulfield_pergola_timber_structure.jpg" alt="" loading="lazy"><h3>Outdoor Construction</h3></div><div class="svc-tile"><img src="img/Mount_Waverley_roofline_gutter.jpg" alt="" loading="lazy"><h3>Roofing &amp; Gutters</h3></div><div class="svc-tile"><img src="img/Northcote_bright-finished-room-with-downlights_2025-09-07_job-4750%20(1).jpg" alt="" loading="lazy"><h3>Electrical</h3></div><div class="svc-tile"><img src="img/Hawthorn_garden_shed_hero.jpg" alt="" loading="lazy"><h3>Property Maintenance</h3></div></div>
   </div>
 </section>
 
