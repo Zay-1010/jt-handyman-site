@@ -250,6 +250,10 @@ h2{ font-size:clamp(1.7rem,3.4vw,2.6rem) !important; letter-spacing:.005em; }
 .enq-card input, .enq-card select, .enq-card textarea{ border-radius:10px !important; border-color:#dcd9d2 !important; padding:12px 14px !important; }
 .enq-card input:focus, .enq-card select:focus, .enq-card textarea:focus{ outline:2px solid var(--red); outline-offset:1px; border-color:var(--red) !important; }
 .form-step{ margin:26px 0 12px; }
+.enq-card{ border:1.5px solid #d9d5cc; border-top:4px solid var(--red); }
+.enq-card .enq-note{ border-top:1px solid #e3dfd6; padding-top:14px; margin-top:18px; }
+#callbackFormWrap > h3 + p{ padding-left:14px; border-left:3px solid var(--red); }
+.form-step{ padding-bottom:10px; border-bottom:1px solid #e3dfd6; }
 .proof-shots{ gap:18px; }
 .proof-shots img{ border-radius:14px; border:0; box-shadow:0 20px 40px -26px rgba(12,13,15,.45); }
 .proof-video .vwrap{ border-radius:20px; border:0; box-shadow:0 30px 60px -30px rgba(12,13,15,.5); }
@@ -374,7 +378,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="choice">
           <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('hero');" class="btn btn-ghost btn-alt">Get a Rough Estimate</a>
-          <span class="choice-note">Upload a photo, submit, and see a starting range in minutes.</span>
+          <span class="choice-note">See a starting range in minutes. Add a photo to send it to JT.</span>
         </div>
       </div>
       <p class="choice-call">Prefer to talk now? <a href="tel:1800587659">Call 1800 587 659</a></p>
@@ -482,24 +486,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h3>Get a rough cost estimate in minutes</h3>
         <p>See a starting price range, then confirm the full scope with JT. Best for jobs you can photograph.</p>
         <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-ghost btn-alt" style="width:100%;text-align:center;">Get a Rough Estimate</a>
-        <p class="enq-note">The instant estimate gives you a starting range based on the photos and details you share. Some jobs need a closer look at access, materials or condition before we can give a firm quote. If your estimator quote differs from the written quote, that's usually why.</p>
+        <p class="enq-note">Answer a few quick questions (about 5 steps) and you'll see a starting price range. Adding a photo at the end sends it to JT. Some jobs need a closer look at access, materials or condition before we can give a firm quote. If your estimator quote differs from the written quote, that's usually why.</p>
       </div>
       <div class="enq-card">
         <div id="callbackFormWrap">
           <h3>Get your property jobs quoted without the back-and-forth</h3>
           <p style="color:#5a6472;font-size:.95rem;margin-bottom:6px;">Some jobs can't be priced from a photo. Tell us what needs doing and our team will contact you within 48 hours. No photos needed.</p>
           <form id="callbackForm" onsubmit="submitCallbackForm(event);">
-          <p class="form-step"><span>1</span> What do you need done?</p>
+          <p class="form-step"><span>1</span> What do you need help with?</p>
           <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Service</label>
-            <select name="job_type" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Select a service</option><option>Property maintenance</option><option>Doors &amp; windows</option><option>Roofing &amp; gutters</option><option>Painting &amp; plaster repairs</option><option>Bathroom &amp; kitchen repairs</option><option>Plumbing</option><option>Electrical</option><option>Decks, fencing &amp; outdoor</option><option>Flooring &amp; tiling</option><option>Pre-sale repairs &amp; renovations</option><option>Compliance &amp; safety</option><option>Insurance &amp; emergency repairs</option><option>Multiple jobs (send us your list)</option><option>Other</option></select>
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">What type of repair or maintenance do you need help with?</label>
+            <select name="job_type" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Choose the closest match</option><option>Property maintenance</option><option>Doors &amp; windows</option><option>Roofing &amp; gutters</option><option>Painting &amp; plaster repairs</option><option>Bathroom &amp; kitchen repairs</option><option>Plumbing</option><option>Electrical</option><option>Decks, fencing &amp; outdoor</option><option>Flooring &amp; tiling</option><option>Pre-sale repairs &amp; renovations</option><option>Compliance &amp; safety</option><option>Insurance &amp; emergency repairs</option><option>Multiple jobs (send us your list)</option><option>Other</option></select>
           </div>
           <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Briefly describe the job</label>
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Tell us what's going on</label>
             <textarea name="message" rows="3" required placeholder="e.g. Full bathroom renovation — need carpentry, plumbing, tiling and painting coordinated by one team" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;resize:vertical;font-family:inherit;"></textarea>
           </div>
 
-          <p class="form-step"><span>2</span> Job value and timing</p>
+          <p class="form-step"><span>2</span> How big is it, and how soon?</p>
           <div style="margin-bottom:14px;">
             <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Estimated job value</label>
             <select name="job_size" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
@@ -513,7 +517,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Property type (optional)</label><select name="property_type" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Select</option><option>Owner-occupier</option><option>Landlord</option><option>Property manager</option></select></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Timeframe (optional)</label><select name="timeframe" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Select</option><option>ASAP</option><option>Within 2 weeks</option><option>Within a month</option><option>Just getting prices</option></select></div></div>
 
-          <p class="form-step"><span>3</span> Your details</p>
+          <p class="form-step"><span>3</span> Where should we send your next step?</p>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">First name</label><input type="text" name="first_name" required autocomplete="given-name" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Last name</label><input type="text" name="last_name" required autocomplete="family-name" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Mobile number</label><input type="tel" name="mobile" required autocomplete="tel" placeholder="04XX XXX XXX" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Email (optional)</label><input type="email" name="email" autocomplete="email" placeholder="you@example.com" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
           <div style="margin-bottom:14px;">
