@@ -207,8 +207,6 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
 .proof-video .cap{ text-align:center; font-weight:600; margin:10px 0 0; font-size:.95rem; }
 .proof-shots{ columns:2; column-gap:16px; }
 .proof-shots img{ width:100%; height:auto; display:block; border-radius:10px; border:1px solid #e0e4e8; break-inside:avoid; margin:0 0 16px; }
-#reviews .review-extra{ display:none; }
-#reviews.show-all .review-extra{ display:block; }
 @media(max-width:820px){ .proof-video{ max-width:340px; } .proof-shots{ columns:1; } }
 .enq-grid{ display:grid; grid-template-columns:5fr 7fr; gap:24px; max-width:1020px; margin:28px auto 0; align-items:start; }
 @media(max-width:860px){ .enq-grid{ grid-template-columns:1fr; } }
@@ -320,9 +318,11 @@ h2{ font-size:clamp(1.7rem,3.4vw,2.6rem) !important; letter-spacing:.005em; }
 @media(max-width:820px){ .svc-grid{ grid-template-columns:1fr 1fr; } }
 @media(max-width:520px){ .svc-grid{ grid-template-columns:1fr; } .svc-tile{ aspect-ratio:16/10; } }
 .proof-one{ columns:1; max-width:860px; margin:0 auto 20px; }
-.review-cards{ display:block; columns:2; column-gap:20px; max-width:1000px; margin:0 auto; }
-@media(max-width:820px){ .review-cards{ columns:1; } }
-.review-cards .docket{ background:#fff; border:1.5px solid #d9d5cc; border-top:4px solid var(--red); border-radius:16px; padding:24px 26px; box-shadow:0 10px 26px -18px rgba(12,13,15,.35); break-inside:avoid; margin:0 0 20px; }
+.review-cards{ display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch; max-width:1000px; margin:0 auto; }
+@media(max-width:820px){ .review-cards{ grid-template-columns:1fr; } }
+.review-cards .docket{ background:#fff; border:1.5px solid #d4d0c6; border-top:4px solid var(--red); border-radius:16px; padding:24px 26px; box-shadow:0 10px 26px -16px rgba(12,13,15,.4); margin:0; display:flex; flex-direction:column; }
+.review-cards .docket cite{ margin-top:auto; }
+@media(min-width:821px){ .review-cards .docket-wide{ grid-column:1 / -1; } .review-cards .docket-wide blockquote{ max-width:60em; } }
 #reviews .review-cards{ background:transparent; }
 .review-cards .docket blockquote{ font-size:.98rem; line-height:1.5; }
 .review-cards .docket cite span{ display:block; font-weight:400; color:#5a6472; font-size:.8rem; margin-top:2px; }
@@ -508,10 +508,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <img src="img/testimonial-juanita-email.png" alt="Email from a client thanking the JT team for the excellent work on her ensuite and naming the two team members who did the job." width="860" height="170" loading="lazy">
       </div>
       <div class="grid grid-2 review-cards">
-        <div class="docket">
+        <div class="docket docket-wide">
           <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
           <blockquote>My experience from start to finish was nothing short of fantastic! From my first contact with Jodi at JT Handyman Solutionz to the end result. Every single tradie was professional, friendly, courteous and very respectful. They listened to what I wanted and went above and beyond to deliver. The end result was beyond my expectations! The tradies had a good eye for detail, used quality materials and maintained open communication at all times. The work site was left in a clean and tidy condition. Highly recommend their services. Thank you JT Handyman Solutionz, I am over the moon with the end result 😍</blockquote>
           <cite>Liz Thompson<span>General construction</span></cite>
+        </div>
+        <div class="docket">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>The estimation process was incredibly easy and friendly, and once I accepted the estimate the team was onsite before I even expected them. Their workmanship was excellent, and they made the whole process feel easy and stress‑free.</blockquote>
+          <cite>Lee-Anne<span>Homeowner</span></cite>
         </div>
         <div class="docket">
           <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
@@ -520,38 +525,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="docket">
           <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
-          <blockquote>A great experience with JT Handymen...such expertise and willingness to achieve the best outcome for our works...thank you so much Alexei and Monty! Thoroughly recommend these guys 😉</blockquote>
-          <cite>Sayanan Srishanmuganathan<span>Paint indoors</span></cite>
-        </div>
-        <div class="docket">
-          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
-          <blockquote>The estimation process was incredibly easy and friendly, and once I accepted the estimate the team was onsite before I even expected them. Their workmanship was excellent, and they made the whole process feel easy and stress‑free.</blockquote>
-          <cite>Lee-Anne<span>Homeowner</span></cite>
-        </div>
-        <div class="docket review-extra">
-          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
-          <blockquote>Jason was on time friendly and just got the job done! Very happy</blockquote>
-          <cite>Sharon Donnellan<span>Home maintenance &amp; repairs</span></cite>
-        </div>
-        <div class="docket review-extra">
-          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
-          <blockquote>Easy process of explaining what work I needed done, to getting a quote and then having the work completed.</blockquote>
-          <cite>Lou Italia<span>General construction</span></cite>
-        </div>
-        <div class="docket review-extra">
-          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
-          <blockquote>Extremely efficient admin, reliable handyman, outstanding service. Very happy and highly recommend.</blockquote>
-          <cite>Vivien R.<span>Homeowner</span></cite>
-        </div>
-        <div class="docket review-extra">
-          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
           <blockquote>One of the most professional companies that have ever done work for me. Jabez leads his team efficiently and moves systematically throughout the job, completing everything in the timeframe you require.</blockquote>
           <cite>Daniel R<span>Real Estate Agent</span></cite>
         </div>
+        <div class="docket">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>A great experience with JT Handymen...such expertise and willingness to achieve the best outcome for our works...thank you so much Alexei and Monty! Thoroughly recommend these guys 😉</blockquote>
+          <cite>Sayanan Srishanmuganathan<span>Paint indoors</span></cite>
+        </div>
       </div>
-    </div>
-    <div class="text-center" style="margin-top:24px;">
-      <button type="button" id="moreReviewsBtn" class="btn btn-ghost" style="cursor:pointer;" onclick="document.getElementById('reviews').classList.add('show-all');this.style.display='none';">Show more reviews</button>
     </div>
   </div>
 </section>
@@ -573,7 +555,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ol>
         <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-ghost btn-alt" style="width:100%;text-align:center;">Get a Rough Estimate</a>
         <p class="enq-note">A rough guide only. Some jobs need a closer look before we can give a firm quote.</p>
-        <div class="est-photo"><img src="img/Bathroom_tiled_shower_bath.jpg" alt="Finished tiled shower and bathroom by JT" width="1195" height="896" loading="lazy"></div>
+        <div class="est-photo"><img src="img/jt-kitchen-complete.jpg" alt="Finished kitchen by JT with white cabinetry, tiled splashback and timber flooring" width="1050" height="1400" loading="lazy"></div>
       </div>
       <div class="enq-card" id="jobBriefCard" style="scroll-margin-top:92px;">
         <div id="callbackFormWrap">
