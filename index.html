@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -23,7 +24,7 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=2423588804792143&ev=PageView&noscript=1"
 /></noscript>
-<meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>JT Handyman Solutionz — Property Repairs & Maintenance, One Team. Get a Rough Estimate.</title>
 <meta name="description" content="Sick of chasing multiple trades? JT is your one team, one point of contact, one-stop shop for property repairs and maintenance across Melbourne. Get a rough estimate in minutes, or send a job brief and our team will contact you within 48 hours.">
@@ -343,6 +344,20 @@ h2{ font-size:clamp(1.7rem,3.4vw,2.6rem) !important; letter-spacing:.005em; }
 #callbackForm > div{ margin-bottom:18px !important; }
 #callbackForm label{ margin-bottom:6px !important; }
 #callbackForm [style*="grid"]{ gap:18px 14px !important; }
+/* Hero buttons: a bit smaller on desktop; estimate = white outline, red on hover */
+@media(min-width:721px){
+  .hero2 .choice{ max-width:282px; flex:0 0 auto; }
+  .hero2 .choice .btn{ width:236px; padding:13px 18px; font-size:.82rem; }
+  .hero2 .choice-row{ gap:14px 24px; margin-bottom:20px; }
+  .hero2 .choice{ gap:14px; }
+  .hero2 .choice-note{ line-height:1.5; font-size:.82rem; }
+  .hero2 h1{ margin-bottom:.6em; }
+  .hero2 .lede{ line-height:1.65; margin-bottom:36px; }
+  .hero2 .choice-call{ margin:26px 0 30px; }
+  .hero2 .chip-row{ gap:10px 16px; }
+}
+.hero2 .btn.btn-alt{ border-color:rgba(255,255,255,.85); }
+.hero2 .btn.btn-alt:hover{ background:var(--red); border-color:var(--red); }
 /* Phones: headline sized to fit, with more breathing room between lines and blocks */
 @media(max-width:560px){
   .hero2{ padding-top:26px; padding-bottom:40px; }
