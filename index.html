@@ -249,7 +249,8 @@ h2{ font-size:clamp(1.7rem,3.4vw,2.6rem) !important; letter-spacing:.005em; }
 .choice-note{ font-size:.82rem; color:#5f6772; }
 .card{ border:1px solid var(--hair); border-radius:16px; box-shadow:0 1px 2px rgba(12,13,15,.04); overflow:hidden; }
 .enq-card{ border-radius:20px; border:1px solid var(--hair); padding:clamp(24px,3.2vw,40px); box-shadow:0 40px 70px -40px rgba(12,13,15,.28); }
-.enq-card input, .enq-card select, .enq-card textarea{ border-radius:10px !important; border-color:#dcd9d2 !important; padding:12px 14px !important; }
+.enq-card input, .enq-card select, .enq-card textarea{ border-radius:10px !important; border:1.5px solid #cdd1d6 !important; background:#fff !important; padding:12px 14px !important; }
+.enq-card input:focus, .enq-card select:focus, .enq-card textarea:focus{ border-color:#e7161f !important; background:#fff !important; outline:none; }
 .enq-card input:focus, .enq-card select:focus, .enq-card textarea:focus{ outline:2px solid var(--red); outline-offset:1px; border-color:var(--red) !important; }
 .form-step{ margin:18px 0 10px; }
 .enq-card{ border:1.5px solid #d9d5cc; border-top:4px solid var(--red); }
@@ -319,8 +320,10 @@ h2{ font-size:clamp(1.7rem,3.4vw,2.6rem) !important; letter-spacing:.005em; }
 @media(max-width:820px){ .svc-grid{ grid-template-columns:1fr 1fr; } }
 @media(max-width:520px){ .svc-grid{ grid-template-columns:1fr; } .svc-tile{ aspect-ratio:16/10; } }
 .proof-one{ columns:1; max-width:860px; margin:0 auto 20px; }
-.review-cards{ display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start; max-width:1000px; margin:0 auto; }
-@media(max-width:820px){ .review-cards{ grid-template-columns:1fr; } }
+.review-cards{ display:block; columns:2; column-gap:20px; max-width:1000px; margin:0 auto; }
+@media(max-width:820px){ .review-cards{ columns:1; } }
+.review-cards .docket{ background:#fff; border:1.5px solid #d9d5cc; border-top:4px solid var(--red); border-radius:16px; padding:24px 26px; box-shadow:0 10px 26px -18px rgba(12,13,15,.35); break-inside:avoid; margin:0 0 20px; }
+#reviews .review-cards{ background:transparent; }
 .review-cards .docket blockquote{ font-size:.98rem; line-height:1.5; }
 .review-cards .docket cite span{ display:block; font-weight:400; color:#5a6472; font-size:.8rem; margin-top:2px; }
 @media(min-width:1440px){ .proof-one,.review-cards{ max-width:1200px; } }
@@ -520,6 +523,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <blockquote>A great experience with JT Handymen...such expertise and willingness to achieve the best outcome for our works...thank you so much Alexei and Monty! Thoroughly recommend these guys 😉</blockquote>
           <cite>Sayanan Srishanmuganathan<span>Paint indoors</span></cite>
         </div>
+        <div class="docket">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>The estimation process was incredibly easy and friendly, and once I accepted the estimate the team was onsite before I even expected them. Their workmanship was excellent, and they made the whole process feel easy and stress‑free.</blockquote>
+          <cite>Lee-Anne<span>Homeowner</span></cite>
+        </div>
         <div class="docket review-extra">
           <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
           <blockquote>Jason was on time friendly and just got the job done! Very happy</blockquote>
@@ -529,11 +537,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
           <blockquote>Easy process of explaining what work I needed done, to getting a quote and then having the work completed.</blockquote>
           <cite>Lou Italia<span>General construction</span></cite>
-        </div>
-        <div class="docket review-extra">
-          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
-          <blockquote>The estimation process was incredibly easy and friendly, and once I accepted the estimate the team was onsite before I even expected them. Their workmanship was excellent, and they made the whole process feel easy and stress‑free.</blockquote>
-          <cite>Lee-Anne<span>Homeowner</span></cite>
         </div>
         <div class="docket review-extra">
           <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
