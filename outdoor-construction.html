@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Decks, Fencing & Outdoor Construction Melbourne | JT Handyman</title>
-<meta name="description" content="Decks, fencing, pergolas and outdoor structures across Melbourne — new builds, repairs and restoration. One in-house team, instant estimate.">
+<meta name="description" content="Decks, fencing, pergolas and outdoor structures across Melbourne — new builds, repairs and restoration. One coordinated team, rough estimate in minutes.">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Decks, Fencing & Outdoor Construction Melbourne | JT Handyman">
-<meta property="og:description" content="Decks, fencing, pergolas and outdoor structures across Melbourne — new builds, repairs and restoration. One in-house team, instant estimate.">
+<meta property="og:description" content="Decks, fencing, pergolas and outdoor structures across Melbourne — new builds, repairs and restoration. One coordinated team, rough estimate in minutes.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -127,12 +127,25 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
 .cta-band .choice-note{ color:rgba(255,255,255,.7); }
 .cta-band .choice-call{ text-align:center; color:rgba(255,255,255,.75); margin-bottom:0; }
 .cta-band .choice-call a{ color:#fff; }
-@media(max-width:720px){ .header-callback{ display:none !important; } }
+@media(max-width:720px){ .header-brief{ display:none !important; } }
 /* Callback option: red outline so it reads as a button (light areas), lighter red on dark for contrast */
 .btn.btn-alt{ border-color:var(--red); color:var(--red); background:#fff; }
 .btn.btn-alt:hover{ background:var(--red); color:#fff; }
 .btn.btn-alt.on-dark{ border-color:var(--red); color:#FF5A5F; background:transparent; }
 .btn.btn-alt.on-dark:hover{ background:var(--red); color:#fff; }
+/* ---- Wide screens (1440px+) ---- */
+@media(min-width:1440px){ :root{ --container:1360px; } .job-ticker-inner{ max-width:1360px; padding:0 24px; } }
+@media(min-width:1800px){ :root{ --container:1560px; } .job-ticker-inner{ max-width:1560px; } }
+/* ---- CTA band spacing ---- */
+.cta-band .choice-row{ gap:20px 24px; margin-bottom:0; }
+.cta-band .choice{ flex:0 0 290px; max-width:290px; align-items:center; gap:12px; }
+.cta-band .choice .btn{ width:230px; padding-left:18px; padding-right:18px; }
+.cta-band .choice-note{ font-size:.82rem; line-height:1.5; }
+.cta-band .choice-call{ margin-top:30px; }
+@media(max-width:720px){ .cta-band .choice-row{ flex-direction:column; align-items:center; gap:22px; } .cta-band .choice{ flex:0 0 auto; width:100%; max-width:320px; } .cta-band .choice .btn{ width:240px; } .cta-band .choice-call{ margin-top:26px; } }
+.grid.faq-flex{ display:flex !important; flex-wrap:wrap; justify-content:center; gap:24px; }
+.grid.faq-flex .card{ flex:0 1 calc((100% - 48px)/3) !important; }
+@media(max-width:900px){ .grid.faq-flex .card{ flex:1 1 100% !important; } }
 </style>
 </head>
 <body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -147,8 +160,8 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
 
     <div class="header-actions">
       <a href="tel:1800587659" class="phone-link">1800 587 659</a>
-      <a href="javascript:void(0)" onclick="openCallbackModal('header');" class="btn btn-ghost on-dark btn-alt header-callback">Tailored Quote</a>
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('header');" class="btn btn-primary">Get My Free Estimate</a>
+      <a href="javascript:void(0)" onclick="openCallbackModal('header');" class="btn btn-primary header-brief">Start My Job Brief</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('header');" class="btn btn-ghost on-dark btn-alt">Get a Rough Estimate</a>
     </div>
   </div>
 </header>
@@ -171,14 +184,14 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
     if (!res.ok) throw new Error('Failed to load jobs');
     const data = await res.json();
     if (!data.jobs || data.jobs.length === 0) {
-      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant estimate today.</span>';
+      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get a rough estimate today.</span>';
       return;
     }
     const itemsHtml = data.jobs.map(job => `<span class="job-ticker-item">${job.category} · ${job.suburb} · ${job.date}</span>`).join('');
     track.innerHTML = `<div class="job-ticker-marquee">${itemsHtml}${itemsHtml}</div>`;
   } catch (err) {
     console.error('Job ticker error:', err);
-    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant estimate today.</span>';
+    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get a rough estimate today.</span>';
   }
 })();
 
@@ -207,17 +220,17 @@ setTimeout(function () {
       <p class="lede">JT handles outdoor construction and repairs through <strong>one coordinated team</strong>.</p>
       <div class="choice-row">
         <div class="choice">
-          <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('hero');" class="btn btn-primary">Get an Instant Estimate</a>
-          <span class="choice-note">Enter your details, answer a few quick questions and add a photo. Get your price in minutes.</span>
+          <a href="javascript:void(0)" onclick="openCallbackModal('hero');" class="btn btn-primary">Start My Job Brief</a>
+          <span class="choice-note">Can't take a photo? We reply within 48 hours.</span>
         </div>
         <div class="choice">
-          <a href="javascript:void(0)" onclick="openCallbackModal('hero');" class="btn btn-ghost btn-alt">Request a Tailored Quote</a>
-          <span class="choice-note">Happy to wait? Tell us about your job and we'll follow up with your quote within 72 hours.</span>
+          <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('hero');" class="btn btn-ghost btn-alt">Get a Rough Estimate</a>
+          <span class="choice-note">See a starting range in minutes.</span>
         </div>
       </div>
       <p class="choice-call">Prefer to talk now? <a href="tel:1800587659">Call 1800 587 659</a></p>
       <div class="chip-row">
-        <span class="chip">Every trade in-house</span>
+        <span class="chip">One coordinated team</span>
         <span class="chip">Built to last outdoors</span>
         <span class="chip">Workmanship guaranteed</span>
       </div>
@@ -252,7 +265,7 @@ setTimeout(function () {
       <div class="card"><div class="card-body"><h3 class="problem-card-label">Pergolas &amp; Verandahs</h3><p>Create or improve an outdoor space with a pergola, verandah or other structure.</p></div></div>
     </div>
     <div class="text-center cta-row" style="margin-top:28px;justify-content:center;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get My Free Estimate Now</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get a Rough Estimate</a>
       <a href="tel:1800587659" class="btn btn-ghost">Call 1800 587 659</a>
     </div>
   </div>
@@ -271,7 +284,7 @@ setTimeout(function () {
       <div class="card"><div class="ph ratio-square"><img src="img/Caulfield_finished-slatted-steel-pergola-roof.jpg" alt="Finished slatted steel pergola roof by JT Handyman in Caulfield" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Slatted steel pergola roof</strong><span>Caulfield, VIC</span></div></div>
     </div>
     <div class="text-center" style="margin-top:24px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get My Free Estimate Now</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get a Rough Estimate</a>
     </div>
   </div>
 </section>
@@ -295,7 +308,7 @@ setTimeout(function () {
       <p>An outdoor project often involves more than one trade — decking, fencing, carpentry and a paint or stain finish. JT can coordinate the related work through one team instead of you organising multiple tradies.</p>
       <p style="font-weight:700;">No chasing different tradies. One coordinated job.</p>
       <p style="margin-top:16px;">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-ghost" style="font-size:.9rem;">Get My Free Estimate Now →</a>
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-ghost" style="font-size:.9rem;">Get a Rough Estimate →</a>
       </p>
     </div>
   </div>
@@ -344,7 +357,7 @@ setTimeout(function () {
       <div class="text-center"><div class="step-num" style="margin-bottom:12px;">3</div><h3>JT gets it sorted</h3><p>One team coordinates the job from start to finish.</p></div>
     </div>
     <div class="text-center" style="margin-top:28px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get My Free Estimate Now</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get a Rough Estimate</a>
     </div>
   </div>
 </section>
@@ -410,10 +423,13 @@ setTimeout(function () {
       <span class="eyebrow">Common questions</span>
       <h2>Outdoor construction, answered</h2>
     </div>
-    <div class="grid grid-3">
+    <div class="grid grid-3 faq-flex">
       <div class="card"><div class="card-body"><h3>Can you repair an existing deck or fence, or only build new?</h3><p>Both — from a full new build through to repairing or restoring what's already there, we'll assess what your job actually needs.</p></div></div>
       <div class="card"><div class="card-body"><h3>Do you handle council permits or approvals?</h3><p>We'll let you know upfront if your job needs council approval and can guide you through what's required.</p></div></div>
       <div class="card"><div class="card-body"><h3>Can you match new fencing or decking to what's already there?</h3><p>Where possible, yes — we'll try to match existing materials and style so new work blends with the rest of the property.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Do I need to send photos or have a site visit?</h3><p>For a written quote, upload a photo at the end of the rough estimate and send it to JT. If you can't take one, send a job brief and our team will contact you within 48 hours.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Why might my written quote differ from the online estimate?</h3><p>The online estimate is a starting range. Footings, access and materials can change it, so our written quote confirms the full scope.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Is the work guaranteed?</h3><p>Yes. Every job is backed by our workmanship guarantee. If something isn't right, we make it right.</p></div></div>
     </div>
   </div>
 </section>
@@ -422,15 +438,15 @@ setTimeout(function () {
 <section class="section band-dark">
   <div class="container cta-band">
     <h2>Ready to get your outdoor space sorted?</h2>
-    <p>Tell us what you need built, repaired or replaced and get your free estimate started today.</p>
+    <p>Tell us what you need built, repaired or replaced and get started today.</p>
     <div class="choice-row">
       <div class="choice">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('final_cta');" class="btn btn-primary">Get an Instant Estimate</a>
-        <span class="choice-note">Enter your details, answer a few quick questions and add a photo. Get your price in minutes.</span>
+        <a href="javascript:void(0)" onclick="openCallbackModal('final_cta');" class="btn btn-primary">Start My Job Brief</a>
+        <span class="choice-note">Can't take a photo? We reply within 48 hours.</span>
       </div>
       <div class="choice">
-        <a href="javascript:void(0)" onclick="openCallbackModal('final_cta');" class="btn btn-ghost on-dark btn-alt">Request a Tailored Quote</a>
-        <span class="choice-note">Happy to wait? Tell us about your job and we'll follow up with your quote within 72 hours.</span>
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('final_cta');" class="btn btn-ghost on-dark btn-alt">Get a Rough Estimate</a>
+        <span class="choice-note">See a starting range in minutes.</span>
       </div>
     </div>
     <p class="choice-call">Prefer to talk now? <a href="tel:1800587659">Call 1800 587 659</a></p>
@@ -449,8 +465,8 @@ setTimeout(function () {
     <p style="margin-top:12px;max-width:480px;margin-left:auto;margin-right:auto;">One team, one point of contact, one-stop shop for outdoor construction and repairs across Melbourne.</p>
     <p style="margin-top:8px;font-size:.85rem;opacity:.75;">Melbourne-wide · Inner north &amp; east · Bayside &amp; south-east</p>
     <div class="cta-row" style="justify-content:center;margin-top:20px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('footer');" class="btn btn-primary">Get My Free Estimate</a>
-      <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
+      <a href="javascript:void(0)" onclick="openCallbackModal('footer');" class="btn btn-primary">Start My Job Brief</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('footer');" class="btn btn-ghost on-dark">Get a Rough Estimate</a>
     </div>
     <div class="footer-bottom" style="margin-top:24px;flex-direction:column;gap:4px;justify-content:center;">
       <span>JT Handyman Solutionz · 1800 587 659 · Unit 42/2 Cobham St, Reservoir VIC 3073 · ABN 14 686 830 473</span>
@@ -461,7 +477,7 @@ setTimeout(function () {
 
 <div class="mobile-bar">
   <a href="tel:1800587659" class="btn btn-ghost">Call now</a>
-  <a href="javascript:void(0)" onclick="openCallbackModal('sticky_bar');" class="btn btn-primary">Tailored Quote</a>
+  <a href="javascript:void(0)" onclick="openCallbackModal('sticky_bar');" class="btn btn-primary">Start My Job Brief</a>
 </div>
 
 <div id="quoteModal" class="qmodal">
@@ -486,8 +502,8 @@ setTimeout(function () {
     <button type="button" class="qmodal-close" aria-label="Close callback form" onclick="closeCallbackModal();">&times;</button>
     <div style="padding:36px 28px;overflow-y:auto;">
       <div id="callbackFormWrap">
-        <h3 style="margin-bottom:6px;">Request a Tailored Quote</h3>
-        <p style="color:#5a6472;font-size:.92rem;margin-bottom:20px;">No photos needed. Tell us about the job and we'll follow up within 72 hours. Need a price now? <a href="javascript:void(0)" onclick="closeCallbackModal(); fireRedTrackClick(); openQuoteModal('callback_popup');" style="font-weight:700;color:inherit;text-decoration:underline;">Use the instant estimate.</a></p>
+        <h3 style="margin-bottom:6px;">Start My Job Brief</h3>
+        <p style="color:#5a6472;font-size:.92rem;margin-bottom:20px;">We'd love a photo of the job. Can't take one? Tell us what needs doing. <a href="javascript:void(0)" onclick="closeCallbackModal(); fireRedTrackClick(); openQuoteModal('callback_popup');" style="font-weight:700;color:inherit;text-decoration:underline;">Try the rough estimate.</a></p>
         <form id="callbackForm" onsubmit="submitCallbackForm(event);">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
             <div>
@@ -502,16 +518,16 @@ setTimeout(function () {
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
             <div>
               <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Mobile number</label>
-              <input type="tel" name="mobile" required placeholder="04XX XXX XXX" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+              <input type="tel" name="mobile" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
             </div>
             <div>
               <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Email (optional)</label>
-              <input type="email" name="email" placeholder="you@example.com" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+              <input type="email" name="email" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
             </div>
           </div>
           <div style="margin-bottom:14px;">
             <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Street address</label>
-            <input type="text" name="address" required autocomplete="street-address" placeholder="e.g. 12 Smith Street" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+            <input type="text" name="address" required autocomplete="street-address" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
             <div>
@@ -520,7 +536,7 @@ setTimeout(function () {
             </div>
             <div>
               <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Postcode</label>
-              <input type="text" name="postcode" required inputmode="numeric" maxlength="4" autocomplete="postal-code" placeholder="3000" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+              <input type="text" name="postcode" required inputmode="numeric" maxlength="4" autocomplete="postal-code" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
             </div>
           </div>
           <div style="margin-bottom:14px;">
@@ -545,18 +561,18 @@ setTimeout(function () {
           </div>
           <div style="margin-bottom:14px;">
             <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">What needs doing and roughly how big is the job?</label>
-            <textarea name="message" rows="3" required placeholder="e.g. Full bathroom renovation — need carpentry, plumbing, tiling and painting coordinated by one team" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;resize:vertical;font-family:inherit;"></textarea>
+            <textarea name="message" rows="3" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;resize:vertical;font-family:inherit;"></textarea>
           </div>
           <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Estimated job size</label>
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Estimated job value</label>
             <select name="job_size" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
-              <option value="">Select job size</option>
-              <option>Under $500 (min. $300)</option>
-              <option>Small ($500 – $1,000)</option>
-              <option>Medium ($1,000 – $5,000)</option>
-              <option>Large ($5,000+)</option>
+              <option value="">Select job value</option>
+              <option>Small job: $600–$1,000</option>
+              <option>Medium job: $1,000–$3,000</option>
+              <option>Larger job: $3,000–$10,000</option>
+              <option>Major project: $10,000+</option>
             </select>
-            <p style="margin:6px 0 0;font-size:.78rem;color:#5a6472;">Our minimum job size is $300.</p>
+            <p style="margin:6px 0 0;font-size:.78rem;color:#5a6472;">Jobs generally start from $600.</p>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;align-items:end;">
             <div>
@@ -592,14 +608,15 @@ setTimeout(function () {
           <input type="hidden" name="all_params">
           <input type="hidden" name="fbc">
           <input type="hidden" name="fbp">
+          <input type="hidden" name="lead_type" value="tailored_quote">
           <div id="callbackFormError" style="display:none;color:#c0392b;font-size:.88rem;margin-bottom:12px;"></div>
-          <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Send My Details</button>
+          <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Start My Job Brief</button>
         </form>
       </div>
       <div id="callbackThankYou" style="display:none;text-align:center;padding:20px 0;">
         <div style="font-size:2.4rem;margin-bottom:10px;">✓</div>
-        <h3 style="margin-bottom:8px;">Thanks! We'll be in touch within 72 hours.</h3>
-        <p style="color:#5a6472;font-size:.92rem;">One of our team will be in touch soon to help sort it out.</p>
+        <h3 style="margin-bottom:8px;">Thanks, we've got your job brief.</h3>
+        <p style="color:#5a6472;font-size:.92rem;">Our team will contact you within 48 hours.</p>
       </div>
     </div>
   </div>
@@ -773,6 +790,7 @@ setTimeout(function () {
       all_params: form.all_params.value,
       fbc: form.fbc.value,
       fbp: form.fbp.value,
+      lead_type: form.lead_type.value,
       page_title: document.title
     };
 
