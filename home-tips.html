@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -23,7 +24,7 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=2423588804792143&ev=PageView&noscript=1"
 /></noscript>
-<meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Summer Home Checklist for Melbourne Homeowners | JT Handyman Solutionz</title>
 <meta name="description" content="8 things to check, fix or freshen up around your home before Christmas. Plus one team to take care of everything on your list.">
@@ -187,12 +188,23 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
 .cta-band .choice-note{ color:rgba(255,255,255,.7); }
 .cta-band .choice-call{ text-align:center; color:rgba(255,255,255,.75); margin-bottom:0; }
 .cta-band .choice-call a{ color:#fff; }
-@media(max-width:720px){ .header-callback{ display:none !important; } }
+.cta-band h2{ margin-bottom:28px; }
+.cta-band .choice-row{ gap:20px 24px; margin-bottom:0; }
+.cta-band .choice{ flex:1 1 260px; max-width:300px; gap:12px; }
+.cta-band .choice-note{ font-size:.82rem; line-height:1.5; }
+.cta-band .choice-call{ margin-top:30px; }
+.cta-band .choice{ flex:0 0 290px; max-width:290px; align-items:center; }
+.cta-band .choice .btn{ width:230px; padding-left:18px; padding-right:18px; }
+@media(max-width:720px){ .cta-band .choice-row{ flex-direction:column; align-items:center; gap:22px; } .cta-band .choice{ flex:0 0 auto; width:100%; max-width:320px; } .cta-band .choice .btn{ width:240px; } .cta-band .choice-call{ margin-top:26px; } }
+@media(max-width:720px){ .header-brief{ display:none !important; } }
 /* Callback option: red outline so it reads as a button (light areas), lighter red on dark for contrast */
 .btn.btn-alt{ border-color:var(--red); color:var(--red); background:#fff; }
 .btn.btn-alt:hover{ background:var(--red); color:#fff; }
 .btn.btn-alt.on-dark{ border-color:var(--red); color:#FF5A5F; background:transparent; }
 .btn.btn-alt.on-dark:hover{ background:var(--red); color:#fff; }
+/* ---- Wide screens (1440px+): use the extra width instead of a narrow centred column ---- */
+@media(min-width:1440px){ :root{ --container:1360px; } .job-ticker-inner{ max-width:1360px; padding:0 24px; } }
+@media(min-width:1800px){ :root{ --container:1560px; } .job-ticker-inner{ max-width:1560px; } }
 </style>
 </head>
 <body>
@@ -210,8 +222,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="header-actions">
       <a href="tel:1800587659" class="phone-link">1800 587 659</a>
-      <a href="javascript:void(0)" onclick="openCallbackModal('header');" class="btn btn-ghost on-dark btn-alt header-callback">Tailored Quote</a>
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('header');" class="btn btn-primary">Get My Free Estimate</a>
+      <a href="javascript:void(0)" onclick="openCallbackModal('header');" class="btn btn-primary header-brief">Start My Job Brief</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('header');" class="btn btn-ghost on-dark btn-alt">Get a Rough Estimate</a>
     </div>
   </div>
 </header>
@@ -234,14 +246,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (!res.ok) throw new Error('Failed to load jobs');
     const data = await res.json();
     if (!data.jobs || data.jobs.length === 0) {
-      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant estimate today.</span>';
+      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get a rough estimate today.</span>';
       return;
     }
     const itemsHtml = data.jobs.map(job => `<span class="job-ticker-item">${job.category} · ${job.suburb} · ${job.date}</span>`).join('');
     track.innerHTML = `<div class="job-ticker-marquee">${itemsHtml}${itemsHtml}</div>`;
   } catch (err) {
     console.error('Job ticker error:', err);
-    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant estimate today.</span>';
+    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get a rough estimate today.</span>';
   }
 })();
 </script>
@@ -337,7 +349,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="grid" style="gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:stretch;">
       <div class="card"><div class="card-body"><h3 style="margin:0 0 6px;font-size:1.05rem;">One team for your whole list.</h3><p style="margin:0;">Roofing and gutters, plaster and painting, doors and windows, decks and fencing, and more, all handled by one company, so there's no chasing multiple tradies.</p></div></div>
       <div class="card"><div class="card-body"><h3 style="margin:0 0 6px;font-size:1.05rem;">Fast, clear communication.</h3><p style="margin:0;">You'll know what's happening at every stage, with photos and updates along the way.</p></div></div>
-      <div class="card"><div class="card-body"><h3 style="margin:0 0 6px;font-size:1.05rem;">Our own in-house team.</h3><p style="margin:0;">Organised trades who turn up when we say.</p></div></div>
+      <div class="card"><div class="card-body"><h3 style="margin:0 0 6px;font-size:1.05rem;">Reliable, organised trades.</h3><p style="margin:0;">Organised trades who turn up when we say.</p></div></div>
       <div class="card"><div class="card-body"><h3 style="margin:0 0 6px;font-size:1.05rem;">Detailed scopes, no surprises.</h3><p style="margin:0;">You'll know what's included before we start.</p></div></div>
       <div class="card"><div class="card-body"><h3 style="margin:0 0 6px;font-size:1.05rem;">Work we stand behind.</h3><p style="margin:0;">Every job is backed by our workmanship guarantee.</p></div></div>
     </div>
@@ -351,12 +363,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2 style="color:#fff;">Ready to tick off your list?</h2>
     <div class="choice-row">
       <div class="choice">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('final_cta');" class="btn btn-primary">Get Your Instant Estimate</a>
-        <span class="choice-note">Enter your details, answer a few quick questions and add a photo. Get your price in minutes.</span>
+        <a href="javascript:void(0)" onclick="openCallbackModal('final_cta');" class="btn btn-primary">Start My Job Brief</a>
+        <span class="choice-note">Can't take a photo? We reply within 48 hours.</span>
       </div>
       <div class="choice">
-        <a href="javascript:void(0)" onclick="openCallbackModal('final_cta');" class="btn btn-ghost on-dark btn-alt">Request a Call Back</a>
-        <span class="choice-note">Happy to wait? Tell us about your list and we'll follow up with your quote within 72 hours.</span>
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('final_cta');" class="btn btn-ghost on-dark btn-alt">Get a Rough Estimate</a>
+        <span class="choice-note">See a starting range in minutes.</span>
       </div>
     </div>
     <p class="choice-call">Prefer to talk now? <a href="tel:1800587659">Call 1800 587 659</a></p>
@@ -374,8 +386,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p style="margin-top:12px;max-width:480px;margin-left:auto;margin-right:auto;">One team, one point of contact, one-stop shop for property repairs &amp; maintenance across Melbourne.</p>
     <p style="margin-top:8px;font-size:.85rem;opacity:.75;">Melbourne-wide · Inner north &amp; east · Bayside &amp; south-east</p>
     <div class="cta-row" style="justify-content:center;margin-top:20px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('footer');" class="btn btn-primary">Get My Free Estimate</a>
-      <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
+      <a href="javascript:void(0)" onclick="openCallbackModal('footer');" class="btn btn-primary">Start My Job Brief</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('footer');" class="btn btn-ghost on-dark">Get a Rough Estimate</a>
     </div>
     <div class="footer-bottom" style="margin-top:24px;flex-direction:column;gap:4px;justify-content:center;">
       <span>JT Handyman Solutionz · 1800 587 659 · Unit 42/2 Cobham St, Reservoir VIC 3073 · ABN 14 686 830 473</span>
@@ -386,7 +398,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="mobile-bar">
   <a href="tel:1800587659" class="btn btn-ghost">Call now</a>
-  <a href="javascript:void(0)" onclick="openCallbackModal('sticky_bar');" class="btn btn-primary">Tailored Quote</a>
+  <a href="javascript:void(0)" onclick="openCallbackModal('sticky_bar');" class="btn btn-primary">Start My Job Brief</a>
 </div>
 
 <!-- Estimate modal -->
@@ -413,7 +425,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div style="padding:36px 28px;overflow-y:auto;">
       <div id="callbackFormWrap">
         <h3 style="margin-bottom:6px;">Get your property jobs quoted without the back-and-forth</h3>
-        <p style="color:#5a6472;font-size:.92rem;margin-bottom:20px;">No photos needed. Tell us what needs doing around your property and we'll follow up within 72 hours.</p>
+        <p style="color:#5a6472;font-size:.92rem;margin-bottom:20px;">We'd love a photo of the job. Can't take one? Tell us what needs doing.</p>
         <form id="callbackForm" onsubmit="submitCallbackForm(event);">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
             <div>
@@ -428,16 +440,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
             <div>
               <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Mobile number</label>
-              <input type="tel" name="mobile" required placeholder="04XX XXX XXX" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+              <input type="tel" name="mobile" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
             </div>
             <div>
               <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Email (optional)</label>
-              <input type="email" name="email" placeholder="you@example.com" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+              <input type="email" name="email" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
             </div>
           </div>
           <div style="margin-bottom:14px;">
             <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Street address</label>
-            <input type="text" name="address" required autocomplete="street-address" placeholder="e.g. 12 Smith Street" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+            <input type="text" name="address" required autocomplete="street-address" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
             <div>
@@ -446,7 +458,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <div>
               <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Postcode</label>
-              <input type="text" name="postcode" required inputmode="numeric" maxlength="4" autocomplete="postal-code" placeholder="3000" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+              <input type="text" name="postcode" required inputmode="numeric" maxlength="4" autocomplete="postal-code" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
             </div>
           </div>
           <div style="margin-bottom:14px;">
@@ -471,18 +483,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div style="margin-bottom:14px;">
             <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">What needs doing and roughly how big is the job?</label>
-            <textarea name="message" rows="3" required placeholder="e.g. Full bathroom renovation — need carpentry, plumbing, tiling and painting coordinated by one team" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;resize:vertical;font-family:inherit;"></textarea>
+            <textarea name="message" rows="3" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;resize:vertical;font-family:inherit;"></textarea>
           </div>
           <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Estimated job size</label>
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Estimated job value</label>
             <select name="job_size" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
-              <option value="">Select job size</option>
-              <option>Under $500 (min. $300)</option>
-              <option>Small ($500 – $1,000)</option>
-              <option>Medium ($1,000 – $5,000)</option>
-              <option>Large ($5,000+)</option>
+              <option value="">Select job value</option>
+              <option>Small job: $600–$1,000</option>
+              <option>Medium job: $1,000–$3,000</option>
+              <option>Larger job: $3,000–$10,000</option>
+              <option>Major project: $10,000+</option>
             </select>
-            <p style="margin:6px 0 0;font-size:.78rem;color:#5a6472;">Our minimum job size is $300.</p>
+            <p style="margin:6px 0 0;font-size:.78rem;color:#5a6472;">Jobs generally start from $600.</p>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;align-items:end;">
             <div>
@@ -518,16 +530,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <input type="hidden" name="all_params">
           <input type="hidden" name="fbc">
           <input type="hidden" name="fbp">
+          <input type="hidden" name="lead_type" value="tailored_quote">
           <div id="callbackFormError" style="display:none;color:#c0392b;font-size:.88rem;margin-bottom:12px;"></div>
-          <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Get My Tailored Quote</button>
-          <p style="margin:10px 0 0;font-size:.8rem;color:#5a6472;text-align:center;">We'll follow up within 72 hours with your tailored quote and next steps.</p>
-          <p style="margin:14px 0 0;font-size:.78rem;color:#7b8591;text-align:center;">Need a rough cost now? <a href="javascript:void(0)" onclick="closeCallbackModal(); fireRedTrackClick(); openQuoteModal('callback_popup');" style="color:inherit;text-decoration:underline;">Try our instant estimate.</a></p>
+          <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Start My Job Brief</button>
+          <p style="margin:10px 0 0;font-size:.8rem;color:#5a6472;text-align:center;">Our team will contact you within 48 hours.</p>
+          <p style="margin:14px 0 0;font-size:.78rem;color:#7b8591;text-align:center;">Need a rough cost now? <a href="javascript:void(0)" onclick="closeCallbackModal(); fireRedTrackClick(); openQuoteModal('callback_popup');" style="color:inherit;text-decoration:underline;">Try the rough estimate.</a></p>
         </form>
       </div>
       <div id="callbackThankYou" style="display:none;text-align:center;padding:20px 0;">
         <div style="font-size:2.4rem;margin-bottom:10px;">✓</div>
-        <h3 style="margin-bottom:8px;">Thanks! We'll be in touch within 72 hours.</h3>
-        <p style="color:#5a6472;font-size:.92rem;">One of our team will be in touch soon to help sort it out.</p>
+        <h3 style="margin-bottom:8px;">Thanks, we've got your job brief.</h3>
+        <p style="color:#5a6472;font-size:.92rem;">Our team will contact you within 48 hours.</p>
       </div>
     </div>
   </div>
@@ -748,6 +761,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       all_params: form.all_params.value,
       fbc: form.fbc.value,
       fbp: form.fbp.value,
+      lead_type: form.lead_type.value,
       page_title: document.title
     };
 
