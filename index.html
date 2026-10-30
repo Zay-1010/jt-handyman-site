@@ -177,7 +177,7 @@ body.modal-open { overflow:hidden; }
 .flow-step{ display:inline-block; background:#fff; border:1px solid #e5e8ec; border-radius:8px; padding:8px 16px; font-weight:600; font-family:"Rajdhani","Rajdhani Fallback","Rubik",sans-serif; font-size:.98rem; }
 .flow-row{ display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:8px; margin:20px 0; }
 .flow-row .flow-arrow{ color:#e7161f; font-weight:700; }
-textarea[name="message"]::placeholder{ color:#b3bac2; }
+textarea[name="message"]::placeholder, input[name="message"]::placeholder{ color:#c9ced4 !important; opacity:1; }
 /* ---- Estimate / callback choice pair ---- */
 .choice-row{ display:flex; flex-wrap:wrap; gap:14px 18px; margin-bottom:12px; align-items:flex-start; }
 .choice{ display:flex; flex-direction:column; gap:7px; flex:1 1 230px; max-width:280px; }
@@ -500,17 +500,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <h3>Get your property jobs quoted without the back-and-forth</h3>
           <p style="color:#5a6472;font-size:.95rem;margin-bottom:24px;">We'd love a photo of the job. Can't take one? Tell us what needs doing.</p>
           <form id="callbackForm" onsubmit="submitCallbackForm(event);">
-          <p class="form-step"><span>1</span> What do you need help with?</p>
           <div style="margin-bottom:10px;">
-            <label style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;">What type of repair or maintenance do you need help with?</label>
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">What type of repair or maintenance do you need help with?</label>
             <select name="job_type" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Choose the closest match</option><option>Property maintenance</option><option>Doors &amp; windows</option><option>Roofing &amp; gutters</option><option>Painting &amp; plaster repairs</option><option>Bathroom &amp; kitchen repairs</option><option>Plumbing</option><option>Electrical</option><option>Decks, fencing &amp; outdoor</option><option>Flooring &amp; tiling</option><option>Pre-sale repairs &amp; renovations</option><option>Compliance &amp; safety</option><option>Insurance &amp; emergency repairs</option><option>Multiple jobs (send us your list)</option><option>Other</option></select>
           </div>
           <div style="margin-bottom:10px;">
             <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Anything we should know? (optional)</label>
             <input type="text" name="message" maxlength="140" placeholder="e.g. leaking tap in the kitchen" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;font-family:inherit;">
           </div>
-
-          <p class="form-step"><span>2</span> How big is it, and how soon?</p>
           <div style="margin-bottom:10px;">
             <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Estimated job value</label>
             <select name="job_size" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
@@ -524,8 +521,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
 
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Property type (optional)</label><select name="property_type" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Select</option><option>Owner-occupier</option><option>Landlord</option><option>Property manager</option></select></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Timeframe (optional)</label><select name="timeframe" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Select</option><option>ASAP</option><option>Within 2 weeks</option><option>Within a month</option><option>Just getting prices</option></select></div></div>
-
-          <p class="form-step"><span>3</span> Where should we send your next step?</p>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">First name</label><input type="text" name="first_name" required autocomplete="given-name" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Last name</label><input type="text" name="last_name" required autocomplete="family-name" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Mobile number</label><input type="tel" name="mobile" required autocomplete="tel" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Email (optional)</label><input type="email" name="email" autocomplete="email" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
           <div style="margin-bottom:10px;">
