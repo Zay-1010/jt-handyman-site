@@ -183,7 +183,7 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
 
     <div class="header-actions">
       <a href="tel:1800587659" class="phone-link">1800 587 659</a>
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get Instant Estimate</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('header');" class="btn btn-primary">Get Instant Estimate</a>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" style="display:none;background:none;border:0;cursor:pointer;padding:8px;margin-left:8px;">
         <svg class="nav-toggle-icon-open" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         <svg class="nav-toggle-icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" style="display:none;"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
@@ -229,7 +229,7 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
       <h1>People who <span class="accent">actually care.</span></h1>
       <p class="lede">Behind JT is a team of real people who take it personally. We turn up when we say we will, we keep you in the loop, and we treat your home like it's our own. It's not just about fixing what's broken — it's about the way we look after each other, and the way that shows up on your job.</p>
       <div class="cta-row">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get an Instant Estimate</a>
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('hero');" class="btn btn-primary">Get an Instant Estimate</a>
         <a href="tel:1800587659" class="btn btn-ghost">Call The Team · 1800 587 659</a>
       </div>
       <div class="chip-row">
@@ -238,7 +238,7 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
         <span class="chip">One team who has your back</span>
       </div>
     </div>
-    <div class="ph ratio-wide"><img src="img/jt-svc-kitchen.jpg" alt="A clean, finished kitchen the JT team completed in Melbourne" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    <div class="ph ratio-wide"><img src="img/team-photo.jpg" alt="The JT Handyman Solutionz team outside the Reservoir workshop" style="width:100%;height:100%;object-fit:cover;object-position:center 35%;display:block;" fetchpriority="high"></div>
   </div>
 </section>
 
@@ -262,7 +262,7 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
       <a href="https://g.page/r/CQlxI7-oxRBWEBM/review" target="_blank" rel="noopener" class="google-rating-line" style="text-decoration:none;">
         <svg viewBox="0 0 24 24" width="20" height="20"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
         <span class="stars-mini" style="color:#fcbf18;">★★★★★</span>
-        <span style="color:var(--slate,#5a6472);">Rated 5.0 across dozens of Melbourne reviews.</span>
+        <span style="color:var(--slate,#5a6472);"><strong>5.0</strong> from <strong>90+</strong> Google reviews</span>
       </a>
     </div>
     <div class="grid grid-2" style="gap:20px;max-width:900px;margin:0 auto;">
@@ -294,7 +294,7 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
         <li>We explain the job, so you're never in the dark</li>
         <li>We leave your place better than we found it</li>
       </ul>
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get an Instant Estimate</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get an Instant Estimate</a>
     </div>
     <div class="panel-media ph ratio-wide"><img src="img/jt-svc-kitchen.jpg" alt="The JT team treating a Melbourne home with care" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
   </div>
@@ -380,7 +380,7 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
     <h2>Let a team who cares take it from here.</h2>
     <p>Tell us what you need and we'll take it from there, with the same care we'd give our own place. Get an instant estimate online, or pick up the phone and talk to a real person on the team.</p>
     <div class="cta-row">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();" class="btn btn-primary">Get an Instant Estimate</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('final_cta');" class="btn btn-primary">Get an Instant Estimate</a>
       <a href="tel:1800587659" class="btn btn-ghost on-dark">Call The Team · 1800 587 659</a>
     </div>
     <p style="margin-top:16px;color:rgba(255,255,255,.6);font-size:.9rem;">One team · one point of contact · one stop shop.</p>
@@ -388,7 +388,7 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
 </section>
 <section class="section band-grey text-center" style="padding-top:28px;padding-bottom:28px;">
   <div class="container">
-    <a href="javascript:void(0)" onclick="openCallbackModal();" style="display:inline-flex;align-items:center;gap:8px;background:#fdecea;border:1px solid #f3c6c0;border-radius:999px;padding:.6rem 1.2rem;font-size:.9rem;font-weight:600;color:#c0392b;cursor:pointer;">📞 Short on time? Request a quick callback instead</a>
+    <a href="javascript:void(0)" onclick="openCallbackModal('time_section');" style="display:inline-flex;align-items:center;gap:8px;background:#fdecea;border:1px solid #f3c6c0;border-radius:999px;padding:.6rem 1.2rem;font-size:.9rem;font-weight:600;color:#c0392b;cursor:pointer;">📞 Short on time? Request a tailored quote instead</a>
   </div>
 </section>
 
@@ -427,7 +427,7 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
       <div>
         <h4>Get started</h4>
         <ul>
-          <li><a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal();">Instant estimate</a></li>
+          <li><a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('footer');">Instant estimate</a></li>
           <li><a href="tel:1800587659">Call 1800 587 659</a></li>
         </ul>
       </div>
@@ -449,7 +449,7 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
 
 <div class="mobile-bar">
   <a href="tel:1800587659" class="btn btn-ghost">Call now</a>
-  <a href="javascript:void(0)" onclick="openCallbackModal();" class="btn btn-primary">Get a callback</a>
+  <a href="javascript:void(0)" onclick="openCallbackModal('sticky_bar');" class="btn btn-primary">Tailored Quote</a>
 </div>
 
 <div id="quoteModal" class="qmodal">
@@ -474,8 +474,8 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
     <button type="button" class="qmodal-close" aria-label="Close callback form" onclick="closeCallbackModal();">&times;</button>
     <div style="padding:36px 28px;overflow-y:auto;">
       <div id="callbackFormWrap">
-        <h3 style="margin-bottom:6px;">Request a callback</h3>
-        <p style="color:#5a6472;font-size:.92rem;margin-bottom:20px;">Leave your details and we'll call you back.</p>
+        <h3 style="margin-bottom:6px;">Get your property jobs quoted without the back-and-forth</h3>
+        <p style="color:#5a6472;font-size:.92rem;margin-bottom:20px;">No photos needed. Tell us what needs doing around your property and we'll follow up within 72 hours.</p>
         <form id="callbackForm" onsubmit="submitCallbackForm(event);">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
             <div>
@@ -497,30 +497,75 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
               <input type="email" name="email" placeholder="you@example.com" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
             </div>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;">
+          <div style="margin-bottom:14px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Street address</label>
+            <input type="text" name="address" required autocomplete="street-address" placeholder="e.g. 12 Smith Street" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
             <div>
               <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Suburb</label>
-              <input type="text" name="suburb" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+              <input type="text" name="suburb" required autocomplete="address-level2" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
             </div>
             <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">What do you need help with?</label>
-              <select name="job_type" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
-                <option value="">Select a job type</option>
-                <option>Carpentry</option>
-                <option>Plumbing</option>
-                <option>Painting &amp; Plaster</option>
-                <option>Bathrooms</option>
-                <option>Windows &amp; Glazing</option>
-                <option>Outdoor Construction</option>
-                <option>Roofing &amp; Gutters</option>
-                <option>Property Maintenance</option>
-                <option>Other</option>
-              </select>
+              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Postcode</label>
+              <input type="text" name="postcode" required inputmode="numeric" maxlength="4" autocomplete="postal-code" placeholder="3000" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
             </div>
           </div>
-          <div style="margin-bottom:18px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Briefly describe what you need (optional)</label>
-            <textarea name="message" rows="3" placeholder="e.g. Full bathroom renovation — need carpentry, plumbing, tiling and painting coordinated by one team" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;resize:vertical;"></textarea>
+          <div style="margin-bottom:14px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Service</label>
+            <select name="job_type" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
+              <option value="">Select a service</option>
+              <option>Property maintenance</option>
+              <option>Doors &amp; windows</option>
+              <option>Roofing &amp; gutters</option>
+              <option>Painting &amp; plaster repairs</option>
+              <option>Bathroom &amp; kitchen repairs</option>
+              <option>Plumbing</option>
+              <option>Electrical</option>
+              <option>Decks, fencing &amp; outdoor</option>
+              <option>Flooring &amp; tiling</option>
+              <option>Pre-sale repairs &amp; renovations</option>
+              <option>Compliance &amp; safety</option>
+              <option>Insurance &amp; emergency repairs</option>
+              <option>Multiple jobs (send us your list)</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div style="margin-bottom:14px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">What needs doing and roughly how big is the job?</label>
+            <textarea name="message" rows="3" required placeholder="e.g. Full bathroom renovation — need carpentry, plumbing, tiling and painting coordinated by one team" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;resize:vertical;font-family:inherit;"></textarea>
+          </div>
+          <div style="margin-bottom:14px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Estimated job size</label>
+            <select name="job_size" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
+              <option value="">Select job size</option>
+              <option>Under $500 (min. $300)</option>
+              <option>Small ($500 – $1,000)</option>
+              <option>Medium ($1,000 – $5,000)</option>
+              <option>Large ($5,000+)</option>
+            </select>
+            <p style="margin:6px 0 0;font-size:.78rem;color:#5a6472;">Our minimum job size is $300.</p>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;align-items:end;">
+            <div>
+              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Property type (optional)</label>
+              <select name="property_type" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
+                <option value="">Select</option>
+                <option>Owner-occupier</option>
+                <option>Landlord</option>
+                <option>Property manager</option>
+              </select>
+            </div>
+            <div>
+              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Timeframe (optional)</label>
+              <select name="timeframe" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
+                <option value="">Select</option>
+                <option>ASAP</option>
+                <option>Within 2 weeks</option>
+                <option>Within a month</option>
+                <option>Just getting prices</option>
+              </select>
+            </div>
           </div>
           <!-- Honeypot — hidden from real users via off-screen positioning;
                bots that auto-fill every field will fill this one too. -->
@@ -536,12 +581,14 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
           <input type="hidden" name="fbc">
           <input type="hidden" name="fbp">
           <div id="callbackFormError" style="display:none;color:#c0392b;font-size:.88rem;margin-bottom:12px;"></div>
-          <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Request My Callback</button>
+          <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Get My Tailored Quote</button>
+          <p style="margin:10px 0 0;font-size:.8rem;color:#5a6472;text-align:center;">We'll follow up within 72 hours with your tailored quote and next steps.</p>
+          <p style="margin:14px 0 0;font-size:.78rem;color:#7b8591;text-align:center;">Need a rough cost now? <a href="javascript:void(0)" onclick="closeCallbackModal(); fireRedTrackClick(); openQuoteModal('callback_popup');" style="color:inherit;text-decoration:underline;">Try our instant estimate.</a></p>
         </form>
       </div>
       <div id="callbackThankYou" style="display:none;text-align:center;padding:20px 0;">
         <div style="font-size:2.4rem;margin-bottom:10px;">✓</div>
-        <h3 style="margin-bottom:8px;">Thanks — we'll call you back shortly.</h3>
+        <h3 style="margin-bottom:8px;">Thanks! We'll be in touch within 72 hours.</h3>
         <p style="color:#5a6472;font-size:.92rem;">One of our team will be in touch soon to help sort it out.</p>
       </div>
     </div>
@@ -552,16 +599,31 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
   function openQuoteModal(source) {
     var modal = document.getElementById('quoteModal');
     var frame = document.getElementById('quoteFrame');
-    if (frame.src === 'about:blank' || frame.src === '') {
+    if (frame.src === 'about:blank') {
+      // Forward this page's own UTM/click-ID params into the estimate
+      // form so attribution survives the handoff into the iframe.
       frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
     }
     modal.classList.add('open');
     document.body.classList.add('modal-open');
+
+    // Honest click-intent signal — not a completed lead. Uses a custom
+    // event rather than Meta's standard "Lead" event, which should only
+    // fire on a real completed submission.
     try {
       if (window.fbq) {
         fbq('trackCustom', 'QuoteButtonClicked', { button: source || 'unknown' });
       }
     } catch (e) {}
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'quote_modal_opened', {
+        cta_location: source || 'unknown',
+        page_location: window.location.href,
+        page_title: document.title,
+        button: source || 'unknown'
+      });
+    }
   }
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
@@ -569,9 +631,25 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
       document.body.classList.remove('modal-open');
     }
   });
+  // Track phone number clicks (tel: links) as a GA4 event
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('a[href^="tel:"]');
+    if (link && typeof gtag === 'function') {
+      gtag('event', 'phone_click', {
+        phone_number: link.getAttribute('href').replace('tel:', ''),
+        page_location: window.location.href,
+        page_title: document.title
+      });
+    }
+  });
+
 </script>
 
 <script>
+  // ---- Callback form: lightweight alternative to the full estimate
+  // flow. Submits directly to a Zapier webhook, which creates the job
+  // in ServiceM8 with the same click-ID attribution as other leads.
+  // Paste your Zapier "Catch Hook" webhook URL below before going live.
   var CALLBACK_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/28634189/4mk0dx9/';
 
   function getUrlParam(name) {
@@ -585,6 +663,10 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
   }
 
   function getRtkClickId() {
+    // rtkclickid is often NOT present on the URL at all — RedTrack's own
+    // tracking script typically stores it client-side instead. Checked
+    // in order: URL param (in case a given campaign does append it),
+    // then RedTrack's documented cookie/localStorage key.
     var fromUrl = getUrlParam('rtkclickid');
     if (fromUrl) return fromUrl;
     var fromCookie = getCookie('rtkclickid-store');
@@ -596,21 +678,37 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
     }
   }
 
-  function openCallbackModal() {
+  function openCallbackModal(source) {
     var form = document.getElementById('callbackForm');
     form.gclid.value = getUrlParam('gclid');
     form.fbclid.value = getUrlParam('fbclid');
     form.rtkclickid.value = getRtkClickId();
     form.landing_page.value = window.location.href;
+    // Catch-all — different traffic sources append different param sets
+    // (RedTrack's own cmpid/sub1-8, UTM params, etc.), so the full raw
+    // query string is captured as well, not just the three named fields
+    // above. This way nothing is lost regardless of which platform or
+    // redirect chain sent the click.
     form.all_params.value = window.location.search.replace(/^\?/, '');
+    // Meta's own first-party cookies — same ones Russell's estimate flow
+    // already captures, used to improve Meta Conversions API match quality.
     form.fbc.value = getCookie('_fbc');
     form.fbp.value = getCookie('_fbp');
 
     document.getElementById('callbackModal').classList.add('open');
     document.body.classList.add('modal-open');
 
+    window.__callbackSource = source || 'unknown';
+
+    try {
+      if (window.fbq) {
+        fbq('trackCustom', 'CallbackButtonClicked', { button: source || 'unknown' });
+      }
+    } catch (e) {}
+
     if (typeof gtag === 'function') {
       gtag('event', 'callback_form_opened', {
+        cta_location: source || 'unknown',
         page_location: window.location.href,
         page_title: document.title
       });
@@ -633,6 +731,8 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
     var errorBox = document.getElementById('callbackFormError');
     errorBox.style.display = 'none';
 
+    // Honeypot — if a bot filled this hidden field, pretend success
+    // without actually sending anything to the webhook.
     if (form.company_website.value) {
       showCallbackThankYou();
       return;
@@ -641,6 +741,13 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
     var mobile = form.mobile.value.trim();
     if (!isValidAuMobile(mobile)) {
       errorBox.textContent = 'Please enter a valid Australian mobile number.';
+      errorBox.style.display = 'block';
+      return;
+    }
+
+    var postcode = form.postcode.value.trim();
+    if (!/^\d{4}$/.test(postcode)) {
+      errorBox.textContent = 'Please enter a 4-digit postcode.';
       errorBox.style.display = 'block';
       return;
     }
@@ -654,9 +761,15 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
       last_name: form.last_name.value.trim(),
       mobile: mobile,
       email: form.email.value.trim(),
+      address: form.address.value.trim(),
       suburb: form.suburb.value.trim(),
+      postcode: postcode,
+      full_address: form.address.value.trim() + ', ' + form.suburb.value.trim() + ' ' + postcode,
       job_type: form.job_type.value,
       message: form.message.value.trim(),
+      job_size: form.job_size.value,
+      property_type: form.property_type.value,
+      timeframe: form.timeframe.value,
       gclid: form.gclid.value,
       fbclid: form.fbclid.value,
       rtkclickid: form.rtkclickid.value,
@@ -667,6 +780,10 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
       page_title: document.title
     };
 
+    // Zapier's Catch Hook typically has no CORS headers, so this request
+    // is sent with mode:'no-cors' — meaning we can't read back whether
+    // Zapier actually received it, only whether the request itself was
+    // sent. Test this end-to-end in ServiceM8 before relying on it.
     // Sent as application/x-www-form-urlencoded rather than JSON —
     // this is one of the few content types the browser actually allows
     // through in no-cors mode, and Zapier's Catch Hook parses it into
@@ -691,13 +808,33 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
 
   function handleCallbackSuccess(payload) {
     showCallbackThankYou();
+
+    // Pushed to GTM's dataLayer rather than calling fbq()/gtag()
+    // directly, so Meta's "Lead" event and GA4's "form_submit" event
+    // can be configured as GTM tags triggered off this one event —
+    // this is a real completed lead, not just click-intent.
     window.dataLayer = window.dataLayer || [];
     dataLayer.push({
       event: 'callback_form_submit',
       form_type: 'callback',
       job_type: payload.job_type,
-      suburb: payload.suburb
+      suburb: payload.suburb,
+      job_size: payload.job_size,
+      property_type: payload.property_type,
+      timeframe: payload.timeframe,
+      cta_location: window.__callbackSource || 'unknown'
     });
+
+    // GA4: sent from the page so it lands in the same property as the other
+    // cta_location events (G-X4SK9WP3FG), not via a GTM GA4 tag.
+    if (typeof gtag === 'function') {
+      gtag('event', 'callback_submit', {
+        form_type: 'callback',
+        job_type: payload.job_type,
+        suburb: payload.suburb,
+        cta_location: window.__callbackSource || 'unknown'
+      });
+    }
   }
 
   function showCallbackThankYou() {
