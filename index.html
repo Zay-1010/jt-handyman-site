@@ -389,6 +389,13 @@ h2{ font-size:clamp(1.7rem,3.4vw,2.6rem) !important; letter-spacing:.005em; }
   .hero2 h1{ font-size:3.8rem !important; }
   .proof-grid,.enq-grid,.svc-grid{ max-width:1400px; }
 }
+.reviews-embed{ max-width:1100px; margin:0 auto; min-height:120px; }
+.svc-tile.svc-wide{ grid-column:1 / -1; aspect-ratio:auto; min-height:150px; cursor:pointer; display:flex; align-items:flex-end; }
+.svc-tile.svc-wide::after{ background:linear-gradient(to right, rgba(12,13,15,.85), rgba(12,13,15,.35) 70%); }
+.svc-wide-text{ position:relative; z-index:2; padding:22px 24px; max-width:34em; }
+.svc-tile.svc-wide h3{ position:static; font-size:1.7rem !important; font-weight:800 !important; margin:0 0 4px; }
+.svc-wide-text p{ margin:0; color:rgba(255,255,255,.9); font-size:1.05rem; font-weight:600; }
+@media(max-width:520px){ .svc-tile.svc-wide{ aspect-ratio:auto; min-height:170px; } }
 </style>
 </head>
 <body>
@@ -448,8 +455,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="hero2">
   <div class="hero2-grid">
     <div>
-      <h1>Stop managing repairs or renovations yourself. Get one team to own the job.</h1>
-      <p class="lede">Carpentry, plumbing, painting, plaster and electrical, coordinated by one team.<span class="hide-m"> For Melbourne homeowners with work ready to go ahead.</span></p>
+      <h1>Stop chasing different tradies. Get one team to own the job.</h1>
+      <p class="lede">Carpentry, plumbing, painting, plaster and electrical, coordinated by one team, with one point of contact and one clear written quote.</p>
       <div class="choice-row">
         <div class="choice">
           <a href="javascript:void(0)" onclick="openCallbackModal('hero');" class="btn btn-primary">Start My Job Brief</a>
@@ -529,18 +536,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="proof-grid">
-      <div class="proof-video">
-        <div class="vwrap">
-          <video id="vidBiggin" poster="img/work/biggin-scott-poster.jpg" playsinline preload="metadata" onclick="toggleVid('vidBiggin')" onended="document.getElementById('vidBigginPlay').style.display='flex'">
-            <source src="img/work/biggin-scott-testimonial.mp4" type="video/mp4">
-          </video>
-          <button class="play-btn" id="vidBigginPlay" aria-label="Play Biggin &amp; Scott video" onclick="toggleVid('vidBiggin')" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">▶</button>
-        </div>
-        <p class="cap">Hear from Biggin &amp; Scott</p>
+      <!-- Google reviews widget (Featurable). Typed cards below are a fallback, shown only if the widget does not load. -->
+      <div class="reviews-embed">
+        <div id="featurable-56ca7f97-6171-42b5-99b7-41ee2b41ba5f" data-featurable-async></div>
+        <script src="https://cdn.featurable.com/widget/v2/embed.js" defer charset="UTF-8"></script>
       </div>
-      <div class="proof-shots proof-one">
-        <img src="img/testimonial-juanita-email.png" alt="Email from a client thanking the JT team for the excellent work on her ensuite and naming the two team members who did the job." width="860" height="170" loading="lazy">
-      </div>
+      <div id="reviewsFallback" hidden>
       <div class="grid grid-2 review-cards">
         <div class="docket docket-wide">
           <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
@@ -567,6 +568,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <blockquote>A great experience with JT Handymen...such expertise and willingness to achieve the best outcome for our works...thank you so much Alexei and Monty! Thoroughly recommend these guys 😉</blockquote>
           <cite>Sayanan Srishanmuganathan<span>Paint indoors</span></cite>
         </div>
+      </div>
+      </div>
+      <div class="proof-video" style="margin-top:40px;">
+        <div class="vwrap">
+          <video id="vidBiggin" poster="img/work/biggin-scott-poster.jpg" playsinline preload="metadata" onclick="toggleVid('vidBiggin')" onended="document.getElementById('vidBigginPlay').style.display='flex'">
+            <source src="img/work/biggin-scott-testimonial.mp4" type="video/mp4">
+          </video>
+          <button class="play-btn" id="vidBigginPlay" aria-label="Play Biggin &amp; Scott video" onclick="toggleVid('vidBiggin')" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">▶</button>
+        </div>
+        <p class="cap">Hear from Biggin &amp; Scott</p>
       </div>
     </div>
   </div>
@@ -624,8 +635,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">First name</label><input type="text" name="first_name" required autocomplete="given-name" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Last name</label><input type="text" name="last_name" required autocomplete="family-name" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Mobile number</label><input type="tel" name="mobile" required autocomplete="tel" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Email (optional)</label><input type="email" name="email" autocomplete="email" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
           <div style="margin-bottom:10px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Street address</label>
-            <input type="text" name="address" required autocomplete="street-address" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Street address (optional)</label>
+            <input type="text" name="address" autocomplete="street-address" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Suburb</label><input type="text" name="suburb" required autocomplete="address-level2" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Postcode</label><input type="text" name="postcode" required inputmode="numeric" maxlength="4" autocomplete="postal-code" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
 
@@ -847,7 +858,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="section-head">
       <h2 style="max-width:700px;margin-left:auto;margin-right:auto;">Whatever needs fixing, <span class="accent">we've got a team for it.</span></h2>
     </div>
-    <div class="svc-grid"><div class="svc-tile"><img src="img/Carpentry_kitchen_complete.jpg" alt="" loading="lazy"><h3>Carpentry &amp; Repairs</h3></div><div class="svc-tile"><img src="img/Plumbing_basin_wall_mixer.jpg" alt="" loading="lazy"><h3>Plumbing</h3></div><div class="svc-tile"><img src="img/Elwood_freshly_painted_external_door.jpg" alt="" loading="lazy"><h3>Painting &amp; Plaster</h3></div><div class="svc-tile"><img src="img/Bathroom_finished_vanity_joinery.jpg" alt="" loading="lazy"><h3>Bathrooms</h3></div><div class="svc-tile"><img src="img/Windows_awning_window.jpg" alt="" loading="lazy"><h3>Windows &amp; Glazing</h3></div><div class="svc-tile"><img src="img/Caulfield_pergola_timber_structure.jpg" alt="" loading="lazy"><h3>Outdoor Construction</h3></div><div class="svc-tile"><img src="img/Mount_Waverley_roofline_gutter.jpg" alt="" loading="lazy"><h3>Roofing &amp; Gutters</h3></div><div class="svc-tile"><img src="img/Northcote_bright-finished-room-with-downlights_2025-09-07_job-4750%20(1).jpg" alt="" loading="lazy"><h3>Electrical</h3></div><div class="svc-tile"><img src="img/Hawthorn_garden_shed_hero.jpg" alt="" loading="lazy"><h3>Property Maintenance</h3></div></div>
+    <div class="svc-grid"><div class="svc-tile"><img src="img/Carpentry_balustrade_handrail.jpg" alt="" loading="lazy"><h3>Carpentry &amp; Repairs</h3></div><div class="svc-tile"><img src="img/Plumbing_basin_wall_mixer.jpg" alt="" loading="lazy"><h3>Plumbing</h3></div><div class="svc-tile"><img src="img/Caulfield_painted_fireplace_mantel.jpg" alt="" loading="lazy"><h3>Painting &amp; Plaster</h3></div><div class="svc-tile"><img src="img/Bathroom_finished_vanity_joinery.jpg" alt="" loading="lazy"><h3>Bathrooms</h3></div><div class="svc-tile"><img src="img/Windows_awning_window.jpg" alt="" loading="lazy"><h3>Windows &amp; Glazing</h3></div><div class="svc-tile"><img src="img/Bundoora_pergola_10244.jpg" alt="" loading="lazy"><h3>Outdoor Construction</h3></div><div class="svc-tile"><img src="img/Mount_Waverley_roofline_gutter.jpg" alt="" loading="lazy"><h3>Roofing &amp; Gutters</h3></div><div class="svc-tile"><img src="img/Northcote_bright-finished-room-with-downlights_2025-09-07_job-4750%20(1).jpg" alt="" loading="lazy"><h3>Electrical</h3></div><div class="svc-tile"><img src="img/work/jt-door-handle-install-melbourne.jpg" alt="" loading="lazy"><h3>Property Maintenance</h3></div><div class="svc-tile svc-wide" onclick="openCallbackModal('services_other')" role="button" tabindex="0"><img src="img/work/jt-kitchen-sink-gooseneck-tap-melbourne.jpg" alt="" loading="lazy"><div class="svc-wide-text"><h3>Everything else</h3><p>Can't find what you're looking for? Day-to-day jobs, big or small. Tell us what you need.</p></div></div></div>
   </div>
 </section>
 
@@ -1240,7 +1251,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       address: form.address.value.trim(),
       suburb: form.suburb.value.trim(),
       postcode: postcode,
-      full_address: form.address.value.trim() + ', ' + form.suburb.value.trim() + ' ' + postcode,
+      full_address: (form.address.value.trim() ? form.address.value.trim() + ', ' : '') + form.suburb.value.trim() + ' ' + postcode,
       job_type: form.job_type.value,
       message: form.message.value.trim(),
       job_size: form.job_size.value,
@@ -1321,6 +1332,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     },{threshold:[0,0.5]});
     io.observe(vid);
   }catch(e){}
+})();
+</script>
+<script>
+(function(){
+  // If the Google reviews widget has not rendered after a few seconds, show the typed review cards instead.
+  setTimeout(function(){
+    try{
+      var w=document.getElementById('featurable-56ca7f97-6171-42b5-99b7-41ee2b41ba5f');
+      if(!w || w.children.length===0 || w.offsetHeight<60){
+        var f=document.getElementById('reviewsFallback'); if(f) f.hidden=false;
+        var e=document.querySelector('.reviews-embed'); if(e) e.style.display='none';
+      }
+    }catch(e){ var f2=document.getElementById('reviewsFallback'); if(f2) f2.hidden=false; }
+  }, 5000);
 })();
 </script>
 </body>
