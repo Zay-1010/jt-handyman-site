@@ -19,11 +19,11 @@ fbq('track', 'PageView');
 /></noscript>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>The JT Team · One Crew, Every Trade In House | JT Handyman Solutionz</title>
-<meta name="description" content="Meet the JT Handyman Solutionz team: one in-house crew that works together, looks after each other, and gets your job done right. One point of contact, every trade under one roof.">
+<title>The JT Team · One Crew, Every Trade | JT Handyman Solutionz</title>
+<meta name="description" content="Meet the JT Handyman Solutionz team: one crew that works together, looks after each other, and gets your job done right. One point of contact, every trade under one roof.">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="The JT Team · One Crew, Every Trade In House">
-<meta property="og:description" content="One in-house team that works together, looks after each other, and gets the job done right for you. Get an instant estimate or call the team.">
+<meta property="og:title" content="The JT Team · One Crew, Every Trade">
+<meta property="og:description" content="One team that works together, looks after each other, and gets the job done right for you. Get a rough estimate or call the team.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -145,6 +145,16 @@ p{ font-size:1.02rem; line-height:1.65; }
 #quoteFrame { position:relative; left:calc(var(--side) * -1); width:calc(100% + var(--side) + var(--side) + var(--bar)); height:calc(94vh + var(--hdr)); max-height:calc(1520px + var(--hdr)); border:0; display:block; background:#f7fbfd; margin-top:calc(var(--hdr) * -1); }
 body.modal-open { overflow:hidden; }
 textarea[name="message"]::placeholder{ color:#b3bac2; }
+#callbackForm > div{ margin-bottom:12px !important; }
+#callbackForm label{ margin-bottom:4px !important; }
+#callbackForm [style*="grid"]{ gap:12px 12px !important; }
+#callbackForm input, #callbackForm select, #callbackForm textarea{ border:1.5px solid #cdd1d6 !important; border-radius:10px !important; padding:12px 14px !important; }
+input[name="message"]::placeholder{ color:#c9ced4 !important; opacity:1; }
+a.btn[onclick*="openQuoteModal"].btn-alt{ border:1.5px solid #E5252A !important; background:transparent !important; color:#E5252A !important; }
+.site-header a.btn[onclick*="openQuoteModal"].btn-alt, .band-dark a.btn[onclick*="openQuoteModal"].btn-alt, a.btn.on-dark[onclick*="openQuoteModal"].btn-alt{ color:#fff !important; }
+a.btn[onclick*="openQuoteModal"].btn-alt:hover{ background:#E5252A !important; border-color:#E5252A !important; color:#fff !important; }
+@media(max-width:720px){ .header-brief{ display:none !important; } }
+@media(max-width:1360px){ .header-actions .phone-link{ display:none; } }
 </style>
 </head>
 <body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -183,7 +193,8 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
 
     <div class="header-actions">
       <a href="tel:1800587659" class="phone-link">1800 587 659</a>
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('header');" class="btn btn-primary">Get Instant Estimate</a>
+      <a href="javascript:void(0)" onclick="openCallbackModal('header');" class="btn btn-primary header-brief">Start My Job Brief</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('header');" class="btn btn-ghost on-dark btn-alt">Get a Rough Estimate</a>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" style="display:none;background:none;border:0;cursor:pointer;padding:8px;margin-left:8px;">
         <svg class="nav-toggle-icon-open" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         <svg class="nav-toggle-icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" style="display:none;"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
@@ -210,14 +221,14 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
     if (!res.ok) throw new Error('Failed to load jobs');
     const data = await res.json();
     if (!data.jobs || data.jobs.length === 0) {
-      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant estimate today.</span>';
+      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get a rough estimate today.</span>';
       return;
     }
     const itemsHtml = data.jobs.map(job => `<span class="job-ticker-item">${job.category} · ${job.suburb} · ${job.date}</span>`).join('');
     track.innerHTML = `<div class="job-ticker-marquee">${itemsHtml}${itemsHtml}</div>`;
   } catch (err) {
     console.error('Job ticker error:', err);
-    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant estimate today.</span>';
+    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get a rough estimate today.</span>';
   }
 })();
 </script>
@@ -229,8 +240,11 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
       <h1>People who <span class="accent">actually care.</span></h1>
       <p class="lede">Behind JT is a team of real people who take it personally. We turn up when we say we will, we keep you in the loop, and we treat your home like it's our own. It's not just about fixing what's broken — it's about the way we look after each other, and the way that shows up on your job.</p>
       <div class="cta-row">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('hero');" class="btn btn-primary">Get an Instant Estimate</a>
-        <a href="tel:1800587659" class="btn btn-ghost">Call The Team · 1800 587 659</a>
+        <a href="javascript:void(0)" onclick="openCallbackModal('hero');" class="btn btn-primary">Start My Job Brief</a>
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('hero');" class="btn btn-ghost btn-alt">Get a Rough Estimate</a>
+      </div>
+      <p style="margin:14px 0 22px;"><a href="tel:1800587659" style="font-weight:600;">Prefer to talk? Call The Team · 1800 587 659</a></p>
+      <div class="cta-row" style="display:none;">
       </div>
       <div class="chip-row">
         <span class="chip">We take it personally</span>
@@ -262,7 +276,7 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
       <a href="https://g.page/r/CQlxI7-oxRBWEBM/review" target="_blank" rel="noopener" class="google-rating-line" style="text-decoration:none;">
         <svg viewBox="0 0 24 24" width="20" height="20"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
         <span class="stars-mini" style="color:#fcbf18;">★★★★★</span>
-        <span style="color:var(--slate,#5a6472);"><strong>5.0</strong> from <strong>90+</strong> Google reviews</span>
+        <span style="color:var(--slate,#5a6472);"><strong>5.0</strong> from <strong>85+</strong> Google reviews</span>
       </a>
     </div>
     <div class="grid grid-2" style="gap:20px;max-width:900px;margin:0 auto;">
@@ -294,7 +308,7 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
         <li>We explain the job, so you're never in the dark</li>
         <li>We leave your place better than we found it</li>
       </ul>
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get an Instant Estimate</a>
+      <a href="javascript:void(0)" onclick="openCallbackModal('mid_page');" class="btn btn-primary">Start My Job Brief</a>
     </div>
     <div class="panel-media ph ratio-wide"><img src="img/jt-svc-kitchen.jpg" alt="The JT team treating a Melbourne home with care" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
   </div>
@@ -361,7 +375,7 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
       <p>Care isn't something you can say, it's something you can see. These are real JT jobs, finished with the kind of attention we'd want in our own homes.</p>
     </div>
     <div class="grid grid-3" style="gap:18px;">
-      <div class="card gallery-item"><div class="ph ratio-square"><img src="img/work/jt-finished-bathroom-vanity-melbourne.jpg" alt="Finished bathroom vanity renovation completed in-house by the JT team in Reservoir VIC" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Bathroom vanity</strong><span>Reservoir, VIC</span></div></div>
+      <div class="card gallery-item"><div class="ph ratio-square"><img src="img/work/jt-finished-bathroom-vanity-melbourne.jpg" alt="Finished bathroom vanity renovation completed by the JT team in Reservoir VIC" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Bathroom vanity</strong><span>Reservoir, VIC</span></div></div>
       <div class="card gallery-item"><div class="ph ratio-square"><img src="img/work/jt-stainless-stair-handrail-melbourne.jpg" alt="Stainless steel stair handrail installed by the JT team in South Yarra VIC" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Stainless handrail</strong><span>South Yarra, VIC</span></div></div>
       <div class="card gallery-item"><div class="ph ratio-square"><img src="img/work/jt-timber-pool-deck-melbourne.jpg" alt="Timber pool deck built by the JT team in Croydon Hills VIC" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Timber pool deck</strong><span>Croydon Hills, VIC</span></div></div>
       <div class="card gallery-item"><div class="ph ratio-square"><img src="img/work/jt-grey-gate-carpentry-melbourne.jpg" alt="Custom gate carpentry by the JT team in Brunswick VIC" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Custom gate</strong><span>Brunswick, VIC</span></div></div>
@@ -378,9 +392,10 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
   <div class="container cta-band">
     <span class="eyebrow on-dark">Let's have a chat</span>
     <h2>Let a team who cares take it from here.</h2>
-    <p>Tell us what you need and we'll take it from there, with the same care we'd give our own place. Get an instant estimate online, or pick up the phone and talk to a real person on the team.</p>
+    <p>Tell us what you need and we'll take it from there, with the same care we'd give our own place. Send us your job brief or get a rough estimate online, or pick up the phone and talk to a real person on the team.</p>
     <div class="cta-row">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('final_cta');" class="btn btn-primary">Get an Instant Estimate</a>
+      <a href="javascript:void(0)" onclick="openCallbackModal('final_cta');" class="btn btn-primary">Start My Job Brief</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('final_cta');" class="btn btn-ghost on-dark btn-alt">Get a Rough Estimate</a>
       <a href="tel:1800587659" class="btn btn-ghost on-dark">Call The Team · 1800 587 659</a>
     </div>
     <p style="margin-top:16px;color:rgba(255,255,255,.6);font-size:.9rem;">One team · one point of contact · one stop shop.</p>
@@ -427,7 +442,7 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
       <div>
         <h4>Get started</h4>
         <ul>
-          <li><a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('footer');">Instant estimate</a></li>
+          <li><a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('footer');">Rough estimate</a></li>
           <li><a href="tel:1800587659">Call 1800 587 659</a></li>
         </ul>
       </div>
@@ -449,7 +464,7 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
 
 <div class="mobile-bar">
   <a href="tel:1800587659" class="btn btn-ghost">Call now</a>
-  <a href="javascript:void(0)" onclick="openCallbackModal('sticky_bar');" class="btn btn-primary">Tailored Quote</a>
+  <a href="javascript:void(0)" onclick="openCallbackModal('sticky_bar');" class="btn btn-primary">Start My Job Brief</a>
 </div>
 
 <div id="quoteModal" class="qmodal">
@@ -475,98 +490,37 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
     <div style="padding:36px 28px;overflow-y:auto;">
       <div id="callbackFormWrap">
         <h3 style="margin-bottom:6px;">Get your property jobs quoted without the back-and-forth</h3>
-        <p style="color:#5a6472;font-size:.92rem;margin-bottom:20px;">No photos needed. Tell us what needs doing around your property and we'll follow up within 72 hours.</p>
+        <p style="color:#5a6472;font-size:.92rem;margin-bottom:20px;">We'd love a photo of the job. Can't take one? Tell us what needs doing. <a href="javascript:void(0)" onclick="closeCallbackModal(); fireRedTrackClick(); openQuoteModal('callback_popup');" style="color:inherit;text-decoration:underline;font-weight:600;">Try the rough estimate.</a></p>
         <form id="callbackForm" onsubmit="submitCallbackForm(event);">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">First name</label>
-              <input type="text" name="first_name" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Last name</label>
-              <input type="text" name="last_name" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
+          <div style="margin-bottom:10px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">What type of repair or maintenance do you need help with?</label>
+            <select name="job_type" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Choose the closest match</option><option>Property maintenance</option><option>Doors &amp; windows</option><option>Roofing &amp; gutters</option><option>Painting &amp; plaster repairs</option><option>Bathroom &amp; kitchen repairs</option><option>Plumbing</option><option>Electrical</option><option>Decks, fencing &amp; outdoor</option><option>Flooring &amp; tiling</option><option>Pre-sale repairs &amp; renovations</option><option>Compliance &amp; safety</option><option>Insurance &amp; emergency repairs</option><option>Multiple jobs (send us your list)</option><option>Other</option></select>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Mobile number</label>
-              <input type="tel" name="mobile" required placeholder="04XX XXX XXX" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Email (optional)</label>
-              <input type="email" name="email" placeholder="you@example.com" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
+          <div style="margin-bottom:10px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Anything we should know? (optional)</label>
+            <input type="text" name="message" maxlength="140" placeholder="e.g. leaking tap in the kitchen" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;font-family:inherit;">
           </div>
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Street address</label>
-            <input type="text" name="address" required autocomplete="street-address" placeholder="e.g. 12 Smith Street" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Suburb</label>
-              <input type="text" name="suburb" required autocomplete="address-level2" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Postcode</label>
-              <input type="text" name="postcode" required inputmode="numeric" maxlength="4" autocomplete="postal-code" placeholder="3000" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
-          </div>
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Service</label>
-            <select name="job_type" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
-              <option value="">Select a service</option>
-              <option>Property maintenance</option>
-              <option>Doors &amp; windows</option>
-              <option>Roofing &amp; gutters</option>
-              <option>Painting &amp; plaster repairs</option>
-              <option>Bathroom &amp; kitchen repairs</option>
-              <option>Plumbing</option>
-              <option>Electrical</option>
-              <option>Decks, fencing &amp; outdoor</option>
-              <option>Flooring &amp; tiling</option>
-              <option>Pre-sale repairs &amp; renovations</option>
-              <option>Compliance &amp; safety</option>
-              <option>Insurance &amp; emergency repairs</option>
-              <option>Multiple jobs (send us your list)</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">What needs doing and roughly how big is the job?</label>
-            <textarea name="message" rows="3" required placeholder="e.g. Full bathroom renovation — need carpentry, plumbing, tiling and painting coordinated by one team" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;resize:vertical;font-family:inherit;"></textarea>
-          </div>
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Estimated job size</label>
+          <div style="margin-bottom:10px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Estimated job value</label>
             <select name="job_size" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
-              <option value="">Select job size</option>
-              <option>Under $500 (min. $300)</option>
-              <option>Small ($500 – $1,000)</option>
-              <option>Medium ($1,000 – $5,000)</option>
-              <option>Large ($5,000+)</option>
+              <option value="">Select job value</option>
+              <option>Small job: $600–$1,000</option>
+              <option>Medium job: $1,000–$3,000</option>
+              <option>Larger job: $3,000–$10,000</option>
+              <option>Major project: $10,000+</option>
             </select>
-            <p style="margin:6px 0 0;font-size:.78rem;color:#5a6472;">Our minimum job size is $300.</p>
+            <p style="margin:6px 0 0;font-size:.78rem;color:#5a6472;">Jobs generally start from $600.</p>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;align-items:end;">
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Property type (optional)</label>
-              <select name="property_type" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
-                <option value="">Select</option>
-                <option>Owner-occupier</option>
-                <option>Landlord</option>
-                <option>Property manager</option>
-              </select>
-            </div>
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Timeframe (optional)</label>
-              <select name="timeframe" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
-                <option value="">Select</option>
-                <option>ASAP</option>
-                <option>Within 2 weeks</option>
-                <option>Within a month</option>
-                <option>Just getting prices</option>
-              </select>
-            </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Property type (optional)</label><select name="property_type" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Select</option><option>Owner-occupier</option><option>Landlord</option><option>Property manager</option></select></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Timeframe (optional)</label><select name="timeframe" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Select</option><option>ASAP</option><option>Within 2 weeks</option><option>Within a month</option><option>Just getting prices</option></select></div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">First name</label><input type="text" name="first_name" required autocomplete="given-name" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Last name</label><input type="text" name="last_name" required autocomplete="family-name" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Mobile number</label><input type="tel" name="mobile" required autocomplete="tel" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Email (optional)</label><input type="email" name="email" autocomplete="email" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
+          <div style="margin-bottom:10px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Street address (optional)</label>
+            <input type="text" name="address" autocomplete="street-address" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
           </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Suburb</label><input type="text" name="suburb" required autocomplete="address-level2" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Postcode</label><input type="text" name="postcode" required inputmode="numeric" maxlength="4" autocomplete="postal-code" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
+
           <!-- Honeypot — hidden from real users via off-screen positioning;
                bots that auto-fill every field will fill this one too. -->
           <div style="position:absolute;left:-9999px;" aria-hidden="true">
@@ -580,16 +534,16 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
           <input type="hidden" name="all_params">
           <input type="hidden" name="fbc">
           <input type="hidden" name="fbp">
+          <input type="hidden" name="lead_type" value="tailored_quote">
           <div id="callbackFormError" style="display:none;color:#c0392b;font-size:.88rem;margin-bottom:12px;"></div>
-          <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Get My Tailored Quote</button>
-          <p style="margin:10px 0 0;font-size:.8rem;color:#5a6472;text-align:center;">We'll follow up within 72 hours with your tailored quote and next steps.</p>
-          <p style="margin:14px 0 0;font-size:.78rem;color:#7b8591;text-align:center;">Need a rough cost now? <a href="javascript:void(0)" onclick="closeCallbackModal(); fireRedTrackClick(); openQuoteModal('callback_popup');" style="color:inherit;text-decoration:underline;">Try our instant estimate.</a></p>
+          <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Submit My Job Brief</button>
+          <p style="margin:10px 0 0;font-size:.85rem;color:#3a4350;text-align:center;font-weight:600;">We'll be in touch as soon as we can during business hours, with a written quote within 48 hours.</p>
         </form>
       </div>
       <div id="callbackThankYou" style="display:none;text-align:center;padding:20px 0;">
         <div style="font-size:2.4rem;margin-bottom:10px;">✓</div>
-        <h3 style="margin-bottom:8px;">Thanks! We'll be in touch within 72 hours.</h3>
-        <p style="color:#5a6472;font-size:.92rem;">One of our team will be in touch soon to help sort it out.</p>
+        <h3 style="margin-bottom:8px;">Thanks, we've got your job brief.</h3>
+        <p style="color:#5a6472;font-size:.92rem;">We'll be in touch as soon as we can during business hours, with a written quote within 48 hours.</p>
       </div>
     </div>
   </div>
@@ -764,7 +718,7 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
       address: form.address.value.trim(),
       suburb: form.suburb.value.trim(),
       postcode: postcode,
-      full_address: form.address.value.trim() + ', ' + form.suburb.value.trim() + ' ' + postcode,
+      full_address: (form.address.value.trim() ? form.address.value.trim() + ', ' : '') + form.suburb.value.trim() + ' ' + postcode,
       job_type: form.job_type.value,
       message: form.message.value.trim(),
       job_size: form.job_size.value,
