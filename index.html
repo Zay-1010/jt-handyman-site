@@ -412,6 +412,7 @@ h2{ font-size:clamp(1.7rem,3.4vw,2.6rem) !important; letter-spacing:.005em; }
 .proof-split .proof-video{ max-width:340px; margin:0; }
 .proof-split .proof-reviews{ min-width:0; }
 .proof-split .reviews-embed{ max-width:none; margin:0; }
+@media(min-width:821px){ .proof-split .reviews-embed{ height:604px; overflow-y:auto; overscroll-behavior:contain; display:flex; flex-direction:column; scrollbar-width:thin; } .proof-split .reviews-embed > *{ width:100%; margin:auto 0; } }
 .proof-split .proof-reviews{ align-self:center; }
 .proof-split .review-cards{ grid-template-columns:1fr !important; }
 @media(max-width:820px){ .proof-split{ grid-template-columns:1fr; gap:32px; } .proof-split .proof-video{ margin:0 auto; order:2; } .proof-split .proof-reviews{ order:1; } }
@@ -524,12 +525,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p style="margin:6px 0 0;font-size:.78rem;color:#5a6472;">Jobs generally start from $600.</p>
           </div>
 
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Property type (optional)</label><select name="property_type" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Select</option><option>Owner-occupier</option><option>Landlord</option><option>Property manager</option></select></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Timeframe (optional)</label><select name="timeframe" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Select</option><option>ASAP</option><option>Within 2 weeks</option><option>Within a month</option><option>Just getting prices</option></select></div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Property type</label><select name="property_type" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Select</option><option>Owner-occupier</option><option>Landlord</option><option>Property manager</option></select></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Timeframe</label><select name="timeframe" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Select</option><option>ASAP</option><option>Within 2 weeks</option><option>Within a month</option><option>Just getting prices</option></select></div></div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">First name</label><input type="text" name="first_name" required autocomplete="given-name" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Last name</label><input type="text" name="last_name" required autocomplete="family-name" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Mobile number</label><input type="tel" name="mobile" required autocomplete="tel" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Email (optional)</label><input type="email" name="email" autocomplete="email" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Mobile number</label><input type="tel" name="mobile" required autocomplete="tel" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Email</label><input type="email" name="email" autocomplete="email" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
           <div style="margin-bottom:10px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Street address (optional)</label>
-            <input type="text" name="address" autocomplete="street-address" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Street address</label>
+            <input type="text" name="address" required autocomplete="street-address" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Suburb</label><input type="text" name="suburb" required autocomplete="address-level2" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Postcode</label><input type="text" name="postcode" required inputmode="numeric" maxlength="4" autocomplete="postal-code" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
 
@@ -666,7 +667,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- JOBS CAROUSEL -->
 <section style="background:#fff;padding:clamp(40px,5vw,64px) 0;overflow:hidden;">
   <div class="testi-marquee-wrap" style="margin-top:0;">
-    <div class="testi-marquee" style="animation-duration:42s;gap:14px;">
+    <div class="testi-marquee" style="animation-duration:70s;gap:14px;">
       <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
         <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
         <img src="img/work/jt-finished-bathroom-vanity-melbourne.webp" alt="Bathroom vanity renovation, Reservoir VIC" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
@@ -720,6 +721,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- duplicate set for seamless loop -->
       <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
         <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-period-hallway-arch-melbourne.jpg" alt="Period hallway arch renovation by JT Handyman" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Period home renovation<br><span style="opacity:.65;">Melbourne, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-grey-gate-carpentry-melbourne.jpg" alt="Grey timber gate by JT Handyman" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Timber gate carpentry<br><span style="opacity:.65;">Melbourne, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-stainless-stair-handrail-melbourne.jpg" alt="Stainless stair handrail by JT Handyman" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Stair handrail install<br><span style="opacity:.65;">Melbourne, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-kitchen-drawers-cooktop-melbourne.jpg" alt="Kitchen drawers and cooktop by JT Handyman" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Kitchen fit-out<br><span style="opacity:.65;">Melbourne, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-timber-pool-deck-melbourne.jpg" alt="Timber pool deck by JT Handyman" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Timber pool deck<br><span style="opacity:.65;">Melbourne, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-painted-brick-garden-wall-melbourne.jpg" alt="Painted brick garden wall by JT Handyman" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Painted garden wall<br><span style="opacity:.65;">Melbourne, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/smoke-alarm.avif" alt="Smoke alarm installation by JT Handyman" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Smoke alarm install<br><span style="opacity:.65;">Melbourne, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
         <img src="img/work/jt-finished-bathroom-vanity-melbourne.webp" alt="Bathroom vanity renovation, Reservoir VIC" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
         <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Bathroom vanity renovation<br><span style="opacity:.65;">Reservoir, VIC</span></div>
       </div>
@@ -767,6 +803,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
         <img src="img/work/jt-tiled-shower-glass-screen-melbourne.webp" alt="Tiled shower and glass screen, East Melbourne VIC" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
         <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Tiled shower &amp; glass screen<br><span style="opacity:.65;">East Melbourne, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-period-hallway-arch-melbourne.jpg" alt="Period hallway arch renovation by JT Handyman" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Period home renovation<br><span style="opacity:.65;">Melbourne, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-grey-gate-carpentry-melbourne.jpg" alt="Grey timber gate by JT Handyman" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Timber gate carpentry<br><span style="opacity:.65;">Melbourne, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-stainless-stair-handrail-melbourne.jpg" alt="Stainless stair handrail by JT Handyman" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Stair handrail install<br><span style="opacity:.65;">Melbourne, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-kitchen-drawers-cooktop-melbourne.jpg" alt="Kitchen drawers and cooktop by JT Handyman" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Kitchen fit-out<br><span style="opacity:.65;">Melbourne, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-timber-pool-deck-melbourne.jpg" alt="Timber pool deck by JT Handyman" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Timber pool deck<br><span style="opacity:.65;">Melbourne, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/jt-painted-brick-garden-wall-melbourne.jpg" alt="Painted brick garden wall by JT Handyman" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Painted garden wall<br><span style="opacity:.65;">Melbourne, VIC</span></div>
+      </div>
+      <div style="flex:0 0 180px;width:180px;position:relative;border-radius:10px;overflow:hidden;">
+        <span style="position:absolute;top:8px;left:8px;background:rgba(20,150,80,.92);color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;z-index:2;">✓ DONE</span>
+        <img src="img/work/smoke-alarm.avif" alt="Smoke alarm installation by JT Handyman" style="width:100%;height:130px;object-fit:cover;display:block;" loading="lazy">
+        <div style="background:#111;color:#fff;font-size:.7rem;padding:6px 8px;">Smoke alarm install<br><span style="opacity:.65;">Melbourne, VIC</span></div>
       </div>
     </div>
   </div>
@@ -1367,6 +1438,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       });
     },{threshold:[0,0.5]});
     io.observe(vid);
+  }catch(e){}
+})();
+</script>
+<script>
+(function(){
+  try{
+    var v=document.getElementById('vidBiggin'); if(!v||!('IntersectionObserver' in window)) return;
+    var c=navigator.connection||{}; if(c.saveData||window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var b=document.getElementById('vidBigginPlay'), up=false, started=false;
+    v.muted=true; v.setAttribute('muted','');
+    v.addEventListener('pause',function(){ if(!v.__auto && !v.ended) up=true; });
+    new IntersectionObserver(function(es){ es.forEach(function(e){
+      if(e.isIntersecting && e.intersectionRatio>=0.5){
+        if(!up && !started && v.paused){ v.__auto=true; var p=v.play(); if(p&&p.then){ p.then(function(){ started=true; if(b) b.style.display='none'; v.__auto=false; }).catch(function(){ v.__auto=false; }); } }
+      } else if(!v.paused){ v.__auto=true; v.pause(); if(b) b.style.display='flex'; setTimeout(function(){v.__auto=false;},50); }
+    }); },{threshold:[0,0.5]}).observe(v);
   }catch(e){}
 })();
 </script>
