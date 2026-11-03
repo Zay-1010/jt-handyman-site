@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Window & Glazing Repairs Melbourne — Frames, Glass & Draught Sealing | JT Handyman</title>
-<meta name="description" content="Window frame restoration, re-glazing and draught sealing across Melbourne. Deteriorated frames, stuck or cracked windows restored in-house. Instant estimate.">
+<meta name="description" content="Window frame restoration, re-glazing and draught sealing across Melbourne. Deteriorated frames, stuck or cracked windows restored properly. Rough estimate in minutes.">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Window & Glazing Repairs Melbourne — Frames, Glass & Draught Sealing | JT Handyman">
-<meta property="og:description" content="Window frame restoration, re-glazing and draught sealing across Melbourne. Deteriorated frames, stuck or cracked windows restored in-house. Instant estimate.">
+<meta property="og:description" content="Window frame restoration, re-glazing and draught sealing across Melbourne. Deteriorated frames, stuck or cracked windows restored properly. Rough estimate in minutes.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -133,6 +133,15 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
 .btn.btn-alt:hover{ background:var(--red); color:#fff; }
 .btn.btn-alt.on-dark{ border-color:var(--red); color:#FF5A5F; background:transparent; }
 .btn.btn-alt.on-dark:hover{ background:var(--red); color:#fff; }
+#callbackForm > div{ margin-bottom:12px !important; }
+#callbackForm label{ margin-bottom:4px !important; }
+#callbackForm [style*="grid"]{ gap:12px 12px !important; }
+#callbackForm input, #callbackForm select, #callbackForm textarea{ border:1.5px solid #cdd1d6 !important; border-radius:10px !important; padding:12px 14px !important; }
+textarea[name="message"]::placeholder, input[name="message"]::placeholder{ color:#c9ced4 !important; opacity:1; }
+a.btn[onclick*="openQuoteModal"]{ border:1.5px solid #E5252A !important; background:transparent !important; color:#E5252A !important; }
+.site-header a.btn[onclick*="openQuoteModal"], .band-dark a.btn[onclick*="openQuoteModal"], a.btn.on-dark[onclick*="openQuoteModal"], footer a.btn[onclick*="openQuoteModal"]{ color:#fff !important; }
+a.btn[onclick*="openQuoteModal"]:hover{ background:#E5252A !important; border-color:#E5252A !important; color:#fff !important; }
+@media(max-width:720px){ .header-brief{ display:none !important; } }
 </style>
 </head>
 <body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -147,8 +156,8 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
 
     <div class="header-actions">
       <a href="tel:1800587659" class="phone-link">1800 587 659</a>
-      <a href="javascript:void(0)" onclick="openCallbackModal('header');" class="btn btn-ghost on-dark btn-alt header-callback">Tailored Quote</a>
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('header');" class="btn btn-primary">Get My Free Estimate</a>
+      <a href="javascript:void(0)" onclick="openCallbackModal('header');" class="btn btn-primary header-brief">Start My Job Brief</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('header');" class="btn btn-ghost on-dark btn-alt">Get a Rough Estimate</a>
     </div>
   </div>
 </header>
@@ -171,14 +180,14 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
     if (!res.ok) throw new Error('Failed to load jobs');
     const data = await res.json();
     if (!data.jobs || data.jobs.length === 0) {
-      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant estimate today.</span>';
+      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get a rough estimate today.</span>';
       return;
     }
     const itemsHtml = data.jobs.map(job => `<span class="job-ticker-item">${job.category} · ${job.suburb} · ${job.date}</span>`).join('');
     track.innerHTML = `<div class="job-ticker-marquee">${itemsHtml}${itemsHtml}</div>`;
   } catch (err) {
     console.error('Job ticker error:', err);
-    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant estimate today.</span>';
+    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get a rough estimate today.</span>';
   }
 })();
 
@@ -207,18 +216,18 @@ setTimeout(function () {
       <p class="lede">JT handles window installation, repairs, glazing and finishing through <strong>one coordinated team</strong>, so you don't have to chase multiple tradies.</p>
       <div class="choice-row">
         <div class="choice">
-          <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('hero');" class="btn btn-primary">Get an Instant Estimate</a>
-          <span class="choice-note">Enter your details, answer a few quick questions and add a photo. Get your price in minutes.</span>
+          <a href="javascript:void(0)" onclick="openCallbackModal('hero');" class="btn btn-primary">Start My Job Brief</a>
+          <span class="choice-note">Can't take a photo? We'll be in touch as soon as we can during business hours.</span>
         </div>
         <div class="choice">
-          <a href="javascript:void(0)" onclick="openCallbackModal('hero');" class="btn btn-ghost btn-alt">Request a Tailored Quote</a>
-          <span class="choice-note">Happy to wait? Tell us about your job and we'll follow up with your quote within 72 hours.</span>
+          <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('hero');" class="btn btn-ghost btn-alt">Get a Rough Estimate</a>
+          <span class="choice-note">See a starting range in minutes.</span>
         </div>
       </div>
       <p class="choice-call">Prefer to talk now? <a href="tel:1800587659">Call 1800 587 659</a></p>
       <div class="chip-row">
         <span class="chip">Frame restoration, not just replacement</span>
-        <span class="chip">Every job in-house</span>
+        <span class="chip">Every job, one team</span>
         <span class="chip">Workmanship guaranteed</span>
       </div>
     </div>
@@ -253,7 +262,7 @@ setTimeout(function () {
       <div class="card"><div class="card-body"><h3 class="problem-card-label">New Windows &amp; Blinds</h3><p>Window installation, replacement windows and blinds to finish the space.</p></div></div>
     </div>
     <div class="text-center cta-row" style="margin-top:28px;justify-content:center;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get My Free Estimate Now</a>
+      <a href="javascript:void(0)" onclick="openCallbackModal('mid_page');" class="btn btn-primary">Start My Job Brief</a>
       <a href="tel:1800587659" class="btn btn-ghost">Call 1800 587 659</a>
     </div>
   </div>
@@ -272,7 +281,7 @@ setTimeout(function () {
       <div class="card"><div class="ph ratio-square"><img src="img/Windows_timber_window_view.jpg" alt="Timber-framed window with a view of palm trees, a brick building and the sea, by JT Handyman Solutionz" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Timber window</strong><span>Melbourne, VIC</span></div></div>
     </div>
     <div class="text-center" style="margin-top:24px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get My Free Estimate</a>
+      <a href="javascript:void(0)" onclick="openCallbackModal('mid_page');" class="btn btn-primary">Start My Job Brief</a>
     </div>
   </div>
 </section>
@@ -293,7 +302,7 @@ setTimeout(function () {
         <span class="flow-arrow">↓</span>
         <span class="flow-step">Painting</span>
       </div>
-      <p>A window job can involve more than just the glass. JT's in-house team can coordinate the carpentry, glazing and finishing work through one point of contact.</p>
+      <p>A window job can involve more than just the glass. JT's team can coordinate the carpentry, glazing and finishing work through one point of contact.</p>
       <p style="font-weight:700;">No chasing different tradies. No coordinating multiple jobs yourself.</p>
       <p style="margin-top:16px;">
         <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-ghost" style="font-size:.9rem;">Get a Free Window Estimate →</a>
@@ -341,11 +350,11 @@ setTimeout(function () {
     </div>
     <div class="grid grid-3">
       <div class="text-center"><div class="step-num" style="margin-bottom:12px;">1</div><h3>Tell us about the job</h3><p>Answer a few quick questions about what needs fixing.</p></div>
-      <div class="text-center"><div class="step-num" style="margin-bottom:12px;">2</div><h3>Get your estimate</h3><p>Get a real price back fast, often instant.</p></div>
+      <div class="text-center"><div class="step-num" style="margin-bottom:12px;">2</div><h3>Get your estimate</h3><p>Get a rough price range back in minutes.</p></div>
       <div class="text-center"><div class="step-num" style="margin-bottom:12px;">3</div><h3>JT gets it sorted</h3><p>One team, one point of contact, from start to finish.</p></div>
     </div>
     <div class="text-center" style="margin-top:28px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get My Free Estimate</a>
+      <a href="javascript:void(0)" onclick="openCallbackModal('mid_page');" class="btn btn-primary">Start My Job Brief</a>
     </div>
   </div>
 </section>
@@ -356,7 +365,7 @@ setTimeout(function () {
     <h3 style="margin-bottom:8px;">Your time matters. We make the process easier.</h3>
     <p class="lede" style="margin:0 0 4px;">From your first estimate through to the finished job, JT coordinates the work through one team and one point of contact.</p>
     <p style="margin:0 0 16px;font-size:1.15rem;font-weight:700;color:#e7161f;">Less chasing. Less back-and-forth. One team to get it sorted.</p>
-    <a href="javascript:void(0)" onclick="openCallbackModal('time_section');" class="btn btn-primary">Happy to wait? Send your details</a>
+    <a href="javascript:void(0)" onclick="openCallbackModal('time_section');" class="btn btn-primary">Start My Job Brief</a>
   </div>
 </section>
 
@@ -422,12 +431,12 @@ setTimeout(function () {
     <p>Tell us what's stuck, cracked, damaged or in need of replacing and get your free estimate started today.</p>
     <div class="choice-row">
       <div class="choice">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('final_cta');" class="btn btn-primary">Get an Instant Estimate</a>
-        <span class="choice-note">Enter your details, answer a few quick questions and add a photo. Get your price in minutes.</span>
+        <a href="javascript:void(0)" onclick="openCallbackModal('final_cta');" class="btn btn-primary">Start My Job Brief</a>
+        <span class="choice-note">Can't take a photo? We'll be in touch as soon as we can during business hours.</span>
       </div>
       <div class="choice">
-        <a href="javascript:void(0)" onclick="openCallbackModal('final_cta');" class="btn btn-ghost on-dark btn-alt">Request a Tailored Quote</a>
-        <span class="choice-note">Happy to wait? Tell us about your job and we'll follow up with your quote within 72 hours.</span>
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('final_cta');" class="btn btn-ghost on-dark btn-alt">Get a Rough Estimate</a>
+        <span class="choice-note">See a starting range in minutes.</span>
       </div>
     </div>
     <p class="choice-call">Prefer to talk now? <a href="tel:1800587659">Call 1800 587 659</a></p>
@@ -446,7 +455,7 @@ setTimeout(function () {
     <p style="margin-top:12px;max-width:480px;margin-left:auto;margin-right:auto;">One team, one point of contact, one-stop shop for window and glazing repairs across Melbourne.</p>
     <p style="margin-top:8px;font-size:.85rem;opacity:.75;">Melbourne-wide · Inner north &amp; east · Bayside &amp; south-east</p>
     <div class="cta-row" style="justify-content:center;margin-top:20px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('footer');" class="btn btn-primary">Get My Free Estimate</a>
+      <a href="javascript:void(0)" onclick="openCallbackModal('footer');" class="btn btn-primary">Start My Job Brief</a>
       <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
     </div>
     <div class="footer-bottom" style="margin-top:24px;flex-direction:column;gap:4px;justify-content:center;">
@@ -458,7 +467,7 @@ setTimeout(function () {
 
 <div class="mobile-bar">
   <a href="tel:1800587659" class="btn btn-ghost">Call now</a>
-  <a href="javascript:void(0)" onclick="openCallbackModal('sticky_bar');" class="btn btn-primary">Tailored Quote</a>
+  <a href="javascript:void(0)" onclick="openCallbackModal('sticky_bar');" class="btn btn-primary">Start My Job Brief</a>
 </div>
 
 <div id="quoteModal" class="qmodal">
@@ -483,99 +492,38 @@ setTimeout(function () {
     <button type="button" class="qmodal-close" aria-label="Close callback form" onclick="closeCallbackModal();">&times;</button>
     <div style="padding:36px 28px;overflow-y:auto;">
       <div id="callbackFormWrap">
-        <h3 style="margin-bottom:6px;">Request a Tailored Quote</h3>
-        <p style="color:#5a6472;font-size:.92rem;margin-bottom:20px;">No photos needed. Tell us about the job and we'll follow up within 72 hours. Need a price now? <a href="javascript:void(0)" onclick="closeCallbackModal(); fireRedTrackClick(); openQuoteModal('callback_popup');" style="font-weight:700;color:inherit;text-decoration:underline;">Use the instant estimate.</a></p>
+        <h3 style="margin-bottom:6px;">Get your property jobs quoted without the back-and-forth</h3>
+        <p style="color:#5a6472;font-size:.92rem;margin-bottom:20px;">We'd love a photo of the job. Can't take one? Tell us what needs doing.</p>
         <form id="callbackForm" onsubmit="submitCallbackForm(event);">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">First name</label>
-              <input type="text" name="first_name" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Last name</label>
-              <input type="text" name="last_name" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
+          <div style="margin-bottom:10px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">What type of repair or maintenance do you need help with?</label>
+            <select name="job_type" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Choose the closest match</option><option>Property maintenance</option><option>Doors &amp; windows</option><option>Roofing &amp; gutters</option><option>Painting &amp; plaster repairs</option><option>Bathroom &amp; kitchen repairs</option><option>Plumbing</option><option>Electrical</option><option>Decks, fencing &amp; outdoor</option><option>Flooring &amp; tiling</option><option>Pre-sale repairs &amp; renovations</option><option>Compliance &amp; safety</option><option>Insurance &amp; emergency repairs</option><option>Multiple jobs (send us your list)</option><option>Other</option></select>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Mobile number</label>
-              <input type="tel" name="mobile" required placeholder="04XX XXX XXX" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Email (optional)</label>
-              <input type="email" name="email" placeholder="you@example.com" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
+          <div style="margin-bottom:10px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Anything we should know? (optional)</label>
+            <input type="text" name="message" maxlength="140" placeholder="e.g. leaking tap in the kitchen" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;font-family:inherit;">
           </div>
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Street address</label>
-            <input type="text" name="address" required autocomplete="street-address" placeholder="e.g. 12 Smith Street" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Suburb</label>
-              <input type="text" name="suburb" required autocomplete="address-level2" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Postcode</label>
-              <input type="text" name="postcode" required inputmode="numeric" maxlength="4" autocomplete="postal-code" placeholder="3000" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
-          </div>
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Service</label>
-            <select name="job_type" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
-              <option value="">Select a service</option>
-              <option>Property maintenance</option>
-              <option>Doors &amp; windows</option>
-              <option>Roofing &amp; gutters</option>
-              <option>Painting &amp; plaster repairs</option>
-              <option>Bathroom &amp; kitchen repairs</option>
-              <option>Plumbing</option>
-              <option>Electrical</option>
-              <option>Decks, fencing &amp; outdoor</option>
-              <option>Flooring &amp; tiling</option>
-              <option>Pre-sale repairs &amp; renovations</option>
-              <option>Compliance &amp; safety</option>
-              <option>Insurance &amp; emergency repairs</option>
-              <option>Multiple jobs (send us your list)</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">What needs doing and roughly how big is the job?</label>
-            <textarea name="message" rows="3" required placeholder="e.g. Full bathroom renovation — need carpentry, plumbing, tiling and painting coordinated by one team" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;resize:vertical;font-family:inherit;"></textarea>
-          </div>
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Estimated job size</label>
+          <div style="margin-bottom:10px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Estimated job value</label>
             <select name="job_size" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
-              <option value="">Select job size</option>
-              <option>Under $500 (min. $300)</option>
-              <option>Small ($500 – $1,000)</option>
-              <option>Medium ($1,000 – $5,000)</option>
-              <option>Large ($5,000+)</option>
+              <option value="">Select job value</option>
+              <option>Small job: $600–$1,000</option>
+              <option>Medium job: $1,000–$3,000</option>
+              <option>Larger job: $3,000–$10,000</option>
+              <option>Major project: $10,000+</option>
             </select>
-            <p style="margin:6px 0 0;font-size:.78rem;color:#5a6472;">Our minimum job size is $300.</p>
+            <p style="margin:6px 0 0;font-size:.78rem;color:#5a6472;">Jobs generally start from $600.</p>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;align-items:end;">
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Property type (optional)</label>
-              <select name="property_type" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
-                <option value="">Select</option>
-                <option>Owner-occupier</option>
-                <option>Landlord</option>
-                <option>Property manager</option>
-              </select>
-            </div>
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Timeframe (optional)</label>
-              <select name="timeframe" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
-                <option value="">Select</option>
-                <option>ASAP</option>
-                <option>Within 2 weeks</option>
-                <option>Within a month</option>
-                <option>Just getting prices</option>
-              </select>
-            </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Property type</label><select name="property_type" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Select</option><option>Owner-occupier</option><option>Landlord</option><option>Property manager</option></select></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Timeframe</label><select name="timeframe" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Select</option><option>ASAP</option><option>Within 2 weeks</option><option>Within a month</option><option>Just getting prices</option></select></div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">First name</label><input type="text" name="first_name" required autocomplete="given-name" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Last name</label><input type="text" name="last_name" required autocomplete="family-name" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Mobile number</label><input type="tel" name="mobile" required autocomplete="tel" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Email</label><input type="email" name="email" autocomplete="email" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
+          <div style="margin-bottom:10px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Street address</label>
+            <input type="text" name="address" required autocomplete="street-address" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
           </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Suburb</label><input type="text" name="suburb" required autocomplete="address-level2" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Postcode</label><input type="text" name="postcode" required inputmode="numeric" maxlength="4" autocomplete="postal-code" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
+
           <!-- Honeypot — hidden from real users via off-screen positioning;
                bots that auto-fill every field will fill this one too. -->
           <div style="position:absolute;left:-9999px;" aria-hidden="true">
@@ -589,14 +537,16 @@ setTimeout(function () {
           <input type="hidden" name="all_params">
           <input type="hidden" name="fbc">
           <input type="hidden" name="fbp">
+          <input type="hidden" name="lead_type" value="tailored_quote">
           <div id="callbackFormError" style="display:none;color:#c0392b;font-size:.88rem;margin-bottom:12px;"></div>
-          <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Send My Details</button>
+          <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Submit My Job Brief</button>
+          <p style="margin:10px 0 0;font-size:.85rem;color:#3a4350;text-align:center;font-weight:600;">We'll be in touch as soon as we can during business hours, with a written quote within 48 hours.</p>
         </form>
       </div>
       <div id="callbackThankYou" style="display:none;text-align:center;padding:20px 0;">
         <div style="font-size:2.4rem;margin-bottom:10px;">✓</div>
-        <h3 style="margin-bottom:8px;">Thanks! We'll be in touch within 72 hours.</h3>
-        <p style="color:#5a6472;font-size:.92rem;">One of our team will be in touch soon to help sort it out.</p>
+        <h3 style="margin-bottom:8px;">Thanks, we've got your job brief.</h3>
+        <p style="color:#5a6472;font-size:.92rem;">We'll be in touch as soon as we can during business hours, with a written quote within 48 hours.</p>
       </div>
     </div>
   </div>
@@ -770,6 +720,7 @@ setTimeout(function () {
       all_params: form.all_params.value,
       fbc: form.fbc.value,
       fbp: form.fbp.value,
+      lead_type: form.lead_type.value,
       page_title: document.title
     };
 
