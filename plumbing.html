@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Plumbing & Leaks Melbourne — Taps, Drains & Hot Water | JT Handyman</title>
-<meta name="description" content="Plumbing repairs across Melbourne — dripping taps, blocked drains, leaking pipes and hot water issues, traced and fixed properly. Instant estimate.">
+<meta name="description" content="Plumbing repairs across Melbourne — dripping taps, blocked drains, leaking pipes and hot water issues, traced and fixed properly. Rough estimate in minutes.">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Plumbing & Leaks Melbourne — Taps, Drains & Hot Water | JT Handyman">
-<meta property="og:description" content="Plumbing repairs across Melbourne — dripping taps, blocked drains, leaking pipes and hot water issues, traced and fixed properly. Instant estimate.">
+<meta property="og:description" content="Plumbing repairs across Melbourne — dripping taps, blocked drains, leaking pipes and hot water issues, traced and fixed properly. Rough estimate in minutes.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -133,6 +133,110 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
 .btn.btn-alt:hover{ background:var(--red); color:#fff; }
 .btn.btn-alt.on-dark{ border-color:var(--red); color:#FF5A5F; background:transparent; }
 .btn.btn-alt.on-dark:hover{ background:var(--red); color:#fff; }
+#callbackForm > div{ margin-bottom:12px !important; }
+#callbackForm label{ margin-bottom:4px !important; }
+#callbackForm [style*="grid"]{ gap:12px 12px !important; }
+#callbackForm input, #callbackForm select, #callbackForm textarea{ border:1.5px solid #cdd1d6 !important; border-radius:10px !important; padding:12px 14px !important; }
+textarea[name="message"]::placeholder, input[name="message"]::placeholder{ color:#c9ced4 !important; opacity:1; }
+a.btn[onclick*="openQuoteModal"]{ border:1.5px solid #E5252A !important; background:transparent !important; color:#E5252A !important; }
+.site-header a.btn[onclick*="openQuoteModal"], .band-dark a.btn[onclick*="openQuoteModal"], a.btn.on-dark[onclick*="openQuoteModal"], footer a.btn[onclick*="openQuoteModal"]{ color:#fff !important; }
+a.btn[onclick*="openQuoteModal"]:hover{ background:#E5252A !important; border-color:#E5252A !important; color:#fff !important; }
+@media(max-width:720px){ .header-brief{ display:none !important; } }
+.hero .choice-note{ display:none; }
+#reviewsFallback[hidden]{ display:none !important; }
+/* ---- index-style hero + in-place job brief form ---- */
+.enq-card{ background:#fff; border:1px solid #e5e8ec; border-radius:16px; padding:28px; }
+.enq-card h3{ margin:0 0 8px; }
+.hero-proof{ margin-top:34px; padding-top:28px; border-top:1px solid rgba(255,255,255,.14); }
+.hero-rating{ display:flex; align-items:center; gap:10px; margin-bottom:20px; color:#fff; }
+.hero-rating svg{ width:22px; height:22px; flex:none; }
+.hero-rating .stars-mini{ color:#fcbf18; letter-spacing:1px; }
+.hero-rating p{ margin:0; color:rgba(255,255,255,.85); font-size:1rem; }
+.hero-creds{ list-style:none; margin:0; padding:0; display:grid; gap:12px; }
+.hero-creds li{ display:flex; align-items:center; gap:12px; color:#fff; font-weight:600; font-size:1.05rem; }
+.hero-creds .tick{ flex:none; width:26px; height:26px; border-radius:50%; background:#e7161f; color:#fff; display:grid; place-items:center; font-size:.85rem; }
+.bmodal-dialog{ position:relative; z-index:1; width:min(640px,100%); max-height:94vh; overflow-y:auto; background:#fff; border-radius:20px; box-shadow:0 40px 90px -20px rgba(0,0,0,.6); animation:qpop .28s cubic-bezier(.16,.84,.3,1) both; }
+.bmodal-dialog .enq-card{ margin:0; box-shadow:none; border-radius:20px; }
+.bmodal-dialog .qmodal-close{ position:sticky; top:12px; float:right; margin:12px 12px -54px 0; z-index:6; }
+@media(max-width:560px){.qmodal.bmodal{ align-items:flex-end; padding:0; } .bmodal-dialog{ border-radius:20px 20px 0 0; max-height:96vh; } .bmodal-dialog .enq-card{ border-radius:20px 20px 0 0; padding:22px 18px; }}
+.hero-form .enq-card{ margin:0; color:#0c0d0f; }
+.hero-form .enq-card label, .hero-form .enq-card h3, .hero-form .enq-card .form-step{ color:#0c0d0f; }
+.hero-form{ min-width:0; }
+.hero2 .hero2-grid{ align-items:start !important; }
+@media(min-width:901px){.hero2-grid > div:first-child{ padding-top:clamp(8px,2vw,32px); position:sticky; top:130px; }}
+.enq-card{ border-radius:20px; border:1px solid var(--hair); padding:clamp(24px,3.2vw,40px); box-shadow:0 40px 70px -40px rgba(12,13,15,.28); }
+.enq-card input, .enq-card select, .enq-card textarea{ border-radius:10px !important; border:1.5px solid #cdd1d6 !important; background:#fff !important; padding:12px 14px !important; }
+.enq-card input:focus, .enq-card select:focus, .enq-card textarea:focus{ border-color:#e7161f !important; background:#fff !important; outline:none; }
+.enq-card input:focus, .enq-card select:focus, .enq-card textarea:focus{ outline:2px solid var(--red); outline-offset:1px; border-color:var(--red) !important; }
+.enq-card{ border:1.5px solid #d9d5cc; border-top:4px solid var(--red); }
+.enq-card .enq-note{ border-top:1px solid #e3dfd6; padding-top:14px; margin-top:18px; }
+.hero2{ background:radial-gradient(900px 520px at 8% 0%, rgba(229,37,42,.20), transparent 62%), #0c0d0f; color:#fff; padding:clamp(32px,4vw,56px) 0 clamp(48px,6vw,88px); }
+.hero2-grid{ display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(32px,5vw,72px); align-items:center; max-width:1160px; margin:0 auto; padding:0 24px; }
+.hero2 h1{ color:#fff; text-align:left; max-width:none; margin:0 0 .45em; font-size:clamp(1.9rem,3.5vw,2.9rem) !important; line-height:1.07 !important; }
+.hero2 .lede{ color:rgba(255,255,255,.74); text-align:left; margin:0 0 28px; max-width:27em; font-size:clamp(1rem,1.3vw,1.15rem) !important; }
+.hero2 .eyebrow{ display:block; text-align:left; margin-bottom:14px; }
+.hero2 .choice-row{ justify-content:flex-start; }
+.hero2 .choice-note{ color:rgba(255,255,255,.62); text-align:left; }
+.hero2 .btn.btn-alt{ background:transparent; color:#fff; border-color:var(--red); }
+.hero2 .btn.btn-alt:hover{ background:var(--red); color:#fff; border-color:var(--red); }
+.hero2 .choice-call{ color:rgba(255,255,255,.7); text-align:left; margin:22px 0 28px; }
+.hero2 .choice-call a{ color:#fff; }
+.hero2 .chip-row{ justify-content:flex-start; margin:0; }
+.hero2 .chip{ color:rgba(255,255,255,.88); }
+@media(max-width:900px){.hero2-grid{ grid-template-columns:1fr; }}
+@media(max-width:700px){.hero2 .choice-row{ flex-direction:column; align-items:flex-start; gap:20px; } .hero2 .choice{ flex:none; }}
+@media(min-width:861px){.enq-grid > .enq-card:first-child{ display:flex; flex-direction:column; } .enq-grid > .enq-card:first-child .enq-note{ margin-top:18px; }}
+@media(max-width:700px){.hero2 .choice-row, .cta-pair{ flex-direction:column-reverse; } .hero2 .choice-row{ align-items:flex-start; }}
+@media(min-width:721px){.hero2 .choice{ max-width:282px; flex:0 0 auto; } .hero2 .choice .btn{ width:236px; padding:13px 18px; font-size:.82rem; } .hero2 .choice-row{ gap:14px 24px; margin-bottom:20px; } .hero2 .choice{ gap:14px; } .hero2 .choice-note{ line-height:1.5; font-size:.82rem; } .hero2 h1{ margin-bottom:.6em; } .hero2 .lede{ line-height:1.65; margin-bottom:36px; } .hero2 .choice-call{ margin:26px 0 30px; } .hero2 .chip-row{ gap:10px 16px; }}
+.hero2 .btn.btn-alt{ border-color:var(--red); }
+.hero2 .btn.btn-alt:hover{ background:var(--red); border-color:var(--red); }
+@media(max-width:560px){.hero2{ padding-top:26px; padding-bottom:40px; } .hero2 h1{ font-size:1.65rem !important; line-height:1.22 !important; margin:0 auto 18px; text-align:center; letter-spacing:.2px; } .hero2 .lede{ margin:0 auto 26px; line-height:1.6; text-align:center; } .hero2 .choice-row{ flex-direction:column-reverse; gap:22px; width:100%; align-items:stretch; margin-bottom:18px; } .hero2 .choice{ width:100%; max-width:none; gap:10px; } .hero2 .choice-note{ text-align:center; line-height:1.45; } .hero2 .chip-row{ margin-top:6px; justify-content:center; row-gap:10px; }}
+@media(max-width:720px){.hero2 .choice-call{ display:none; }}
+@media(min-width:1440px){.hero2-grid{ max-width:1360px; } .hero2 h1{ font-size:3.3rem !important; } .hero2 .lede{ font-size:1.25rem !important; max-width:30em; }}
+@media(min-width:1800px){.hero2-grid{ max-width:1560px; } .hero2 h1{ font-size:3.8rem !important; }}
+/* ---- founder video + reviews/testimonial (from index) ---- */
+.docket-stars{ color:#fcbf18 !important; }
+.testi-marquee .docket{ flex:0 0 340px; max-width:340px; }
+@media(max-width:600px){.testi-marquee .docket{ flex-basis:280px; max-width:280px; }}
+body, p, li, .lede, .chip, .card, .docket{ font-family:'Rubik', Arial, sans-serif; }
+.video-card{ border:2px solid #0c0d0f !important; box-shadow:none !important; padding:0 !important; background:transparent !important; }
+.video-card video, .video-card img{ border:0 !important; }
+.watch-line{ text-align:center; font-weight:600; margin:0 auto 16px; max-width:640px; }
+.proof-grid{ display:block; max-width:1020px; margin:28px auto 0; }
+.proof-video{ position:relative; max-width:400px; margin:0 auto 32px; }
+.proof-video .vwrap{ position:relative; border-radius:16px; overflow:hidden; aspect-ratio:9/16; background:#0c0d0f; border:2px solid #0c0d0f; }
+.proof-video video{ width:100%; height:100%; object-fit:cover; display:block; cursor:pointer; }
+.proof-video .cap{ text-align:center; font-weight:600; margin:10px 0 0; font-size:.95rem; }
+.proof-shots{ columns:2; column-gap:16px; }
+.proof-shots img{ width:100%; height:auto; display:block; border-radius:10px; border:1px solid #e0e4e8; break-inside:avoid; margin:0 0 16px; }
+@media(max-width:820px){.proof-video{ max-width:340px; } .proof-shots{ columns:1; }}
+.proof-shots img{ cursor:zoom-in; }
+}
+.proof-shots{ gap:18px; }
+.proof-shots img{ border-radius:14px; border:0; box-shadow:0 20px 40px -26px rgba(12,13,15,.45); }
+.proof-video .vwrap{ border-radius:20px; border:0; box-shadow:0 30px 60px -30px rgba(12,13,15,.5); }
+.video-card{ border-radius:20px !important; box-shadow:0 30px 60px -30px rgba(12,13,15,.5) !important; border:0 !important; }
+.proof-one{ columns:1; max-width:860px; margin:0 auto 20px; }
+.review-cards{ display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch; max-width:1000px; margin:0 auto; }
+@media(max-width:820px){.review-cards{ grid-template-columns:1fr; }}
+.review-cards .docket{ background:#fff; border:1.5px solid #d4d0c6; border-top:4px solid var(--red); border-radius:16px; padding:24px 26px; box-shadow:0 10px 26px -16px rgba(12,13,15,.4); margin:0; display:flex; flex-direction:column; }
+.review-cards .docket cite{ margin-top:auto; }
+@media(min-width:821px){.review-cards .docket-wide{ grid-column:1 / -1; } .review-cards .docket-wide blockquote{ max-width:60em; }}
+#reviews .review-cards{ background:transparent; }
+.review-cards .docket blockquote{ font-size:.98rem; line-height:1.5; }
+.review-cards .docket cite span{ display:block; font-weight:400; color:#5a6472; font-size:.8rem; margin-top:2px; }
+@media(min-width:1440px){.proof-one,.review-cards{ max-width:1200px; }}
+@media(min-width:1440px){.proof-grid,.enq-grid{ max-width:1240px; }}
+@media(min-width:1800px){.proof-grid,.enq-grid,.svc-grid{ max-width:1400px; }}
+.reviews-embed{ max-width:1100px; margin:0 auto; min-height:120px; }
+.proof-split{ display:grid; grid-template-columns:minmax(0,340px) minmax(0,1fr); gap:48px; align-items:center; }
+.proof-split .proof-video{ max-width:340px; margin:0; }
+.proof-split .proof-reviews{ min-width:0; }
+.proof-split .reviews-embed{ max-width:none; margin:0; }
+@media(min-width:821px){.proof-split .reviews-embed{ height:604px; overflow-y:auto; overscroll-behavior:contain; display:flex; flex-direction:column; scrollbar-width:thin; } .proof-split .reviews-embed > *{ width:100%; margin:auto 0; }}
+.proof-split .proof-reviews{ align-self:center; }
+.proof-split .review-cards{ grid-template-columns:1fr !important; }
+@media(max-width:820px){.proof-split{ grid-template-columns:1fr; gap:32px; } .proof-split .proof-video{ margin:0 auto; order:2; } .proof-split .proof-reviews{ order:1; }}
 </style>
 </head>
 <body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -147,8 +251,8 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
 
     <div class="header-actions">
       <a href="tel:1800587659" class="phone-link">1800 587 659</a>
-      <a href="javascript:void(0)" onclick="openCallbackModal('header');" class="btn btn-ghost on-dark btn-alt header-callback">Tailored Quote</a>
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('header');" class="btn btn-primary">Get My Free Estimate</a>
+      <a href="javascript:void(0)" onclick="openCallbackModal('header');" class="btn btn-primary header-brief">Start My Job Brief</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('header');" class="btn btn-ghost on-dark btn-alt">Get a Rough Estimate</a>
     </div>
   </div>
 </header>
@@ -171,14 +275,14 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
     if (!res.ok) throw new Error('Failed to load jobs');
     const data = await res.json();
     if (!data.jobs || data.jobs.length === 0) {
-      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get an instant estimate today.</span>';
+      track.innerHTML = '<span class="job-ticker-item show">Ask us about your next job — get a rough estimate today.</span>';
       return;
     }
     const itemsHtml = data.jobs.map(job => `<span class="job-ticker-item">${job.category} · ${job.suburb} · ${job.date}</span>`).join('');
     track.innerHTML = `<div class="job-ticker-marquee">${itemsHtml}${itemsHtml}</div>`;
   } catch (err) {
     console.error('Job ticker error:', err);
-    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get an instant estimate today.</span>';
+    track.innerHTML = '<span class="job-ticker-item show">One team. Every trade. Get a rough estimate today.</span>';
   }
 })();
 
@@ -198,31 +302,116 @@ setTimeout(function () {
 <main>
 
 <!-- 2. HERO -->
-<section class="hero band-white">
-  <div class="container hero-grid">
+<!-- 2. HERO (index style: form in the hero) -->
+<section class="hero2">
+  <div class="hero2-grid">
     <div>
       <span class="eyebrow">Plumbing &amp; Leaks · Melbourne-wide</span>
       <h1>Plumbing problems? <span class="accent">Get them sorted without the tradie runaround.</span></h1>
-      <p class="hero-pain-points">Dripping tap? Slow drain? Hidden leak? No hot water?</p>
-      <p class="lede">JT handles everyday plumbing faults and coordinates licensed plumbing where the work requires it, alongside <strong>the rest of your property repair job</strong>.</p>
+      <p class="lede">Dripping tap? Slow drain? Hidden leak? No hot water? JT handles everyday plumbing faults and coordinates licensed plumbing where the work requires it, alongside <strong>the rest of your property repair job</strong>.</p>
       <div class="choice-row">
         <div class="choice">
-          <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('hero');" class="btn btn-primary">Get an Instant Estimate</a>
-          <span class="choice-note">Enter your details, answer a few quick questions and add a photo. Get your price in minutes.</span>
-        </div>
-        <div class="choice">
-          <a href="javascript:void(0)" onclick="openCallbackModal('hero');" class="btn btn-ghost btn-alt">Request a Tailored Quote</a>
-          <span class="choice-note">Happy to wait? Tell us about your job and we'll follow up with your quote within 72 hours.</span>
+          <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('hero');" class="btn btn-ghost btn-alt">Get a Rough Estimate</a>
+          <span class="choice-note">Want a price range first? See one in minutes.</span>
         </div>
       </div>
       <p class="choice-call">Prefer to talk now? <a href="tel:1800587659">Call 1800 587 659</a></p>
-      <div class="chip-row">
-        <span class="chip">Source found, not just symptoms treated</span>
-        <span class="chip">Every trade in-house</span>
-        <span class="chip">Workmanship guaranteed</span>
+      <div class="hero-proof">
+        <div class="hero-rating"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg><span class="stars-mini">★★★★★</span><p><strong>5.0</strong> from <strong>85+</strong> Google reviews</p></div>
+        <ul class="hero-creds">
+          <li><span class="tick">✓</span>Licensed and insured</li>
+          <li><span class="tick">✓</span>Workmanship guarantee</li>
+          <li><span class="tick">✓</span>Itemised written quotes</li>
+        </ul>
       </div>
     </div>
-    <div class="photo-frame"><img src="img/work/under-sink-pipe-repairs.png" alt="Under-sink pipe repair by JT Handyman" loading="lazy"></div>
+    <div class="hero-form">
+      <div class="enq-card" id="jobBriefCard" style="scroll-margin-top:92px;">
+        <div id="callbackFormWrap">
+          <h3>Get your property jobs quoted without the back-and-forth</h3>
+          <p style="color:#5a6472;font-size:.95rem;margin-bottom:24px;">We'd love a photo of the job. Can't take one? Tell us what needs doing.</p>
+          <form id="callbackForm" onsubmit="submitCallbackForm(event);">
+          <div style="margin-bottom:10px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">What type of repair or maintenance do you need help with?</label>
+            <select name="job_type" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Choose the closest match</option><option>Property maintenance</option><option>Doors &amp; windows</option><option>Roofing &amp; gutters</option><option>Painting &amp; plaster repairs</option><option>Bathroom &amp; kitchen repairs</option><option>Plumbing</option><option>Electrical</option><option>Decks, fencing &amp; outdoor</option><option>Flooring &amp; tiling</option><option>Pre-sale repairs &amp; renovations</option><option>Compliance &amp; safety</option><option>Insurance &amp; emergency repairs</option><option>Multiple jobs (send us your list)</option><option>Other</option></select>
+          </div>
+          <div style="margin-bottom:10px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Anything we should know? (optional)</label>
+            <input type="text" name="message" maxlength="140" placeholder="e.g. leaking tap in the kitchen" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;font-family:inherit;">
+          </div>
+          <div style="margin-bottom:10px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Estimated job value</label>
+            <select name="job_size" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
+              <option value="">Select job value</option>
+              <option>Small job: $600–$1,000</option>
+              <option>Medium job: $1,000–$3,000</option>
+              <option>Larger job: $3,000–$10,000</option>
+              <option>Major project: $10,000+</option>
+            </select>
+            <p style="margin:6px 0 0;font-size:.78rem;color:#5a6472;">Jobs generally start from $600.</p>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Property type</label><select name="property_type" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Select</option><option>Owner-occupier</option><option>Landlord</option><option>Property manager</option></select></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Timeframe</label><select name="timeframe" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Select</option><option>ASAP</option><option>Within 2 weeks</option><option>Within a month</option><option>Just getting prices</option></select></div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">First name</label><input type="text" name="first_name" required autocomplete="given-name" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Last name</label><input type="text" name="last_name" required autocomplete="family-name" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Mobile number</label><input type="tel" name="mobile" required autocomplete="tel" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Email</label><input type="email" name="email" required autocomplete="email" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
+          <div style="margin-bottom:10px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Street address</label>
+            <input type="text" name="address" required autocomplete="street-address" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Suburb</label><input type="text" name="suburb" required autocomplete="address-level2" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Postcode</label><input type="text" name="postcode" required inputmode="numeric" maxlength="4" autocomplete="postal-code" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
+
+          <!-- Honeypot — hidden from real users via off-screen positioning;
+               bots that auto-fill every field will fill this one too. -->
+          <div style="position:absolute;left:-9999px;" aria-hidden="true">
+            <label>Leave this field blank</label>
+            <input type="text" name="company_website" tabindex="-1" autocomplete="off">
+          </div>
+          <input type="hidden" name="gclid">
+          <input type="hidden" name="fbclid">
+          <input type="hidden" name="rtkclickid">
+          <input type="hidden" name="landing_page">
+          <input type="hidden" name="all_params">
+          <input type="hidden" name="fbc">
+          <input type="hidden" name="fbp">
+          <input type="hidden" name="lead_type" value="tailored_quote">
+          <div id="callbackFormError" style="display:none;color:#c0392b;font-size:.88rem;margin-bottom:12px;"></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Submit My Job Brief</button>
+          <p style="margin:10px 0 0;font-size:.85rem;color:#3a4350;text-align:center;font-weight:600;">We'll be in touch as soon as we can during business hours, with a written quote within 48 hours.</p>
+        </form>
+        </div>
+        <div id="callbackThankYou" style="display:none;text-align:center;padding:20px 0;">
+          <div style="font-size:2.4rem;margin-bottom:10px;">✓</div>
+          <h3 style="margin-bottom:8px;">Thanks, we've got your job brief.</h3>
+          <p style="color:#5a6472;font-size:.95rem;">We'll be in touch as soon as we can during business hours, with a written quote within 48 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. FOUNDER VIDEO (moved up) -->
+<section class="section band-grey" id="founder">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Meet the founder</span>
+      <h2>Built around the things that usually go wrong with trades.</h2>
+      <p style="max-width:640px;margin:0 auto;">Jabez started JT with one belief: people deserve a trade that turns up, communicates and gets it done.</p>
+    </div>
+    <p class="watch-line">Watch this short video to see how it works.</p>
+    <div class="video-card" style="position:relative;overflow:hidden;border-radius:16px;aspect-ratio:16/9;max-width:800px;margin:0 auto;border:2px solid #0c0d0f;padding:0;background:transparent;box-shadow:none;">
+      <video id="vidJabez" poster="img/work/jt-meet-jabez-poster.jpg" playsinline muted preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;cursor:pointer;" onclick="toggleVid('vidJabez')">
+        <source src="img/work/jt-meet-jabez-founder-melbourne.mp4" type="video/mp4">
+      </video>
+      <button class="play-btn" id="vidJabezPlay" aria-label="Play video" onclick="toggleVid('vidJabez')" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">▶</button>
+      <div style="position:absolute;left:0;right:0;bottom:0;padding:16px 20px;background:linear-gradient(to top, rgba(0,0,0,.7), transparent 70%);">
+        <p style="color:#9FB2C8;margin:0;cursor:pointer;" onclick="unmuteVid('vidJabez')" id="vidJabezSound">🔊 Tap for sound</p>
+        <p style="color:#9FB2C8;margin:2px 0 0;font-size:.8rem;">Filmed March 2026</p>
+      </div>
+    </div>
+    <div class="cta-row cta-pair" style="justify-content:center;margin-top:24px;max-width:800px;margin-left:auto;margin-right:auto;">
+      <a href="javascript:void(0)" onclick="openCallbackModal('mid_page');" class="btn btn-primary">Start My Job Brief</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-ghost btn-alt">Get a Rough Estimate</a>
+    </div>
   </div>
 </section>
 
@@ -231,7 +420,7 @@ setTimeout(function () {
   <div class="container">
     <div class="grid grid-4">
       <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">10,000+</span><p style="margin:0;">Jobs completed</p></div>
-      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">36 hr</span><p style="margin:0;">Estimate Turnaround</p></div>
+      <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">48 hr</span><p style="margin:0;">Written Quote Turnaround</p></div>
       <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">1</span><p style="margin:0;">Point of contact, always</p></div>
       <div class="text-center"><span class="num" style="font-size:2rem;font-weight:700;color:#e7161f;display:block;">5.0★</span><p style="margin:0;">Google rated</p></div>
     </div>
@@ -253,7 +442,7 @@ setTimeout(function () {
       <div class="card"><div class="card-body"><h3 class="problem-card-label">Toilets &amp; Hot Water</h3><p>Running cisterns, weak flushes, leaks and hot water issues assessed and sorted.</p></div></div>
     </div>
     <div class="text-center cta-row" style="margin-top:28px;justify-content:center;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get My Free Estimate Now</a>
+      <a href="javascript:void(0)" onclick="openCallbackModal('mid_page');" class="btn btn-primary">Start My Job Brief</a>
       <a href="tel:1800587659" class="btn btn-ghost">Call 1800 587 659</a>
     </div>
   </div>
@@ -270,9 +459,12 @@ setTimeout(function () {
       <div class="card"><div class="ph ratio-square"><img src="img/work/jt-kitchen-sink-gooseneck-tap-melbourne.jpg" alt="Kitchen sink and gooseneck tap installed by JT Handyman" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Kitchen sink &amp; tap</strong><span>Melbourne, VIC</span></div></div>
       <div class="card"><div class="ph ratio-square"><img src="img/Plumbing_basin_wall_mixer.jpg" alt="Wall-mounted mixer and basin installed by JT Handyman Solutionz" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Basin &amp; wall-mounted mixer</strong><span>Melbourne, VIC</span></div></div>
       <div class="card"><div class="ph ratio-square"><img src="img/Plumbing_Melton_freestanding_bath.jpg" alt="Freestanding bath with a wall-mounted spout filling, installed by JT Handyman in Melton" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Freestanding bath &amp; wall spout</strong><span>Melton, VIC</span></div></div>
+      <div class="card"><div class="ph ratio-square"><img src="img/work/under-sink-pipe-repairs.png" alt="Under-sink pipe repairs by JT Handyman" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Under-sink pipe repairs</strong><span>Melbourne, VIC</span></div></div>
+      <div class="card"><div class="ph ratio-square"><img src="img/Plumbing_shower_rail.jpg" alt="Shower rail installed by JT Handyman" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Shower rail install</strong><span>Melbourne, VIC</span></div></div>
+      <div class="card"><div class="ph ratio-square"><img src="img/Glen_Waverley_downpipe.jpg" alt="Downpipe repair by JT Handyman in Glen Waverley" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Downpipe repair</strong><span>Glen Waverley, VIC</span></div></div>
     </div>
     <div class="text-center" style="margin-top:24px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get My Free Estimate Now</a>
+      <a href="javascript:void(0)" onclick="openCallbackModal('mid_page');" class="btn btn-primary">Start My Job Brief</a>
     </div>
   </div>
 </section>
@@ -296,38 +488,71 @@ setTimeout(function () {
       <p>A plumbing fault doesn't always end with the plumbing. A leak can affect cabinetry, flooring or tiling. JT can coordinate the related repair work through one team instead of leaving you to organise several different trades.</p>
       <p style="font-weight:700;">No chasing different tradies. One coordinated job.</p>
       <p style="margin-top:16px;">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-ghost" style="font-size:.9rem;">Get a Free Plumbing Estimate →</a>
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-ghost" style="font-size:.9rem;">Get a Rough Estimate →</a>
       </p>
     </div>
   </div>
 </section>
 
-<!-- 7. REVIEWS -->
-<section class="section band-white">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">What clients say</span>
-      <h2>On time. To a <span class="accent">high standard.</span></h2>
-            <a href="https://g.page/r/CQlxI7-oxRBWEBM/review" target="_blank" rel="noopener" class="google-rating-line" style="text-decoration:none;">
+<!-- 4. REVIEWS + TESTIMONIALS (directly under the video) -->
+<section class="section band-white" id="reviews" style="scroll-margin-top:80px;">
+  <div class="container" style="max-width:none;">
+    <div class="section-head" style="max-width:760px;margin-left:auto;margin-right:auto;">
+      <h2>People want a team they can rely on.</h2>
+      <div class="google-rating-line">
         <svg viewBox="0 0 24 24" width="20" height="20"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-        <span class="stars-mini" style="color:#fcbf18;">★★★★★</span>
-        <span style="color:var(--slate,#5a6472);">Rated 5.0 across dozens of Melbourne reviews.</span>
-      </a>
-    </div>
-    <div class="grid grid-2" style="gap:20px;max-width:900px;margin:0 auto;">
-      <div class="docket">
-        <div class="docket-head"><span class="docket-stars" style="color:#fcbf18;">★★★★★</span></div>
-        <blockquote>Jabez took exceptional care of my apartment, ensuring everything was completed on time and to a high standard.</blockquote>
-        <cite>Matthew E<span>Homeowner</span></cite>
-      </div>
-      <div class="docket">
-        <div class="docket-head"><span class="docket-stars" style="color:#fcbf18;">★★★★★</span></div>
-        <blockquote>One of the most professional companies that have ever done work for me. Jabez leads his team efficiently and moves systematically throughout the job.</blockquote>
-        <cite>Daniel R<span>Real Estate Agent</span></cite>
+        <span class="stars-mini">★★★★★</span>
+        <p style="margin:0;"><strong>5.0</strong> from <strong>85+</strong> Google reviews</p>
       </div>
     </div>
-      <div class="text-center" style="margin-top:24px;">
-      <a href="https://www.google.com/maps/place/JT+HANDYMAN+SOLUTIONZ/@-37.7077116,144.9859249,17z/data=!4m18!1m9!3m8!1s0x8997773a9cf52885:0x5610c5a8bf237109!2sJT+HANDYMAN+SOLUTIONZ!8m2!3d-37.7077116!4d144.9859249!9m1!1b1!16s%2Fg%2F11vm7gwp63!3m7!1s0x8997773a9cf52885:0x5610c5a8bf237109!8m2!3d-37.7077116!4d144.9859249!9m1!1b1!16s%2Fg%2F11vm7gwp63" target="_blank" rel="noopener" class="btn btn-ghost">See All Google Reviews →</a>
+    <div class="proof-grid">
+      <div class="proof-split">
+      <div class="proof-video">
+        <div class="vwrap">
+          <video id="vidBiggin" poster="img/work/biggin-scott-poster.jpg" playsinline preload="metadata" onclick="toggleVid('vidBiggin')" onended="document.getElementById('vidBigginPlay').style.display='flex'">
+            <source src="img/work/biggin-scott-testimonial.mp4" type="video/mp4">
+          </video>
+          <button class="play-btn" id="vidBigginPlay" aria-label="Play Biggin &amp; Scott video" onclick="toggleVid('vidBiggin')" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">▶</button>
+        </div>
+        <p class="cap">Hear from Biggin &amp; Scott</p>
+      </div>
+      <div class="proof-reviews">
+      <!-- Google reviews widget (Featurable). Typed cards below are a fallback, shown only if the widget does not load. -->
+      <div class="reviews-embed">
+        <div id="featurable-56ca7f97-6171-42b5-99b7-41ee2b41ba5f" data-featurable-async></div>
+        <script src="https://cdn.featurable.com/widget/v2/embed.js" defer charset="UTF-8"></script>
+      </div>
+      <div id="reviewsFallback" hidden>
+      <div class="grid grid-2 review-cards">
+        <div class="docket docket-wide">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>My experience from start to finish was nothing short of fantastic! From my first contact with Jodi at JT Handyman Solutionz to the end result. Every single tradie was professional, friendly, courteous and very respectful. They listened to what I wanted and went above and beyond to deliver. The end result was beyond my expectations! The tradies had a good eye for detail, used quality materials and maintained open communication at all times. The work site was left in a clean and tidy condition. Highly recommend their services. Thank you JT Handyman Solutionz, I am over the moon with the end result 😍</blockquote>
+          <cite>Liz Thompson<span>General construction</span></cite>
+        </div>
+        <div class="docket">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>The estimation process was incredibly easy and friendly, and once I accepted the estimate the team was onsite before I even expected them. Their workmanship was excellent, and they made the whole process feel easy and stress‑free.</blockquote>
+          <cite>Lee-Anne<span>Homeowner</span></cite>
+        </div>
+        <div class="docket">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>Excellent Customer Service from start to end. Had my roof repaired and had to call back for warranty works, which (Glenn) came back within a few days to complete the work. Would definitely use this company again and recommend to others.</blockquote>
+          <cite>Nada Bosnjakovic<span>Roof repair, Home maintenance &amp; repairs</span></cite>
+        </div>
+        <div class="docket">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>One of the most professional companies that have ever done work for me. Jabez leads his team efficiently and moves systematically throughout the job, completing everything in the timeframe you require.</blockquote>
+          <cite>Daniel R<span>Real Estate Agent</span></cite>
+        </div>
+        <div class="docket">
+          <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+          <blockquote>A great experience with JT Handymen...such expertise and willingness to achieve the best outcome for our works...thank you so much Alexei and Monty! Thoroughly recommend these guys 😉</blockquote>
+          <cite>Sayanan Srishanmuganathan<span>Paint indoors</span></cite>
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
     </div>
   </div>
 </section>
@@ -345,7 +570,7 @@ setTimeout(function () {
       <div class="text-center"><div class="step-num" style="margin-bottom:12px;">3</div><h3>JT gets it sorted</h3><p>One team coordinates the job from start to finish.</p></div>
     </div>
     <div class="text-center" style="margin-top:28px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-primary">Get My Free Estimate Now</a>
+      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('mid_page');" class="btn btn-ghost on-dark btn-alt">Get a Rough Estimate</a>
     </div>
   </div>
 </section>
@@ -356,7 +581,7 @@ setTimeout(function () {
     <h3 style="margin-bottom:8px;">Your time matters. We make the process easier.</h3>
     <p class="lede" style="margin:0 0 4px;">From your first estimate through to the finished job, JT coordinates the work through one team and one point of contact.</p>
     <p style="margin:0 0 16px;font-size:1.15rem;font-weight:700;color:#e7161f;">Less chasing. Less back-and-forth. One team to get it sorted.</p>
-    <a href="javascript:void(0)" onclick="openCallbackModal('time_section');" class="btn btn-primary">Happy to wait? Send your details</a>
+    <a href="javascript:void(0)" onclick="openCallbackModal('time_section');" class="btn btn-primary">Happy to wait? Start your job brief</a>
   </div>
 </section>
 
@@ -405,7 +630,7 @@ setTimeout(function () {
       <h2>Plumbing &amp; leaks, answered</h2>
     </div>
     <div class="grid grid-3">
-      <div class="card"><div class="card-body"><h3>Is this a licensed plumber, or general handyman work?</h3><p>Everyday faults are handled in-house; licensed plumbing is brought in wherever the job legally requires it, so you're never left uncertain about compliance.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Is this a licensed plumber, or general handyman work?</h3><p>Everyday faults are handled by our team; licensed plumbing is brought in wherever the job legally requires it, so you're never left uncertain about compliance.</p></div></div>
       <div class="card"><div class="card-body"><h3>Can you find a leak I can't locate?</h3><p>Yes — tracing the actual source, not just the visible drip, is exactly the kind of job JT is built for.</p></div></div>
       <div class="card"><div class="card-body"><h3>Do you handle both the plumbing and the repair around it?</h3><p>Yes — if a leak has damaged tiling, cabinetry or flooring, the same team can estimate and complete that repair too.</p></div></div>
       <div class="card"><div class="card-body"><h3>Can you handle the repair if the plumbing has damaged something else?</h3><p>Yes. If a plumbing issue has affected tiling, cabinetry, flooring or another part of the property, JT can coordinate the related repair work through one team.</p></div></div>
@@ -417,15 +642,15 @@ setTimeout(function () {
 <section class="section band-dark">
   <div class="container cta-band">
     <h2>Ready to get that plumbing problem sorted?</h2>
-    <p>Tell us what's dripping, blocked, leaking or not working and get your free estimate started today.</p>
+    <p>Tell us what's dripping, blocked, leaking or not working, and we’ll outline the next step.</p>
     <div class="choice-row">
       <div class="choice">
-        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('final_cta');" class="btn btn-primary">Get an Instant Estimate</a>
-        <span class="choice-note">Enter your details, answer a few quick questions and add a photo. Get your price in minutes.</span>
+        <a href="javascript:void(0)" onclick="openCallbackModal('final_cta');" class="btn btn-primary">Start My Job Brief</a>
+        <span class="choice-note">Can't take a photo? We'll be in touch as soon as we can during business hours.</span>
       </div>
       <div class="choice">
-        <a href="javascript:void(0)" onclick="openCallbackModal('final_cta');" class="btn btn-ghost on-dark btn-alt">Request a Tailored Quote</a>
-        <span class="choice-note">Happy to wait? Tell us about your job and we'll follow up with your quote within 72 hours.</span>
+        <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('final_cta');" class="btn btn-ghost on-dark btn-alt">Get a Rough Estimate</a>
+        <span class="choice-note">See a starting range in minutes.</span>
       </div>
     </div>
     <p class="choice-call">Prefer to talk now? <a href="tel:1800587659">Call 1800 587 659</a></p>
@@ -444,7 +669,7 @@ setTimeout(function () {
     <p style="margin-top:12px;max-width:480px;margin-left:auto;margin-right:auto;">One team, one point of contact, one-stop shop for plumbing repairs across Melbourne.</p>
     <p style="margin-top:8px;font-size:.85rem;opacity:.75;">Melbourne-wide · Inner north &amp; east · Bayside &amp; south-east</p>
     <div class="cta-row" style="justify-content:center;margin-top:20px;">
-      <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('footer');" class="btn btn-primary">Get My Free Estimate</a>
+      <a href="javascript:void(0)" onclick="openCallbackModal('footer');" class="btn btn-primary">Start My Job Brief</a>
       <a href="tel:1800587659" class="btn btn-ghost on-dark">Call 1800 587 659</a>
     </div>
     <div class="footer-bottom" style="margin-top:24px;flex-direction:column;gap:4px;justify-content:center;">
@@ -456,7 +681,7 @@ setTimeout(function () {
 
 <div class="mobile-bar">
   <a href="tel:1800587659" class="btn btn-ghost">Call now</a>
-  <a href="javascript:void(0)" onclick="openCallbackModal('sticky_bar');" class="btn btn-primary">Tailored Quote</a>
+  <a href="javascript:void(0)" onclick="openCallbackModal('sticky_bar');" class="btn btn-primary">Start My Job Brief</a>
 </div>
 
 <div id="quoteModal" class="qmodal">
@@ -475,128 +700,12 @@ setTimeout(function () {
 <!-- Callback request modal — lightweight alternative to the full
      estimate flow, for visitors who don't want to upload photos or
      write a description. Submits straight to a Zapier webhook. -->
-<div id="callbackModal" class="qmodal">
-  <div class="qmodal-backdrop" onclick="closeCallbackModal();"></div>
-  <div class="qmodal-dialog" style="height:auto;max-height:90vh;">
-    <button type="button" class="qmodal-close" aria-label="Close callback form" onclick="closeCallbackModal();">&times;</button>
-    <div style="padding:36px 28px;overflow-y:auto;">
-      <div id="callbackFormWrap">
-        <h3 style="margin-bottom:6px;">Request a Tailored Quote</h3>
-        <p style="color:#5a6472;font-size:.92rem;margin-bottom:20px;">No photos needed. Tell us about the job and we'll follow up within 72 hours. Need a price now? <a href="javascript:void(0)" onclick="closeCallbackModal(); fireRedTrackClick(); openQuoteModal('callback_popup');" style="font-weight:700;color:inherit;text-decoration:underline;">Use the instant estimate.</a></p>
-        <form id="callbackForm" onsubmit="submitCallbackForm(event);">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">First name</label>
-              <input type="text" name="first_name" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Last name</label>
-              <input type="text" name="last_name" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Mobile number</label>
-              <input type="tel" name="mobile" required placeholder="04XX XXX XXX" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Email (optional)</label>
-              <input type="email" name="email" placeholder="you@example.com" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
-          </div>
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Street address</label>
-            <input type="text" name="address" required autocomplete="street-address" placeholder="e.g. 12 Smith Street" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Suburb</label>
-              <input type="text" name="suburb" required autocomplete="address-level2" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Postcode</label>
-              <input type="text" name="postcode" required inputmode="numeric" maxlength="4" autocomplete="postal-code" placeholder="3000" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
-          </div>
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Service</label>
-            <select name="job_type" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
-              <option value="">Select a service</option>
-              <option>Property maintenance</option>
-              <option>Doors &amp; windows</option>
-              <option>Roofing &amp; gutters</option>
-              <option>Painting &amp; plaster repairs</option>
-              <option>Bathroom &amp; kitchen repairs</option>
-              <option>Plumbing</option>
-              <option>Electrical</option>
-              <option>Decks, fencing &amp; outdoor</option>
-              <option>Flooring &amp; tiling</option>
-              <option>Pre-sale repairs &amp; renovations</option>
-              <option>Compliance &amp; safety</option>
-              <option>Insurance &amp; emergency repairs</option>
-              <option>Multiple jobs (send us your list)</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">What needs doing and roughly how big is the job?</label>
-            <textarea name="message" rows="3" required placeholder="e.g. Full bathroom renovation — need carpentry, plumbing, tiling and painting coordinated by one team" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;resize:vertical;font-family:inherit;"></textarea>
-          </div>
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Estimated job size</label>
-            <select name="job_size" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
-              <option value="">Select job size</option>
-              <option>Under $500 (min. $300)</option>
-              <option>Small ($500 – $1,000)</option>
-              <option>Medium ($1,000 – $5,000)</option>
-              <option>Large ($5,000+)</option>
-            </select>
-            <p style="margin:6px 0 0;font-size:.78rem;color:#5a6472;">Our minimum job size is $300.</p>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;align-items:end;">
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Property type (optional)</label>
-              <select name="property_type" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
-                <option value="">Select</option>
-                <option>Owner-occupier</option>
-                <option>Landlord</option>
-                <option>Property manager</option>
-              </select>
-            </div>
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Timeframe (optional)</label>
-              <select name="timeframe" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
-                <option value="">Select</option>
-                <option>ASAP</option>
-                <option>Within 2 weeks</option>
-                <option>Within a month</option>
-                <option>Just getting prices</option>
-              </select>
-            </div>
-          </div>
-          <!-- Honeypot — hidden from real users via off-screen positioning;
-               bots that auto-fill every field will fill this one too. -->
-          <div style="position:absolute;left:-9999px;" aria-hidden="true">
-            <label>Leave this field blank</label>
-            <input type="text" name="company_website" tabindex="-1" autocomplete="off">
-          </div>
-          <input type="hidden" name="gclid">
-          <input type="hidden" name="fbclid">
-          <input type="hidden" name="rtkclickid">
-          <input type="hidden" name="landing_page">
-          <input type="hidden" name="all_params">
-          <input type="hidden" name="fbc">
-          <input type="hidden" name="fbp">
-          <div id="callbackFormError" style="display:none;color:#c0392b;font-size:.88rem;margin-bottom:12px;"></div>
-          <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Send My Details</button>
-        </form>
-      </div>
-      <div id="callbackThankYou" style="display:none;text-align:center;padding:20px 0;">
-        <div style="font-size:2.4rem;margin-bottom:10px;">✓</div>
-        <h3 style="margin-bottom:8px;">Thanks! We'll be in touch within 72 hours.</h3>
-        <p style="color:#5a6472;font-size:.92rem;">One of our team will be in touch soon to help sort it out.</p>
-      </div>
-    </div>
+<!-- Job brief pop-up: a copy of the hero form, opened wherever a Start My Job Brief button is tapped -->
+<div id="briefModal" class="qmodal bmodal" role="dialog" aria-modal="true" aria-label="Job brief form">
+  <div class="qmodal-backdrop" onclick="closeBriefModal()"></div>
+  <div class="bmodal-dialog">
+    <button type="button" class="qmodal-close" aria-label="Close job brief form" onclick="closeBriefModal()">&times;</button>
+    <div id="briefModalBody"></div>
   </div>
 </div>
 
@@ -637,10 +746,10 @@ setTimeout(function () {
 </script>
 
 <script>
-  // ---- Callback form: lightweight alternative to the full estimate
-  // flow. Submits directly to a Zapier webhook, which creates the job
-  // in ServiceM8 with the same click-ID attribution as other leads.
-  // Paste your Zapier "Catch Hook" webhook URL below before going live.
+  // ---- Tailored quote form (inline on the page). Submits directly to a
+  // Zapier webhook, which creates the item in ServiceM8 with the same
+  // click-ID attribution as other leads. On success the visitor goes to
+  // thank-you-quote.html, which is where the Lead / conversion events fire.
   var CALLBACK_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/28634189/4mk0dx9/';
 
   function getUrlParam(name) {
@@ -655,9 +764,7 @@ setTimeout(function () {
 
   function getRtkClickId() {
     // rtkclickid is often NOT present on the URL at all — RedTrack's own
-    // tracking script typically stores it client-side instead. Checked
-    // in order: URL param (in case a given campaign does append it),
-    // then RedTrack's documented cookie/localStorage key.
+    // tracking script typically stores it client-side instead.
     var fromUrl = getUrlParam('rtkclickid');
     if (fromUrl) return fromUrl;
     var fromCookie = getCookie('rtkclickid-store');
@@ -669,27 +776,40 @@ setTimeout(function () {
     }
   }
 
+  function prepareCallbackForm() {
+    var forms = document.querySelectorAll('form[id^="callbackForm"]');
+    for (var k = 0; k < forms.length; k++) {
+      var form = forms[k];
+      form.gclid.value = getUrlParam('gclid');
+      form.fbclid.value = getUrlParam('fbclid');
+      form.rtkclickid.value = getRtkClickId();
+      form.landing_page.value = window.location.href;
+      // Full raw query string, so nothing is lost whichever platform sent the click.
+      form.all_params.value = window.location.search.replace(/^\?/, '');
+      form.fbc.value = getCookie('_fbc');
+      form.fbp.value = getCookie('_fbp');
+    }
+  }
+  window.__callbackSource = 'inline_form';
+  prepareCallbackForm();
+  // RedTrack may write its click ID a moment after load; refresh before sending.
+  window.addEventListener('load', prepareCallbackForm);
+
+  // Kept under the old name so every "Start My Job Brief" button still works:
+  // it now scrolls to the form instead of opening a pop-up.
   function openCallbackModal(source) {
-    var form = document.getElementById('callbackForm');
-    form.gclid.value = getUrlParam('gclid');
-    form.fbclid.value = getUrlParam('fbclid');
-    form.rtkclickid.value = getRtkClickId();
-    form.landing_page.value = window.location.href;
-    // Catch-all — different traffic sources append different param sets
-    // (RedTrack's own cmpid/sub1-8, UTM params, etc.), so the full raw
-    // query string is captured as well, not just the three named fields
-    // above. This way nothing is lost regardless of which platform or
-    // redirect chain sent the click.
-    form.all_params.value = window.location.search.replace(/^\?/, '');
-    // Meta's own first-party cookies — same ones Russell's estimate flow
-    // already captures, used to improve Meta Conversions API match quality.
-    form.fbc.value = getCookie('_fbc');
-    form.fbp.value = getCookie('_fbp');
-
-    document.getElementById('callbackModal').classList.add('open');
-    document.body.classList.add('modal-open');
-
+    prepareCallbackForm();
     window.__callbackSource = source || 'unknown';
+    var card = document.getElementById('jobBriefCard');
+    var r = card ? card.getBoundingClientRect() : null;
+    var heroVisible = r && r.top < window.innerHeight * 0.5 && r.bottom > 120;
+    if (heroVisible) {
+      // The hero form is already on screen: just put the cursor in it.
+      var first = card.querySelector('select, input');
+      if (first) { try { first.focus({ preventScroll: true }); } catch (e) { first.focus(); } }
+    } else {
+      openBriefModal();
+    }
 
     try {
       if (window.fbq) {
@@ -706,10 +826,45 @@ setTimeout(function () {
     }
   }
 
-  function closeCallbackModal() {
-    document.getElementById('callbackModal').classList.remove('open');
+  function openBriefModal() {
+    var body = document.getElementById('briefModalBody');
+    if (!body) return;
+    if (!body.firstChild) {
+      // One copy of the hero form, with its own ids so nothing clashes.
+      var copy = document.getElementById('jobBriefCard').cloneNode(true);
+      copy.id = copy.id + 'M';
+      copy.querySelectorAll('[id]').forEach(function (el) { el.id = el.id + 'M'; });
+      body.appendChild(copy);
+    }
+    prepareCallbackForm();
+    document.getElementById('briefModal').classList.add('open');
+    document.body.classList.add('modal-open');
+    var first = body.querySelector('select, input');
+    if (first) { try { first.focus({ preventScroll: true }); } catch (e) {} }
+  }
+  function closeBriefModal() {
+    document.getElementById('briefModal').classList.remove('open');
     document.body.classList.remove('modal-open');
   }
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeBriefModal(); });
+
+  function closeCallbackModal() { closeBriefModal(); }
+
+  // Tap a review screenshot to see it full size (readable on phones).
+  document.querySelectorAll('.proof-shots img').forEach(function (img) {
+    img.addEventListener('click', function () {
+      var lb = document.createElement('div');
+      lb.className = 'lb';
+      var big = document.createElement('img');
+      big.src = img.src; big.alt = img.alt;
+      lb.appendChild(big);
+      function close() { if (lb.parentNode) lb.parentNode.removeChild(lb); document.removeEventListener('keydown', onKey); }
+      function onKey(e) { if (e.key === 'Escape') close(); }
+      lb.addEventListener('click', close);
+      document.addEventListener('keydown', onKey);
+      document.body.appendChild(lb);
+    });
+  });
 
   function isValidAuMobile(value) {
     var digits = value.replace(/[\s()-]/g, '');
@@ -719,13 +874,13 @@ setTimeout(function () {
   function submitCallbackForm(e) {
     e.preventDefault();
     var form = e.target;
-    var errorBox = document.getElementById('callbackFormError');
+    var errorBox = form.querySelector('[id^="callbackFormError"]');
     errorBox.style.display = 'none';
 
     // Honeypot — if a bot filled this hidden field, pretend success
-    // without actually sending anything to the webhook.
+    // without sending anything or firing any tracking.
     if (form.company_website.value) {
-      showCallbackThankYou();
+      showCallbackThankYou(form);
       return;
     }
 
@@ -743,7 +898,8 @@ setTimeout(function () {
       return;
     }
 
-    var submitBtn = document.getElementById('callbackSubmitBtn');
+    prepareCallbackForm();
+    var submitBtn = form.querySelector('button[type="submit"]');
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
 
@@ -755,12 +911,13 @@ setTimeout(function () {
       address: form.address.value.trim(),
       suburb: form.suburb.value.trim(),
       postcode: postcode,
-      full_address: form.address.value.trim() + ', ' + form.suburb.value.trim() + ' ' + postcode,
+      full_address: (form.address.value.trim() ? form.address.value.trim() + ', ' : '') + form.suburb.value.trim() + ' ' + postcode,
       job_type: form.job_type.value,
       message: form.message.value.trim(),
       job_size: form.job_size.value,
       property_type: form.property_type.value,
       timeframe: form.timeframe.value,
+      lead_type: form.lead_type.value,
       gclid: form.gclid.value,
       fbclid: form.fbclid.value,
       rtkclickid: form.rtkclickid.value,
@@ -771,14 +928,9 @@ setTimeout(function () {
       page_title: document.title
     };
 
-    // Zapier's Catch Hook typically has no CORS headers, so this request
-    // is sent with mode:'no-cors' — meaning we can't read back whether
-    // Zapier actually received it, only whether the request itself was
-    // sent. Test this end-to-end in ServiceM8 before relying on it.
-    // Sent as application/x-www-form-urlencoded rather than JSON —
-    // this is one of the few content types the browser actually allows
-    // through in no-cors mode, and Zapier's Catch Hook parses it into
-    // clean separate fields automatically (JSON arrives as one raw blob).
+    // Zapier's Catch Hook has no CORS headers, so this is sent with
+    // mode:'no-cors' as urlencoded form data (one of the few types allowed
+    // in no-cors mode, and Zapier parses it into separate fields).
     var formBody = Object.keys(payload)
       .map(function (key) {
         return encodeURIComponent(key) + '=' + encodeURIComponent(payload[key]);
@@ -798,50 +950,103 @@ setTimeout(function () {
   }
 
   function handleCallbackSuccess(payload) {
-    showCallbackThankYou();
-
-    // Pushed to GTM's dataLayer rather than calling fbq()/gtag()
-    // directly, so Meta's "Lead" event and GA4's "form_submit" event
-    // can be configured as GTM tags triggered off this one event —
-    // this is a real completed lead, not just click-intent.
-    window.dataLayer = window.dataLayer || [];
-    dataLayer.push({
-      event: 'callback_form_submit',
-      form_type: 'callback',
-      job_type: payload.job_type,
-      suburb: payload.suburb,
-      job_size: payload.job_size,
-      property_type: payload.property_type,
-      timeframe: payload.timeframe,
-      cta_location: window.__callbackSource || 'unknown'
-    });
-
-    // GA4: sent from the page so it lands in the same property as the other
-    // cta_location events (G-X4SK9WP3FG), not via a GTM GA4 tag.
-    if (typeof gtag === 'function') {
-      gtag('event', 'callback_submit', {
+    // Hand the details to the thank-you page, which fires the Meta Lead /
+    // Google Ads conversion (through GTM) exactly once per lead.
+    try {
+      sessionStorage.setItem('jt_lead', JSON.stringify({
         form_type: 'callback',
+        lead_type: payload.lead_type,
         job_type: payload.job_type,
         suburb: payload.suburb,
+        job_size: payload.job_size,
+        property_type: payload.property_type,
+        timeframe: payload.timeframe,
         cta_location: window.__callbackSource || 'unknown'
-      });
-    }
+      }));
+    } catch (e) {}
+    window.location.href = 'thank-you-quote.html';
   }
 
-  function showCallbackThankYou() {
-    document.getElementById('callbackFormWrap').style.display = 'none';
-    document.getElementById('callbackThankYou').style.display = 'block';
+  function showCallbackThankYou(form) {
+    var wrap = form && form.closest('[id^="callbackFormWrap"]');
+    var ty = wrap && wrap.parentNode.querySelector('[id^="callbackThankYou"]');
+    if (wrap && ty) { wrap.style.display = 'none'; ty.style.display = 'block'; }
   }
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-      var cm = document.getElementById('callbackModal');
-      if (cm) closeCallbackModal();
-    }
-  });
 </script>
 
 <script src="js/main.js"></script>
 
+<script>
+(function(){
+  setTimeout(function(){
+    try{
+      var w=document.getElementById('featurable-56ca7f97-6171-42b5-99b7-41ee2b41ba5f');
+      if(!w || w.children.length===0 || w.offsetHeight<60){
+        var f=document.getElementById('reviewsFallback'); if(f) f.hidden=false;
+        var e=document.querySelector('.reviews-embed'); if(e) e.style.display='none';
+      }
+    }catch(e){ var f2=document.getElementById('reviewsFallback'); if(f2) f2.hidden=false; }
+  }, 5000);
+})();
+</script>
+<script>
+  function toggleVid(id) {
+    var vid = document.getElementById(id);
+    var btn = document.getElementById(id + 'Play');
+    if (vid.paused) {
+      vid.play();
+      btn.style.display = 'none';
+    } else {
+      vid.pause();
+      btn.style.display = 'flex';
+    }
+  }
+
+  function unmuteVid(id) {
+    var vid = document.getElementById(id);
+    var soundLabel = document.getElementById(id + 'Sound');
+    vid.muted = !vid.muted;
+    soundLabel.textContent = vid.muted ? '🔊 Tap for sound' : '🔇 Mute';
+    if (vid.paused) {
+      vid.play();
+      document.getElementById(id + 'Play').style.display = 'none';
+    }
+  }
+</script>
+<script>
+(function(){
+  try{
+    var vid=document.getElementById('vidJabez'); if(!vid||!('IntersectionObserver' in window)) return;
+    var c=navigator.connection||{}; if(c.saveData||window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var btn=document.getElementById('vidJabezPlay'), userPaused=false;
+    vid.muted=true; vid.setAttribute('muted','');
+    vid.addEventListener('pause',function(){ if(!vid.__auto) userPaused=true; });
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting && e.intersectionRatio>=0.5){
+          if(!userPaused && vid.paused){ vid.__auto=true; var p=vid.play(); if(p&&p.then){ p.then(function(){ if(btn) btn.style.display='none'; vid.__auto=false; }).catch(function(){ vid.__auto=false; }); } }
+        } else if(!vid.paused){ vid.__auto=true; vid.pause(); if(btn) btn.style.display='flex'; setTimeout(function(){vid.__auto=false;},50); }
+      });
+    },{threshold:[0,0.5]});
+    io.observe(vid);
+  }catch(e){}
+})();
+</script>
+<script>
+(function(){
+  try{
+    var v=document.getElementById('vidBiggin'); if(!v||!('IntersectionObserver' in window)) return;
+    var c=navigator.connection||{}; if(c.saveData||window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var b=document.getElementById('vidBigginPlay'), up=false, started=false;
+    v.muted=true; v.setAttribute('muted','');
+    v.addEventListener('pause',function(){ if(!v.__auto && !v.ended) up=true; });
+    new IntersectionObserver(function(es){ es.forEach(function(e){
+      if(e.isIntersecting && e.intersectionRatio>=0.5){
+        if(!up && !started && v.paused){ v.__auto=true; var p=v.play(); if(p&&p.then){ p.then(function(){ started=true; if(b) b.style.display='none'; v.__auto=false; }).catch(function(){ v.__auto=false; }); } }
+      } else if(!v.paused){ v.__auto=true; v.pause(); if(b) b.style.display='flex'; setTimeout(function(){v.__auto=false;},50); }
+    }); },{threshold:[0,0.5]}).observe(v);
+  }catch(e){}
+})();
+</script>
 </body>
 </html>

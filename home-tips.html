@@ -205,6 +205,15 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
 /* ---- Wide screens (1440px+): use the extra width instead of a narrow centred column ---- */
 @media(min-width:1440px){ :root{ --container:1360px; } .job-ticker-inner{ max-width:1360px; padding:0 24px; } }
 @media(min-width:1800px){ :root{ --container:1560px; } .job-ticker-inner{ max-width:1560px; } }
+#callbackForm > div{ margin-bottom:12px !important; }
+#callbackForm label{ margin-bottom:4px !important; }
+#callbackForm [style*="grid"]{ gap:12px 12px !important; }
+#callbackForm input, #callbackForm select, #callbackForm textarea{ border:1.5px solid #cdd1d6 !important; border-radius:10px !important; padding:12px 14px !important; }
+textarea[name="message"]::placeholder, input[name="message"]::placeholder{ color:#c9ced4 !important; opacity:1; }
+a.btn[onclick*="openQuoteModal"]{ border:1.5px solid #E5252A !important; background:transparent !important; color:#E5252A !important; }
+.site-header a.btn[onclick*="openQuoteModal"], .band-dark a.btn[onclick*="openQuoteModal"], a.btn.on-dark[onclick*="openQuoteModal"], footer a.btn[onclick*="openQuoteModal"]{ color:#fff !important; }
+a.btn[onclick*="openQuoteModal"]:hover{ background:#E5252A !important; border-color:#E5252A !important; color:#fff !important; }
+.hero .choice-note{ display:none; }
 </style>
 </head>
 <body>
@@ -280,35 +289,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="grid" style="gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:stretch;">
       <div class="card"><img src="img/home-tips-deck.jpg" alt="Freshly oiled timber deck in a Melbourne backyard" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:10px 10px 0 0;" loading="lazy"><div class="card-body" style="display:flex;gap:16px;align-items:flex-start;">
         <div class="step-num" style="flex:none;background:#e7161f;color:#fff;">1</div>
-        <div><h3 style="margin:0 0 6px;">Decks</h3><p style="margin:0;">Soft, grey or splitting boards? Sand, re-oil or replace tired timbers so it's safe and looking its best for entertaining.</p></div>
+        <div><h3 style="margin:0 0 6px;">Decks</h3><p style="margin:0;">Soft, grey or splitting boards? Sand and re-oil weathered timber, and replace damaged boards to get your deck looking its best for summer entertaining.</p></div>
       </div></div>
       <div class="card"><img src="img/home-tips-pergola.jpg" alt="Timber pergola with shade cloth over a brick patio" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:10px 10px 0 0;" loading="lazy"><div class="card-body" style="display:flex;gap:16px;align-items:flex-start;">
         <div class="step-num" style="flex:none;background:#e7161f;color:#fff;">2</div>
-        <div><h3 style="margin:0 0 6px;">Pergolas and verandas</h3><p style="margin:0;">Check for peeling paint, worn timbers and loose fixings. A repaint or a few new timbers can make it feel brand new.</p></div>
+        <div><h3 style="margin:0 0 6px;">Pergolas and verandahs</h3><p style="margin:0;">Check for peeling paint, weathered timber and loose fixings. A fresh coat of paint or a few replacement timbers can make a big difference.</p></div>
       </div></div>
       <div class="card"><img src="img/home-tips-door.jpg" alt="Green security screen door with mesh on a brick home" style="width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 35%;display:block;border-radius:10px 10px 0 0;" loading="lazy"><div class="card-body" style="display:flex;gap:16px;align-items:flex-start;">
         <div class="step-num" style="flex:none;background:#e7161f;color:#fff;">3</div>
-        <div><h3 style="margin:0 0 6px;">Doors, windows and flyscreens</h3><p style="margin:0;">Check that sliding doors run smoothly, seals close tightly and screens have no tears, to keep the heat and bugs out.</p></div>
+        <div><h3 style="margin:0 0 6px;">Doors, windows and flyscreens</h3><p style="margin:0;">Check that sliding doors run smoothly, seals close tightly and flyscreens are free of tears. Keep the cool air in and the bugs out.</p></div>
       </div></div>
       <div class="card"><img src="img/home-tips-painting.jpg" alt="Freshly painted timber picket fence and gate" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:10px 10px 0 0;" loading="lazy"><div class="card-body" style="display:flex;gap:16px;align-items:flex-start;">
         <div class="step-num" style="flex:none;background:#e7161f;color:#fff;">4</div>
-        <div><h3 style="margin:0 0 6px;">Exterior painting and touch-ups</h3><p style="margin:0;">Faded fences, trims and outdoor walls show up when guests arrive. A fresh coat makes the whole space feel new.</p></div>
+        <div><h3 style="margin:0 0 6px;">Exterior painting and touch-ups</h3><p style="margin:0;">Faded fences, trims and outdoor walls can make your home look tired. A fresh coat of paint can give the whole space a lift before guests arrive.</p></div>
       </div></div>
       <div class="card"><img src="img/home-tips-pressure-washing.jpg" alt="JT team member pressure washing an exterior wall" style="width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 40%;display:block;border-radius:10px 10px 0 0;" loading="lazy"><div class="card-body" style="display:flex;gap:16px;align-items:flex-start;">
         <div class="step-num" style="flex:none;background:#e7161f;color:#fff;">5</div>
-        <div><h3 style="margin:0 0 6px;">Pressure washing</h3><p style="margin:0;">Paths, driveways, decks and outdoor areas come up like new with a proper clean before the festive season.</p></div>
+        <div><h3 style="margin:0 0 6px;">Pressure washing</h3><p style="margin:0;">Paths, driveways and outdoor areas can look almost brand new after a proper clean. Freshen them up before the festive season.</p></div>
       </div></div>
       <div class="card"><img src="img/home-tips-gate.jpg" alt="Repaired and repainted Colorbond fence and gate in a Melbourne courtyard" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:10px 10px 0 0;" loading="lazy"><div class="card-body" style="display:flex;gap:16px;align-items:flex-start;">
         <div class="step-num" style="flex:none;background:#e7161f;color:#fff;">6</div>
-        <div><h3 style="margin:0 0 6px;">Fences and gates</h3><p style="margin:0;">Look for leaning posts, loose palings and sagging gates before summer winds and visitors put them to the test.</p></div>
+        <div><h3 style="margin:0 0 6px;">Fences and gates</h3><p style="margin:0;">Look for leaning posts, loose palings and sagging gates before summer storms and visiting guests put them to the test.</p></div>
       </div></div>
       <div class="card"><img src="img/home-tips-garden.jpg" alt="Freshly mulched garden beds with timber edging beside a fence" style="width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 60%;display:block;border-radius:10px 10px 0 0;" loading="lazy"><div class="card-body" style="display:flex;gap:16px;align-items:flex-start;">
         <div class="step-num" style="flex:none;background:#e7161f;color:#fff;">7</div>
-        <div><h3 style="margin:0 0 6px;">Garden maintenance</h3><p style="margin:0;">Tidy garden beds, trim overgrown areas and clear outdoor spaces so they're ready to enjoy.</p></div>
+        <div><h3 style="margin:0 0 6px;">Garden maintenance</h3><p style="margin:0;">Tidy garden beds, trim overgrown areas and clear outdoor spaces so they're neat, welcoming and ready to enjoy.</p></div>
       </div></div>
       <div class="card"><div style="display:flex;border-radius:10px 10px 0 0;overflow:hidden;"><img src="img/home-tips-outdoor-pipe.jpg" alt="Outdoor hose and pipe fitting with water leaking" style="width:50%;aspect-ratio:8/9;object-fit:cover;display:block;" loading="lazy"><img src="img/home-tips-smoke-alarm.jpg" alt="Ceiling-mounted smoke alarm" style="width:50%;aspect-ratio:8/9;object-fit:cover;display:block;" loading="lazy"></div><div class="card-body" style="display:flex;gap:16px;align-items:flex-start;">
         <div class="step-num" style="flex:none;background:#e7161f;color:#fff;">8</div>
-        <div><h3 style="margin:0 0 6px;">Outdoor taps and smoke alarms</h3><p style="margin:0;">Fix dripping taps before the long, hot days, and test every smoke alarm. It takes five minutes.</p></div>
+        <div><h3 style="margin:0 0 6px;">Outdoor taps and smoke alarms</h3><p style="margin:0;">Fix dripping outdoor taps before the warmer days arrive, and test your smoke alarms regularly to make sure they're working properly.</p></div>
       </div></div>
     </div>
   </div>
@@ -365,7 +374,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="choice-row">
       <div class="choice">
         <a href="javascript:void(0)" onclick="openCallbackModal('final_cta');" class="btn btn-primary">Start My Job Brief</a>
-        <span class="choice-note">Can't take a photo? We reply within 48 hours.</span>
+        <span class="choice-note">Can't take a photo? We'll be in touch as soon as we can during business hours.</span>
       </div>
       <div class="choice">
         <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('final_cta');" class="btn btn-ghost on-dark btn-alt">Get a Rough Estimate</a>
@@ -428,65 +437,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h3 style="margin-bottom:6px;">Get your property jobs quoted without the back-and-forth</h3>
         <p style="color:#5a6472;font-size:.92rem;margin-bottom:20px;">We'd love a photo of the job. Can't take one? Tell us what needs doing.</p>
         <form id="callbackForm" onsubmit="submitCallbackForm(event);">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">First name</label>
-              <input type="text" name="first_name" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Last name</label>
-              <input type="text" name="last_name" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
+          <div style="margin-bottom:10px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">What type of repair or maintenance do you need help with?</label>
+            <select name="job_type" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Choose the closest match</option><option>Property maintenance</option><option>Doors &amp; windows</option><option>Roofing &amp; gutters</option><option>Painting &amp; plaster repairs</option><option>Bathroom &amp; kitchen repairs</option><option>Plumbing</option><option>Electrical</option><option>Decks, fencing &amp; outdoor</option><option>Flooring &amp; tiling</option><option>Pre-sale repairs &amp; renovations</option><option>Compliance &amp; safety</option><option>Insurance &amp; emergency repairs</option><option>Multiple jobs (send us your list)</option><option>Other</option></select>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Mobile number</label>
-              <input type="tel" name="mobile" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Email (optional)</label>
-              <input type="email" name="email" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
+          <div style="margin-bottom:10px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Anything we should know? (optional)</label>
+            <input type="text" name="message" maxlength="140" placeholder="e.g. leaking tap in the kitchen" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;font-family:inherit;">
           </div>
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Street address</label>
-            <input type="text" name="address" required autocomplete="street-address" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Suburb</label>
-              <input type="text" name="suburb" required autocomplete="address-level2" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Postcode</label>
-              <input type="text" name="postcode" required inputmode="numeric" maxlength="4" autocomplete="postal-code" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
-            </div>
-          </div>
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Service</label>
-            <select name="job_type" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
-              <option value="">Select a service</option>
-              <option>Property maintenance</option>
-              <option>Doors &amp; windows</option>
-              <option>Roofing &amp; gutters</option>
-              <option>Painting &amp; plaster repairs</option>
-              <option>Bathroom &amp; kitchen repairs</option>
-              <option>Plumbing</option>
-              <option>Electrical</option>
-              <option>Decks, fencing &amp; outdoor</option>
-              <option>Flooring &amp; tiling</option>
-              <option>Pre-sale repairs &amp; renovations</option>
-              <option>Compliance &amp; safety</option>
-              <option>Insurance &amp; emergency repairs</option>
-              <option>Multiple jobs (send us your list)</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">What needs doing and roughly how big is the job?</label>
-            <textarea name="message" rows="3" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;resize:vertical;font-family:inherit;"></textarea>
-          </div>
-          <div style="margin-bottom:14px;">
+          <div style="margin-bottom:10px;">
             <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Estimated job value</label>
             <select name="job_size" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
               <option value="">Select job value</option>
@@ -497,27 +456,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </select>
             <p style="margin:6px 0 0;font-size:.78rem;color:#5a6472;">Jobs generally start from $600.</p>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;align-items:end;">
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Property type (optional)</label>
-              <select name="property_type" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
-                <option value="">Select</option>
-                <option>Owner-occupier</option>
-                <option>Landlord</option>
-                <option>Property manager</option>
-              </select>
-            </div>
-            <div>
-              <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Timeframe (optional)</label>
-              <select name="timeframe" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;">
-                <option value="">Select</option>
-                <option>ASAP</option>
-                <option>Within 2 weeks</option>
-                <option>Within a month</option>
-                <option>Just getting prices</option>
-              </select>
-            </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Property type</label><select name="property_type" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Select</option><option>Owner-occupier</option><option>Landlord</option><option>Property manager</option></select></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Timeframe</label><select name="timeframe" required style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:.88rem;background:#fff;box-sizing:border-box;"><option value="">Select</option><option>ASAP</option><option>Within 2 weeks</option><option>Within a month</option><option>Just getting prices</option></select></div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">First name</label><input type="text" name="first_name" required autocomplete="given-name" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Last name</label><input type="text" name="last_name" required autocomplete="family-name" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Mobile number</label><input type="tel" name="mobile" required autocomplete="tel" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Email</label><input type="email" name="email" required autocomplete="email" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
+          <div style="margin-bottom:10px;">
+            <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Street address</label>
+            <input type="text" name="address" required autocomplete="street-address" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;">
           </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;"><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Suburb</label><input type="text" name="suburb" required autocomplete="address-level2" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div><div><label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">Postcode</label><input type="text" name="postcode" required inputmode="numeric" maxlength="4" autocomplete="postal-code" style="width:100%;padding:10px 12px;border:1px solid #d7dce1;border-radius:8px;font-size:1rem;box-sizing:border-box;"></div></div>
+
           <!-- Honeypot — hidden from real users via off-screen positioning;
                bots that auto-fill every field will fill this one too. -->
           <div style="position:absolute;left:-9999px;" aria-hidden="true">
@@ -533,15 +481,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <input type="hidden" name="fbp">
           <input type="hidden" name="lead_type" value="tailored_quote">
           <div id="callbackFormError" style="display:none;color:#c0392b;font-size:.88rem;margin-bottom:12px;"></div>
-          <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Start My Job Brief</button>
-          <p style="margin:10px 0 0;font-size:.8rem;color:#5a6472;text-align:center;">Our team will contact you within 48 hours.</p>
-          <p style="margin:14px 0 0;font-size:.78rem;color:#7b8591;text-align:center;">Need a rough cost now? <a href="javascript:void(0)" onclick="closeCallbackModal(); fireRedTrackClick(); openQuoteModal('callback_popup');" style="color:inherit;text-decoration:underline;">Try the rough estimate.</a></p>
+          <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Submit My Job Brief</button>
+          <p style="margin:10px 0 0;font-size:.85rem;color:#3a4350;text-align:center;font-weight:600;">We'll be in touch as soon as we can during business hours, with a written quote within 48 hours.</p>
         </form>
       </div>
       <div id="callbackThankYou" style="display:none;text-align:center;padding:20px 0;">
         <div style="font-size:2.4rem;margin-bottom:10px;">✓</div>
         <h3 style="margin-bottom:8px;">Thanks, we've got your job brief.</h3>
-        <p style="color:#5a6472;font-size:.92rem;">Our team will contact you within 48 hours.</p>
+        <p style="color:#5a6472;font-size:.92rem;">We'll be in touch as soon as we can during business hours, with a written quote within 48 hours.</p>
       </div>
     </div>
   </div>
@@ -749,7 +696,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       address: form.address.value.trim(),
       suburb: form.suburb.value.trim(),
       postcode: postcode,
-      full_address: form.address.value.trim() + ', ' + form.suburb.value.trim() + ' ' + postcode,
+      full_address: (form.address.value.trim() ? form.address.value.trim() + ', ' : '') + form.suburb.value.trim() + ' ' + postcode,
       job_type: form.job_type.value,
       message: form.message.value.trim(),
       job_size: form.job_size.value,
