@@ -154,6 +154,14 @@ textarea[name="message"]::placeholder, input[name="message"]::placeholder{ color
 a.btn[onclick*="openQuoteModal"]{ border:1.5px solid #E5252A !important; background:transparent !important; color:#E5252A !important; }
 .site-header a.btn[onclick*="openQuoteModal"], .band-dark a.btn[onclick*="openQuoteModal"], a.btn.on-dark[onclick*="openQuoteModal"], footer a.btn[onclick*="openQuoteModal"]{ color:#fff !important; }
 a.btn[onclick*="openQuoteModal"]:hover{ background:#E5252A !important; border-color:#E5252A !important; color:#fff !important; }
+.hero .choice-note{ display:none; }
+#reviewsFallback[hidden]{ display:none !important; }
+.rjw5{ display:grid; grid-template-columns:repeat(6,1fr); }
+.rjw5 .card{ grid-column:span 2; }
+.rjw5 .card:nth-child(4){ grid-column:2 / span 2; }
+.rjw5 .card:nth-child(5){ grid-column:4 / span 2; }
+@media(max-width:820px){ .rjw5{ grid-template-columns:1fr 1fr; } .rjw5 .card, .rjw5 .card:nth-child(4), .rjw5 .card:nth-child(5){ grid-column:auto; } .rjw5 .card:nth-child(5){ grid-column:1 / -1; max-width:calc(50% - 9px); justify-self:center; } }
+@media(max-width:520px){ .rjw5{ grid-template-columns:1fr; } .rjw5 .card:nth-child(5){ max-width:none; } }
 </style>
 </head>
 <body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -286,10 +294,11 @@ setTimeout(function () {
       <span class="eyebrow">Real JT work</span>
       <h2>See what we've <span class="accent">actually done</span></h2>
     </div>
-    <div class="grid grid-4" style="gap:18px;">
-      <div class="card"><div class="ph ratio-square"><img src="img/deck painting & staining.png" alt="New timber decking by JT Handyman" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>New timber decking</strong><span>Melbourne, VIC</span></div></div>
+    <div class="grid rjw5" style="gap:18px;">
+      <div class="card"><div class="ph ratio-square"><img src="img/home-tips-deck.jpg" alt="New timber decking by JT Handyman" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>New timber decking</strong><span>Melbourne, VIC</span></div></div>
+      <div class="card"><div class="ph ratio-square"><img src="img/Bundoora_pergola_10244.jpg" alt="Steel pergola with clear roof sheeting by JT Handyman in Bundoora" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Steel pergola, clear roof</strong><span>Bundoora, VIC</span></div></div>
+      <div class="card"><div class="ph ratio-square"><img src="img/home-tips-pergola.jpg" alt="Timber pergola with shade cover by JT Handyman" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Timber pergola with shade cover</strong><span>Melbourne, VIC</span></div></div>
       <div class="card"><div class="ph ratio-square"><img src="img/Hampton_modern-blackandtimber-slat-fence.jpg" alt="Modern black and timber slat fence by JT Handyman in Hampton" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Modern black &amp; timber slat fence</strong><span>Hampton, VIC</span></div></div>
-      <div class="card"><div class="ph ratio-square"><img src="img/Caulfield_finished-slatted-steel-pergola-roof.jpg" alt="Finished slatted steel pergola roof by JT Handyman in Caulfield" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Slatted steel pergola roof</strong><span>Caulfield, VIC</span></div></div>
       <div class="card"><div class="ph ratio-square"><img src="img/jt-driveway-speed-hump.jpg" alt="Yellow and black speed hump installed on a concrete driveway by JT Handyman" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div><div class="gallery-caption"><strong>Driveway speed hump</strong><span>Melbourne, VIC</span></div></div>
     </div>
     <div class="text-center" style="margin-top:24px;">
@@ -446,8 +455,8 @@ setTimeout(function () {
 <!-- 13. FINAL CTA -->
 <section class="section band-dark">
   <div class="container cta-band">
-    <h2>Ready to get your outdoor space sorted?</h2>
-    <p>Tell us what you need built, repaired or replaced and get started today.</p>
+    <h2>Ready to get your outdoor space sorted before Christmas?</h2>
+    <p>Tell us what you need built, repaired or replaced, and we’ll outline the next step.</p>
     <div class="choice-row">
       <div class="choice">
         <a href="javascript:void(0)" onclick="openCallbackModal('final_cta');" class="btn btn-primary">Start My Job Brief</a>
