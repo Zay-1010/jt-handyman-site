@@ -143,14 +143,60 @@ function jtGetCookie(name) {
   return match ? decodeURIComponent(match[1]) : null;
 }
 
+// Moment this script ran. The click-ID wait below is measured from here
+// (page load), not from the button click, so a visitor who clicks after
+// the page has been open a few seconds never waits for anything.
+var jtPageStart = Date.now();
+
+// Look up the RedTrack click ID using the same URL -> cookie -> localStorage
+// fallback the job brief (callback) form uses: getRtkClickId(), defined in
+// each page's inline script. The plain cookie read is only a safety net for
+// a page that doesn't define it.
+function jtResolveClickId() {
+  try {
+    if (typeof getRtkClickId === 'function') { return getRtkClickId() || ''; }
+  } catch (e) {}
+  return jtGetCookie('rtkclickid-store') || '';
+}
+
 function jtBuildQuoteFrameParams() {
+  // Every param already on this page's URL (gclid, gbraid, wbraid, fbclid,
+  // utm_source/medium/campaign, rtkclickid if present, ...) is forwarded.
   var params = new URLSearchParams(window.location.search);
   var fbp = jtGetCookie('_fbp');
   var fbc = jtGetCookie('_fbc');
   if (fbp) { params.set('fbp', fbp); }
   if (fbc) { params.set('fbc', fbc); }
+  // RedTrack's script usually stores the click ID in a cookie/localStorage
+  // and NOT in the URL, and the iframe is on another domain so it can't read
+  // that storage itself -- so put it into the iframe URL here.
+  var clickId = jtResolveClickId();
+  if (clickId) { params.set('rtkclickid', clickId); }
   var qs = params.toString();
   return qs ? '?' + qs : '';
+}
+
+// Sets the estimator iframe's src exactly once. If RedTrack hasn't written
+// the click ID yet, check every 250 ms until 3 s after page load, then load
+// anyway (without an ID) so the estimator never gets stuck.
+var jtQuoteFrameStarted = false;
+function jtLoadQuoteFrame(frame) {
+  if (!frame || jtQuoteFrameStarted || frame.src !== 'about:blank') { return; }
+  jtQuoteFrameStarted = true;
+  var loaded = false;
+  function load() {
+    if (loaded) { return; }
+    loaded = true;
+    frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+  }
+  var deadline = jtPageStart + 3000;
+  if (jtResolveClickId() || Date.now() >= deadline) { load(); return; }
+  var timer = setInterval(function () {
+    if (jtResolveClickId() || Date.now() >= deadline) {
+      clearInterval(timer);
+      load();
+    }
+  }, 250);
 }
 
 // ============================================

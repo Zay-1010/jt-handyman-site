@@ -556,7 +556,7 @@ a.btn[onclick*="openQuoteModal"].btn-alt:hover{ background:#E5252A !important; b
     if (frame.src === 'about:blank') {
       // Forward this page's own UTM/click-ID params into the estimate
       // form so attribution survives the handoff into the iframe.
-      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+      jtLoadQuoteFrame(frame);
     }
     modal.classList.add('open');
     document.body.classList.add('modal-open');
