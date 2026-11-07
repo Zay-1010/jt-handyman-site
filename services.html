@@ -600,7 +600,7 @@ a.btn[onclick*="openQuoteModal"]:hover{ background:#E5252A !important; border-co
     var modal = document.getElementById('quoteModal');
     var frame = document.getElementById('quoteFrame');
     if (frame.src === 'about:blank' || frame.src === '') {
-      frame.src = 'https://jthandymansolutionz.com.au/estimate' + jtBuildQuoteFrameParams();
+      jtLoadQuoteFrame(frame);
     }
     modal.classList.add('open');
     document.body.classList.add('modal-open');
