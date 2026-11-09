@@ -53,6 +53,9 @@ h1, h2, h3, .eyebrow, .btn, .num, .step-num{ font-family:"Rajdhani", "Rajdhani F
 
 .photo-frame{ border-radius:14px; overflow:hidden; border:1px solid #e5e8ec; aspect-ratio:4/3; }
 .photo-frame img{ width:100%; height:100%; object-fit:cover; display:block; }
+.screens-media{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.screens-media .photo-frame{ aspect-ratio:3/4; }
+@media(max-width:860px){ .screens-media{ gap:10px; } }
 
 .job-ticker{ background:#0c0d0f; border-top:2px solid #e7161f; padding:.5rem 0; }
 .job-ticker-inner{ max-width:1160px; margin:0 auto; padding:0 22px; display:flex; align-items:center; gap:14px; }
@@ -617,7 +620,7 @@ setTimeout(function () {
       <div class="card"><div class="card-body"><h3>Window frame repairs</h3><p>Timber and other frame repairs where practical.</p></div></div>
       <div class="card"><div class="card-body"><h3>Window sills</h3><p>Repair or replacement of damaged or deteriorated sills.</p></div></div>
       <div class="card"><div class="card-body"><h3>Locks &amp; hardware</h3><p>Broken, worn or difficult-to-use window locks and hardware.</p></div></div>
-      <div class="card"><div class="card-body"><h3>Draughts, seals &amp; flyscreens</h3><p>Gaps, worn seals and draught-related issues, plus flyscreen repairs, replacement or installation where offered.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Draughts, seals &amp; flyscreens</h3><p>Gaps, worn seals and draught-related issues, plus flyscreen repairs, replacement and installation.</p></div></div>
       <div class="card"><div class="card-body"><h3>Blinds</h3><p>Window blinds supplied/installed as part of the job.</p></div></div>
       <div class="card"><div class="card-body"><h3>Emergency make-safe</h3><p>Storm damage, a break-in or a smashed window? We board up the opening to secure the property, then arrange the permanent repair or replacement.</p></div></div>
       <div class="card"><div class="card-body"><h3>Timber frame restoration</h3><p>Restoration of existing timber windows and period features where practical.</p></div></div>
@@ -625,8 +628,38 @@ setTimeout(function () {
   </div>
 </section>
 
+<!-- 11b. FLY SCREENS, SCREEN DOORS & SECURITY SCREENS (seasonal) -->
+<section class="section band-grey" id="flyscreens" style="scroll-margin-top:80px;">
+  <div class="container panel">
+    <div>
+      <span class="eyebrow">Summer screens</span>
+      <h2>Fly screens, screen doors <span class="accent">&amp; security screens</span></h2>
+      <p>Keep the bugs out this summer. Our team repairs, replaces and installs fly screens, screen doors and security screens, so you can open up the house without letting the mozzies in.</p>
+      <ul class="panel-list">
+        <li><span><strong>Fly screen repairs:</strong> torn or loose mesh, bent frames, broken clips and rollers</span></li>
+        <li><span><strong>Fly screen replacement:</strong> new screens made to fit your existing windows</span></li>
+        <li><span><strong>Screen doors:</strong> repairs, re-meshing, new hinges and closers, or full replacement</span></li>
+        <li><span><strong>Security screens:</strong> supply and installation of security doors and window screens</span></li>
+      </ul>
+      <p style="margin:18px 0 20px;font-weight:700;color:#e7161f;">Our team breaks mid-December. Book now to get your screens sorted before Christmas.</p>
+      <div class="choice-row">
+        <div class="choice">
+          <a href="javascript:void(0)" onclick="openCallbackModal('flyscreens_section');" class="btn btn-primary">Start My Job Brief</a>
+        </div>
+        <div class="choice">
+          <a href="javascript:void(0)" onclick="fireRedTrackClick(); openQuoteModal('flyscreens_section');" class="btn btn-ghost btn-alt">Get a Rough Estimate</a>
+        </div>
+      </div>
+    </div>
+    <div class="screens-media">
+      <div class="photo-frame"><img src="img/screen-door-7545.jpg" alt="Mesh screen door fitted to a brick home entry by JT Handyman Solutionz" loading="lazy"></div>
+      <div class="photo-frame"><img src="img/Thornbury_security-screen-door-fitted-to-brick-exterior_2025-05-02_job-2422.jpg" alt="Security screen door fitted to a brick home by JT Handyman Solutionz" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
 <!-- 12. FAQ -->
-<section class="section band-grey">
+<section class="section band-white">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Common questions</span>
