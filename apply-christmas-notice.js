@@ -15,10 +15,6 @@ for (const f of fs.readdirSync('.').filter((x) => x.endsWith('.html') && !SKIP.h
     const n = s.replace(/<p ([^>]*)>(We'd love a photo of the job\.)/, '<p id="form-note" $1>$2');
     if (n !== s) { s = n; did.push('form-note'); }
   }
-  if (!s.includes('id="estimator-nudge"') && s.includes('id="callbackSubmitBtn"') && s.includes('openQuoteModal')) {
-    const n = s.replace(/(<button[^>]*id="callbackSubmitBtn"[^>]*>[^<]*<\/button>)/, '$1' + NUDGE);
-    if (n !== s) { s = n; did.push('estimator link'); }
-  }
   if (!s.includes('christmas-notice.js')) {
     const n = s.replace(/(<script src="js\/main\.js"[^>]*><\/script>)/, '$1\n' + SCRIPT);
     if (n !== s) { s = n; did.push('script'); }
