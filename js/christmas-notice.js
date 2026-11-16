@@ -31,10 +31,15 @@
       bar:    'Closed 18 Dec – 3 Jan · Send your request and we’ll reply from 4 Jan',
       mobile: 'Closed 18 Dec–3 Jan · Reply 4 Jan',
       form:   'We’re on a break until 3 Jan. Send your request and we’ll reply from 4 Jan.',
+      promise: 'We’re closed until 4 Jan. Submit your request now to lock in an early January start.',
       ctaHead: 'Planning outdoor work for the new year?',
       ctaLead: 'We’re closed from 18 Dec to 3 Jan. You can still send us your request or job brief, and our team will get back to you from 4 Jan.'
     }
   };
+  // Last working day(s) before the break: the "2 business hours / 48 hours" promise can't be kept, so the line under the form changes.
+  // Change PROMISE_STOPS_FROM to start this earlier (e.g. '2026-12-15'). It runs up to BOOKING_UNTIL.
+  var PROMISE_STOPS_FROM = '2026-12-16';
+  var PROMISE_LAST_DAYS = 'We close for Christmas on 18 Dec. Submit your request now to lock in an early January start.';
   var BUTTON_LABEL = 'Get my price';
 
   /* ===== TEST-DATE OVERRIDE (temporary — delete this whole block before you go live) =====
@@ -62,9 +67,9 @@
     return new Intl.DateTimeFormat('en-CA', { timeZone: TZ, year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
   }
 
-  var state = 'off';
+  var state = 'off', today = '';
   try {
-    var today = melbourneToday();
+    today = melbourneToday();
     if (today <= BOOKING_UNTIL) state = 'booking';
     else if (today >= CLOSED_FROM && today <= CLOSED_UNTIL) state = 'closed';
   } catch (e) { state = 'off'; }
@@ -80,6 +85,12 @@
     /* 2. small grey line under the form heading */
     var note = document.getElementById('form-note');
     if (note) note.textContent = T.form;
+
+    /* 2a. promise line under the Submit button (normal wording lives in the page; only the closed period changes it) */
+    var pr = document.getElementById('form-promise'); if (pr) {
+      if (state === 'booking' && today >= PROMISE_STOPS_FROM) pr.textContent = PROMISE_LAST_DAYS;
+      else if (T.promise) pr.textContent = T.promise;
+    }
 
     /* 2b. outdoor-construction page final CTA (other pages have no #cta-heading / #cta-lead, so this is skipped there) */
     var ch = document.getElementById('cta-heading'); if (ch && T.ctaHead) ch.textContent = T.ctaHead;
