@@ -139,7 +139,7 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
 </style>
 </head>
 <body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<div class="top-strip">Property Repairs &amp; Maintenance · JT Handyman Solutionz · Melbourne-wide</div>
+<div class="top-strip" id="top-bar">Property Repairs &amp; Maintenance · JT Handyman Solutionz · Melbourne-wide</div>
 
 <header class="site-header">
   <div class="container header-inner">
@@ -473,6 +473,7 @@ setTimeout(function () {
           <input type="hidden" name="fbp">
           <div id="callbackFormError" style="display:none;color:#c0392b;font-size:.88rem;margin-bottom:12px;"></div>
           <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Request My Callback</button>
+          <p id="estimator-nudge" style="margin:10px 0 0;text-align:center;font-size:.88rem;"><a href="javascript:void(0)" onclick="if(typeof closeBriefModal==='function'){closeBriefModal();} fireRedTrackClick(); openQuoteModal('hero_form_link');" style="color:#e7161f;font-weight:700;">Want a price now? Get a rough estimate in 2 minutes &rarr;</a></p>
         </form>
       </div>
       <div id="callbackThankYou" style="display:none;text-align:center;padding:20px 0;">
@@ -650,6 +651,7 @@ setTimeout(function () {
 </script>
 
 <script src="js/main.js"></script>
+<script src="js/christmas-notice.js?v=1" defer></script>
 
 </body>
 </html>

@@ -240,7 +240,7 @@ body, p, li, .lede, .chip, .card, .docket{ font-family:'Rubik', Arial, sans-seri
 </style>
 </head>
 <body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<div class="top-strip">Plumbing &amp; leak repairs · JT Handyman Solutionz · Melbourne-wide</div>
+<div class="top-strip" id="top-bar">Plumbing &amp; leak repairs · JT Handyman Solutionz · Melbourne-wide</div>
 
 <!-- 1. HEADER -->
 <header class="site-header lp-header">
@@ -329,7 +329,7 @@ setTimeout(function () {
       <div class="enq-card" id="jobBriefCard" style="scroll-margin-top:92px;">
         <div id="callbackFormWrap">
           <h3>Get your property jobs quoted without the back-and-forth</h3>
-          <p style="color:#5a6472;font-size:.95rem;margin-bottom:24px;">We'd love a photo of the job. Can't take one? Tell us what needs doing.</p>
+          <p id="form-note" style="color:#5a6472;font-size:.95rem;margin-bottom:24px;">We'd love a photo of the job. Can't take one? Tell us what needs doing.</p>
           <form id="callbackForm" onsubmit="submitCallbackForm(event);">
           <div style="margin-bottom:10px;">
             <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">What type of repair or maintenance do you need help with?</label>
@@ -376,6 +376,7 @@ setTimeout(function () {
           <input type="hidden" name="lead_type" value="tailored_quote">
           <div id="callbackFormError" style="display:none;color:#c0392b;font-size:.88rem;margin-bottom:12px;"></div>
           <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Submit My Job Brief</button>
+          <p id="estimator-nudge" style="margin:10px 0 0;text-align:center;font-size:.88rem;"><a href="javascript:void(0)" onclick="if(typeof closeBriefModal==='function'){closeBriefModal();} fireRedTrackClick(); openQuoteModal('hero_form_link');" style="color:#e7161f;font-weight:700;">Want a price now? Get a rough estimate in 2 minutes &rarr;</a></p>
           <p style="margin:10px 0 0;font-size:.85rem;color:#3a4350;text-align:center;font-weight:600;">We'll be in touch as soon as we can during business hours, with a written quote within 48 hours.</p>
         </form>
         </div>
@@ -975,6 +976,7 @@ setTimeout(function () {
 </script>
 
 <script src="js/main.js"></script>
+<script src="js/christmas-notice.js?v=1" defer></script>
 
 <script>
 (function(){
