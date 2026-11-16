@@ -258,7 +258,7 @@ body, p, li, .lede, .chip, .card, .docket{ font-family:'Rubik', Arial, sans-seri
 </style>
 </head>
 <body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<div class="top-strip">Outdoor construction &amp; repairs · JT Handyman Solutionz · Melbourne-wide</div>
+<div class="top-strip" id="top-bar">Outdoor construction &amp; repairs · JT Handyman Solutionz · Melbourne-wide</div>
 
 <!-- 1. HEADER -->
 <header class="site-header lp-header">
@@ -346,7 +346,7 @@ setTimeout(function () {
       <div class="enq-card" id="jobBriefCard" style="scroll-margin-top:92px;">
         <div id="callbackFormWrap">
           <h3>Get your property jobs quoted without the back-and-forth</h3>
-          <p style="color:#5a6472;font-size:.95rem;margin-bottom:24px;">We'd love a photo of the job. Can't take one? Tell us what needs doing.</p>
+          <p id="form-note" style="color:#5a6472;font-size:.95rem;margin-bottom:24px;">We'd love a photo of the job. Can't take one? Tell us what needs doing.</p>
           <form id="callbackForm" onsubmit="submitCallbackForm(event);">
           <div style="margin-bottom:10px;">
             <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">What type of repair or maintenance do you need help with?</label>
@@ -393,7 +393,7 @@ setTimeout(function () {
           <input type="hidden" name="lead_type" value="tailored_quote">
           <div id="callbackFormError" style="display:none;color:#c0392b;font-size:.88rem;margin-bottom:12px;"></div>
           <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Submit My Job Brief</button>
-          <p style="margin:10px 0 0;font-size:.85rem;color:#3a4350;text-align:center;font-weight:600;">We'll be in touch as soon as we can during business hours, with a written quote within 48 hours.</p>
+          <p id="form-promise" style="margin:10px 0 0;font-size:.85rem;color:#3a4350;text-align:center;font-weight:600;">We'll be in touch within 2 business hours, with a written quote within 48 hours.</p>
         </form>
         </div>
         <div id="callbackThankYou" style="display:none;text-align:center;padding:20px 0;">
@@ -460,6 +460,19 @@ setTimeout(function () {
     <div class="text-center cta-row" style="margin-top:28px;justify-content:center;">
       <a href="javascript:void(0)" onclick="openCallbackModal('mid_page');" class="btn btn-primary">Start My Job Brief</a>
       <a href="tel:1800587659" class="btn btn-ghost">Call 1800 587 659</a>
+    </div>
+  </div>
+</section>
+
+<!-- Featured review: own band -->
+<section class="section band-white" style="padding-top:44px;padding-bottom:44px;">
+  <div class="container">
+    <div class="review-cards" style="grid-template-columns:1fr;max-width:760px;margin:0 auto;">
+      <div class="docket">
+        <div class="docket-head"><span class="docket-stars">★★★★★</span></div>
+        <blockquote style="font-style:italic;">Really good service. Good value. Worked with three owners who have shared decking on first floor… Alexi really problem solved and was flexible… All three owners really happy with the job they did. Left the site tidy, and was a great communicator.</blockquote>
+        <cite>Anna G.<span>Google review</span></cite>
+      </div>
     </div>
   </div>
 </section>
@@ -665,7 +678,8 @@ setTimeout(function () {
 <!-- 13. FINAL CTA -->
 <section class="section band-dark">
   <div class="container cta-band">
-    <h2>Ready to get your outdoor space sorted before Christmas?</h2>
+    <h2 id="cta-heading">Ready to get your outdoor space sorted?</h2>
+    <p id="cta-lead" hidden></p>
     <p>Tell us what you need built, repaired or replaced, and we’ll outline the next step.</p>
     <div class="choice-row">
       <div class="choice">
@@ -999,6 +1013,7 @@ setTimeout(function () {
 </script>
 
 <script src="js/main.js"></script>
+<script src="js/christmas-notice.js?v=1" defer></script>
 
 <script>
 (function(){

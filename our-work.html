@@ -153,7 +153,7 @@ a.btn[onclick*="openQuoteModal"]:hover{ background:#E5252A !important; border-co
 </style>
 </head>
 <body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<div class="top-strip">Property Repairs &amp; Maintenance · JT Handyman Solutionz · Melbourne-wide</div>
+<div class="top-strip" id="top-bar">Property Repairs &amp; Maintenance · JT Handyman Solutionz · Melbourne-wide</div>
 
 <header class="site-header">
   <div class="container header-inner">
@@ -392,7 +392,7 @@ a.btn[onclick*="openQuoteModal"]:hover{ background:#E5252A !important; border-co
     <div style="padding:36px 28px;overflow-y:auto;">
       <div id="callbackFormWrap">
         <h3 style="margin-bottom:6px;">Get your property jobs quoted without the back-and-forth</h3>
-        <p style="color:#5a6472;font-size:.92rem;margin-bottom:20px;">We'd love a photo of the job. Can't take one? Tell us what needs doing.</p>
+        <p id="form-note" style="color:#5a6472;font-size:.92rem;margin-bottom:20px;">We'd love a photo of the job. Can't take one? Tell us what needs doing.</p>
         <form id="callbackForm" onsubmit="submitCallbackForm(event);">
           <div style="margin-bottom:10px;">
             <label style="display:block;font-size:.85rem;font-weight:600;margin-bottom:4px;">What type of repair or maintenance do you need help with?</label>
@@ -439,7 +439,7 @@ a.btn[onclick*="openQuoteModal"]:hover{ background:#E5252A !important; border-co
           <input type="hidden" name="lead_type" value="tailored_quote">
           <div id="callbackFormError" style="display:none;color:#c0392b;font-size:.88rem;margin-bottom:12px;"></div>
           <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Submit My Job Brief</button>
-          <p style="margin:10px 0 0;font-size:.85rem;color:#3a4350;text-align:center;font-weight:600;">We'll be in touch as soon as we can during business hours, with a written quote within 48 hours.</p>
+          <p id="form-promise" style="margin:10px 0 0;font-size:.85rem;color:#3a4350;text-align:center;font-weight:600;">We'll be in touch within 2 business hours, with a written quote within 48 hours.</p>
         </form>
       </div>
       <div id="callbackThankYou" style="display:none;text-align:center;padding:20px 0;">
@@ -681,6 +681,7 @@ a.btn[onclick*="openQuoteModal"]:hover{ background:#E5252A !important; border-co
 </script>
 
 <script src="js/main.js"></script>
+<script src="js/christmas-notice.js?v=1" defer></script>
 
 </body>
 </html>
