@@ -16,8 +16,8 @@
 
   var TEXT = {
     lastdays: {
-      lede:  'We close for Christmas on 18 Dec. We&rsquo;ve got your job brief and will be in touch as soon as we can, to lock in an early January start.',
-      step2: '<strong>We contact you.</strong> We close for Christmas on 18 Dec, so we&rsquo;ll be in touch as soon as we can. Anything we can&rsquo;t get to before the break, we&rsquo;ll pick up from 4 Jan.'
+      lede:  'We&rsquo;ve got your job brief and will be in touch as soon as we can. We close for Christmas on 18 Dec, so if we can&rsquo;t reach you before then, we&rsquo;ll be in touch from 4 Jan.',
+      step2: '<strong>We contact you.</strong> We&rsquo;ll be in touch as soon as we can. If we can&rsquo;t get to you before we close on 18 Dec, we&rsquo;ll reach out from 4 Jan.'
     },
     closed: {
       lede:  'We&rsquo;re closed until 4 Jan. We&rsquo;ve got your job brief and will be in touch when we&rsquo;re back, to lock in an early January start.',
