@@ -392,7 +392,8 @@ setTimeout(function () {
           <input type="hidden" name="lead_type" value="tailored_quote">
           <div id="callbackFormError" style="display:none;color:#c0392b;font-size:.88rem;margin-bottom:12px;"></div>
           <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Submit My Job Brief</button>
-          <p id="form-promise" style="margin:10px 0 0;font-size:.85rem;color:#3a4350;text-align:center;font-weight:600;">We'll be in touch within 2 business hours, with a written quote within 48 hours.</p>
+          <p id="estimator-nudge" style="margin:10px 0 0;text-align:center;font-size:.88rem;"><a href="javascript:void(0)" onclick="if(typeof closeBriefModal==='function'){closeBriefModal();} fireRedTrackClick(); openQuoteModal('hero_form_link');" style="color:#e7161f;font-weight:700;">Want a price now? Get a rough estimate in 2 minutes &rarr;</a></p>
+          <p id="form-promise" style="margin:10px 0 0;font-size:.85rem;color:#3a4350;text-align:center;font-weight:600;">We\'ll be in touch within 2 business hours, with a written quote within 48 hours.</p>
         </form>
         </div>
         <div id="callbackThankYou" style="display:none;text-align:center;padding:20px 0;">
@@ -453,7 +454,7 @@ setTimeout(function () {
   </div>
   <div class="container">
     <div class="grid grid-3" style="margin-top:28px;">
-      <div class="card"><div class="card-body"><h3 class="problem-card-label">Doors &amp; Frames</h3><p>Sticking, dragging or damaged? JT can repair, re-hang, re-fit or replace the problem.</p></div></div>
+      <div class="card"><div class="card-body"><h3 class="problem-card-label">Doors &amp; Frames</h3><p>Sticking, dragging or damaged? Off-track sliding door or a new door needed? JT can repair, re-hang, re-fit, install or replace it.</p></div></div>
       <div class="card"><div class="card-body"><h3 class="problem-card-label">Timber &amp; Built-ins</h3><p>Shelving, panelling, trim and built-ins made to fit your space.</p></div></div>
       <div class="card"><div class="card-body"><h3 class="problem-card-label">Verandahs &amp; Decking</h3><p>Damaged posts, brackets, timber and other repairs before a small issue becomes a bigger one.</p></div></div>
     </div>
@@ -630,8 +631,16 @@ setTimeout(function () {
     </div>
     <div class="grid grid-3">
       <div class="card"><div class="card-body">
-        <h3>Doors that stick or won't latch</h3>
-        <p>Dropped hinges, swollen frames, worn strike plates — re-hung, planed or re-fitted so the door closes and locks properly again.</p>
+        <h3>Hinge repairs &amp; dropped doors</h3>
+        <p>Doors that stick, drag or won't latch: loose or worn hinges, dropped doors, swollen frames and worn strike plates, re-hung, planed or re-fitted so the door closes and locks properly again.</p>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <h3>Door installation &amp; hanging</h3>
+        <p>New internal and external doors supplied and hung, with the frame, hinges and hardware fitted so they open and close properly.</p>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <h3>Sliding &amp; cavity doors</h3>
+        <p>Sliding doors that are off track or stiff, worn rollers and tracks, and cavity sliders repaired or replaced so they glide again.</p>
       </div></div>
       <div class="card"><div class="card-body">
         <h3>Rotten or damaged frames</h3>
@@ -642,12 +651,16 @@ setTimeout(function () {
         <p>Floating shelves, VJ panelling, storage and feature walls — built to fit the room, not off-the-shelf.</p>
       </div></div>
       <div class="card"><div class="card-body">
+        <h3>Skirting &amp; architraves</h3>
+        <p>Damaged, rotten or missing skirting boards and door or window architraves repaired or replaced, matched to the existing profile and ready for paint.</p>
+      </div></div>
+      <div class="card"><div class="card-body">
         <h3>Handrails &amp; balustrades</h3>
         <p>Loose, unsafe or non-compliant handrails re-fixed or replaced — stainless, timber or painted finishes.</p>
       </div></div>
       <div class="card"><div class="card-body">
-        <h3>Verandahs &amp; decking</h3>
-        <p>Posts, brackets, decorative timber and structural repairs for verandahs and decks that have started to sag or split.</p>
+        <h3>Deck repairs &amp; restoration</h3>
+        <p>Decks and verandahs that have started to sag, split or rot: boards, posts, brackets, decorative timber and structural repairs, restored and refinished.</p>
       </div></div>
       <div class="card"><div class="card-body">
         <h3>Period &amp; heritage carpentry</h3>
@@ -672,6 +685,10 @@ setTimeout(function () {
       <div class="card"><div class="card-body">
         <h3>Do you handle both repair and full replacement?</h3>
         <p>Both. We'll always tell you honestly which one your job actually needs rather than upselling a full replacement when a repair will do.</p>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <h3>Can you install a new door or fix a sliding door that's off its track?</h3>
+        <p>Yes. We supply and hang new internal and external doors, and repair sliding and cavity doors by re-seating them on the track and replacing worn rollers or tracks where needed.</p>
       </div></div>
       <div class="card"><div class="card-body">
         <h3>Can the same visit cover paint or plaster too?</h3>
