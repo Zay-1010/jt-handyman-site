@@ -238,6 +238,11 @@ body, p, li, .lede, .chip, .card, .docket{ font-family:'Rubik', Arial, sans-seri
 .proof-split .review-cards{ grid-template-columns:1fr !important; }
 @media(max-width:820px){.proof-split{ grid-template-columns:1fr; gap:32px; } .proof-split .proof-video{ margin:0 auto; order:2; } .proof-split .proof-reviews{ order:1; }}
 </style>
+
+<style id="form-polish">/* lighter placeholder text in the callback form */
+select:required:invalid,select:has(option[value=""]:checked){color:#98a1ab}
+select option{color:#1b1b1c}
+form input::placeholder,form textarea::placeholder{color:#a3abb5;opacity:1}</style>
 </head>
 <body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="top-strip" id="top-bar">Painting &amp; plaster repairs · JT Handyman Solutionz · Melbourne-wide</div>
@@ -377,6 +382,7 @@ setTimeout(function () {
           <div id="callbackFormError" style="display:none;color:#c0392b;font-size:.88rem;margin-bottom:12px;"></div>
           <button type="submit" class="btn btn-primary" style="width:100%;" id="callbackSubmitBtn">Submit My Job Brief</button>
           <p id="form-promise" style="margin:10px 0 0;font-size:.85rem;color:#3a4350;text-align:center;font-weight:600;">We'll be in touch within 2 business hours, with a written quote within 48 hours.</p>
+          <p class="form-privacy" style="margin:8px 0 0;font-size:.78rem;line-height:1.5;font-weight:400;color:#767676;text-align:center;">Unsubscribe any time. <a href="https://jthandymansolutionz.com.au/privacy-policy" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Privacy policy</a></p>
         </form>
         </div>
         <div id="callbackThankYou" style="display:none;text-align:center;padding:20px 0;">
@@ -675,6 +681,7 @@ setTimeout(function () {
     </div>
     <div class="footer-bottom" style="margin-top:24px;flex-direction:column;gap:4px;justify-content:center;">
       <span>JT Handyman Solutionz · 1800 587 659 · Unit 42/2 Cobham St, Reservoir VIC 3073 · ABN 14 686 830 473</span>
+      <span class="footer-privacy"><a href="https://jthandymansolutionz.com.au/privacy-policy" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Privacy Policy</a></span>
       <span>© 2026 JT Handyman Solutionz</span>
     </div>
   </div>
