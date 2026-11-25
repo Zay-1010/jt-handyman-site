@@ -198,6 +198,11 @@ h2{ font-size:clamp(1.9rem,4.6vw,3.4rem) !important; line-height:1.06 !important
 body.modal-open{ overflow:hidden; }
 @media(max-width:600px){ .qmodal-dialog{ margin:0; max-height:100vh; height:100%; width:100%; max-width:100%; border-radius:0; } .form-row{ grid-template-columns:1fr; } body.modal-open{ overflow-x:hidden; } }
 </style>
+
+<style id="form-polish">/* lighter placeholder text in the callback form */
+select:required:invalid,select:has(option[value=""]:checked){color:#98a1ab}
+select option{color:#1b1b1c}
+form input::placeholder,form textarea::placeholder{color:#a3abb5;opacity:1}</style>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"
@@ -904,6 +909,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="footer-bottom">
       <span>JT Compliance · 1800 587 659 · Unit 42/2 Cobham St, Reservoir VIC 3073 · ABN 14 686 830 473</span>
+      <span class="footer-privacy"><a href="https://jthandymansolutionz.com.au/privacy-policy" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Privacy Policy</a></span>
       <span>© 2026 JT Compliance</span>
     </div>
     <p style="text-align:center;font-size:.72rem;color:#8a8a8a;margin-top:14px;">Rental Minimum Standards dates and requirements per the Victorian Government; JT confirms each property's exact obligations at audit. Testimonials and job references are real. Quoting turnaround varies by portfolio scope.</p>

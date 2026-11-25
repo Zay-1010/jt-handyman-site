@@ -194,6 +194,11 @@ table tr:nth-child(even) td{ background:#f9fafb; }
 body.modal-open{ overflow:hidden; }
 @media(max-width:600px){ .qmodal-dialog{ margin:0; max-height:100vh; height:100%; border-radius:0; } .form-row{ grid-template-columns:1fr; } }
 </style>
+
+<style id="form-polish">/* lighter placeholder text in the callback form */
+select:required:invalid,select:has(option[value=""]:checked){color:#98a1ab}
+select option{color:#1b1b1c}
+form input::placeholder,form textarea::placeholder{color:#a3abb5;opacity:1}</style>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"
@@ -399,6 +404,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="footer-bottom">
       <span>JT Compliance · 1800 587 659 · Unit 42/2 Cobham St, Reservoir VIC 3073 · ABN 14 686 830 473</span>
+      <span class="footer-privacy"><a href="https://jthandymansolutionz.com.au/privacy-policy" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Privacy Policy</a></span>
       <span>© 2026 JT Compliance</span>
     </div>
   </div>

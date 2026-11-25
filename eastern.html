@@ -142,6 +142,11 @@ textarea[name="message"]::placeholder{ color:#b3bac2; }
 .btn.btn-alt.on-dark{ border-color:var(--red); color:#FF5A5F; background:transparent; }
 .btn.btn-alt.on-dark:hover{ background:var(--red); color:#fff; }
 </style>
+
+<style id="form-polish">/* lighter placeholder text in the callback form */
+select:required:invalid,select:has(option[value=""]:checked){color:#98a1ab}
+select option{color:#1b1b1c}
+form input::placeholder,form textarea::placeholder{color:#a3abb5;opacity:1}</style>
 </head>
 <body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="top-strip" id="top-bar">Property Repairs &amp; Maintenance · JT Handyman Solutionz · Eastern Suburbs</div>
@@ -444,6 +449,7 @@ setTimeout(function () {
     </div>
     <div class="footer-bottom" style="margin-top:24px;flex-direction:column;gap:4px;justify-content:center;">
       <span>JT Handyman Solutionz · 1800 587 659 · Unit 42/2 Cobham St, Reservoir VIC 3073 · ABN 14 686 830 473</span>
+      <span class="footer-privacy"><a href="https://jthandymansolutionz.com.au/privacy-policy" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Privacy Policy</a></span>
       <span>© 2026 JT Handyman Solutionz</span>
     </div>
   </div>

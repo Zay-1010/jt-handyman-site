@@ -778,6 +778,11 @@ body.modal-open{
 }
 
 </style>
+
+<style id="form-polish">/* lighter placeholder text in the callback form */
+select:required:invalid,select:has(option[value=""]:checked){color:#98a1ab}
+select option{color:#1b1b1c}
+form input::placeholder,form textarea::placeholder{color:#a3abb5;opacity:1}</style>
 </head>
 
 <body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXG8LXC"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
