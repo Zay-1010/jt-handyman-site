@@ -538,7 +538,33 @@ form input::placeholder,form textarea::placeholder{color:#a3abb5;opacity:1}</sty
     return match ? decodeURIComponent(match[2]) : '';
   }
 
+  // ---- RedTrack click ID fallback: rtkcid URL parameter + sessionStorage ----
+  function cleanRtkCid(v) {
+    v = String(v || '').trim();
+    return /^[0-9a-fA-F]{24}$/.test(v) ? v : '';
+  }
+  function captureRtkCid() {
+    try {
+      var c = cleanRtkCid(getUrlParam('rtkcid'));
+      if (c) window.sessionStorage.setItem('jt_rtkcid', c);
+    } catch (e) {}
+  }
   function getRtkClickId() {
+    // 1. RedTrack's stored click ID first (unchanged behaviour)
+    var stored = getRtkClickIdBase();
+    if (stored) return stored;
+    // 2. rtkcid from the current URL
+    var fromUrl = cleanRtkCid(getUrlParam('rtkcid'));
+    if (fromUrl) return fromUrl;
+    // 3. rtkcid saved earlier in this visit (another LP page)
+    try {
+      return cleanRtkCid(window.sessionStorage.getItem('jt_rtkcid'));
+    } catch (e) {
+      return '';
+    }
+  }
+  captureRtkCid();
+  function getRtkClickIdBase() {
     // rtkclickid is often NOT present on the URL at all — RedTrack's own
     // tracking script typically stores it client-side instead. Checked
     // in order: URL param (in case a given campaign does append it),
